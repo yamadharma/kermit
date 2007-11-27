@@ -1,0 +1,44 @@
+%%%
+
+%{{{ Lists
+
+\addto\extrasrussian{%
+% \renewcommand{\labelitemi}{---}
+% \renewcommand{\labelitemii}{---}
+% \renewcommand{\labelitemiii}{---}
+\def\labelenumi{\theenumi)}
+\def\theenumii{\asbuk{enumii}}
+\def\labelenumii{\theenumii)}
+\def\p@enumii{\theenumi}
+\def\labelenumiii{{\bf--}}
+\let\theenumiii\relax
+\def\p@enumiii{\theenumi\theenumii}
+}
+
+%% Fixup for russian enumeration
+\RequirePackage{enumerate}[1999/03/05]
+\makeatletter
+\g@addto@macro\@enhook{%
+  \def\@tempb{\IeC{\CYRA}}%
+  \def\@tempc{\IeC{\cyra}}%
+  \ifx\@tempb\@entemp\def\@tempa{\@enLabel\Asbuk}\fi
+  \ifx\@tempc\@entemp\def\@tempa{\@enLabel\asbuk}\fi}
+\makeatother
+
+%% И еще запретим вкладывать четыре enumerate друг в друга ...
+%\makeatletter
+%\def\enumerate{\ifnum \@enumdepth >2% было 3, а не 2
+%\@toodeep\else
+%      \advance\@enumdepth \@ne
+%      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+%      {\csname label\@enumctr\endcsname}{\usecounter
+%        {\@enumctr}\def\makelabel##1{\hss\llap{##1}}}\fi}
+%\makeatother
+
+%}}}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End: 
+

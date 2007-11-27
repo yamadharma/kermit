@@ -1,0 +1,18 @@
+%% A Class option for fourteen point fonts. Written by James Kilfiger
+%% This file may be distributed under the terms of the Latex project
+%% public licence.
+
+%% Please ensure that a class such as extarticle or extreport is
+%% available when distributing this file.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesFile{k9dd.clo}
+              [1999/11/11 v1.4a
+      NON-Standard LaTeX file (size option)]
+
+\p@=1dd
+
+\InputIfFileExists{k9pt.clo}{}{}
+
+\endinput
+
+%%

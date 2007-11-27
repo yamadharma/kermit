@@ -1,0 +1,138 @@
+%\AtBeginDocument{%
+%}
+\AtEndOfClass{%
+%    \def\@chapapp{}
+    \setcounter{tocdepth}{1}
+}
+
+\PassOptionsToClass{a4paper,12dd,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
+
+
+\AtEndOfClass{%
+
+\thesistype{\cyr\CYRD\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyrya{} \cyr\cyrn\cyra{} 
+\cyr\cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrn\cyri\cyre{}
+\cyr\cyrs\cyrt\cyre\cyrp\cyre\cyrn\cyri}
+
+\renewcommand{\maketitle}{%
+\begin{titlepage}%
+{
+  \ssp
+  \begin{alwayssingle}
+    \let\footnotesize\small
+    \let\footnoterule\relax
+    \thispagestyle{empty}
+    \setcounter{page}{1}
+    \null\vfil
+    \begin{center}
+      {\scshape \MakeUppercase{\PHDinstitut} \par}
+      \hbox to 6.5truein{\hrulefill}
+      \ifx\@empty\PHDfaculty
+      \else%
+      {\scshape {\PHDfaculty} \par}
+      \fi
+      \ifx\@empty\PHDchair
+      \else%
+      {\scshape {\PHDchair} \par}
+      \fi
+    \end{center}
+
+%    \medskip
+
+    \vspace{3cm}
+
+    \begin{center}
+      {\scshape \Large {\PHDthesistype}} \par
+      \ifx\@empty\PHDdegree
+      \else%
+      \medskip
+      {\scshape \large {\PHDdegree}} \par
+      \fi
+%      \bigskip%
+%      \medskip%
+    \end{center}
+    
+%    \vspace{6ex}
+
+    \begin{center}
+      \bigskip%
+      \medskip%
+      {\PHDauthor} \par                     % Автор
+      \bigskip% 
+      \medskip%
+      {\scshape \Large {\PHDtitle} \par}               % Название
+      
+      \ifx\@empty\PHDfield
+      \else%
+      \bigskip%
+      \medskip
+      \vspace{6ex}
+      \bigskip% 
+      \medskip%
+      {{\PHDfield}} \par                      % Специальность
+      \fi
+    \end{center}
+      
+    \vspace{1cm}
+      
+    \begin{flushleft}   
+      %% Страна
+      \ifx\@empty\PHDstudygroup
+      \else%
+      \cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{} \hfill
+      {\PHDcountry} \par
+      \smallskip
+      \fi
+
+      %% Группа
+      \ifx\@empty\PHDstudygroup
+      \else%
+      \cyr\CYRG\cyru\cyrp\cyrp\cyra{} \hfill
+      {\PHDstudygroup} \par
+      \smallskip
+      \fi
+
+      %% Научный руководитель 
+      \cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} 
+      \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} \hfill
+      {\PHDchiefdegree} {\PHDchief} \par
+      \smallskip            
+      %% 
+
+      \ifx\@empty\PHDdepchief
+      \else%
+      {\PHDdepchieftitle} \hfill
+      {\PHDdepchiefdegree} {\PHDdepchief} \par
+      \smallskip
+      \fi
+    \end{flushleft}             
+    
+    \vfil
+
+    \begin{center}
+      \vspace*{\fill}
+      % \bfseries
+      {\PHDdegreecity} \par                     % Город
+      {\PHDdegreeyear} \par      
+    \end{center}
+    
+    \vspace{3ex}
+    % \vfil\null
+    
+  \end{alwayssingle}%
+}    
+\end{titlepage}%
+
+\setcounter{footnote}{0}
+\clearpage
+\setcounter{page}{2}
+} % End of \def\maketitle
+}      
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% coding: utf-8-unix
+%%% End: 
+

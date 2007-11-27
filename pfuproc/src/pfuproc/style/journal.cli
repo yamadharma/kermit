@@ -1,0 +1,77 @@
+\DeclareRobustCommand{\journal}[1]%
+{%
+  \def\PFUjournal{#1}
+}
+
+\DeclareRobustCommand{\journalvolume}[1]%
+{%
+  \def\PFUjournalvolume{#1}
+}
+
+\DeclareRobustCommand{\journalnumber}[1]%
+{%
+  \def\PFUjournalnumber{#1}
+}
+
+\DeclareRobustCommand{\journalissue}[1]%
+{%
+  \def\PFUjournalissue{#1}
+}
+
+\DeclareRobustCommand{\journalyear}[1]%
+{%
+  \def\PFUjournalyear{#1}
+}
+
+\DeclareRobustCommand{\journalfoundationyear}[1]%
+{%
+  \def\PFUjournalfoundationyear{#1}
+}
+
+\DeclareRobustCommand{\journalseries}[1]%
+{%
+  \def\PFUjournalseries{#1}
+}
+
+\DeclareRobustCommand{\altjournalseries}[1]%
+{%
+  \def\PFUaltjournalseries{#1}
+}
+
+\DeclareRobustCommand{\typesetter}[1]%
+{%
+  \def\PFUtypesetter{#1}
+}
+
+
+\let\PFUjournal\@empty
+\let\PFUjournalvolume\@empty
+\let\PFUjournalnumber\@empty
+\let\PFUjournalissue\@empty
+\let\PFUjournalyear\@empty
+\let\PFUjournalfoundationyear\@empty
+\let\PFUjournalseries\@empty
+\let\PFUaltjournalseries\@empty
+
+\let\PFUtypesetter\@empty
+
+\def\PFUjornalissueName{{\cyr\CYRV\cyrery\cyrp\cyru\cyrs\cyrk}} % Выпуск
+\def\PFUjornalseriesName{{\cyr\CYRS\cyre\cyrr\cyri\cyrya}} % Серия
+
+\providecommand{\PFUheader}%
+{%
+  \scshape \PFUjournal,~%
+  \PFUjornalseriesName~\textit{\PFUjournalseries}.~% 
+  \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\fi{}~%
+  \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber.\fi{}~%
+  \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\fi{}~%
+  \PFUjournalyear. 
+  \cyrs.~\pageref{starttitle}--\pageref{endtitle} 
+}
+
+\providecommand{\rightmark}{\PFUheader}%
+
+%%% Local Variables: 
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End: 

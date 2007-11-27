@@ -1,0 +1,16 @@
+%\AtBeginDocument{%
+%}
+\AtEndOfClass{%
+%    \def\@chapapp{}
+    \setcounter{tocdepth}{1}
+}
+
+\PassOptionsToClass{a4paper,14dd,oneside,onecolumn,final,openany,doublespace}{kgeneric}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% coding: utf-8-unix
+%%% End: 
+

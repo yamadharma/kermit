@@ -1,0 +1,88 @@
+\RequirePackage{amsthm}
+
+{%
+  \theoremstyle{plain}
+  \newtheorem{Theorem}{\TheoremName}
+  \newtheorem*{Theorem*}{\TheoremName}
+  \@addtoreset{Theorem}{title}
+}%
+{
+  \theoremstyle{plain}
+  \newtheorem{Lemma}{\LemmaName}
+  \newtheorem*{Lemma*}{\LemmaName}
+  \@addtoreset{Lemma}{title}
+}
+{
+  \theoremstyle{definition}
+  \newtheorem{Cons}{\ConsName}
+  \newtheorem*{Cons*}{\ConsName}
+  \@addtoreset{Cons}{title}
+}
+{
+  \theoremstyle{remark}
+  \newtheorem{Remark}{\RemarkName}
+  \newtheorem*{Remark*}{Замечание}
+  \@addtoreset{Remark}{title}
+}
+{
+  \theoremstyle{definition}
+  \newtheorem{Def}{\DefName}
+  \newtheorem*{Def*}{\DefName}
+  \@addtoreset{Def}{title}
+}
+{
+  \theoremstyle{plain}
+  \newtheorem{Proposition}{\PropositionName}
+  \newtheorem*{Proposition*}{\PropositionName}
+  \@addtoreset{Proposition}{title}
+}
+{
+  \theoremstyle{plain}
+  \newtheorem{Statement}{\StatementName}
+  \newtheorem*{Statement*}{\StatementName}
+  \@addtoreset{Statement}{title}
+}
+{
+  \theoremstyle{definition}
+  \newtheorem{Example}{\ExampleName}
+  \newtheorem*{Example*}{\ExampleName}
+  \@addtoreset{Example}{title}
+}
+
+
+\AtBeginDocument%
+{%
+  \addto\extrasrussian%
+  {
+    \def\TheoremName{Теорема}
+    \def\LemmaName{Лемма}
+    \def\ConsName{Следствие}
+    \def\RemarkName{Замечание}
+    \def\DefName{Определение}
+    \def\PropositionName{Предложение}
+    \def\StatementName{Утверждение}
+    \def\ExampleName{Пример}
+  }
+%%
+%%
+%%  
+  \addto\extrasenglish%
+  {
+    \def\TheoremName{Theorem}
+    \def\LemmaName{Lemma}
+    \def\ConsName{Cons}
+    \def\RemarkName{Remark}
+    \def\DefName{Def}
+    \def\PropositionName{Proposition}
+    \def\StatementName{Statement}
+    \def\ExampleName{Example}
+  }
+}
+
+
+%%%
+
+%%% Local Variables: 
+%%% mode: latex
+%%% coding: cp1251-unix
+%%% End: 

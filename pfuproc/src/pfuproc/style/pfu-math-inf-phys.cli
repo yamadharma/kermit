@@ -1,0 +1,26 @@
+\input{pfuproc/style/pfu-bulletin.cli}
+
+% Математика. Информатика. Физика
+\journalseries{{\CYRM}{\cyra}{\cyrt}{\cyre}{\cyrm}{\cyra}{\cyrt}{\cyri}{\cyrk}{\cyra}. 
+{\CYRI}{\cyrn}{\cyrf}{\cyro}{\cyrr}{\cyrm}{\cyra}{\cyrt}{\cyri}{\cyrk}{\cyra}. 
+{\CYRF}{\cyri}{\cyrz}{\cyri}{\cyrk}{\cyra}}
+\altjournalseries{Mathematics. Information Scince. Physics.}
+\journalfoundationyear{2006}
+
+\PassOptionsToClass{10dd,onecolumn}{kgeneric}
+
+\renewcommand{\PFUheader}%
+{%
+  \scshape \PFUjournal,\,%
+  \PFUjornalseriesName~\textit{\PFUjournalseries}.\,% 
+  \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\,\fi{}%
+  \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber.\,\fi{}%
+  \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\,\fi{}%
+  \PFUjournalyear.\,% 
+  \cyrs.\,\pageref{starttitle}--\pageref{endtitle} 
+}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End: 

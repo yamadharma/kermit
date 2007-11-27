@@ -1,0 +1,73 @@
+\ProvidesFile{russian.bdf}%
+    [2004/06/14  v0.0.0.1]
+
+\AtBeginDocument%
+{%
+  %% Russian language    
+  \addto\extrasrussian%
+  {
+    % FUNCTION {bbl.and}
+    \def\bbland{}
+    % FUNCTION {bbl.etal}
+    \def\bbletal{\cyr\cyri~\cyrd\cyrr}			%% и др.
+    % FUNCTION {bbl.editors}
+    % { "\bbleditors{}" }
+    % FUNCTION {bbl.editor}
+    %\def\bbleditor{под ред.}
+    % FUNCTION {bbl.edby}
+    \def\bbledby{под ред.}
+    \def\bbled{под ред.}
+    \def\bbleds{Под ред.}
+    % FUNCTION {bbl.edition}
+    % { "\bbledn{}" }
+    \def\bbledn{\cyri\cyrz\cyrd\cyra\cyrn\cyri\cyre}	%% издание
+    \def\bblvol{\CYRT.}					%% Т.
+    \def\bblissue{\cyrv\cyrery\cyrp.}			%% вып.
+    \def\bblissuefirst{\CYRV\cyrery\cyrp.}		%% Вып.
+    % FUNCTION {bbl.of}
+    \def\bblof{\cyr\cyri\cyrz}
+    % FUNCTION {bbl.number}
+    \def\bblno{\No}
+    \def\bblnofirst{\No}
+    % FUNCTION {bbl.nr}
+    % { "\bblno{}" }
+    % FUNCTION {bbl.in}
+    % { "\bblin{}" }
+    % FUNCTION {bbl.pages}
+    \def\bblpp{\CYRS.}	%% С.
+    % FUNCTION {bbl.page}
+    \def\bblp{\CYRS.}	%% с.
+    %FUNCTION {bbl.numpages}
+    \def\bblnump{\cyrs}
+    % FUNCTION {bbl.chapter}
+    % { "\bblchap{}" }
+    % FUNCTION {bbl.techrep}
+    % { "\bbltechrep{}" }
+    % FUNCTION {bbl.mthesis}
+    \def\bblmthesis{Master's thesis}
+    % FUNCTION {bbl.phdthesis}
+    \def\bblphdthesis{Ph.D. thesis}
+    %FUNCTION {bbl.cmplr}
+    \def\bblcompiler{\cyr\CYRS\cyro\cyrs\cyrt.}
+    % MACRO {jan} {"\bbljan{}"}
+    % MACRO {feb} 
+    \def\bblfeb{Февраль}
+    % MACRO {mar} {"\bblmar{}"}
+    % MACRO {apr} {"\bblapr{}"}
+    % MACRO {may} {"\bblmay{}"}
+    % MACRO {jun} {"\bbljun{}"}
+    % MACRO {jul} {"\bbljul{}"}
+    % MACRO {aug} {"\bblaug{}"}
+    % MACRO {sep} {"\bblsep{}"}
+    % MACRO {oct} {"\bbloct{}"}
+    % MACRO {nov} {"\bblnov{}"}
+    % MACRO {dec} {"\bbldec{}"}
+  }
+} % END \AtBeginDocument
+
+\endinput
+
+%%% Local Variables: 
+%%% mode: latex
+%%% coding: cp1251-unix
+%%% End: 
