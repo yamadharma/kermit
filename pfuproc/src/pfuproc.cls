@@ -2,7 +2,7 @@
 %%
 \NeedsTeXFormat{LaTeX2e}[1994/12/01]
 \ProvidesClass{pfuproc}%
-        [2005/09/25 v0.0.7.0]
+        [2001/11/28 v0.0.7.2]
 \def\@tempa#1#2\@nil{\edef\@classname{#1}}
 \expandafter\@tempa\@currnamestack{}{}{}\@nil
 \ifx\@classname\@empty \edef\@classname{\@currname}\fi
