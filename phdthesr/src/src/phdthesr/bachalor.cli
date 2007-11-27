@@ -89,7 +89,7 @@
       %% Группа
       \ifx\@empty\PHDstudygroup
       \else%
-      \cyr\CYRG\cyru\cyrp\cyrp\cyra{} \hfill
+      \cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{} \hfill
       {\PHDstudygroup} \par
       \smallskip
       \fi
