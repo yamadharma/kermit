@@ -9,7 +9,7 @@
 \PassOptionsToClass{a4paper,12dd,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
 
 \AtEndOfClass{%
-\thesistype{\CYRR\cyre\cyrf\cyre\cyra\cyrt}
+\thesistype{\CYRR\cyre\cyrf\cyre\cyrr\cyra\cyrt}
 
 \renewcommand{\maketitle}{%
 \begin{titlepage}%
@@ -25,47 +25,59 @@
         {\bfseries \MakeUppercase{\PHDministry} \par}
         {\bfseries \MakeUppercase{\PHDinstitut} \par}
         {\bfseries {\PHDfaculty} \par}
+        {\bfseries {\PHDfield} \par}              	% Специальность
     \end{center}
 
     \medskip
 
-    \begin{flushright}
-        %% На правах рукописи
-        {\bfseries \cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri \par}
-    \end{flushright}
+%    \begin{flushright}
+%        %% На правах рукописи
+%        {\bfseries \cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri \par}
+%    \end{flushright}
     
     \vspace{3cm}
 
     \begin{center}
         \bigskip%
+%	\medskip%
+%        {\bfseries \PHDauthor} \par                     % Автор
+%        \bigskip% 
 	\medskip%
-        {\bfseries \PHDauthor} \par                     % Автор
-        \bigskip% 
-	\medskip%
-        {\bfseries \Large {\PHDtitle} \par}    		% Название
 
-	\ifx\@empty\PHDfield
-	\else%
-        \bigskip%
-	\medskip
-        \vspace{6ex}
-        \bigskip% 
-	\medskip%
-        {\bfseries {\PHDfield}} \par              	% Специальность
-	\fi
-	
-        \vspace{6ex}
-
-        {\PHDthesistype} \par
+        {\Large \PHDthesistype} \par
         \smallskip
         {\PHDdegree} \par
-        \bigskip%
+%        \bigskip%
 	\medskip%
         \end{center}
 
         \vspace{6ex}
+\begin{center}
+        {\bfseries \Large {\PHDtitle} \par}    		% Название
+\end{center}
+%	\ifx\@empty\PHDfield
+%	\else%
+%        \bigskip%
+%	\medskip
+%        \vspace{6ex}
+%        \bigskip% 
+%	\medskip%
+%        {\bfseries {\PHDfield}} \par              	% Специальность
+%	\fi
+	
+	\medskip%
+
+        \vspace{6ex}
+	\bigskip%
 
 	\begin{flushleft}	
+	    %% Автор
+	    \ifx\@empty\PHDauthor
+	    \else%
+	    \cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{} \hfill
+	    \PHDauthor \par
+	    \smallskip	    
+	    \fi	
 	    %% Группа
 	    \ifx\@empty\PHDstudygroup
 	    \else%

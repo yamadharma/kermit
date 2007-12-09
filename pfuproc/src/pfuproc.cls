@@ -2,7 +2,7 @@
 %%
 \NeedsTeXFormat{LaTeX2e}[1994/12/01]
 \ProvidesClass{pfuproc}%
-        [2001/11/28 v0.0.7.2]
+        [2007/12/05 v0.0.7.3]
 \def\@tempa#1#2\@nil{\edef\@classname{#1}}
 \expandafter\@tempa\@currnamestack{}{}{}\@nil
 \ifx\@classname\@empty \edef\@classname{\@currname}\fi
@@ -852,7 +852,7 @@
   \def\cauthor{\value{author}}
   \ifnum\c@author=\@ne \edef\@rauthor{#2} \fi
   \author@fmt{\the\c@author}{#1}{#2}{fbox}%
-}      
+}  
 
 \def\altfauthor{\@ifnextchar[{\altfauthor@optarg}{\altfauthor@optarg[]}}
 \def\altfauthor@optarg[#1]#2{%
@@ -942,11 +942,11 @@
 %   \def\atoks{\the\toks0}
   \edef\@tempd{#4}
   \ifx\@tempd\@empty
-    \protected@xdef\authorFamIn{\authorfamily\ignorespaces~\authorinitials}
-    \protected@xdef\authorInFam{\authorinitials\ignorespaces~\authorfamily}
+    \protected@xdef\authorFamIn{\authorfamily~\authorinitials}
+    \protected@xdef\authorInFam{\authorinitials~\authorfamily}
   \else
-    \protected@xdef\authorFamIn{\fbox{\authorfamily~\authorinitials}}
-    \protected@xdef\authorInFam{\fbox{\authorinitials~\authorfamily}}
+    \protected@xdef\authorFamIn{\protect\fbox{\authorfamily\,\authorinitials}}
+    \protected@xdef\authorInFam{\protect\fbox{\authorinitials\,\authorfamily}}
   \fi  
   \ifx\authors\@empty
 %     \gdef\authorstoc{#3}% 
@@ -965,8 +965,9 @@
 %       \gdef\authors{#3\,$^{\mathrm{\ref{#2}}}$}%
 %       \xdef\authors{\authorinitials~\authorfamily\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
 %      \xdef\authorTmp{\authorinitials~\authorfamily}  
-      \protected@xdef\authorTmp{\authorInFam}        
-      \gdef\authors{\expandafter{\authorTmp}\negthickspace${}^{\mathrm{\ref{#2}}}$}%
+%      \protected@xdef\authorTmp{\authorInFam}        
+%      \gdef\authors{\expandafter{\authorTmp}\negthickspace${}^{\mathrm{\ref{#2}}}$}%
+      \protected@xdef\authors{\authorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
     \fi
   \else
 %    \g@addto@macro\authorstoc{\and #3}%
@@ -976,7 +977,7 @@
     \ifnum0\n@author@ > 2
       \ifnum0#1 = 2 % 3
 	%% FIXME removing \etal (20031214)     
-        %\g@addto@macro\authorsrunning{ \etal}%
+        \g@addto@macro\authorsrunning{ \etal}%
       \fi
     \else
 %       \g@addto@macro\authorsrunning{\and #3}%
@@ -1040,11 +1041,11 @@
 
   \edef\@tempd{#4}
   \ifx\@tempd\@empty
-    \protected@xdef\altauthorFamIn{\authorfamily\,\authorinitials}
-    \protected@xdef\altauthorInFam{\authorinitials\,\authorfamily}
+    \protected@xdef\altauthorFamIn{\authorfamily~\authorinitials}
+    \protected@xdef\altauthorInFam{\authorinitials~\authorfamily}
   \else
-    \protected@xdef\altauthorFamIn{\fbox{\authorfamily\,\authorinitials}}
-    \protected@xdef\altauthorInFam{\fbox{\authorinitials\,\authorfamily}}
+    \protected@xdef\altauthorFamIn{\protect\fbox{\authorfamily\,\authorinitials}}
+    \protected@xdef\altauthorInFam{\protect\fbox{\authorinitials\,\authorfamily}}
   \fi  
 
   \ifx\@empty\altauthors
@@ -1947,6 +1948,41 @@
   \fi
 %%   \end{otherlanguage*}
 } % END \makealttitle
+
+\providecommand{\makealttitleTOCOnly}%
+{
+  \uppercasenonmath\shortalttitle
+  \ifx\@empty\shortaltauthors \let\shortaltauthors\shortalttitle
+  \else \andify\shortaltauthors \uppercasenonmath\shortaltauthors \fi
+  \altandify\altauthors
+%  \addcontentsline{toc}{chapter}{{\bfseries \authors} \@title}
+%  \@mkboth{\@journal}{\authors \@title}
+%%%
+  \relax
+  \flushbottom
+  \@makealttitle@hook
+  \begingroup
+  \relax%
+  \if@multicolumn%
+    \onecolumngrid  
+  \fi
+%  \vspace{2\bigskipamount}
+%  \@makealttitle
+  \label{endtitle}
+  \endgroup
+  \clearpage
+  \let\shortaltauthors\@empty   
+  \let\altauthors\@empty
+  \let\altauthorstoc\@empty
+  \let\altaddresses\@empty      
+  \let\@alttitle\@empty
+  \let\thankses\@empty
+  \let\addresses\@empty%
+  \let\@udcnum\@empty
+  \if@filesw
+    \immediate\closeout\PFU@aux\relax
+  \fi
+} % END \makealttitle*
 
 \def\@makealttitle@hook{\global\let\@makealttitle@hook\@empty}
 \providecommand{\@makealttitle}%
