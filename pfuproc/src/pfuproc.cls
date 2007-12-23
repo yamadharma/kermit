@@ -1598,7 +1598,6 @@
        }
     \fi
   \endgroup
-
 %   \begin{multicols*}{2}
 %   \addcontentsline{alt}{alttitle}{\@alttitle}
 %   \addcontentsline{alt}{altauthors}{\altauthors}
@@ -1690,8 +1689,8 @@
 %   \if@titlepage
 %     \newpage
 %   \else
-    \dimen@34\p@ \advance\dimen@-\baselineskip
-    \vskip\dimen@\relax
+%%    \dimen@34\p@ \advance\dimen@-\baselineskip
+%%    \vskip\dimen@\relax
 %   \fi
 } % end \@maketitle
 %%%-- \@makeappendixtitle
@@ -2214,7 +2213,7 @@
 %\small\vrule width 0pt height\dimen0 \relax
 %%%
 }
- \def\endabstract{\par \egroup}
+\def\endabstract{\par \egroup}
 %%%
 %%%--
 \newcommand{\altabstractname}{Abstract}
