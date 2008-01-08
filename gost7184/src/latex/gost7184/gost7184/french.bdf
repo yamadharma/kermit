@@ -1,8 +1,8 @@
 \ProvidesFile{french.bdf}%
   [2004/06/14  v0.0.0.1]
 
-\DeclareRobustCommand{\No}{%
-   \ifmmode{\nfss@text{\textnumero}}\else\textnumero\fi}
+%\DeclareRobustCommand{\No}{%
+%   \ifmmode{\nfss@text{\textnumero}}\else\textnumero\fi}
 \DeclareRobustCommand*{\no}{n\textsuperscript{\lowercase{o}}\kern+.2em}
 
 

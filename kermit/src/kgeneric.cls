@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{kgeneric}
-              [2000/01/01 v0.0.0
+              [2008/01/08 v0.0.0.2
     Non Standard LaTeX document class]
 %% load packages
 \RequirePackage{kpaper}
@@ -55,38 +55,6 @@
   \AtEndOfClass{\let\@unprocessedoptions\relax}}
 %%
 
-%%
-%% Fonts
-%%
-
-\providecommand{\DivFontShape}{\bfseries}
-\providecommand{\DivFontSize}{}
-\providecommand{\DivPosition}{}
-%%
-\providecommand{\chapterFontShape}{\DivFontShape}
-\providecommand{\chapterFontSize}{\huge}
-\providecommand{\chapterPosition}{}
-%%
-\providecommand{\sectionFontShape}{\DivFontShape}
-\providecommand{\sectionFontSize}{\Large}
-\providecommand{\sectionPosition}{\center}
-%%
-\providecommand{\subsectionFontShape}{\DivFontShape}
-\providecommand{\subsectionFontSize}{\large}
-\providecommand{\subsectionPosition}{\center}
-%%
-\providecommand{\subsubsectionFontShape}{\DivFontShape}
-\providecommand{\subsubsectionFontSize}{\normalsize}
-\providecommand{\subsubsectionPosition}{\center}
-%%
-\providecommand{\paragraphFontShape}{\DivFontShape}
-\providecommand{\paragraphFontSize}{\normalsize}
-\providecommand{\paragraphPosition}{}
-%%
-\providecommand{\subparagraphFontShape}{\DivFontShape}
-\providecommand{\subparagraphFontSize}{\normalsize}
-\providecommand{\subparagraphPosition}{}
-%%
 
 %%
 %% begin Options
@@ -579,6 +547,7 @@
   {-1em}%
   {\subparagraphPosition\normalfont\subparagraphFontSize\subparagraphFontShape}%
 } % END \subparagraph
+
 \if@twocolumn
   \setlength\leftmargini  {2em}
 \else
@@ -905,6 +874,78 @@
 \else
   \onecolumn
 \fi
+
+%%
+%% Headers
+%%
+
+\RequirePackage{fancyhdr}%
+\AtEndOfClass{
+\pagestyle{fancy} 
+\fancyhead{}%
+\fancyfoot{}%
+\fancyhead[LE,RO]{\small \thepage}%
+\renewcommand{\headrulewidth}{0.4dd}
+\fancyhfoffset{0dd}
+}
+
+%%
+%% Titles
+%%
+
+\providecommand{\DivFontShape}{\bfseries}
+\providecommand{\DivFontSize}{}
+\providecommand{\DivPosition}{}
+%%
+\providecommand{\chapterFontShape}{\DivFontShape}
+\providecommand{\chapterFontSize}{\LARGE}
+\providecommand{\chapterPosition}{}
+%%
+\providecommand{\sectionFontShape}{\DivFontShape}
+\providecommand{\sectionFontSize}{\Large}
+\providecommand{\sectionPosition}{\center}
+%%
+\providecommand{\subsectionFontShape}{\DivFontShape}
+\providecommand{\subsectionFontSize}{\large}
+\providecommand{\subsectionPosition}{\center}
+%%
+\providecommand{\subsubsectionFontShape}{\DivFontShape}
+\providecommand{\subsubsectionFontSize}{\normalsize}
+\providecommand{\subsubsectionPosition}{\center}
+%%
+\providecommand{\paragraphFontShape}{\DivFontShape}
+\providecommand{\paragraphFontSize}{\normalsize}
+\providecommand{\paragraphPosition}{}
+%%
+\providecommand{\subparagraphFontShape}{\DivFontShape}
+\providecommand{\subparagraphFontSize}{\normalsize}
+\providecommand{\subparagraphPosition}{}
+%%
+
+\providecommand{\chapaftersnum}{.}
+\providecommand{\secaftersnum}{.}
+
+\RequirePackage{titlesec}
+
+\titleformat{\chapter}[block]%
+    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\ifx\chaptertitlename\@empty\else\chaptertitlename\ \fi\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
+\titleformat{\section}[block]%
+    {\normalfont\sectionFontSize\sectionFontShape}{\thesection\secaftersnum}{1em}{}
+\titleformat{\subsection}[block]%
+    {\normalfont\subsectionFontSize\subsectionFontShape}{\thesubsection\secaftersnum}{1em}{}
+\titleformat{\subsubsection}[block]%
+    {\normalfont\subsubsectionFontSize\subsubsectionFontShape}{\thesubsubsection\secaftersnum}{1em}{}
+\titleformat{\paragraph}[runin]%
+    {\normalfont\paragraphFontSize\paragraphFontShape}{\theparagraph\secaftersnum}{1em}{}
+\titleformat{\subparagraph}[runin]%
+    {\normalfont\subparagraphFontSize\subparagraphFontShape}{\thesubparagraph\secaftersnum}{1em}{}
+
+\titlespacing{\chapter}{0\p@}{0\p@}{10\p@}
+%%%
+%%%
+%%%
+
+
 %%%
 %%% Language
 %%%

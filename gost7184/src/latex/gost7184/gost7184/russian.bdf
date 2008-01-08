@@ -9,7 +9,7 @@
     % FUNCTION {bbl.and}
     \def\bbland{}
     % FUNCTION {bbl.etal}
-    \def\bbletal{\cyr\cyri~\cyrd\cyrr}			%% и др.
+    \def\bbletal{\cyr\cyri~\cyrd\cyrr}                  %% и др.
     % FUNCTION {bbl.editors}
     % { "\bbleditors{}" }
     % FUNCTION {bbl.editor}
@@ -19,11 +19,10 @@
     \def\bbled{под ред.}
     \def\bbleds{Под ред.}
     % FUNCTION {bbl.edition}
-    % { "\bbledn{}" }
-    \def\bbledn{\cyri\cyrz\cyrd\cyra\cyrn\cyri\cyre}	%% издание
-    \def\bblvol{\CYRT.}					%% Т.
-    \def\bblissue{\cyrv\cyrery\cyrp.}			%% вып.
-    \def\bblissuefirst{\CYRV\cyrery\cyrp.}		%% Вып.
+    \def\bbledn{\cyri\cyrz\cyrd\cyra\cyrn\cyri\cyre}    %% издание
+    \def\bblvol{\CYRT.}                                 %% Т.
+    \def\bblissue{\cyrv\cyrery\cyrp.}                   %% вып.
+    \def\bblissuefirst{\CYRV\cyrery\cyrp.}              %% Вып.
     % FUNCTION {bbl.of}
     \def\bblof{\cyr\cyri\cyrz}
     % FUNCTION {bbl.number}
@@ -34,9 +33,9 @@
     % FUNCTION {bbl.in}
     % { "\bblin{}" }
     % FUNCTION {bbl.pages}
-    \def\bblpp{\CYRS.}	%% С.
+    \def\bblpp{\CYRS.}  %% С.
     % FUNCTION {bbl.page}
-    \def\bblp{\CYRS.}	%% с.
+    \def\bblp{\CYRS.}   %% с.
     %FUNCTION {bbl.numpages}
     \def\bblnump{\cyrs}
     % FUNCTION {bbl.chapter}
