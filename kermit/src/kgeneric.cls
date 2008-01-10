@@ -922,25 +922,6 @@
 \providecommand{\subparagraphPosition}{}
 %%
 
-\providecommand{\chapaftersnum}{.}
-\providecommand{\secaftersnum}{.}
-
-\RequirePackage{titlesec}
-
-\titleformat{\chapter}[block]%
-    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\ifx\chaptertitlename\@empty\else\chaptertitlename\ \fi\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
-\titleformat{\section}[block]%
-    {\normalfont\sectionFontSize\sectionFontShape}{\thesection\secaftersnum}{1em}{}
-\titleformat{\subsection}[block]%
-    {\normalfont\subsectionFontSize\subsectionFontShape}{\thesubsection\secaftersnum}{1em}{}
-\titleformat{\subsubsection}[block]%
-    {\normalfont\subsubsectionFontSize\subsubsectionFontShape}{\thesubsubsection\secaftersnum}{1em}{}
-\titleformat{\paragraph}[runin]%
-    {\normalfont\paragraphFontSize\paragraphFontShape}{\theparagraph\secaftersnum}{1em}{}
-\titleformat{\subparagraph}[runin]%
-    {\normalfont\subparagraphFontSize\subparagraphFontShape}{\thesubparagraph\secaftersnum}{1em}{}
-
-\titlespacing{\chapter}{0\p@}{0\p@}{10\p@}
 %%%
 %%%
 %%%
