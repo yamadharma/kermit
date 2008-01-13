@@ -1,0 +1,41 @@
+%%% 
+
+% \makeatletter
+% \renewcommand\thesection{\@arabic\c@section}
+% % \@addtoreset{equation}{section}
+% % \@addtoreset{figure}{section}
+% % \@addtoreset{table}{section}
+% % \@addtoreset{Problem}{section}
+% \makeatother
+
+% \titleformat{\section}
+% {\sectionFontShape\sectionFontSize\center}
+% {\scshape \S~\thesection.}
+% {1ex minus .1ex}
+% {}
+
+\titlecontents{chapter}[0pt]%
+{\vspace{1ex minus .1ex}}%
+{\chaptername~\thecontentslabel.\quad}%
+{}%
+{\titlerule*[1pc]{.}\contentspage}
+
+% \titlecontents{section}[0pt]%
+% {}%
+% {\S~\thecontentslabel.\quad}%
+% {..}%
+% {\titlerule*[1pc]{.}\contentspage}
+
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi%
+  \thispagestyle{fancy}%
+  \global\@topnum\z@%
+  \@afterindentfalse%
+  \secdef\@chapter\@schapter}
+\makeatother
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "default"
+%%% coding: cp1251
+%%% End: 

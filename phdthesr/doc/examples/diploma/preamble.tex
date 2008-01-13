@@ -1,0 +1,29 @@
+%%% 
+
+\input preamble-common
+
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+\else
+  \ifx\pdfoutput\relax
+  \else
+    \ifcase\pdfoutput
+    \else
+      \pdftrue
+    \fi
+  \fi
+\fi
+
+
+\ifpdf
+    \input preamble-ebook
+\else
+    \input preamble-print    
+\fi
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "default"
+%%% coding: cp1251
+%%% End: 

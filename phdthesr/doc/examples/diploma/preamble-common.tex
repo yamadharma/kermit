@@ -1,0 +1,140 @@
+%%% 
+
+\documentclass[%
+% twoside,
+% 12dd,
+% 14dd, 
+% onehalfspace,
+% Кандидатская диссертация
+%type=phd,
+% магистерская диссертация
+%type=master,
+% бакалаврская работа
+%type=bachalor,
+% курсовая работа
+type=course,
+% реферат
+%type=referat
+]{phdthesr}
+
+% Подключаемые пакеты
+
+\usepackage{mathtext}
+\usepackage{bm}
+\usepackage[cp1251]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[german,english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{cite}
+\usepackage{lscape}
+\usepackage{afterpage}
+\usepackage{multido}
+\usepackage{array}
+
+\usepackage{calc}
+\usepackage{soul}
+\usepackage{tabularx}
+
+
+\allowdisplaybreaks
+
+
+%%%
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\e}{\mathrm{e}}
+\renewcommand{\i}{\mathrm{i}}
+\newcommand{\setC}{\mathbb{C}}
+\newcommand{\setR}{\mathbb{R}}
+\newcommand{\setS}{\mathbb{S}}
+\newcommand{\setZ}{\mathbb{Z}}
+\newcommand{\setM}{\mathbb{M}}
+\newcommand{\setV}{\mathbb{V}}
+\newcommand{\cvec}[1]{\bm{#1}}
+\newcommand{\avec}[1]{\bm{\mathrm{#1}}} 
+\newcommand{\crd}[1]{\bm{\mathrm{#1}}}  % векторный индекс
+\newcommand{\const}{\mathrm{const}}
+\newcommand{\ivec}[1]{\underrightarrow{#1}}
+\newcommand{\rot}{\mathrm{rot}}
+
+
+
+\graphicspath{{images/}}
+% \DeclareGraphicsExtensions{.eps,.tex}
+
+%%%
+\sloppy
+\raggedbottom
+% \setcounter{totalnumber}{2}
+%%%
+% \newcolumntype{X}{>{\small}p{0.6cm}}
+\usepackage{wrapfig}
+
+\setlength{\extrarowheight}{1.5dd}
+\newcolumntype{C}{@{\extracolsep{\fill}}c}
+\newcolumntype{L}{@{\extracolsep{\fill}}l}
+
+\graphicspath{{image/}}
+\def\bibnamefont{\textit}
+
+\newcommand{\SetImagePath}[1]{\gdef\ImagePath{#1}}
+\newcommand{\SetTablePath}[1]{\gdef\TablePath{#1}}
+
+
+\usepackage{gost7184}
+\bibliographystyle{gost7184u}% 
+
+\usepackage{longtable}
+\usepackage {multirow}
+\usepackage {mdwtab}
+\usepackage{url}
+
+\usepackage{fixmath}                                                   
+\usepackage{upgreek}
+\usepackage{gensymb}
+
+\usepackage{fancyvrb}
+
+\flushbottom
+
+\usepackage{footnpag}
+
+% \usepackage{theorem}
+% \usepackage{amsthm}
+
+% \theoremstyle{plain}
+% \newtheorem{Krit}{Критерий}[chapter]
+% \newtheorem{Svoystvo}{Свойство}[chapter]
+% \newtheorem{Theorem}{Теорема}[chapter]
+% \newtheorem{Problem}{Задача}
+% \newtheorem{Example}{Пример}
+
+% { \theoremstyle{definition}
+%   \newtheorem{Problem}{Задача}
+%   \newtheorem*{Problem*}{Задача}
+%   \makeatletter
+%   \@addtoreset{Problem}{title}
+%   \makeatother
+% }
+
+%{ \theoremstyle{definition} \newtheorem*{Solv}{Решение} \makeatletter
+%  \@addtoreset{Solv}{title} \makeatother }
+
+%{ \theoremstyle{definition} \newtheorem*{Example}{Пример}
+%  \makeatletter \@addtoreset{Example}{title} \makeatother }
+
+\usepackage{paralist}
+%\setlength{\plitemsep}{0dd}
+
+%\renewenvironment{itemize}{\begin{compactitem}}{\end{compactitem}}
+%\renewenvironment{enumerate}{\begin{compactenum}}{\end{compactenum}}
+%\setdefaultitem{---}{---}{---}{---}
+
+
+\input preamble-local
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "default"
+%%% coding: cp1251
+%%% End: 
