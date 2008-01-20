@@ -55,21 +55,21 @@
 \def\@catchlinesize{\footnotesize}
 \def\@runheadsize{\normalsize}
 %
-\newtoks\t@glob@notes             	% List of all notes
-\newtoks\t@loc@notes              	% List of notes for one element
-\newcount\prev@elem \prev@elem=0  	% Variables to keep track of
-\newcount\cur@elem  \cur@elem=0   	% types of elements that are processed
-\newcount\note@cnt                	% Number of notes per element
-\newcounter{author}[PFUtitle]		% Author counter
+\newtoks\t@glob@notes                   % List of all notes
+\newtoks\t@loc@notes                    % List of notes for one element
+\newcount\prev@elem \prev@elem=0        % Variables to keep track of
+\newcount\cur@elem  \cur@elem=0         % types of elements that are processed
+\newcount\note@cnt                      % Number of notes per element
+\newcounter{author}[PFUtitle]           % Author counter
 \newcounter{altauthor}[PFUtitle]           % Author counter
-\newcount\n@author                	% Total number of authors
-\def\n@author@{1}                  	% idem, read from .aux file
-\newcounter{collab}               	% Collaboration counter
-\newcount\n@collab                	% Total number of collaborations
-\def\n@collab@{}                  	% idem, read from .aux file
-\newcounter{address}[PFUtitle]       	% Address counter
-\newcounter{altaddress}[PFUtitle]    	% AltAddress counter
-\def\theHaddress{\arabic{address}}	% for hyperref
+\newcount\n@author                      % Total number of authors
+\def\n@author@{1}                       % idem, read from .aux file
+\newcounter{collab}                     % Collaboration counter
+\newcount\n@collab                      % Total number of collaborations
+\def\n@collab@{}                        % idem, read from .aux file
+\newcounter{address}[PFUtitle]          % Address counter
+\newcounter{altaddress}[PFUtitle]       % AltAddress counter
+\def\theHaddress{\arabic{address}}      % for hyperref
 \chardef\e@title=1
 \chardef\e@subtitle=1
 \chardef\e@author=2
@@ -293,11 +293,13 @@
 \let\subsectionmark\@gobble
 \let\subsubsectionmark\@gobble
 \let\paragraphmark\@gobble
+
 %{{{ Declarations
 
 \providecommand{\headerFontSize}{\footnotesize}
 
 %}}}
+
 %%
 \RequirePackage{keyval}
 \RequirePackage{substr}
@@ -650,7 +652,8 @@
   \else
   \fi
 }
-%%{{{ Set headers
+
+%{{{ Set headers
 
 \AtBeginDocument%
 {%
@@ -673,7 +676,8 @@
 \fancyfoot{}
 }
 
-%%}}}
+%}}}
+
 %%
 %\if@compatibility
 %  \def\@tempa#1{\let\mathfrak\relax
@@ -993,7 +997,7 @@
 %   \show\n@author@
     \ifnum0\n@author@ > 2
       \ifnum0#1 = 2 % 3
-	%% FIXME removing \etal (20031214)     
+        %% FIXME removing \etal (20031214)     
         \g@addto@macro\authorsrunning{ \etal}%
       \fi
     \else
@@ -1675,9 +1679,9 @@
     \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords} \fi
   \fi
 %  \if@receivedAsFooter% 
-%    \ifx\@empty\@received \else	\@footnotetext{\PFUreceivedName \@received} \fi
+%    \ifx\@empty\@received \else        \@footnotetext{\PFUreceivedName \@received} \fi
 %  \else
-%    \ifx\@empty\@received \else	\PFUreceivedName \@received \fi
+%    \ifx\@empty\@received \else        \PFUreceivedName \@received \fi
 %  \fi
 %   \ifx\@empty\thankses\else \@footnotetext{\def\par{\let\par\@par}\@setthanks}
 %   \fi
@@ -1728,9 +1732,9 @@
   \fi
 %
   \if@receivedAsFooter% 
-    \ifx\@empty\@received \else	\@footnotetext{\@setreceived} \fi
+    \ifx\@empty\@received \else \@footnotetext{\@setreceived} \fi
   \else
-    \ifx\@empty\@received \else	\par\@setreceived \fi
+    \ifx\@empty\@received \else \par\@setreceived \fi
   \fi
 %
 %   \if@titlepage
@@ -2647,8 +2651,6 @@
 
 \titlespacing{\chapter}{\z@}{\z@}{10\p@}
 \titlespacing{\section}{\z@}{\if@sectionAfterTitle \z@ \@sectionAfterTitlefalse \else -3.5ex \@plus -1ex \@minus -.2ex \fi}{2.3ex \@plus.2ex}
-%\titlespacing{\section}{0\p@}{0\p@}{10\p@}
-% \if@sectionAfterTitle
 
 %%%--
 % \newcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
@@ -2729,7 +2731,7 @@
   }
   \addtocontents{tac}%
   {{\vspace{8dd}\protect\noindent\protect\protect\DivFontShape{#1}%
-     \@par	
+     \@par      
       \vspace{4dd}}} 
   \addtocontents{toc}%
   {{\vspace{8dd}\protect\noindent\protect\protect\DivFontShape{#2}%
@@ -3076,8 +3078,8 @@
 %                \def\@biblabel##1{##1.}%
 %                \def\bibsetup{}%
 %        \else
-%		\def\@biblabel##1{##1.}%
-%		\def\bibsetup{}%
+%               \def\@biblabel##1{##1.}%
+%               \def\bibsetup{}%
 %                % \def\bibsetup{\labelsep6\p@}%
 %        \ifx\@tempa\@tempc
 %                \def\@biblabel##1{}%
@@ -3098,8 +3100,8 @@
 %                \def\@biblabel##1{##1.}%
 %                \def\bibsetup{}%
 %        \else
-%		\def\@biblabel##1{##1.}%
-%		\def\bibsetup{}%
+%               \def\@biblabel##1{##1.}%
+%               \def\bibsetup{}%
 %                % \def\bibsetup{\labelsep6\p@}%
 %        \ifx\@tempa\@tempc
 %                \def\@biblabel##1{}%
@@ -3507,3 +3509,6 @@ Le-gendre Mar-kov-ian Noe-ther-ian No-vem-ber Rie-mann-ian Sep-tem-ber}
 %%
 %% End of file `pfuproc.cls'.
 
+%%% Local Variables: 
+%%% coding: utf-8-unix
+%%% End: 
