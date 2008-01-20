@@ -86,6 +86,9 @@
 \newif\if@keywordsAsFooter        % If keywords present as footer
 \global\@keywordsAsFooterfalse
 %%
+\newif\if@receivedAsFooter        % If received present as footer
+\global\@receivedAsFootertrue
+%%
 \newif\if@sectionAfterTitle
 \@sectionAfterTitlefalse
 %%
@@ -528,16 +531,25 @@
 %  \providecommand{\etal}{et al.}
   \addto\extrasrussian%
   {
-    \def\PFUudcname{\CYRU\CYRD\CYRK}
-    \def\PFUpacsname{PACS}
+    \def\PFUudcName{\CYRU\CYRD\CYRK}
+    \def\PFUpacsName{PACS}
+    % Статья поступила в редакцию
+    \def\PFUreceivedName{{\CYRS}{\cyrt}{\cyra}{\cyrt}{\cyrsftsn}{\cyrya} {\cyrp}{\cyro}{\cyrs}{\cyrt}{\cyru}{\cyrp}{\cyri}{\cyrl}{\cyra} {\cyrv} {\cyrr}{\cyre}{\cyrd}{\cyra}{\cyrk}{\cyrc}{\cyri}{\cyryu}}%
+    \def\PFUrevisedName{Revised }%
+    \def\PFUacceptedName{Accepted }%
+    \def\PFUpublishedName{Published }%
     \def\etal{\cyri{} \cyrd\cyrr.}
-%%    \renewcommand{\etal}{\cyri{} \cyrd\cyrr.}
-    \renewcommand{\keywordsname}{�������� �����}
+    % Ключевые слова
+    \renewcommand{\keywordsname}{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
   }
   \addto\extrasenglish%
   {
-    \def\PFUudcname{UDC}
-    \def\PFUpacsname{PACS}
+    \def\PFUudcName{UDC}
+    \def\PFUpacsName{PACS}
+    \def\PFUreceivedname{Received }%
+    \def\PFUrevisedname{Revised }%
+    \def\PFUacceptedname{Accepted }%
+    \def\PFUpublishedname{Published }%
      \def\etal{et al.}
 %%    \renewcommand{\etal}{et al.}
 %%     \providecommand{\etal}{et al.}
@@ -621,8 +633,8 @@
 %%   \providecommand{\PFUjournalseries}[1]{#1}
 %% }
 
-%% \def\PFUjornalissueName{{\cyr\CYRV\cyrery\cyrp\cyru\cyrs\cyrk}} % ����ߌ���
-%% \def\PFUjornalseriesName{{\cyr\CYRS\cyre\cyrr\cyri\cyrya}} % ���Ռ��،�
+%% \def\PFUjornalissueName{{\cyr\CYRV\cyrery\cyrp\cyru\cyrs\cyrk}} % ЊІЊлЊЯЊгЊбЊЪ
+%% \def\PFUjornalseriesName{{\cyr\CYRS\cyre\cyrr\cyri\cyrya}} % ЊБЊХЊаЊШЊп
 
 %% \providecommand{\PFUheader}%
 %% {%
@@ -1301,6 +1313,20 @@
 \DeclareRobustCommand{\pacs}[1]{%
   \def\@pacsnum{#1}}
 \let\@pacsnum\@empty  
+%%
+\DeclareRobustCommand{\received}[1]{%
+  \def\@received{#1}}
+\let\@received\@empty
+\DeclareRobustCommand{\revised}[1]{%
+  \def\@revised{#1}}
+\let\@revised\@empty
+\DeclareRobustCommand{\accepted}[1]{%
+  \def\@accepted{#1}}
+\let\@accepted\@empty
+\DeclareRobustCommand{\published}[1]{%
+  \def\@published{#1}}
+\let\@published\@empty
+
 % \def\udc#1{\gdef\@udcnum{#1}}
 % \newcommand{\udc}[1]{\gdef\@udcnum{#1}}
 %%%--
@@ -1596,13 +1622,12 @@
   \begingroup
 %    \def\@makefntext{\noindent}
 %    \renewcommand{\@makefnmark}{}
-    \def\@thefnmark{}
+    \def\@thefnmark{\!\!}
     \ifx\@empty\thankses
      \else 
        \@footnotetext{%
          \def\par{\let\par\@par}
          \@setthanks
-        %\thankses
        }
     \fi
   \endgroup
@@ -1629,6 +1654,7 @@
 \let\thankses\@empty%
 % \let\keywords\@empty%
 \let\@keywords\@empty%
+\let\@received\@empty%
 \let\@dedicatory\@empty%
 %%%
 % \let\shortaltauthors\@empty   \let\altauthors\@empty
@@ -1648,6 +1674,11 @@
   \if@keywordsAsFooter% 
     \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords} \fi
   \fi
+%  \if@receivedAsFooter% 
+%    \ifx\@empty\@received \else	\@footnotetext{\PFUreceivedName \@received} \fi
+%  \else
+%    \ifx\@empty\@received \else	\PFUreceivedName \@received \fi
+%  \fi
 %   \ifx\@empty\thankses\else \@footnotetext{\def\par{\let\par\@par}\@setthanks}
 %   \fi
 %   \ifx\@empty\thankses\else \footnotetext{\thankses}
@@ -1658,8 +1689,8 @@
 %   \bigskip
 %   \bigskip
 %   \vspace{2\bigskipamount}
-  \ifx\@empty\@udcnum \else \noindent \PFUudcname{} \@udcnum \hfill\par \fi
-  \ifx\@empty\@pacsnum \else \noindent \PFUpacsname{} \@pacsnum \hfill\par \fi  
+  \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi
+  \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi  
 %   \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
   \@settitle
   \bigskip
@@ -1695,6 +1726,13 @@
   \else
     \ifx\@empty\@keywords\else \@setkeywords \fi
   \fi
+%
+  \if@receivedAsFooter% 
+    \ifx\@empty\@received \else	\@footnotetext{\@setreceived} \fi
+  \else
+    \ifx\@empty\@received \else	\par\@setreceived \fi
+  \fi
+%
 %   \if@titlepage
 %     \newpage
 %   \else
@@ -1821,6 +1859,7 @@
 \let\thankses\@empty%
 % \let\keywords\@empty%
 \let\@keywords\@empty%
+\let\@received\@empty%
 \let\@dedicatory\@empty%
 %%%
 % \let\shortaltauthors\@empty   \let\altauthors\@empty
@@ -2014,8 +2053,8 @@
 %  \global\topskip8pc\relax % 10pc to base of first title line
 %   \bigskip\nobreak%
 %   \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
-  \ifx\@empty\@udcnum \else \noindent \PFUudcname{} \@udcnum \hfill\par \fi%
-  \ifx\@empty\@pacsnum \else \noindent \PFUpacsname{} \@pacsnum \hfill\par \fi%  
+  \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi%
+  \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi%  
 %  \ifx\@empty\@udcnum \else \noindent\@udcnum \hfill\par \fi
   \nobreak%
   \@setalttitle%
@@ -2187,6 +2226,9 @@
   {\DivFontShape \keywordsname:}\enspace \@keywords\@addpunct.%
 }%
 \def\@setthanks{\def\thanks##1{\par##1\@addpunct.}\thankses}
+\def\@setreceived{%
+  \noindent\PFUreceivedName\enspace \@received\@addpunct.%
+}%
 %%%--
 \def\abstract{\@ifnextchar[{\@abstract}{\@abstract[]}}
 \def\@abstract[#1]{%
