@@ -4,49 +4,49 @@
   \theoremstyle{plain}
   \newtheorem{Theorem}{\TheoremName}
   \newtheorem*{Theorem*}{\TheoremName}
-  \@addtoreset{Theorem}{title}
+  \@addtoreset{Theorem}{PFUtitle}
 }%
 {
   \theoremstyle{plain}
   \newtheorem{Lemma}{\LemmaName}
   \newtheorem*{Lemma*}{\LemmaName}
-  \@addtoreset{Lemma}{title}
+  \@addtoreset{Lemma}{PFUtitle}
 }
 {
   \theoremstyle{definition}
   \newtheorem{Cons}{\ConsName}
   \newtheorem*{Cons*}{\ConsName}
-  \@addtoreset{Cons}{title}
+  \@addtoreset{Cons}{PFUtitle}
 }
 {
   \theoremstyle{remark}
   \newtheorem{Remark}{\RemarkName}
   \newtheorem*{Remark*}{Замечание}
-  \@addtoreset{Remark}{title}
+  \@addtoreset{Remark}{PFUtitle}
 }
 {
   \theoremstyle{definition}
   \newtheorem{Def}{\DefName}
   \newtheorem*{Def*}{\DefName}
-  \@addtoreset{Def}{title}
+  \@addtoreset{Def}{PFUtitle}
 }
 {
   \theoremstyle{plain}
   \newtheorem{Proposition}{\PropositionName}
   \newtheorem*{Proposition*}{\PropositionName}
-  \@addtoreset{Proposition}{title}
+  \@addtoreset{Proposition}{PFUtitle}
 }
 {
   \theoremstyle{plain}
   \newtheorem{Statement}{\StatementName}
   \newtheorem*{Statement*}{\StatementName}
-  \@addtoreset{Statement}{title}
+  \@addtoreset{Statement}{PFUtitle}
 }
 {
   \theoremstyle{definition}
   \newtheorem{Example}{\ExampleName}
   \newtheorem*{Example*}{\ExampleName}
-  \@addtoreset{Example}{title}
+  \@addtoreset{Example}{PFUtitle}
 }
 
 

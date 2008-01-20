@@ -1,5 +1,4 @@
 %%
-%%
 \NeedsTeXFormat{LaTeX2e}[1994/12/01]
 \ProvidesClass{pfuproc}%
         [2007/12/05 v0.0.7.3]
@@ -11,15 +10,15 @@
 %%%
 %\def\@namedef#1{\expandafter\def\csname test:#1\endcsname}
 %\def\@nameuse#1{\csname #1\endcsname}
-\newcounter{title}
+\newcounter{PFUtitle}
 \newcounter{subtitle}
 %% \def\label#1{\@bsphack
 %%   \protected@write\@auxout{}%
-%%          {\string\newlabel{\thetitle:#1}{{\@currentlabel}{\thepage}}}%
+%%          {\string\newlabel{\thePFUtitle:#1}{{\@currentlabel}{\thepage}}}%
 %%   \@esphack}
-%% \def\ref#1{\expandafter\@setref\csname r@\thetitle:#1\endcsname\@firstoftwo{\thetitle:#1}}
-%% \def\pageref#1{\expandafter\@setref\csname r@\thetitle:#1\endcsname
-%%   \@secondoftwo{\thetitle:#1}}
+%% \def\ref#1{\expandafter\@setref\csname r@\thePFUtitle:#1\endcsname\@firstoftwo{\thePFUtitle:#1}}
+%% \def\pageref#1{\expandafter\@setref\csname r@\thePFUtitle:#1\endcsname
+%%   \@secondoftwo{\thePFUtitle:#1}}
 %% %
 %% \def\glabel#1{\@bsphack
 %%   \protected@write\@auxout{}%
@@ -56,21 +55,21 @@
 \def\@catchlinesize{\footnotesize}
 \def\@runheadsize{\normalsize}
 %
-\newtoks\t@glob@notes             % List of all notes
-\newtoks\t@loc@notes              % List of notes for one element
-\newcount\prev@elem \prev@elem=0  % Variables to keep track of
-\newcount\cur@elem  \cur@elem=0   % types of elements that are processed
-\newcount\note@cnt                % Number of notes per element
-\newcounter{author}[title]               % Author counter
-\newcounter{altauthor}[title]               % Author counter
-\newcount\n@author                % Total number of authors
-\def\n@author@{1}                  % idem, read from .aux file
-\newcounter{collab}               % Collaboration counter
-\newcount\n@collab                % Total number of collaborations
-\def\n@collab@{}                  % idem, read from .aux file
-\newcounter{address}[title]       % Address counter
-\newcounter{altaddress}[title]    % AltAddress counter
-\def\theHaddress{\arabic{address}}% for hyperref
+\newtoks\t@glob@notes             	% List of all notes
+\newtoks\t@loc@notes              	% List of notes for one element
+\newcount\prev@elem \prev@elem=0  	% Variables to keep track of
+\newcount\cur@elem  \cur@elem=0   	% types of elements that are processed
+\newcount\note@cnt                	% Number of notes per element
+\newcounter{author}[PFUtitle]		% Author counter
+\newcounter{altauthor}[PFUtitle]           % Author counter
+\newcount\n@author                	% Total number of authors
+\def\n@author@{1}                  	% idem, read from .aux file
+\newcounter{collab}               	% Collaboration counter
+\newcount\n@collab                	% Total number of collaborations
+\def\n@collab@{}                  	% idem, read from .aux file
+\newcounter{address}[PFUtitle]       	% Address counter
+\newcounter{altaddress}[PFUtitle]    	% AltAddress counter
+\def\theHaddress{\arabic{address}}	% for hyperref
 \chardef\e@title=1
 \chardef\e@subtitle=1
 \chardef\e@author=2
@@ -86,6 +85,9 @@
 %%
 \newif\if@keywordsAsFooter        % If keywords present as footer
 \global\@keywordsAsFooterfalse
+%%
+\newif\if@sectionAfterTitle
+\@sectionAfterTitlefalse
 %%
 \let\report@elt\@gobble
 \def\beg@elem{\global\t@loc@notes={}\global\note@cnt\z@}
@@ -469,7 +471,7 @@
 % \renewcommand{\@captionsize}{\footnotesize}
 % \RequirePackage{longtable}
 \RequirePackage{truncate}
-
+\RequirePackage{titlesec}
 
 %% \input{pfuproc/collection.cli}
 %% \input{pfuproc/pfu-physic.cli}
@@ -477,18 +479,18 @@
 %% Declarations
 %%
 \newwrite\PFU@aux
-\def\PFU@auxname{pfu\thetitle}
+\def\PFU@auxname{pfu\thePFUtitle}
 %%
 %%
 %% Counters
 %%
 %% \newcounter{title}
-\@addtoreset{section}{title}
+\@addtoreset{section}{PFUtitle}
 %%%% floats
-\@addtoreset{figure}{title}
-\@addtoreset{table}{title}
+\@addtoreset{figure}{PFUtitle}
+\@addtoreset{table}{PFUtitle}
 %%%
-\@addtoreset{footnote}{title}
+\@addtoreset{footnote}{PFUtitle}
 %%%% lists
 \newcounter{textenumerate}
 %%
@@ -503,11 +505,11 @@
 
 \def\label#1{\@bsphack
   \protected@write\@auxout{}%
-         {\string\newlabel{\thetitle:#1}{{\@currentlabel}{\thepage}}}%
+         {\string\newlabel{\thePFUtitle:#1}{{\@currentlabel}{\thepage}}}%
   \@esphack}
-\def\ref#1{\expandafter\@setref\csname r@\thetitle:#1\endcsname\@firstoftwo{\thetitle:#1}}
-\def\pageref#1{\expandafter\@setref\csname r@\thetitle:#1\endcsname
-  \@secondoftwo{\thetitle:#1}}
+\def\ref#1{\expandafter\@setref\csname r@\thePFUtitle:#1\endcsname\@firstoftwo{\thePFUtitle:#1}}
+\def\pageref#1{\expandafter\@setref\csname r@\thePFUtitle:#1\endcsname
+  \@secondoftwo{\thePFUtitle:#1}}
 %
 \def\glabel#1{\@bsphack
   \protected@write\@auxout{}%
@@ -721,7 +723,8 @@
 \renewcommand*{\title}[2][]%
 {%
 %%  \def\@biblabel##1{\@ifempty{##1}##1.......}
-  \refstepcounter{title}
+  \refstepcounter{PFUtitle}
+  \message{*********** \thePFUtitle}
   \refstepcounter{subtitle}
   \let\@rauthor\@empty
   \let\authorsrunning\@empty
@@ -785,10 +788,10 @@
 
 % \edef\title{\@nx\@dblarg
 %   \@xp\@nx\csname\string\title\endcsname}
-\newcommand*{\appendixtitle}[2][]{\stepcounter{title}
+\newcommand*{\appendixtitle}[2][]{\stepcounter{PFUtitle}
   \label{starttitle}
   \gdef\shortappendixtitle{#1}\gdef\@appendixtitle{#2}}
-\newcommand*{\altappendixtitle}[2][]{\stepcounter{title}
+\newcommand*{\altappendixtitle}[2][]{\stepcounter{PFUtitle}
   \label{starttitle}
   \gdef\shortaltappendixtitle{#1}\gdef\@altappendixtitle{#2}}
 %%%
@@ -1689,8 +1692,9 @@
 %   \if@titlepage
 %     \newpage
 %   \else
-%%    \dimen@34\p@ \advance\dimen@-\baselineskip
-%%    \vskip\dimen@\relax
+    \dimen@34\p@ \advance\dimen@-\baselineskip
+    \vskip\dimen@\relax
+    \@sectionAfterTitletrue
 %   \fi
 } % end \@maketitle
 %%%-- \@makeappendixtitle
@@ -2171,7 +2175,7 @@
   {\itshape\subjclassname.}\enspace\@subjclass\@addpunct.}
 \def\@setkeywords{%
   \@keywordsize%
-  {\scshape \keywordsname:}\enspace \@keywords\@addpunct.%
+  {\DivFontShape \keywordsname:}\enspace \@keywords\@addpunct.%
 }%
 \def\@setthanks{\def\thanks##1{\par##1\@addpunct.}\thankses}
 %%%--
@@ -2543,19 +2547,22 @@
 %%
 %% Fonts
 %%
-\renewcommand{\sectionFontShape}{\scshape}
+
+%\providecommand{\DivFontShape}{\bfseries}
+
+%\renewcommand{\sectionFontShape}{\scshape}
 \renewcommand{\sectionFontSize}{\Large}
 \renewcommand{\sectionPosition}{\center}
-\renewcommand{\subsectionFontShape}{\scshape}
+%\renewcommand{\subsectionFontShape}{\scshape}
 \renewcommand{\subsectionFontSize}{\large}
 \renewcommand{\subsectionPosition}{\center}
-\renewcommand{\subsubsectionFontShape}{\scshape}
+%\renewcommand{\subsubsectionFontShape}{\scshape}
 \renewcommand{\subsubsectionFontSize}{\normalsize}
 \renewcommand{\subsubsectionPosition}{\center}
 %%
-\renewcommand{\paragraphFontShape}{\scshape}
+%\renewcommand{\paragraphFontShape}{\scshape}
 \renewcommand{\paragraphFontSize}{\normalsize}
-\renewcommand{\subparagraphFontShape}{\scshape}
+%\renewcommand{\subparagraphFontShape}{\scshape}
 \renewcommand{\subparagraphFontSize}{\normalsize}
 
 
@@ -2566,8 +2573,32 @@
 \renewcommand\theparagraph     {\thesubsubsection.\arabic{paragraph}}
 % \setcounter{secnumdepth}{3}
 \setcounter{secnumdepth}{3}
-\@addtoreset{equation}{title}
+\@addtoreset{equation}{PFUtitle}
 \def\partname{Part}
+
+\providecommand{\chapaftersnum}{.}
+\providecommand{\secaftersnum}{.}
+
+% \RequirePackage{titlesec}
+
+\titleformat{\chapter}[block]%
+    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\ifx\chaptertitlename\@empty\else\chaptertitlename\ \fi\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
+\titleformat{\section}[block]%
+    {\sectionPosition\normalfont\sectionFontSize\sectionFontShape}{\thesection\secaftersnum}{1em}{}
+\titleformat{\subsection}[block]%
+    {\subsectionPosition\normalfont\subsectionFontSize\subsectionFontShape}{\thesubsection\secaftersnum}{1em}{}
+\titleformat{\subsubsection}[block]%
+    {\subsubsectionPosition\normalfont\subsubsectionFontSize\subsubsectionFontShape}{\thesubsubsection\secaftersnum}{1em}{}
+\titleformat{\paragraph}[runin]%
+    {\normalfont\paragraphFontSize\paragraphFontShape}{\theparagraph\secaftersnum}{1em}{}
+\titleformat{\subparagraph}[runin]%
+    {\normalfont\subparagraphFontSize\subparagraphFontShape}{\thesubparagraph\secaftersnum}{1em}{}
+
+\titlespacing{\chapter}{\z@}{\z@}{10\p@}
+\titlespacing{\section}{\z@}{\if@sectionAfterTitle \z@ \@sectionAfterTitlefalse \else -3.5ex \@plus -1ex \@minus -.2ex \fi}{2.3ex \@plus.2ex}
+%\titlespacing{\section}{0\p@}{0\p@}{10\p@}
+% \if@sectionAfterTitle
+
 %%%--
 % \newcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
 %                     \thispagestyle{plain}%
@@ -2640,17 +2671,17 @@
     \interlinepenalty\@M
     \begin{center}
       \vskip 10\p@ \@plus -1ex \@minus -.2ex
-      {\huge \scshape #2\par}
+      {\huge \DivFontShape #2\par}
     \end{center}
     \par\nobreak
     \vskip 10\p@\@plus -1ex \@minus -.2ex%
   }
   \addtocontents{tac}%
-  {{\vspace{8dd}\protect\noindent\protect\protect\scshape{#1}%
+  {{\vspace{8dd}\protect\noindent\protect\protect\DivFontShape{#1}%
      \@par	
       \vspace{4dd}}} 
   \addtocontents{toc}%
-  {{\vspace{8dd}\protect\noindent\protect\protect\scshape{#2}%
+  {{\vspace{8dd}\protect\noindent\protect\protect\DivFontShape{#2}%
       \@par
       \vspace{4dd}}}
 }
@@ -2903,7 +2934,7 @@
 \let\tocsubsection\tocsection
 \def\l@subsubsection{\@tocline{3}{0pt}{1pc}{7pc}{}}
 \let\tocsubsubsection\tocsection
-\def\l@part{\@tocline{-1}{12pt plus2pt}{0pt}{}{\bfseries}}
+\def\l@part{\@tocline{-1}{12pt plus2pt}{0pt}{}{\DivFontShape}}
 %\let\tocpart\tocsection
 % \def\l@chapter{\@tocline{0}{8pt plus1pt}{0pt}{}{}}
 \def\l@chapter{\@dottedtocline{0}{0pt}{8pt}}
@@ -3146,9 +3177,9 @@
 % \newcommand{\fps@figure}{tbp}
 % \newcommand{\fps@table}{tbp}
 % \newcounter{figure}[title]
-\def\@captionheadfont{\bfseries\scshape}
-% \def\@captionfont{\normalfont}
-\def\@captionfont{\scshape}
+\def\@captionheadfont{\DivFontShape}
+\def\@captionfont{\normalfont}
+% \def\@captionfont{\DivFontShape}
 \def\ftype@figure{1}
 \def\ext@figure{lof}
 \def\fnum@figure{\figurename\ \thefigure}

@@ -897,6 +897,10 @@
 \providecommand{\DivFontSize}{}
 \providecommand{\DivPosition}{}
 %%
+\providecommand{\partFontShape}{\DivFontShape}
+\providecommand{\partFontSize}{\huge}
+\providecommand{\partPosition}{}
+%%
 \providecommand{\chapterFontShape}{\DivFontShape}
 \providecommand{\chapterFontSize}{\LARGE}
 \providecommand{\chapterPosition}{}
