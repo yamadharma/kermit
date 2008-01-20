@@ -529,6 +529,7 @@
   \addto\extrasrussian%
   {
     \def\PFUudcname{\CYRU\CYRD\CYRK}
+    \def\PFUpacsname{PACS}
     \def\etal{\cyri{} \cyrd\cyrr.}
 %%    \renewcommand{\etal}{\cyri{} \cyrd\cyrr.}
     \renewcommand{\keywordsname}{Ключевые слова}
@@ -536,6 +537,7 @@
   \addto\extrasenglish%
   {
     \def\PFUudcname{UDC}
+    \def\PFUpacsname{PACS}
      \def\etal{et al.}
 %%    \renewcommand{\etal}{et al.}
 %%     \providecommand{\etal}{et al.}
@@ -1295,9 +1297,12 @@
 %}
 \DeclareRobustCommand{\udc}[1]{%
   \def\@udcnum{#1}}
+\let\@udcnum\@empty
+\DeclareRobustCommand{\pacs}[1]{%
+  \def\@pacsnum{#1}}
+\let\@pacsnum\@empty  
 % \def\udc#1{\gdef\@udcnum{#1}}
 % \newcommand{\udc}[1]{\gdef\@udcnum{#1}}
-% \def\udc\@empty
 %%%--
 % \def\udc#1{\CYRU\CYRD\CYRK{} \def\@udc{#1} \hfill\par}
 % \def\@udc{\CYRU\CYRD\CYRK{} \@udcnum \hfill\par}
@@ -1654,6 +1659,7 @@
 %   \bigskip
 %   \vspace{2\bigskipamount}
   \ifx\@empty\@udcnum \else \noindent \PFUudcname{} \@udcnum \hfill\par \fi
+  \ifx\@empty\@pacsnum \else \noindent \PFUpacsname{} \@pacsnum \hfill\par \fi  
 %   \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
   \@settitle
   \bigskip
@@ -1945,6 +1951,7 @@
 \let\addresses\@empty%
 %%%--
   \let\@udcnum\@empty
+  \let\@pacsnum\@empty  
 %%%
   \if@filesw
     \immediate\closeout\PFU@aux\relax
@@ -1982,6 +1989,7 @@
   \let\thankses\@empty
   \let\addresses\@empty%
   \let\@udcnum\@empty
+  \let\@pacsnum\@empty  
   \if@filesw
     \immediate\closeout\PFU@aux\relax
   \fi
@@ -2007,6 +2015,7 @@
 %   \bigskip\nobreak%
 %   \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
   \ifx\@empty\@udcnum \else \noindent \PFUudcname{} \@udcnum \hfill\par \fi%
+  \ifx\@empty\@pacsnum \else \noindent \PFUpacsname{} \@pacsnum \hfill\par \fi%  
 %  \ifx\@empty\@udcnum \else \noindent\@udcnum \hfill\par \fi
   \nobreak%
   \@setalttitle%
