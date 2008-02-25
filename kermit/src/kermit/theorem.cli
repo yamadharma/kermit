@@ -81,8 +81,8 @@
 {
   \theoremstyle{plain}
   % FIXME: dirty hack    
-  \theorembodyfont{\normalfont}  
-  \def\StatementName{Утверждение}
+  \theorembodyfont{\normalfont}
+  \def\StatementName{Statement}
   \newtheorem{Statement}{\StatementName}
   % FIXME: dirty hack    
   \renewtheorem*{Statement*}{\StatementName}
@@ -92,7 +92,7 @@
   \theoremstyle{definition}
   % FIXME: dirty hack      
   \theorembodyfont{\normalfont}
-  \def\ExampleName{Пример}
+  \def\ExampleName{Example}
   \newtheorem{Example}{\ExampleName}
   % FIXME: dirty hack    
   \renewtheorem*{Example*}{\ExampleName}
@@ -119,15 +119,15 @@
 {%
   \addto\extrasrussian%
   {
-    \def\TheoremName{Теорема}
-    \def\LemmaName{Лемма}
-    \def\ConsName{Следствие}
-    \def\RemarkName{Замечание}
-    \def\DefName{Определение}
-    \def\PropositionName{Предложение}
-    \def\StatementName{Утверждение}
-    \def\ExampleName{Пример}
-    \def\ProofName{Доказательство}
+    \def\TheoremName{{\CYRT}{\cyre}{\cyro}{\cyrr}{\cyre}{\cyrm}{\cyra}}
+    \def\LemmaName{{\CYRL}{\cyre}{\cyrm}{\cyrm}{\cyra}}
+    \def\ConsName{{\CYRS}{\cyrl}{\cyre}{\cyrd}{\cyrs}{\cyrt}{\cyrv}{\cyri}{\cyre}}
+    \def\RemarkName{{\CYRZ}{\cyra}{\cyrm}{\cyre}{\cyrch}{\cyra}{\cyrn}{\cyri}{\cyre}}
+    \def\DefName{{\CYRO}{\cyrp}{\cyrr}{\cyre}{\cyrd}{\cyre}{\cyrl}{\cyre}{\cyrn}{\cyri}{\cyre}}
+    \def\PropositionName{{\CYRP}{\cyrr}{\cyre}{\cyrd}{\cyrl}{\cyro}{\cyrzh}{\cyre}{\cyrn}{\cyri}{\cyre}}
+    \def\StatementName{{\CYRU}{\cyrt}{\cyrv}{\cyre}{\cyrr}{\cyrzh}{\cyrd}{\cyre}{\cyrn}{\cyri}{\cyre}}
+    \def\ExampleName{{\CYRP}{\cyrr}{\cyri}{\cyrm}{\cyre}{\cyrr}}
+    \def\ProofName{{\CYRD}{\cyro}{\cyrk}{\cyra}{\cyrz}{\cyra}{\cyrt}{\cyre}{\cyrl}{\cyrsftsn}{\cyrs}{\cyrt}{\cyrv}{\cyro}}
   }
 %%
 %%
@@ -197,5 +197,5 @@
 
 %%% Local Variables: 
 %%% mode: latex
-%%% coding: cp1251-unix
+%%% coding: utf-8-unix
 %%% End: 

@@ -1,5 +1,5 @@
 \ProvidesFile{russian.bdf}%
-    [2004/06/14  v0.0.0.1]
+    [2008/02/25  v0.0.0.2]
 
 \AtBeginDocument%
 {%
@@ -9,20 +9,20 @@
     % FUNCTION {bbl.and}
     \def\bbland{}
     % FUNCTION {bbl.etal}
-    \def\bbletal{\cyr\cyri~\cyrd\cyrr}                  %% и др.
+    \def\bbletal{\cyr\cyri~\cyrd\cyrr}                  %% Рё РґСЂ.
     % FUNCTION {bbl.editors}
     % { "\bbleditors{}" }
     % FUNCTION {bbl.editor}
-    %\def\bbleditor{под ред.}
+    %\def\bbleditor{{\cyrp}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
     % FUNCTION {bbl.edby}
-    \def\bbledby{под ред.}
-    \def\bbled{под ред.}
-    \def\bbleds{Под ред.}
+    \def\bbledby{{\cyrp}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
+    \def\bbled{{\cyrp}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
+    \def\bbleds{{\CYRP}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
     % FUNCTION {bbl.edition}
-    \def\bbledn{\cyri\cyrz\cyrd\cyra\cyrn\cyri\cyre}    %% издание
-    \def\bblvol{\CYRT.}                                 %% Т.
-    \def\bblissue{\cyrv\cyrery\cyrp.}                   %% вып.
-    \def\bblissuefirst{\CYRV\cyrery\cyrp.}              %% Вып.
+    \def\bbledn{\cyri\cyrz\cyrd\cyra\cyrn\cyri\cyre}    %% РёР·РґР°РЅРёРµ
+    \def\bblvol{\CYRT.}                                 %% Рў.
+    \def\bblissue{\cyrv\cyrery\cyrp.}                   %% РІС‹Рї.
+    \def\bblissuefirst{\CYRV\cyrery\cyrp.}              %% Р’С‹Рї.
     % FUNCTION {bbl.of}
     \def\bblof{\cyr\cyri\cyrz}
     % FUNCTION {bbl.number}
@@ -33,9 +33,9 @@
     % FUNCTION {bbl.in}
     % { "\bblin{}" }
     % FUNCTION {bbl.pages}
-    \def\bblpp{\CYRS.}  %% С.
+    \def\bblpp{\CYRS.}  %% {\CYRS}.
     % FUNCTION {bbl.page}
-    \def\bblp{\CYRS.}   %% с.
+    \def\bblp{\CYRS.}   %% {\cyrs}.
     %FUNCTION {bbl.numpages}
     \def\bblnump{\cyrs}
     % FUNCTION {bbl.chapter}
@@ -50,7 +50,7 @@
     \def\bblcompiler{\cyr\CYRS\cyro\cyrs\cyrt.}
     % MACRO {jan} {"\bbljan{}"}
     % MACRO {feb} 
-    \def\bblfeb{Февраль}
+    \def\bblfeb{{\CYRF}{\cyre}{\cyrv}{\cyrr}{\cyra}{\cyrl}{\cyrsftsn}}
     % MACRO {mar} {"\bblmar{}"}
     % MACRO {apr} {"\bblapr{}"}
     % MACRO {may} {"\bblmay{}"}
@@ -68,5 +68,5 @@
 
 %%% Local Variables: 
 %%% mode: latex
-%%% coding: cp1251-unix
+%%% coding: utf-8-unix
 %%% End: 
