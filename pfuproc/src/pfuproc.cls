@@ -548,7 +548,7 @@
   {
     \def\PFUudcName{UDC}
     \def\PFUpacsName{PACS}
-    \def\PFUreceivedname{Received }%
+    \def\PFUreceivedName{Received }%
     \def\PFUrevisedname{Revised }%
     \def\PFUacceptedname{Accepted }%
     \def\PFUpublishedname{Published }%
