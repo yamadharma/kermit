@@ -27,7 +27,7 @@
 \RequirePackage{titlesec}
 
 \titleformat{\chapter}[block]%
-    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\ifx\chaptertitlename\@empty\else\chaptertitlename\ \fi\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
+    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\ifx\chaptertitlename\@empty\else\chaptertitlename\space\fi\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
 \titleformat{\section}[block]%
     {\normalfont\sectionFontSize\sectionFontShape}{\thesection\secaftersnum}{1em}{}
 \titleformat{\subsection}[block]%
@@ -45,7 +45,7 @@
 \RequirePackage{titletoc}
 
 \titlecontents{chapter}[0pt]%                                                                                                                                  
-{\vspace{1ex minus .1ex}}%
+{\vspace{1ex minus .1ex}\chapterFontShape}%
 {\thecontentslabel.\quad}%
 {}%                                                                                                                                                          
 {\titlerule*[1pc]{.}\contentspage}                                                                                                                             
