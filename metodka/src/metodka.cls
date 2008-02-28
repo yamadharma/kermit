@@ -24,10 +24,18 @@
 \providecommand{\chapaftersnum}{.}
 \providecommand{\secaftersnum}{.}
 
+\AtBeginDocument{%
+\addto\captionsrussian{%
+    \def\chaptername{}%
+}
+}
+
 \RequirePackage{titlesec}
 
+%\titleformat{\chapter}[block]%
+%    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\ifx\chaptertitlename\@empty\else\chaptertitlename\space\fi\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
 \titleformat{\chapter}[block]%
-    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\ifx\chaptertitlename\@empty\else\chaptertitlename\space\fi\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
+    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
 \titleformat{\section}[block]%
     {\normalfont\sectionFontSize\sectionFontShape}{\thesection\secaftersnum}{1em}{}
 \titleformat{\subsection}[block]%
@@ -46,8 +54,8 @@
 
 \titlecontents{chapter}[0pt]%                                                                                                                                  
 {\vspace{1ex minus .1ex}\chapterFontShape}%
-{\thecontentslabel.\quad}%
-{}%                                                                                                                                                          
+{\chaptertitlename\space\thecontentslabel.\quad}%
+{}%                                                                                                                                                        
 {\titlerule*[1pc]{.}\contentspage}                                                                                                                             
 
 \titlecontents{section}[1pc]%                                                                                                                                  
