@@ -24,10 +24,13 @@
 \providecommand{\chapaftersnum}{.}
 \providecommand{\secaftersnum}{.}
 
+
+\renewcommand\appendixnum{\@Asbuk\c@chapter}
+
 \AtBeginDocument{%
-\addto\captionsrussian{%
-    \def\chaptername{}%
-}
+    \addto\captionsrussian{%
+	\def\chaptername{}%
+    }
 }
 
 \RequirePackage{titlesec}
