@@ -1,0 +1,216 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2007.12.4)  29 FEB 2008 10:38
+entering extended mode
+ %&-line parsing enabled.
+**euenc.ins
+(./euenc.ins
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, bulgarian, greek, monogreek, ancientgreek, ibycus, russian, ukraini
+an, loaded.
+(/usr/share/texmf-dist/tex/latex/base/docstrip.tex
+\blockLevel=\count79
+\emptyLines=\count80
+\processedLines=\count81
+\commentsRemoved=\count82
+\commentsPassed=\count83
+\codeLinesPassed=\count84
+\TotalprocessedLines=\count85
+\TotalcommentsRemoved=\count86
+\TotalcommentsPassed=\count87
+\TotalcodeLinesPassed=\count88
+\NumberOfFiles=\count89
+\inFile=\read1
+\inputcheck=\read2
+\off@0=\count90
+\off@1=\count91
+\off@2=\count92
+\off@3=\count93
+\off@4=\count94
+\off@5=\count95
+\off@6=\count96
+\off@7=\count97
+\off@8=\count98
+\off@9=\count99
+\off@10=\count100
+\off@11=\count101
+\off@12=\count102
+\off@13=\count103
+\off@14=\count104
+\off@15=\count105
+\@maxfiles=\count106
+\@maxoutfiles=\count107
+
+Utility: `docstrip' 2.5d <2005/07/29>
+English documentation    <1999/03/31>
+
+**********************************************************
+* This program converts documented macro-files into fast *
+* loadable files by stripping off (nearly) all comments! *
+**********************************************************
+
+********************************************************
+* No Configuration file found, using default settings. *
+********************************************************
+
+)
+
+Generating file(s) ./euenc.ins 
+\openout0 = `./euenc.ins'.
+
+
+Processing file euenc.dtx (batchfile) -> euenc.ins
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./euenc-style.sty 
+\openout0 = `./euenc-style.sty'.
+
+
+Processing file euenc.dtx (dtx-style) -> euenc-style.sty
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./eu1enc.def 
+\openout0 = `./eu1enc.def'.
+
+
+Processing file euenc.dtx (eu1) -> eu1enc.def
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./test-eu1lm.ltx 
+\openout0 = `./test-eu1lm.ltx'.
+
+
+Processing file euenc.dtx (lmtest) -> test-eu1lm.ltx
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./README.txt 
+\openout0 = `./README.txt'.
+
+
+Processing file euenc.dtx (readme) -> README.txt
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./convert-lmfd.sh 
+\openout0 = `./convert-lmfd.sh'.
+
+
+Processing file euenc.dtx (lmscript) -> convert-lmfd.sh
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./sed-eu1lmr.sed 
+\openout0 = `./sed-eu1lmr.sed'.
+
+
+Processing file euenc.dtx (sedlmr) -> sed-eu1lmr.sed
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./sed-eu1lmdh.sed 
+\openout0 = `./sed-eu1lmdh.sed'.
+
+
+Processing file euenc.dtx (sedlmdh) -> sed-eu1lmdh.sed
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./sed-eu1lmss.sed 
+\openout0 = `./sed-eu1lmss.sed'.
+
+
+Processing file euenc.dtx (sedlmss) -> sed-eu1lmss.sed
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./sed-eu1lmssq.sed 
+\openout0 = `./sed-eu1lmssq.sed'.
+
+
+Processing file euenc.dtx (sedlmssq) -> sed-eu1lmssq.sed
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./sed-eu1lmtt.sed 
+\openout0 = `./sed-eu1lmtt.sed'.
+
+
+Processing file euenc.dtx (sedlmtt) -> sed-eu1lmtt.sed
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+
+Generating file(s) ./sed-eu1lmvtt.sed 
+\openout0 = `./sed-eu1lmvtt.sed'.
+
+
+Processing file euenc.dtx (sedlmvtt) -> sed-eu1lmvtt.sed
+File euenc.dtx ended by \endinput.
+Lines  processed: 621
+Comments removed: 215
+Comments  passed: 3
+Codelines passed: 370
+
+Overall statistics:
+Files  processed: 12
+Lines  processed: 7452
+Comments removed: 2580
+Comments  passed: 36
+Codelines passed: 4440
+ ) 
+Here is how much of TeX's memory you used:
+ 418 strings out of 49762
+ 4548 string characters out of 428217
+ 52221 words of memory out of 1100000
+ 3688 multiletter control sequences out of 10000+15000
+ 3640 words of font info for 14 fonts, out of 400000 for 2000
+ 257 hyphenation exceptions out of 8191
+ 11i,0n,15p,209b,146s stack positions out of 1500i,500n,1500p,200000b,5000s
+
+No pages of output.

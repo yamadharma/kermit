@@ -3,25 +3,25 @@
 \ProvidesPackage{xecyr}%
         [2008/02/17 v0.7 Cyrillic definitions for XeLaTeX]
 
-\newif\if@EXT
-\DeclareOption{ext}{\@EXTtrue}
-\DeclareOption{noext}{\@EXTfalse}
-\newif\if@MIS
-\DeclareOption{mis}{\@MIStrue}
-\DeclareOption{nomis}{\@MISfalse}
+%\newif\if@EXT
+%\DeclareOption{ext}{\@EXTtrue}
+%\DeclareOption{noext}{\@EXTfalse}
+%\newif\if@MIS
+%\DeclareOption{mis}{\@MIStrue}
+%\DeclareOption{nomis}{\@MISfalse}
 
-\ExecuteOptions{ext,nomis}
-\ProcessOptions
+%\ExecuteOptions{ext,nomis}
+%\ProcessOptions
 
-\if@MIS
-	\RequirePackage{misccorr}
-	\XeTeXinputencoding "KOI8-R"
-\fi
+%\if@MIS
+%	\RequirePackage{misccorr}
+%	\XeTeXinputencoding "KOI8-R"
+%\fi
 
-\if@EXT
-	\PassOptionsToPackage{cm-default}{fontspec}
-	\RequirePackage{xltxtra}
-\fi
+%\if@EXT
+%	\PassOptionsToPackage{cm-default}{fontspec}
+%	\RequirePackage{xltxtra}
+%\fi
 
 \RequirePackage{xunicode}
 

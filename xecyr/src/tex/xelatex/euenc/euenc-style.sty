@@ -1,0 +1,130 @@
+%%
+%% This is file `euenc-style.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% euenc.dtx  (with options: `dtx-style')
+%% 
+%%   ________________________________
+%%   Copyright © 2006  Will Robertson
+%% 
+%%   License information appended.
+%% 
+\ProvidesPackage{euenc-style}
+
+\def\@dotsep{1000}
+\setcounter{tocdepth}{2}
+\setlength\columnseprule{0.4pt}
+\renewcommand\tableofcontents{\relax
+  \begin{multicols}{2}[\section*{\contentsname}]\relax
+    \@starttoc{toc}\relax
+  \end{multicols}}
+
+\setcounter{IndexColumns}{2}
+\renewenvironment{theglossary}
+  {\small\list{}{}
+     \item\relax
+     \glossary@prologue\GlossaryParms
+     \let\item\@idxitem \ignorespaces
+     \def\pfill{\hspace*{\fill}}}
+  {\endlist}
+
+\usepackage{booktabs,calc,color,fancyvrb,graphicx,ifthen,refstyle,url,varioref}
+\usepackage{fontspec,xltxtra}
+
+\definecolor{niceblue}{rgb}{0.4,0.6,1.000}
+\newenvironment{example}
+  {\hrulefill\par\VerbatimEnvironment
+   \begin{VerbatimOut}[gobble=4]{\examplefilename}}
+  {\end{VerbatimOut}\relax
+   \begingroup
+     \color{niceblue}
+     \typesetexample
+   \endgroup\par\hrulefill}
+
+\let\examplesize\normalsize
+\let\auxwidth\relax
+
+\newlength\examplewidth\newlength\verbatimwidth
+\newlength\exoutdent   \newlength\exverbgap
+\setlength\exverbgap{1em}
+\setlength\exoutdent{-0.15\textwidth}
+\newsavebox\verbatimbox
+\edef\examplefilename{\jobname.example}
+
+\newcommand\typesetexample{\relax
+   \begin{lrbox}{\verbatimbox}\relax
+     \BVerbatimInput[fontsize=\small]{\examplefilename}\relax
+   \end{lrbox}
+   \begin{list}{}{\setlength\itemindent{0pt}
+                  \setlength\leftmargin\exoutdent
+                  \setlength\rightmargin{0pt}}\item
+   \ifx\auxwidth\relax
+     \setlength\verbatimwidth{\wd\verbatimbox}\relax
+   \else
+     \setlength\verbatimwidth{\auxwidth}\relax
+   \fi
+   \begin{minipage}[c]{\textwidth-\exoutdent-\verbatimwidth-\exverbgap}
+     \catcode`\%=14\centering\examplesize\input\examplefilename\relax
+   \end{minipage}\hfill
+   \begin{minipage}[c]{\verbatimwidth}
+     \usebox\verbatimbox
+   \end{minipage}
+   \end{list}
+   \global\let\examplesize\normalsize}
+
+\newcommand*\setexsize[1]{\let\examplesize#1}
+\newcommand*\setverbwidth[1]{\def\auxwidth{#1}}
+
+\newcommand*\name[1]{{#1}}
+\newcommand*\pkg[1]{\textsf{#1}}
+\newcommand*\enc[1]{\texttt{#1}}
+
+\let\latin\textit
+\def\eg{\latin{e.g.}}
+\def\ie{\latin{i.e.}}
+\def\etc{\@ifnextchar.{\latin{etc}}{\latin{etc.}\@}}
+
+%% LOGOS, tuned for Palatino:
+\TeX@logo@spacing{-0.12em}{-0.12em}%
+  {0.5ex}{-0.3em}{-0.12em}{-0.1em}
+
+\def\MacOSX{Mac~OS~X}
+
+%% fontspec declarations:
+\setromanfont[Mapping=tex-text]{FPL Neu}
+\defaultfontfeatures{Scale=MatchLowercase}
+\setsansfont[Weight=1.2, Width=1.1,
+             Mapping=tex-text,
+             BoldFont={Skia},
+             BoldFeatures={Weight=1.7}]{Skia}
+\setmonofont{Osaka-Mono}
+\defaultfontfeatures{Mapping=tex-text}
+
+\DeclareRobustCommand\ExTeX{\textrm{\relax
+ \ensuremath{\textstyle\varepsilon_{\kern-0.15em\mathcal{X}}}\relax
+ \kern-.15em\TeX}}
+
+\def\EU#1{\enc{EU#1}}
+\def\EUx{\enc{EU$x$}}
+
+%% (La)TeX font-related declarations:
+\linespread{1.05}      % FPL Neu needs more space between lines
+\frenchspacing         % Remove ugly extra space after punctuation
+
+\def\MacOSX{Mac~OS~X}
+%% 
+%% Copyright © 2006 by Will Robertson <wspr81@gmail.com>
+%% 
+%% Distributable under the LaTeX Project Public License,
+%% version 1.3c or higher (your choice). The latest version of
+%% this license is at: http://www.latex-project.org/lppl.txt
+%% 
+%% This work is "maintained" (as per LPPL maintenance status)
+%% by Will Robertson.
+%% 
+%% This work consists of the file  euenc.dtx and various derived files.
+%% 
+%%
+%% End of file `euenc-style.sty'.

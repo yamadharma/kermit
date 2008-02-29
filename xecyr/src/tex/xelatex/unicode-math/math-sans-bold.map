@@ -1,0 +1,69 @@
+LHSName "ascii"
+RHSName "unicode-maths-sans-bold"
+
+pass(Unicode)
+
+latin_small_letter_a <> mathematical_sans_serif_bold_small_a
+latin_small_letter_b <> mathematical_sans_serif_bold_small_b
+latin_small_letter_c <> mathematical_sans_serif_bold_small_c
+latin_small_letter_d <> mathematical_sans_serif_bold_small_d
+latin_small_letter_e <> mathematical_sans_serif_bold_small_e
+latin_small_letter_f <> mathematical_sans_serif_bold_small_f
+latin_small_letter_g <> mathematical_sans_serif_bold_small_g
+latin_small_letter_h <> mathematical_sans_serif_bold_small_h
+latin_small_letter_i <> mathematical_sans_serif_bold_small_i
+latin_small_letter_j <> mathematical_sans_serif_bold_small_j
+latin_small_letter_k <> mathematical_sans_serif_bold_small_k
+latin_small_letter_l <> mathematical_sans_serif_bold_small_l
+latin_small_letter_m <> mathematical_sans_serif_bold_small_m
+latin_small_letter_n <> mathematical_sans_serif_bold_small_n
+latin_small_letter_o <> mathematical_sans_serif_bold_small_o
+latin_small_letter_p <> mathematical_sans_serif_bold_small_p
+latin_small_letter_q <> mathematical_sans_serif_bold_small_q
+latin_small_letter_r <> mathematical_sans_serif_bold_small_r
+latin_small_letter_s <> mathematical_sans_serif_bold_small_s
+latin_small_letter_t <> mathematical_sans_serif_bold_small_t
+latin_small_letter_u <> mathematical_sans_serif_bold_small_u
+latin_small_letter_v <> mathematical_sans_serif_bold_small_v
+latin_small_letter_w <> mathematical_sans_serif_bold_small_w
+latin_small_letter_x <> mathematical_sans_serif_bold_small_x
+latin_small_letter_y <> mathematical_sans_serif_bold_small_y
+latin_small_letter_z <> mathematical_sans_serif_bold_small_z
+
+latin_capital_letter_a <> mathematical_sans_serif_bold_capital_a
+latin_capital_letter_b <> mathematical_sans_serif_bold_capital_b
+latin_capital_letter_c <> mathematical_sans_serif_bold_capital_c
+latin_capital_letter_d <> mathematical_sans_serif_bold_capital_d
+latin_capital_letter_e <> mathematical_sans_serif_bold_capital_e
+latin_capital_letter_f <> mathematical_sans_serif_bold_capital_f
+latin_capital_letter_g <> mathematical_sans_serif_bold_capital_g
+latin_capital_letter_h <> mathematical_sans_serif_bold_capital_h
+latin_capital_letter_i <> mathematical_sans_serif_bold_capital_i
+latin_capital_letter_j <> mathematical_sans_serif_bold_capital_j
+latin_capital_letter_k <> mathematical_sans_serif_bold_capital_k
+latin_capital_letter_l <> mathematical_sans_serif_bold_capital_l
+latin_capital_letter_m <> mathematical_sans_serif_bold_capital_m
+latin_capital_letter_n <> mathematical_sans_serif_bold_capital_n
+latin_capital_letter_o <> mathematical_sans_serif_bold_capital_o
+latin_capital_letter_p <> mathematical_sans_serif_bold_capital_p
+latin_capital_letter_q <> mathematical_sans_serif_bold_capital_q
+latin_capital_letter_r <> mathematical_sans_serif_bold_capital_r
+latin_capital_letter_s <> mathematical_sans_serif_bold_capital_s
+latin_capital_letter_t <> mathematical_sans_serif_bold_capital_t
+latin_capital_letter_u <> mathematical_sans_serif_bold_capital_u
+latin_capital_letter_v <> mathematical_sans_serif_bold_capital_v
+latin_capital_letter_w <> mathematical_sans_serif_bold_capital_w
+latin_capital_letter_x <> mathematical_sans_serif_bold_capital_x
+latin_capital_letter_y <> mathematical_sans_serif_bold_capital_y
+latin_capital_letter_z <> mathematical_sans_serif_bold_capital_z
+
+digit_one <> mathematical_sans_serif_bold_digit_one
+digit_two <> mathematical_sans_serif_bold_digit_two
+digit_three <> mathematical_sans_serif_bold_digit_three
+digit_four <> mathematical_sans_serif_bold_digit_four
+digit_five <> mathematical_sans_serif_bold_digit_five
+digit_six <> mathematical_sans_serif_bold_digit_six
+digit_seven <> mathematical_sans_serif_bold_digit_seven
+digit_eight <> mathematical_sans_serif_bold_digit_eight
+digit_nine <> mathematical_sans_serif_bold_digit_nine
+digit_zero <> mathematical_sans_serif_bold_digit_zero
