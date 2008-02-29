@@ -24,7 +24,7 @@
 \providecommand{\chapaftersnum}{.}
 \providecommand{\secaftersnum}{.}
 
-# FIXME Должно зависить от языка
+% FIXME Должно зависить от языка
 \renewcommand\appendixnum{\@Asbuk\c@chapter}
 
 \AtBeginDocument{%
