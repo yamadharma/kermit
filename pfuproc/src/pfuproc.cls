@@ -3262,11 +3262,11 @@
 
 \captionsetup[figure]{labelsep=period,position=bottom}
 
-\captionsetup[table]{format=tableRight,labelsep=none,position=top}
+\captionsetup[table]{format=tableRight,labelsep=none,position=top,textfont=bf}
 
 %\newcommand{\captionLabelFontShape}{\scshape}
 %\newcommand{\captionLabelFontSize}{\footnotesize}
-%\newcommand{\captionFontShape}{\scshape}
+%\newcommand{\captionFontShape}{\bfseries}
 %\newcommand{\captionFontSize}{\footnotesize}
 %\newcommand{\captionPosition}{\center}
 
