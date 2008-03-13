@@ -2730,11 +2730,11 @@
     \vskip 10\p@\@plus -1ex \@minus -.2ex%
   }
   \addtocontents{tac}%
-  {{\vspace{8dd}\protect\noindent\protect\protect\DivFontShape{#1}%
+  {{\vspace{8dd}\protect\noindent\protect\protect\Large\DivFontShape{#1}%
      \@par      
       \vspace{4dd}}} 
   \addtocontents{toc}%
-  {{\vspace{8dd}\protect\noindent\protect\protect\DivFontShape{#2}%
+  {{\vspace{8dd}\protect\noindent\protect\protect\Large\DivFontShape{#2}%
       \@par
       \vspace{4dd}}}
 }
