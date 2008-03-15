@@ -1,0 +1,132 @@
+\ProvidesFile{gloss-bulgarian.ldf}[polyglossia: module for bulgarian]
+\makeatletter
+
+\ifx\l@bulgarian\@undefined%
+   \xpg@nopatterns{Bulgarian}%
+   \adddialect\l@bulgarian0%
+\fi
+
+\def\bulgarian@enumeration{%
+  \def\@Alph@bulg#1{%
+   \ifcase#1\or
+   А\or Б\or В\or Г\or Д\or Е\or Ж\or
+   З\or И\or К\or Л\or М\or Н\or О\or
+   П\or Р\or С\or Т\or У\or Ф\or Х\or
+   Ц\or Ч\or Ш\or Ш\or Ю\or Я\else
+   \@ctrerr\fi}%FIXME
+  \def\@alph@bul#1{%
+   \ifcase#1\or
+   а\or б\or в\or г\or д\or е\or ж\or
+   з\or и\or к\or л\or м\or н\or о\or
+   п\or р\or с\or т\or у\or ф\or х\or
+   ц\or ч\or ш\or щ\or ю\or я\else
+   \@ctrerr\fi}%
+   \let\@Alph@eng\@Alph \let\@alph@eng\@alph 
+   \let\@Alph\@Alph@bul \let\@alph\@alph@bul
+ }
+
+\def\nobulgarian@enumeration{%
+   \let\@Alph\@Alph@eng \let\@alph\@alph@eng
+}
+
+\def\captionsbulgarian{%
+   \def\refname{\textbulgarian{Литература}}%
+   \def\abstractname{\textbulgarian{Абстракт}}%
+   \def\bibname{\textbulgarian{Библиография}}%
+   \def\prefacename{\textbulgarian{Предговор}}%
+   \def\chaptername{\textbulgarian{Глава}}%
+   \def\appendixname{\textbulgarian{Приложение}}%
+   \def\contentsname{\textbulgarian{Съдържание}}%
+   \def\listfigurename{\textbulgarian{Списхrdsnк на фигурите}}%
+   \def\listtablename{\textbulgarian{Списхrdsnк на таблиците}}%
+   \def\indexname{\textbulgarian{Азбуцhен указател}}%
+   \def\figurename{\textbulgarian{Фигура}}%
+   \def\tablename{\textbulgarian{Таблица}}%
+   %\def\thepart{\textbulgarian{}}%
+   %\def\partname{\textbulgarian{}}%
+   \def\pagename{\textbulgarian{Стр.}}%
+   \def\seename{\textbulgarian{вж.}}%
+   \def\alsoname{\textbulgarian{вж.\ също и}}%
+   \def\enclname{\textbulgarian{Приложения}}%
+   \def\ccname{\textbulgarian{копия}}%
+   %\def\headtoname{\textbulgarian{}}%
+   \def\proofname{\textbulgarian{Proof}}% for AMS-\LaTeX
+   \def\glossaryname{\textbulgarian{Glossary}}%
+   \def\today{\textbulgarian{\number\day~\ifcase\month\or
+       януари\or
+       февруари\or
+       март\or
+       април\or
+       май\or
+       юни\or
+       юли\or
+       август\or
+       септември\or
+       октомври\or
+       ноември\or
+       декември\fi%
+       \number\year~г.}}%
+    \def\month@Roman{\expandafter\@Roman\month}%
+    \def\todayRoman{\number\day.\,\month@Roman.\,\number\year~г.}%
+    }
+
+\def\bulgarian@language{\protect\language=\l@bulgarian}
+
+\def\bulgarian@font{%
+\font\zf@basefont="\csname zf@family@fontdef\f@family\endcsname" at \f@size pt
+\@ifundefined{bulgarianfont}{%
+      \@ifundefined{cyrillicfont}{%
+        \zf@check@ot@script{cyrl}%
+	\if@tempswa%
+	  \addfontfeature{Script=Cyrillic}%
+	\else%
+	  \PackageError{polyglossia}{^^J
+	  The current font does not contain the Cyrillic script!^^J
+	  Please define \string\cyrillicfont\space or \string\bulgarianfont\space with \string\newfontfamily}%
+	\fi%
+	\zf@check@ot@lang{BGR}%
+	\if@tempswa\addfontfeature{Language=Bulgarian}\fi
+	}%
+      {\cyrillicfont%
+	\zf@check@ot@lang{BGR}%
+	\if@tempswa\addfontfeature{Language=Bulgarian}\fi%
+      }}% 
+{\bulgarianfont}}
+
+\def\noextras@bulgarian{%
+   \nonfrenchspacing%
+   }
+
+\def\blockextras@bulgarian{%
+   \bulgarian@language%
+   \bulgarian@font%
+   \local@hyphenmins{bulgarian}{2}{2}%
+   \frenchspacing%
+   \captionsbulgarian%
+   \local@marks{bulgarian}%
+   \@ifundefined{setLR}{}{\setLR}%
+   }
+
+\def\inlineextras@bulgarian{%
+   \bulgarian@language%
+   \bulgarian@font%
+   \local@hyphenmins{bulgarian}{2}{2}%
+   \frenchspacing%
+   }
+
+\endinput
+
+%% TODO?
+%% this is from Babel:
+\def\Romannumeral#1{\uppercase\expandafter{\romannumeral #1}}
+\def\todayRoman{\number\day.\Romannumeral{\month}.\number\year~г.}
+\def\sh{\mathop{\operator@font sh}\nolimits}
+\def\ch{\mathop{\operator@font ch}\nolimits}
+\def\tg{\mathop{\operator@font tg}\nolimits}
+\def\arctg{\mathop{\operator@font arctg}\nolimits}
+\def\arcctg{\mathop{\operator@font arcctg}\nolimits}
+\def\ctg{\mathop{\operator@font ctg}\nolimits}
+\def\cth{\mathop{\operator@font cth}\nolimits}
+\def\cosec{\mathop{\operator@font cosec}\nolimits}
+\DeclareRobustCommand{\No}{%
+    \ifmmode{\nfss@text{\textnumero}}\else\textnumero\fi}

@@ -1,0 +1,133 @@
+\ProvidesFile{gloss-farsi.ldf}[polyglossia: module for farsi]
+\RequirePackage{bidi}
+\makeatletter
+
+\ifx\l@farsi\@undefined
+  \xpg@nopatterns{Farsi}%
+  \adddialect\l@farsi0
+\fi
+
+\define@key{polyglossia}{farsilocale}[default]{%
+	\def\@farsi@locale{#1}}
+%TODO add option for months 
+
+\def\farsinumber#1{\ifnum\XeTeXcharglyph"06F0 > 0%
+{\addfontfeature{Mapping=farsidigits}\number#1}%
+\else%
+{\addfontfeature{Mapping=arabicdigits}\number#1}%
+\fi}
+
+\input{jalalical.def}
+
+\def\farsigregmonth#1{\ifcase#1%
+  \or ژانویه\or فوریه\or مارس\or آوریل\or مه\or ژوئن\or ژوئیه؛\or ژویه\or اوت\or سپتامبر\or اکتبر\or نوامبر\or دسامبر\fi}
+\def\farsimonth#1{\ifcase#1%
+  \or کانون ثانی\or شباط\or اذار%؛\or ادار
+    \or نیسان\or ایار\or حزیران\or تموز\or آب\or ایلول\or تشرین اول\or تشرین ثانی\or کانون اول\fi}
+
+\def\captionsfarsi{%
+%\def\prefacename{\@ensure@RL{مدخل}}% 
+%\def\refname{\@ensure@RL{مراجع}}
+%\def\abstractname{\@ensure@RL{ملخص}}%
+%\def\bibname{\@ensure@RL{مصادر}}%
+%\def\chaptername{\@ensure@RL{باب}}%
+%\def\appendixname{\@ensure@RL{ملاحق}}%
+\def\contentsname{\@ensure@RL{فهرست مطالب}}%
+\def\listfigurename{\@ensure@RL{لیست تصاویر}}%
+\def\listtablename{\@ensure@RL{لیست جداول}}%
+%\def\indexname{\@ensure@RL{فهرس}}%
+\def\figurename{\@ensure@RL{شكل}}%
+\def\tablename{\@ensure@RL{جدول}}%
+%\def\partname{\@ensure@RL{قسم}}%
+%\def\enclname{\@ensure@RL{مرفقات}}%<-- Needs translation
+%\def\ccname{\@ensure@RL{نسخة ل‬}}% <<
+%\def\headtoname{\@ensure@RL{إلى}}%<-- Needs translation
+%\def\pagename{\@ensure@RL{صفحة}}%
+%\def\seename{\@ensure@RL{راجع}}%\alefhamza\nun\za\ra
+%\def\alsoname{\@ensure@RL{راجع أيضاً}}%<<\alefhamza\nun\za\ra
+%\def\proofname{\@ensure@RL{برهان}}% for AMS-\LaTeX
+%\def\glossaryname{\@ensure@RL{قاموس}}%<<
+}
+\def\datefarsi{%
+   \def\today{\@ensure@RL{\farsinumber\day\space\farsigregmonth{\month}\space\farsinumber\year}}%
+}
+
+%TODO
+\def\farsi@numbers{%
+\renewcommand{\thepage}{\protect\farsinumber{\c@page}}%
+\renewcommand{\thesection}{\protect\farsi@font\protect\farsinumber{\c@section}}%
+\renewcommand{\thesubsection}{\protect\farsi@font\protect\@ensure@RL{\protect\farsinumber{\c@subsection}\textrm{–}\protect\farsinumber{\c@section}}}%
+\renewcommand{\thepart}{\protect\farsi@font\protect\farsinumber{\c@part}}%
+\renewcommand{\thefootnote}{\protect\farsi@font\protect\farsinumber{\c@footnote}}%
+\renewcommand{\thefigure}{\protect\farsi@font\protect\farsinumber{\c@figure}}%
+\renewcommand{\thetable}{\protect\farsi@font\protect\farsinumber{\c@table}}%
+}
+
+\input{abjad.def}
+
+\def\farsi@language{\language=\l@farsi}
+
+\def\farsi@font{%
+\font\zf@basefont="\csname zf@family@fontdef\f@family\endcsname" at \f@size pt
+\@ifundefined{farsifont}{%
+      \@ifundefined{arabicfont}{%
+        \zf@check@ot@script{arab}%
+	\if@tempswa%
+	  \addfontfeature{Script=Arabic}%
+	\else%
+	  \PackageError{polyglossia}{^^J
+	  The current font does not contain the Arabic script!^^J
+	  Please define \string\arabicfont\space or \string\farsifont\space with \newfontfamily}%
+	\fi%
+	\zf@check@ot@lang{FAR}%
+	\if@tempswa\addfontfeature{Language=Farsi}\fi
+	}%
+      {\arabicfont%
+       \zf@check@ot@lang{FAR}%
+       \if@tempswa\addfontfeature{Language=Farsi}\fi}
+      }% 
+{\farsifont}}
+
+
+\def\selectnormalfontfarsi{%
+   \let\normalfont=\farsi@font%
+   \def\reset@font{\normalfont}}
+
+\def\noextras@farsi{%
+   %\nofarsi@numbers%
+   }
+
+\def\blockextras@farsi{%
+   \farsi@language%
+   \farsi@font%
+   %\local@hyphenmins{farsi}{1}{1}%
+   \local@marks{farsi}%
+   \captionsfarsi%
+   \datefarsi%
+   %\farsi@numbers%
+   \setRL\setfootnoteRL%
+   \def\footnoterule{\RLfootnoterule}%
+   }{}
+
+\def\inlineextras@farsi{%
+   \farsi@language%
+   \farsi@font%
+   %\local@hyphenmins{farsi}{1}{1}%
+   }
+
+\endinput
+
+%TODO
+
+\newsavebox\@Arabitempboxa
+
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@Arabitempboxa{\beginR #1: #2\endR}%
+  \ifdim \wd\@Arabitempboxa >\hsize
+  \beginR #1: #2\endR\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@Arabitempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}

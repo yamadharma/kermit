@@ -1,0 +1,59 @@
+\ProvidesFile{gloss-irish.ldf}[polyglossia: module for irish]
+\makeatletter
+
+\ifx\l@irish\@undefined%
+   \xpg@nopatterns{Irish}%
+   \adddialect\l@irish0%
+\fi
+
+\def\captionsirish{%
+   \def\refname{\textirish{Tagairtí}}%
+   \def\abstractname{\textirish{Achoimre}}%
+   \def\bibname{\textirish{Leabharliosta}}%
+   \def\prefacename{\textirish{Réamhrá}}%    <-- also "Brollach"
+   \def\refname{\textirish{Tagairtí}}%
+   \def\chaptername{\textirish{Tagairtí}}%
+   \def\appendixname{\textirish{Aguisín}}%
+   \def\contentsname{\textirish{Clár Ábhair}}%
+   \def\listfigurename{\textirish{Léaráidí}}%
+   \def\listtablename{\textirish{Táblaí}}%
+   \def\indexname{\textirish{Innéacs}}%
+   \def\figurename{\textirish{Léaráid}}%
+   \def\tablename{\textirish{Tábla}}%
+   %\def\thepart{\textirish{}}%
+   \def\partname{\textirish{Cuid}}%
+   \def\pagename{\textirish{Leathanach}}%
+   \def\seename{\textirish{féach}}%
+   \def\alsoname{\textirish{féach freisin}}%
+   \def\enclname{\textirish{faoi iamh}}%
+   \def\ccname{\textirish{cc}}%
+   \def\headtoname{\textirish{Go}}%
+   \def\proofname{\textirish{Cruthúnas}}% for AMS-\LaTeX
+   \def\glossaryname{\textirish{Glossary}}%
+   \def\today{\textirish{%
+    \number\day\space \ifcase\month\or
+    Eanáir\or Feabhra\or Márta\or Aibreán\or
+    Bealtaine\or Meitheamh\or Iúil\or Lúnasa\or
+    Meán Fómhair\or Deireadh Fómhair\or
+    Mí na Samhna\or Mí na Nollag\fi
+    \space \number\year}}}
+
+\def\irish@language{\protect\language=\l@irish}
+
+\def\noextras@irish{%
+   }
+
+\def\blockextras@irish{%
+   \irish@language%
+   \local@hyphenmins{irish}{2}{2}%
+   \captionsirish%
+   \local@marks{irish}%
+   \@ifundefined{setLR}{}{\setLR}%
+   }
+
+\def\inlineextras@irish{%
+   \irish@language%
+   \local@hyphenmins{irish}{2}{3}%
+   }
+
+\endinput

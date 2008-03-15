@@ -1,0 +1,57 @@
+\ProvidesFile{gloss-catalan.ldf}[polyglossia: module for catalan]
+\makeatletter
+
+\ifx\l@catalan\@undefined%
+   \xpg@nopatterns{Catalan}%
+   \adddialect\l@catalan0%
+\fi
+
+\def\captionscatalan{%
+   \def\refname{\textcatalan{Referències}}%
+   \def\abstractname{\textcatalan{Resum}}%
+   \def\bibname{\textcatalan{Bibliografia}}%
+   \def\prefacename{\textcatalan{Pròleg}}%
+   \def\chaptername{\textcatalan{Capítol}}%
+   \def\appendixname{\textcatalan{Apèndix}}%
+   \def\contentsname{\textcatalan{Índex}}%
+   \def\listfigurename{\textcatalan{Índex de figures}}%
+   \def\listtablename{\textcatalan{Índex de taules}}%
+   \def\indexname{\textcatalan{Índex alfabètic}}%
+   \def\figurename{\textcatalan{Figura}}%
+   \def\tablename{\textcatalan{Taula}}%
+   %\def\thepart{\textcatalan{}}%
+   \def\partname{\textcatalan{Part}}%
+   \def\pagename{\textcatalan{Pàgina}}%
+   \def\seename{\textcatalan{Vegeu}}%
+   \def\alsoname{\textcatalan{Vegeu també}}%
+   \def\enclname{\textcatalan{Adjunt}}%
+   \def\ccname{\textcatalan{Còpies a}}%
+   \def\headtoname{\textcatalan{A}}%
+   \def\proofname{\textcatalan{Demostració}}% for AMS-\LaTeX
+   \def\glossaryname{\textcatalan{Glossari}}%
+   \def\today{\textcatalan{\number\day~\ifcase\month\or
+    de gener\or de febrer\or de març\or d'abril\or de maig\or
+    de juny\or de juliol\or d'agost\or de setembre\or d'octubre\or
+    de novembre\or de desembre\fi
+    \space de~\number\year}}}
+
+\def\catalan@language{\protect\language=\l@catalan}
+
+\def\noextras@catalan{%
+   %\nocatalan@punctuation
+   }
+
+\def\blockextras@catalan{%
+   \catalan@language%
+   \local@hyphenmins{catalan}{2}{2}%
+   \captionscatalan%
+   \local@marks{catalan}%
+   \@ifundefined{setLR}{}{\setLR}%
+   }
+
+\def\inlineextras@catalan{%
+   \catalan@language%
+   \local@hyphenmins{catalan}{2}{2}%
+   }
+
+\endinput

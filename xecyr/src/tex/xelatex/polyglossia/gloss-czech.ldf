@@ -1,0 +1,59 @@
+\ProvidesFile{gloss-czech.ldf}[polyglossia: module for czech]
+\makeatletter
+
+\ifx\l@czech\@undefined%
+   \xpg@nopatterns{Czech}%
+   \adddialect\l@czech0%
+\fi
+
+\def\captionsczech{%
+   \def\refname{\textczech{Reference}}%
+   \def\abstractname{\textczech{Abstrakt}}%
+   \def\bibname{\textczech{Literatura}}%
+   \def\prefacename{\textczech{Předmluva}}%
+   \def\chaptername{\textczech{Kapitola}}%
+   \def\appendixname{\textczech{Dodatek}}%
+   \def\contentsname{\textczech{Obsah}}%
+   \def\listfigurename{\textczech{Seznam obrázků}}%
+   \def\listtablename{\textczech{Seznam tabulek}}%
+   \def\indexname{\textczech{Index}}%
+   \def\figurename{\textczech{Obrázek}}%
+   \def\tablename{\textczech{Tabulka}}%
+   %\def\thepart{\textczech{}}%
+   \def\partname{\textczech{Část}}%
+   \def\pagename{\textczech{Strana}}%
+   \def\seename{\textczech{viz}}%
+   \def\alsoname{\textczech{viz}}%
+   \def\enclname{\textczech{Příloha}}%
+   \def\ccname{\textczech{Na vědomí:}}%
+   \def\headtoname{\textczech{Komu}}%
+   \def\proofname{\textczech{Důkaz}}% for AMS-\LaTeX
+   \def\glossaryname{\textczech{Slovník}}%was Glosář
+   \def\today{\textczech{\number\day.~\ifcase\month\or
+    ledna\or února\or března\or dubna\or května\or
+    června\or července\or srpna\or září\or
+    října\or listopadu\or prosince\fi
+    \space \number\year}}}
+
+\def\czech@language{\protect\language=\l@czech}
+
+\def\noextras@czech{%
+   \nonfrenchspacing%
+   }
+
+\def\blockextras@czech{%
+   \czech@language%
+   \local@hyphenmins{czech}{2}{2}%
+   \frenchspacing%
+   \captionsczech%
+   \local@marks{czech}%
+   \@ifundefined{setLR}{}{\setLR}%
+   }
+
+\def\inlineextras@czech{%
+   \czech@language%
+   \local@hyphenmins{czech}{2}{2}%
+   \frenchspacing%
+   }
+
+\endinput

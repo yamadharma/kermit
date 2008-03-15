@@ -1,0 +1,61 @@
+\ProvidesFile{gloss-german.ldf}[polyglossia: module for german]
+\makeatletter
+
+%TODO add option for ngerman
+
+\ifx\l@german\@undefined
+   \xpg@nopatterns{german}
+   \adddialect\l@german0
+\fi
+
+\def\captionsgerman{%
+   \def\prefacename{\textgerman{Vorwort}}%
+   \def\refname{\textgerman{Literatur}}%
+   \def\abstractname{\textgerman{Zusammenfassung}}%
+   \def\bibname{\textgerman{Literaturverzeichnis}}%
+   \def\chaptername{\textgerman{Kapitel}}%
+   \def\appendixname{\textgerman{Anhang}}%
+   \def\contentsname{\textgerman{Inhaltsverzeichnis}}%
+   \def\listfigurename{\textgerman{Abbildungsverzeichnis}}%
+   \def\listtablename{\textgerman{Tabellenverzeichnis}}%
+   \def\indexname{\textgerman{Index}}%
+   \def\figurename{\textgerman{Abbildung}}%
+   \def\tablename{\textgerman{Tabelle}}%
+   \def\partname{\textgerman{Teil}}%
+   \def\enclname{\textgerman{Anlage(n)}}%
+   \def\ccname{\textgerman{Verteiler}}%
+   \def\headtoname{An}%
+   \def\pagename{\textgerman{Seite}}%
+   \def\seename{\textgerman{siehe}}%
+   \def\alsoname{\textgerman{siehe auch}}%
+   \def\proofname{\textgerman{Beweis}}% for AMS-\LaTeX
+   \def\glossaryname{\textgerman{Glossar}}%
+   \def\today{\textgerman{\number\day.%
+      \space \ifcase\month%
+      \or Januar\or Februar\or März\or April\or Mai\or Juni\or%
+      Juli\or August\or September\or Oktober\or November\or%
+      Dezember\fi%
+      \space \number\year}}}
+
+\def\german@language{\protect\language=\l@german}
+
+\def\noextras@german{%
+   \nonfrenchspacing%
+}
+
+\def\blockextras@german{%
+   \german@language%
+   \local@hyphenmins{german}{2}{2}%
+   \frenchspacing%
+   \captionsgerman%
+   \local@marks{german}%
+   \reset@latin@script%
+}
+
+\def\inlineextras@german{%
+   \german@language%
+   \local@hyphenmins{german}{2}{2}%
+   \frenchspacing%
+}
+
+\endinput

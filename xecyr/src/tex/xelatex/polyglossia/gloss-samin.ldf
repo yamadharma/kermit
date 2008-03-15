@@ -1,0 +1,81 @@
+\ProvidesFile{gloss-samin.ldf}[polyglossia: module for samin]
+\makeatletter
+
+\ifx\l@samin\@undefined%
+   \xpg@nopatterns{<Lang>}%
+   \adddialect\l@samin0%
+\fi
+
+%\def\samin@punctuation{%
+%    \frenchspacing%
+%    \XeTeXinterchartokenstate=1%
+%    \XeTeXcharclass `\! 7%
+%    \XeTeXcharclass `\? 7%
+%    \XeTeXcharclass `\; 7%
+%    \XeTeXcharclass `\: 7%
+%    \XeTeXinterchartoks 0 7 = {\unskip\kern.1667em}%
+%    }
+%
+%\def\nosamin@punctuation{%
+%    \nonfrenchspacing%
+%    \XeTeXinterchartokenstate=0%
+%}
+
+
+\def\captionssamin{%
+   \def\refname{\textsamin{Čujuhusat}}%
+   \def\abstractname{\textsamin{Čoahkkáigeassu}}%
+   \def\bibname{\textsamin{Girjjálašvuohta}}%
+   \def\prefacename{\textsamin{Ovdasátni}}%
+   \def\chaptername{\textsamin{Kapihttal}}%
+   \def\appendixname{\textsamin{Čuovus}}%
+   \def\contentsname{\textsamin{Sisdoallu}}%
+   \def\listfigurename{\textsamin{Govvosat}}%
+   \def\listtablename{\textsamin{Tabeallat}}%
+   \def\indexname{\textsamin{Registtar}}%
+   \def\figurename{\textsamin{Govus}}%
+   \def\tablename{\textsamin{Tabealla}}%
+   \def\thepart{\textsamin{}}%
+   \def\partname{\textsamin{Oassi}}%
+   \def\pagename{\textsamin{Siidu}}%
+   \def\seename{\textsamin{geahča}}%
+   \def\alsoname{\textsamin{geahča maiddái}}%
+   \def\enclname{\textsamin{Mielddus}}%
+   \def\ccname{\textsamin{Kopia sáddejuvvon}}%
+   \def\headtoname{\textsamin{Vuostáiváldi}}%
+   \def\proofname{\textsamin{Duođaštus}}% for AMS-\LaTeX
+   \def\glossaryname{\textsamin{Sátnelistu}}%
+   \def\today{\textsamin{\ifcase\month\or
+    ođđajagemánu\or
+    guovvamánu\or
+    njukčamánu\or
+    cuoŋománu\or
+    miessemánu\or
+    geassemánu\or
+    suoidnemánu\or
+    borgemánu\or
+    čakčamánu\or
+    golggotmánu\or
+    skábmamánu\or
+    juovlamánu\fi
+    \space\number\day.~b.\space\number\year}}}
+
+\def\samin@language{\protect\language=\l@samin}
+
+\def\noextras@samin{%
+   }
+
+\def\blockextras@samin{%
+   \samin@language%
+   \local@hyphenmins{samin}{2}{2}%
+   \captionssamin%
+   \local@marks{samin}%
+   \@ifundefined{setLR}{}{\setLR}%
+   }
+
+\def\inlineextras@samin{%
+   \samin@language%
+   \local@hyphenmins{samin}{2}{2}%
+   }
+
+\endinput

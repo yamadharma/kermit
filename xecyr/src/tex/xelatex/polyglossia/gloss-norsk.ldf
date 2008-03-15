@@ -1,0 +1,94 @@
+\ProvidesFile{gloss-norsk.ldf}[polyglossia: module for norwegian]
+\makeatletter
+
+\ifx\l@norsk\@undefined%
+   \xpg@nopatterns{Norsk}%
+   \adddialect\l@norsk0%
+\fi
+
+% TODO ADD OPTION for nynorsk
+% if option = nynorsk 
+%  \adddialect\l@nynorsk\l@norsk
+
+\newif\@ifnynorsk
+\def\n@captionsrsk{\if@nynorsk\nynorsk@captions\else\norsk@captions\fi}
+
+\def\captionsnorsk{%
+   \def\refname{\textnorsk{Referanser}}%
+   \def\abstractname{\textnorsk{Sammendrag}}%
+   \def\bibname{\textnorsk{Bibliografi}}%
+   \def\prefacename{\textnorsk{Forord}}%
+   \def\chaptername{\textnorsk{Kapittel}}%
+   \def\appendixname{\textnorsk{Tillegg}}%
+   \def\contentsname{\textnorsk{Innhold}}%
+   \def\listfigurename{\textnorsk{Figurer}}%
+   \def\listtablename{\textnorsk{Tabeller}}%
+   \def\indexname{\textnorsk{Register}}%
+   \def\figurename{\textnorsk{Figur}}%
+   \def\tablename{\textnorsk{Tabell}}%
+   \def\thepart{\textnorsk{}}%
+   \def\partname{\textnorsk{Del}}%
+   \def\pagename{\textnorsk{Side}}%
+   \def\seename{\textnorsk{Se}}%
+   \def\alsoname{\textnorsk{Se også}}%
+   \def\enclname{\textnorsk{Vedlegg}}%
+   \def\ccname{\textnorsk{Kopi sendt}}%
+   \def\headtoname{\textnorsk{Til}}%
+   \def\proofname{\textnorsk{Bevis}}% for AMS-\LaTeX
+   \def\glossaryname{\textnorsk{Ordliste}}%
+   \def\today{\textnorsk{\number\day.~\ifcase\month\or
+    januar\or februar\or mars\or april\or mai\or juni\or
+    juli\or august\or september\or oktober\or november\or desember
+    \fi\space\number\year}}}
+
+\def\captionsnynorsk{%
+   \def\refname{\textnynorsk{Referansar}}%
+   \def\abstractname{\textnynorsk{Sammendrag}}%
+   \def\bibname{\textnynorsk{Litteratur}}%
+   \def\prefacename{\textnynorsk{Forord}}%
+   \def\chaptername{\textnynorsk{Kapittel}}%
+   \def\appendixname{\textnynorsk{Tillegg}}%
+   \def\contentsname{\textnynorsk{Innhald}}%
+   \def\listfigurename{\textnynorsk{Figurar}}%
+   \def\listtablename{\textnynorsk{Tabellar}}%
+   \def\indexname{\textnynorsk{Register}}%
+   \def\figurename{\textnynorsk{Figur}}%
+   \def\tablename{\textnynorsk{Tabell}}%
+   \def\thepart{\textnynorsk{}}%
+   \def\partname{\textnynorsk{Del}}%
+   \def\pagename{\textnynorsk{Side}}%
+   \def\seename{\textnynorsk{Sjå}}%
+   \def\alsoname{\textnynorsk{Sjå òg}}%
+   \def\enclname{\textnynorsk{Vedlegg}}%
+   \def\ccname{\textnynorsk{Kopi til}}%
+   \def\headtoname{\textnynorsk{Til}}%
+   \def\proofname{\textnynorsk{Bevis}}% for AMS-\LaTeX
+   \def\glossaryname{\textnynorsk{Ordliste}}%
+   \def\today{\textnynorsk{\number\day.~\ifcase\month\or
+    januar\or februar\or mars\or april\or mai\or juni\or
+    juli\or august\or september\or oktober\or november\or desember
+    \fi\space\number\year}}}
+
+\def\norsk@language{\protect\language=\l@norsk}
+
+\def\noextras@norsk{%
+   \nonfrenchspacing%
+   }
+
+\def\blockextras@norsk{%
+   \norsk@language%
+   \local@hyphenmins{norsk}{2}{2}%
+   \frenchspacing%
+   \n@captionsrsk%
+   \local@marks{norsk}%
+   \@ifundefined{setLR}{}{\setLR}%
+   }
+
+\def\inlineextras@norsk{%
+   \norsk@language%
+   \local@hyphenmins{norsk}{2}{2}%
+   \frenchspacing%
+   }
+
+\endinput
+

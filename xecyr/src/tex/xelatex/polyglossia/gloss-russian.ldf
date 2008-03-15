@@ -1,0 +1,185 @@
+\ProvidesFile{gloss-russian.ldf}[polyglossia: module for russian]
+\makeatletter
+
+\ifx\l@russian\@undefined
+   \xpg@nopatterns{Russian}
+   \adddialect\l@russian0
+\fi
+
+\def\russian@font{%
+\font\zf@basefont="\csname zf@family@fontdef\f@family\endcsname" at \f@size pt
+\@ifundefined{russianfont}{%
+      \@ifundefined{cyrillicfont}{%
+        \zf@check@ot@script{cyrl}%
+	\if@tempswa%
+	  \addfontfeature{Script=Cyrillic}%
+	\else%
+	  \PackageError{polyglossia}{^^J
+	  The current font does not contain the Cyrillic script!^^J
+	  Please define \string\cyrillicfont\space or \string\russianfont\space with \string\newfontfamily}%
+	\fi%
+	\zf@check@ot@lang{RUS}%
+	\if@tempswa\addfontfeature{Language=Russian}\fi%
+	}%
+        {\cyrillicfont%
+	\zf@check@ot@lang{RUS}%
+	\if@tempswa\addfontfeature{Language=Russian}\fi}%
+     }% 
+     {\russianfont}%
+}
+
+%\def\russian@punctuation{%
+%   \frenchspacing%
+%   \def\No{№\kern.1667em}%
+%   \def\cyrdash{—}%
+%   \def\PlainTextEmDash{\ifdim\lastskip>\z@\unskip\nobreak\hskip.2em\fi%
+%      \cyrdash\hskip.2em\ignorespaces}%
+%   \def\CompoundNamesEmDash{\leavevmode\ifdim\lastskip>\z@\unskip\fi%
+%      \nobreak\cyrdash\penalty\exhyphenpenalty\hskip\z@skip\ignorespaces}%
+%   \def\DirectSpeechEmDash{\leavevmode%
+%      \nobreak\cyrdash\nobreak\hskip.35em\ignorespaces}}
+%
+%\def\norussian@punctuation{%
+%   \nonfrenchspacing%
+%   \let\No\@undefined%
+%   \let\cyrdash\@undefined%
+%   \let\PlainTextEmDash\@undefined%
+%   \let\CompoundNamesEmDash\@undefined%
+%   \let\DirectSpeechEmDash\@undefined%
+%}
+
+\def\tmp@old{old}
+\def\tmp@modern{modern}
+\def\captions@russian{\captionsrussian\daterussian}
+
+\define@key{russian}{orthography}[modern]{%
+   \def\@tmpa{#1}%
+   \ifx\@tmpa\tmp@old\def\captions@russian{\captionsrussianold\daterussianold}%
+   \else\def\captions@russian{\captionsrussian\daterussian}%
+   \fi}
+
+\def\captionsrussian{%
+   \def\prefacename{\textrussian{Предисловие}}%
+   \def\refname{\textrussian{Примечания}}%
+   \def\abstractname{\textrussian{Аннотация}}%
+   \def\bibname{\textrussian{Библиография}}%
+   \def\chaptername{\textrussian{Глава}}%
+   \def\appendixname{\textrussian{Приложение}}%
+   \def\contentsname{\textrussian{Оглавление}}%
+   \def\listfigurename{\textrussian{Список иллюстраций}}%
+   \def\listtablename{\textrussian{Список таблиц}}%
+   \def\indexname{\textrussian{Предметный указатель}}%
+   \def\authorname{\textrussian{Именной указатель}}%
+   \def\figurename{\textrussian{Рис.}}%
+   \def\tablename{\textrussian{Таблица}}%
+   \def\partname{\textrussian{Часть}}%
+   \def\enclname{\textrussian{вкл.}}%
+   \def\ccname{\textrussian{исх.}}%
+   \def\headtoname{\textrussian{вх.}}%
+   \def\pagename{\textrussian{с.}}%
+   \def\seename{\textrussian{см.}}%
+   \def\alsoname{\textrussian{см. также}}%
+   \def\proofname{\textrussian{Доказательство}}%
+}
+\def\daterussian{%
+      \def\today{\textrussian{\number\day%
+      \space\ifcase\month\or%
+      января\or
+      февраля\or
+      марта\or
+      апреля\or
+      мая\or
+      июня\or
+      июля\or
+      августа\or
+      сентября\or
+      октября\or
+      ноября\or
+      декабря\fi%
+      \space \number\year\space г.}}}
+     
+\def\captionsrussianold{%
+   \def\prefacename{\textrussian{Предисловіе}}%
+   \def\refname{\textrussian{Примѣчанія}}%
+   \def\abstractname{\textrussian{Аннотація}}%
+   \def\bibname{\textrussian{Библіографія}}%
+   \def\chaptername{\textrussian{Глава}}%
+   \def\appendixname{\textrussian{Приложеніе}}%
+   \def\contentsname{\textrussian{Оглавленіе}}%
+   \def\listfigurename{\textrussian{Списокъ иллюстрацій}}%
+   \def\listtablename{\textrussian{Списокъ таблицъ}}%
+   \def\indexname{\textrussian{Предмѣтный указатель}}%
+   \def\authorname{\textrussian{Именной указатель}}%
+   \def\figurename{\textrussian{Рис.}}%
+   \def\tablename{\textrussian{Таблица}}%
+   \def\partname{\textrussian{Часть}}%
+   \def\enclname{\textrussian{вкл.}}%
+   \def\ccname{\textrussian{исх.}}%
+   \def\headtoname{\textrussian{вх.}}%
+   \def\pagename{\textrussian{с.}}%
+   \def\seename{\textrussian{см.}}%
+   \def\alsoname{\textrussian{см. также}}%
+   \def\proofname{\textrussian{Доказательство}}%
+}  
+\def\daterussianold{
+      \def\today{\textrussian{\number\day%
+      \space\ifcase\month\or%
+      января\or
+      февраля\or
+      марта\or
+      апреля\or
+      мая\or
+      іюня\or
+      іюля\or
+      августа\or
+      сентября\or
+      октября\or
+      ноября\or
+      декабря\fi%
+      \space \number\year\space г.}}}
+
+% The following is based on some ideas from ruscor.sty
+
+\def\russian@capsformat{%
+   \def\@seccntformat##1{\csname pre##1\endcsname%
+      \csname the##1\endcsname%
+      \csname post##1\endcsname}%
+   \def\@aftersepkern{\hspace{0.5em}}%
+   \def\postchapter{.\@aftersepkern}%
+   \def\postsection{.\@aftersepkern}%
+   \def\postsubsection{.\@aftersepkern}%
+   \def\postsubsubsection{.\@aftersepkern}%
+   \def\postparagraph{.\@aftersepkern}%
+   \def\postsubparagraph{.\@aftersepkern}%
+   \def\prechapter{}%
+   \def\presection{}%
+   \def\presubsection{}%
+   \def\presubsubsection{}%
+   \def\preparagraph{}%
+   \def\presubparagraph{}}
+
+\def\russian@language{\protect\language=\l@russian}
+
+\def\noextras@russian{%
+   \nonfrenchspacing%
+   }
+   
+\def\blockextras@russian{%
+   \russian@language%
+   \russian@font%
+   \local@hyphenmins{russian}{2}{2}%
+   %\russian@alph%
+   \frenchspacing%
+   \captions@russian%
+   \russian@capsformat%
+   \local@marks{russian}%
+   }
+
+\def\inlineextras@russian{%
+   \russian@language%
+   \russian@font% 
+   \local@hyphenmins{russian}{2}{2}%
+   \frenchspacing%
+   }
+
+\endinput
