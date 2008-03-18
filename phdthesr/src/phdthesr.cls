@@ -98,7 +98,7 @@
 %%
 \LoadClass{kgeneric}
 %%
-\RequirePackage{cite}
+% \RequirePackage{cite}
 %\RequirePackage{caption2}
 %%
 

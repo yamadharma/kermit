@@ -12,7 +12,7 @@
 \LoadClassWithOptions{kgeneric}
 %%
 % \RequirePackage{tocloft}
-\RequirePackage{cite}
+% \RequirePackage{cite}
 \RequirePackage{keyval}
 \RequirePackage{substr}
 

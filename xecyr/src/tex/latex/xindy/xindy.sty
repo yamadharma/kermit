@@ -1,0 +1,238 @@
+%%
+%% This is file `xindy.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% xindy.dtx  (with options: `package')
+%% 
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the source file.
+%% 
+%% Any modified versions of this file must be renamed
+%% with new filenames distinct from xindy.sty.
+%% 
+%% For distribution of the original source see the terms
+%% for copying and modification in the file xindy.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+\def\filedate{1997/03/20}
+\def\docdate{1997/03/20}
+\def\fileversion{v1.1beta}
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\RequirePackage{keyval}
+%%
+%%
+%% Allow definition of locationstyles
+%%
+%%
+\def\newlocationstyle#1#2{%
+    \@ifundefined{xindy@style@#1}%
+    {\expandafter\gdef\csname xindy@style@#1\endcsname{#2}}
+    {\typeout{xindy: locationstyle #1 already defined}}}
+%%
+%%
+%% existing styles may be redefined
+%%
+%%
+\def\renewlocationstyle#1#2{%
+    \expandafter\let\csname xindy@style@#1\endcsname=\undefined%
+    \newlocationstyle{#1}{#2}}
+%%
+%%
+%% set up the locationstyles page, chapter and section
+%%
+%%
+\newlocationstyle{page}{\thepage}
+\ifx\@undefined\chapter\else
+    \newlocationstyle{chapter}{\thechapter-\thepage}
+\fi
+\ifx\@undefined\section\else
+    \newlocationstyle{section}{\thesection-\thepage}
+\fi
+%%
+%%
+%% select style
+%%
+%%
+\def\locationstyle#1{%
+    \@ifundefined{xindy@style@#1}
+       {\typeout{xindy: locationstyle #1 not defined}}
+       {\def\xindy@style{\csname xindy@style@#1\endcsname}}}
+%%
+%%
+%% default is normal pagenumbering, as in LaTeX
+%%
+%%
+\locationstyle{page}
+%%
+%%
+%% The optional keys for the index (as mentioned by Bernd Raichle)
+%%
+%%
+\begingroup
+  % make all punctuation chars inactive (if they can be active)
+  \catcode`\:=12 \catcode`\"=12
+  \toks0={\endgroup
+%%
+\define@key{xindy}{attr}{%
+   \def\xindy@attr{#1}%
+   \ifx\@empty\xindy@attr%
+   \else%
+      \def\xindy@attr{:attr "#1"}%
+   \fi}
+\define@key{xindy}{open-range}[:open-range]{\def\xindy@range{:open-range}}
+\define@key{xindy}{close-range}[:close-range]{\def\xindy@range{:close-range}}
+%%
+}\the\toks0\relax
+\def\xindy@attr{}
+\def\xindy@range{}
+\def\xindy@xref{}
+%%
+%%
+%% The Backslash should be doubled, the
+%% doublequote should be quoted          (as mentioned by Bernd Raichle)
+%%
+%%
+\begingroup
+  \catcode`\"=\active
+  \catcode`\~=13 \lccode`\~=`\\
+  \lowercase{%
+    \def\x#1{\endgroup
+      \def\xindy@activatebsp{%
+        \catcode`\\=\active \def~{#1}
+        \catcode`\"=\active \def"{\"}}}}
+  \catcode`\|=0 \catcode`|\=12
+|x{\\}
+%%
+%%
+%% Various Makros
+%%
+%%
+\def\delspace#1 \xindy@relax{#1}
+\def\xindy@space{\space\space\space\space\space\space}
+\edef\xindy@space{\xindy@space\xindy@space}
+%%
+%%
+%% The indexing command (as mentioned by Bernd Raichle)
+%%
+%%
+\def\indexindy{%
+  \@bsphack        %% to handle `space factor' etc.
+  \begingroup
+    \toks@{}%
+    \@sanitize
+    \xindy@activatebsp
+    \indexindy@
+}
+\begingroup
+  % make all punctuation chars inactive (if they can be active)
+  \catcode`\:=12 \catcode`\"=12
+  \toks0={\endgroup
+%%
+%% this one parses the optional arguments, no quoting is active right now
+%%
+\newcommand{\indexindy@}[1][]{% setup keys
+ \setkeys{xindy}{#1}%
+ \indexindy@@}
+%%
+%% parse the key, quoting is enabled
+%%
+\newcommand{\indexindy@@}[2][]{%
+ % setup key
+ \xindy@checksyntax{#2}%
+ \toks@=\expandafter{\expandafter\delspace\the\toks@\xindy@relax}% delete tailing space
+ \expandafter\def\expandafter\xindy@tmp\expandafter{\the\toks@}%
+ % setup xref
+ \toks@={}%
+ \def\xindy@@tmp{#1}%
+ \ifx\@empty\xindy@@tmp\def\xindy@ref{}
+ \else
+  \xindy@@checksyntax
+ \toks@=\expandafter{\expandafter\delspace\the\toks@\xindy@relax}% delete tailing space
+  \expandafter\def\expandafter\xindy@xref\expandafter{\the\toks@}%
+ \fi
+  \index{(indexentry :tkey (\xindy@tmp)}%
+  \ifx\@empty\xindy@attr\else
+    \index{\xindy@space\xindy@attr}
+  \fi
+  \ifx\@empty\xindy@range\else
+    \index{\xindy@space\xindy@range}%
+  \fi
+  \ifx\@empty\xindy@xref%
+    \index{\xindy@space:locref "\xindy@style")}%
+  \else%
+    \index{\xindy@space:xref \xindy@xref)}%
+  \fi%
+ \endgroup
+ \@esphack
+}
+%%
+%%
+%% convert input into :tkey form
+%%
+%%
+\def\xindy@checksyntax#1{%
+    \def\xindy@tmp{#1}%
+    \xindy@for\xindy@@tmp:=\xindy@tmp\do{\xindy@@checksyntax}}
+\def\xindy@@checksyntax{%
+    \addto@hook\toks@{(}%
+    \@for\xindy@@@tmp:=\xindy@@tmp\do{%
+         \expandafter\addto@hook\expandafter\toks@\expandafter{\expandafter"\xindy@@@tmp" }}%
+    \toks@=\expandafter{\expandafter\delspace\the\toks@\xindy@relax}% delete tailing space
+    \addto@hook\toks@{) }}
+}\the\toks0\relax
+%%
+%%
+%% We need a special for-command to enable nested loops.
+%%
+%%
+\def\xindy@fornoop#1\@@#2#3{}
+\long\def\xindy@for#1:=#2\do#3{%
+  \expandafter\def\expandafter\xindy@fortmp\expandafter{#2}%
+  \ifx\xindy@fortmp\@empty \else
+    \expandafter\xindy@forloop#2;\@nil;\@nil\@@#1{#3}\fi}
+\long\def\xindy@forloop#1;#2;#3\@@#4#5{\def#4{#1}\ifx #4\@nnil \else
+       #5\def#4{#2}\ifx #4\@nnil \else#5\xindy@iforloop #3\@@#4{#5}\fi\fi}
+\long\def\xindy@iforloop#1;#2\@@#3#4{\def#3{#1}\ifx #3\@nnil
+       \expandafter\xindy@fornoop \else
+      #4\relax\expandafter\xindy@iforloop\fi#2\@@#3{#4}}
+\def\xindy@tfor#1:={\xindy@tf@r#1 }
+\long\def\xindy@tf@r#1#2\do#3{\def\xindy@fortmp{#2}\ifx\xindy@fortmp\space\else
+    \xindy@tforloop#2\@nil\@nil\@@#1{#3}\fi}
+\long\def\xindy@tforloop#1#2\@@#3#4{\def#3{#1}\ifx #3\@nnil
+       \expandafter\xindy@fornoop \else
+      #4\relax\expandafter\xindy@tforloop\fi#2\@@#3{#4}}
+\long\def\@breakxindy@tfor#1\@@#2#3{\fi\fi}
+%%
+%%
+%% Now redifene \@wrindex from the kernel
+%%
+%%
+\def\@wrindex#1{%
+   \protected@write\@indexfile{}%
+      {#1}%
+ \endgroup
+ \@esphack}
+\endinput
+%%
+%% End of file `xindy.sty'.
