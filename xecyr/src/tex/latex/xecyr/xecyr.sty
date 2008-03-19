@@ -1,27 +1,27 @@
 ﻿% Modified from Evgenie Medvedev <medvedev at project7.ru> by A. Shipunov (plantago@herba.msu.ru)
 
 \ProvidesPackage{xecyr}%
-        [2008/02/17 v0.7 Cyrillic definitions for XeLaTeX]
+        [2008/03/08 v1.0 Definitions for Cyrillic Babel/XeLaTeX compatibility]
 
-%\newif\if@EXT
-%\DeclareOption{ext}{\@EXTtrue}
-%\DeclareOption{noext}{\@EXTfalse}
-%\newif\if@MIS
-%\DeclareOption{mis}{\@MIStrue}
-%\DeclareOption{nomis}{\@MISfalse}
+\newif\if@EXT
+\DeclareOption{ext}{\@EXTtrue}
+\DeclareOption{noext}{\@EXTfalse}
+\newif\if@MIS
+\DeclareOption{mis}{\@MIStrue}
+\DeclareOption{nomis}{\@MISfalse}
 
-%\ExecuteOptions{ext,nomis}
-%\ProcessOptions
+\ExecuteOptions{ext,nomis}
+\ProcessOptions
 
-%\if@MIS
-%	\RequirePackage{misccorr}
-%	\XeTeXinputencoding "KOI8-R"
-%\fi
+\if@MIS
+	\RequirePackage{misccorr}
+	\XeTeXinputencoding "KOI8-R"
+\fi
 
-%\if@EXT
-%	\PassOptionsToPackage{cm-default}{fontspec}
-%	\RequirePackage{xltxtra}
-%\fi
+\if@EXT
+	\PassOptionsToPackage{cm-default}{fontspec}
+	\RequirePackage{xltxtra}
+\fi
 
 \RequirePackage{xunicode}
 
@@ -315,5 +315,7 @@
 \DeclareUTFcharacter[\UTFencname]{x201E}{\glqq} 
 \DeclareUTFcharacter[\UTFencname]{x201C}{\grqq}
 
-\endinput
+% To make it (and "--- -like shortcuts) work, "xecyr" must be loaded _after_ babel.
+\def\cyrdash{\hbox to.8em{--\hss--}}
 
+\endinput
