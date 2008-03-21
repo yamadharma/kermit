@@ -27,11 +27,11 @@
 % FIXME Должно зависить от языка
 \renewcommand\appendixnum{\@Asbuk\c@chapter}
 
-\AtBeginDocument{%
-    \addto\captionsrussian{%
-	\def\chaptername{}%
-    }
-}
+%\AtBeginDocument{%
+%    \addto\captionsrussian{%
+%	\def\chaptername{}%
+%    }
+%}
 
 \RequirePackage{titlesec}
 
