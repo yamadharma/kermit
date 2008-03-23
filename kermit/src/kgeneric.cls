@@ -804,6 +804,8 @@
 \newenvironment{thebibliography}[1]
      {\chapter*{\bibname
         \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}}%
+%% FIXME Перенести в класс библиографии (на основе natbib) ?	
+        \addcontentsline{toc}{chapter}{\bibname}%
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
