@@ -31,6 +31,7 @@
 \newif\if@Elproofing
 \@Elproofingfalse
 %
+
 \def\tabular@font{}
 \def\author@font{\large\bfseries}
 \def\@bibliosize{\small}
@@ -477,6 +478,8 @@
 % \RequirePackage{longtable}
 \RequirePackage{truncate}
 \RequirePackage{titlesec}
+
+% \RequirePackage[unicode]{hyperref}
 
 %% \input{pfuproc/collection.cli}
 %% \input{pfuproc/pfu-physic.cli}
