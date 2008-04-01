@@ -3261,7 +3261,7 @@
 
 \captionsetup{font={sc,footnotesize}}
 
-\DeclareCaptionFormat{tableRight}{\hfill#1\newline#2#3\par}
+\DeclareCaptionFormat{tableRight}{\hfill#1\newline{\centering #2#3}\par}
 
 \captionsetup[figure]{labelsep=period,position=bottom}
 
