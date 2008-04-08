@@ -142,66 +142,66 @@
 % Other English words that need replacement can be found in the macros  %
 % supporting the title and approval pages.                              %
 % --------------------------------------------------------------------- %
-% Это было из ucthesis, а я добавил русификацию  --- А. Смолин          %
+% п╜я┌п╬ п╠я▀п╩п╬ п╦п╥ ucthesis, п╟ я▐ п╢п╬п╠п╟п╡п╦п╩ я─я┐я│п╦я└п╦п╨п╟я├п╦я▌  --- п░. п║п╪п╬п╩п╦п╫          %
 %
 %
 % \tableofcontents:
-%\def\contentsname{СОДЕРЖАНИЕ}
-\def\contentsname{Содержание}
+%\def\contentsname{п║п·п■п∙п═п√п░п²п≤п∙}
+\def\contentsname{п║п╬п╢п╣я─п╤п╟п╫п╦п╣}
 %                 ~~~~~~~~~~
 %
 % \listoffigures:
-\def\listfigurename{СПИСОК РИСУНКОВ}
+\def\listfigurename{п║п÷п≤п║п·п  п═п≤п║пёп²п п·п▓}
 %                   ~~~~~~~~~~~~~~~
 %
 % \listoftables:
-\def\listtablename{СПИСОК ТАБЛИЦ}
+\def\listtablename{п║п÷п≤п║п·п  п╒п░п▒п⌡п≤п╕}
 %                  ~~~~~~~~~~~~~
 %
 % \thebibliography:
-%\def\bibname{ЛИТЕРАТУРА}
-\def\bibname{Литература}
+%\def\bibname{п⌡п≤п╒п∙п═п░п╒пёп═п░}
+\def\bibname{п⌡п╦я┌п╣я─п╟я┌я┐я─п╟}
 %            ~~~~~~~~~~
 %
 % \theindex:
-\def\indexname{Алфавитный указатель}
+\def\indexname{п░п╩я└п╟п╡п╦я┌п╫я▀п╧ я┐п╨п╟п╥п╟я┌п╣п╩я▄}
 %              ~~~~~~~~~~~~~~~~~~~~
 %
 % figure environment:
-\def\figurename{Рис.}
+\def\figurename{п═п╦я│.}
 %               ~~~~
 %
 % table environment:
-\def\tablename{Таблица}
+\def\tablename{п╒п╟п╠п╩п╦я├п╟}
 %              ~~~~~~~
 %
 % \chapter:
-\def\chaptername{Глава}
+\def\chaptername{п⌠п╩п╟п╡п╟}
 %                ~~~~~
 % \appendix:
-\def\appendixname{Приложение}
+\def\appendixname{п÷я─п╦п╩п╬п╤п╣п╫п╦п╣}
 %                 ~~~~~~~~~~
 % \part
-\def\partname{Часть}
+\def\partname{п╖п╟я│я┌я▄}
 %             ~~~~~
 % abstract environment:
-\def\abstractname{Аннотация}
+\def\abstractname{п░п╫п╫п╬я┌п╟я├п╦я▐}
 %                 ~~~~~~~~~
 %
 % acknowledge environment:
-\def\acknowledgename{Благодарности автора}
+\def\acknowledgename{п▒п╩п╟пЁп╬п╢п╟я─п╫п╬я│я┌п╦ п╟п╡я┌п╬я─п╟}
 %                    ~~~~~~~~~~~~~~~~~~~~~
-\def\ccname{Копия}
-\def\headtoname{К}
-\def\pagename{Страница}
-\def\seename{смотри}
-\def\alsoname{смотри также}
+\def\ccname{п п╬п©п╦я▐}
+\def\headtoname{п }
+\def\pagename{п║я┌я─п╟п╫п╦я├п╟}
+\def\seename{я│п╪п╬я┌я─п╦}
+\def\alsoname{я│п╪п╬я┌я─п╦ я┌п╟п╨п╤п╣}
 
 %% And here I try Number Sign
 %                 ~~~~~~~~~~~
 \def\no{N$\!\frac{\scriptscriptstyle 0}{}$}% Number sign
 
-%% Тангенс по-русски
+%% п╒п╟п╫пЁп╣п╫я│ п©п╬-я─я┐я│я│п╨п╦
 %  ~~~~~~~~~~~~~~~~~
 \def\tan{\mathop{\operator@font tg}\nolimits}
 
@@ -209,8 +209,8 @@
 %  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \def\today{\number\day\space
      \ifcase\month\or
-       января\or февраля\or марта\or апреля\or мая\or июня\or
-       июля\or августа\or сентября\or октября\or ноября\or декабря\fi
+       я▐п╫п╡п╟я─я▐\or я└п╣п╡я─п╟п╩я▐\or п╪п╟я─я┌п╟\or п╟п©я─п╣п╩я▐\or п╪п╟я▐\or п╦я▌п╫я▐\or
+       п╦я▌п╩я▐\or п╟п╡пЁя┐я│я┌п╟\or я│п╣п╫я┌я▐п╠я─я▐\or п╬п╨я┌я▐п╠я─я▐\or п╫п╬я▐п╠я─я▐\or п╢п╣п╨п╟п╠я─я▐\fi
      \space\number\year}
 
 %    ****************************************
@@ -267,7 +267,7 @@
 \let\PHDfield\@empty
 
 % The name of your institution
-% (e.g. ИНСТИТУТ ФИЗИКИ ПРОЧНОСТИ И МАТЕРАЛОВЕДЕНИЯ)
+% (e.g. п≤п²п║п╒п≤п╒пёп╒ п╓п≤п≈п≤п п≤ п÷п═п·п╖п²п·п║п╒п≤ п≤ п°п░п╒п∙п═п░п⌡п·п▓п∙п■п∙п²п≤п╞)
 
 \DeclareRobustCommand{\institut}[1]%
 {%
@@ -276,7 +276,7 @@
 \let\PHDinstitut\@empty
 
 % The name of your Ministery
-% (e.g. СИБИРСКОЕ ОТДЕЛЕНИЕ РАН)
+% (e.g. п║п≤п▒п≤п═п║п п·п∙ п·п╒п■п∙п⌡п∙п²п≤п∙ п═п░п²)
 
 \DeclareRobustCommand{\ministry}[1]%
 {%
@@ -299,7 +299,7 @@
 \let\PHDthesistype\@empty
 
 % default
-% Диссертация на соискание учёной степени
+% п■п╦я│я│п╣я─я┌п╟я├п╦я▐ п╫п╟ я│п╬п╦я│п╨п╟п╫п╦п╣ я┐я┤я▒п╫п╬п╧ я│я┌п╣п©п╣п╫п╦
 \thesistype{\cyr\CYRD\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyrya{} \cyr\cyrn\cyra{} 
 \cyr\cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrn\cyri\cyre{} \cyr\cyru\cyrch\cyryo\cyrn\cyro\cyrishrt{}
 \cyr\cyrs\cyrt\cyre\cyrp\cyre\cyrn\cyri}
@@ -461,7 +461,7 @@
     \medskip
 
     \begin{flushright}
-        %% На правах рукописи
+        %% п²п╟ п©я─п╟п╡п╟я┘ я─я┐п╨п╬п©п╦я│п╦
         {\bfseries \cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri \par}
     \end{flushright}
     
@@ -470,10 +470,10 @@
     \begin{center}
         \bigskip%
         \medskip%
-        {\bfseries \PHDauthor} \par                     % Автор
+        {\bfseries \PHDauthor} \par                     % п░п╡я┌п╬я─
         \bigskip% 
         \medskip%
-        {\bfseries \Large {\PHDtitle} \par}             % Название
+        {\bfseries \Large {\PHDtitle} \par}             % п²п╟п╥п╡п╟п╫п╦п╣
 
         \ifx\@empty\PHDfield
         \else%
@@ -482,7 +482,7 @@
         \vspace{6ex}
         \bigskip% 
         \medskip%
-        {\bfseries {\PHDfield}} \par                    % Специальность
+        {\bfseries {\PHDfield}} \par                    % п║п©п╣я├п╦п╟п╩я▄п╫п╬я│я┌я▄
         \fi
         
         \vspace{6ex}
@@ -500,7 +500,7 @@
         \bigskip% 
 
         \begin{flushright}
-            %% Научный руководитель 
+            %% п²п╟я┐я┤п╫я▀п╧ я─я┐п╨п╬п╡п╬п╢п╦я┌п╣п╩я▄ 
             \cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} 
             \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} \\\
             {\PHDchiefdegree} \\ 
@@ -509,21 +509,21 @@
 
 
 %       \begin{flushleft}       
-%           %% Группа
+%           %% п⌠я─я┐п©п©п╟
 %           \ifx\@empty\PHDstudygroup
 %           \else%
 %           \cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{} \hfill
 %           \PHDstudygroup \par
 %           \smallskip      
 %           \fi
-%           %% Страна
+%           %% п║я┌я─п╟п╫п╟
 %           \ifx\@empty\PHDcountry 
 %           \else%
 %           \cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{} \hfill
 %           \PHDcountry \par
 %           \smallskip      
 %           \fi
-%            %% Научный руководитель 
+%            %% п²п╟я┐я┤п╫я▀п╧ я─я┐п╨п╬п╡п╬п╢п╦я┌п╣п╩я▄ 
 %           \cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} 
 %           \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} \hfill
 %            {\PHDchiefdegree} {\PHDchief} \par
@@ -544,7 +544,7 @@
 
         \begin{center}
             \bfseries
-            {\PHDdegreecity} ---                        % Город
+            {\PHDdegreecity} ---                        % п⌠п╬я─п╬п╢
             {\PHDdegreeyear} \par      
         \end{center}
     
@@ -562,15 +562,15 @@
 
 \def\titul{
         \begin{center}
-                \textsf{ \@author} \par                 % Автор
+                \textsf{ \@author} \par                 % п░п╡я┌п╬я─
                 \bigskip
-                \textsf{ \@title} \par  % Название
+                \textsf{ \@title} \par  % п²п╟п╥п╡п╟п╫п╦п╣
                 \bigskip
-                \textsf{\small {\@field}} \par          % Специальность
+                \textsf{\small {\@field}} \par          % п║п©п╣я├п╦п╟п╩я▄п╫п╬я│я┌я▄
                 \bigskip
-                \textsf{\small Диссертация на соискание уч\"еной степени } %% \par
+                \textsf{\small п■п╦я│я│п╣я─я┌п╟я├п╦я▐ п╫п╟ я│п╬п╦я│п╨п╟п╫п╦п╣ я┐я┤\"п╣п╫п╬п╧ я│я┌п╣п©п╣п╫п╦ } %% \par
 %%"
-                \textsf{\small {\@degree} наук} \par
+                \textsf{\small {\@degree} п╫п╟я┐п╨} \par
         \end{center}
 }       % End of \def\makewhat
 
@@ -1491,8 +1491,8 @@ Dissertation Committee Chair
 % we define today's date in European format
 \def\today{\number\day\space
      \ifcase\month\or
-       января\or февраля\or марта\or апреля\or мая\or июня\or
-       июля\or августа\or сентября\or октября\or ноября\or декабря\fi
+       я▐п╫п╡п╟я─я▐\or я└п╣п╡я─п╟п╩я▐\or п╪п╟я─я┌п╟\or п╟п©я─п╣п╩я▐\or п╪п╟я▐\or п╦я▌п╫я▐\or
+       п╦я▌п╩я▐\or п╟п╡пЁя┐я│я┌п╟\or я│п╣п╫я┌я▐п╠я─я▐\or п╬п╨я┌я▐п╠я─я▐\or п╫п╬я▐п╠я─я▐\or п╢п╣п╨п╟п╠я─я▐\fi
      \space\number\year}
 
 % EQUATION and EQNARRAY -- put here because it must follow \chapter
@@ -1526,7 +1526,7 @@ Dissertation Committee Chair
 \InputIfFileExists{kermit/theorem.cli}{}{}
 
 % ********************************************************
-% * Чтобы при include не начинал новую страницу A.Smolin *
+% * п╖я┌п╬п╠я▀ п©я─п╦ include п╫п╣ п╫п╟я┤п╦п╫п╟п╩ п╫п╬п╡я┐я▌ я│я┌я─п╟п╫п╦я├я┐ A.Smolin *
 %
 \def\include#1{\relax
   \ifnum\@auxout=\@partaux
@@ -1639,7 +1639,7 @@ Dissertation Committee Chair
 %                       \@ifundefined{b@\@citeb}{\mbox{\reset@font\bfseries ?}%
 %                               \G@refundefinedtrue
 %                               \@latex@warning
-%                                {Citation Вот `\@citeb' on page \thepage \space undefined}}%
+%                                {Citation п▓п╬я┌ `\@citeb' on page \thepage \space undefined}}%
 %                       {\hbox{\csname b@\@citeb\endcsname}}}}{#1}}% def
 %\expandafter\let\csname b@*\endcsname\@empty
 %\def\@cite#1#2{\printcitestart{#1\if@tempswa , #2\fi}\printcitefinish}
@@ -1657,12 +1657,12 @@ Dissertation Committee Chair
                         \@ifundefined{b@\@batchciteb}{\mbox{\reset@font\bfseries ?}%
                                 \G@refundefinedtrue
                                 \@latex@warning
-{Пакетная ссылка `\@batchciteb' на странице \thepage \space неопределна}}%
+{п÷п╟п╨п╣я┌п╫п╟я▐ я│я│я▀п╩п╨п╟ `\@batchciteb' п╫п╟ я│я┌я─п╟п╫п╦я├п╣ \thepage \space п╫п╣п╬п©я─п╣п╢п╣п╩п╫п╟}}%
                         {\hbox{\csname b@\@batchciteb\endcsname}}}}{#1}}% def
 %\expandafter\let\csname b@*\endcsname\@empty
 \def\@batchcite#1#2{\printcitestart{#1\if@tempswa , #2\fi}\printcitefinish}
 %%
-%% Неудачная подмена \nocite !!!!
+%% п²п╣я┐п╢п╟я┤п╫п╟я▐ п©п╬п╢п╪п╣п╫п╟ \nocite !!!!
 \DeclareRobustCommand\hiddencite{%
         \@ifnextchar [{\@tempswatrue\@hiddencitex}{\@tempswafalse\@hiddencitex[]}
 }%
@@ -1673,7 +1673,7 @@ Dissertation Committee Chair
                         \@ifundefined{b@\@hiddenciteb}{\mbox{\reset@font\bfseries ?}%
                                 \G@refundefinedtrue
                                 \@latex@warning
-{Скрытая ссылка `\@hiddenciteb' на странице \thepage \space неопределна}}%
+{п║п╨я─я▀я┌п╟я▐ я│я│я▀п╩п╨п╟ `\@hiddenciteb' п╫п╟ я│я┌я─п╟п╫п╦я├п╣ \thepage \space п╫п╣п╬п©я─п╣п╢п╣п╩п╫п╟}}%
                         }}{#1}}
 \expandafter\let\csname b@*\endcsname\@empty
 \def\@hiddencite#1#2{{#1\if@tempswa , #2\fi}}
@@ -1701,11 +1701,11 @@ Dissertation Committee Chair
 
 
 % % --------------------------------------------------------------------- %
-% % Это конец ucthesis, а я добавил русификацию по КОИ8 --- А. Смолин     %
+% % п╜я┌п╬ п╨п╬п╫п╣я├ ucthesis, п╟ я▐ п╢п╬п╠п╟п╡п╦п╩ я─я┐я│п╦я└п╦п╨п╟я├п╦я▌ п©п╬ п п·п≤8 --- п░. п║п╪п╬п╩п╦п╫     %
 % %
 % \input cyrfont.sty\relax
 
-% % from hyphen.cfg-russian: Для переносов в КОИ8
+% % from hyphen.cfg-russian: п■п╩я▐ п©п╣я─п╣п╫п╬я│п╬п╡ п╡ п п·п≤8
 % \def\Russian{\language\l@russian\lefthyphenmin=2\righthyphenmin=2}
 % \def\English{\language\l@plain\lefthyphenmin=2\righthyphenmin=3}
 
@@ -1717,32 +1717,32 @@ Dissertation Committee Chair
 % \count0=`#1\advance\count0 by "7100\global\mathcode`#1=\count0%
 % \count0=`#2\advance\count0 by "7100\global\mathcode`#2=\count0}%
 % %
-% \letter{Й}{й}\letter{Ц}{ц}\letter{У}{у}\letter{К}{к}\letter{Е}{е}%
-% \letter{Н}{н}\letter{Г}{г}\letter{Ш}{ш}\letter{Щ}{щ}\letter{З}{з}%
-% \letter{Э}{э}\letter{Ф}{ф}\letter{Ы}{ы}\letter{В}{в}\letter{А}{а}%
-% \letter{П}{п}\letter{Р}{р}\letter{О}{о}\letter{Л}{л}\letter{Д}{д}%
-% \letter{Ж}{ж}\letter{Я}{я}\letter{Ч}{ч}\letter{С}{с}\letter{М}{м}%
-% \letter{И}{и}\letter{Т}{т}\letter{Ь}{ь}\letter{Б}{б}\letter{Ю}{ю}%
-% \letter{Ъ}{ъ}\letter{Х}{х}%
+% \letter{п≥}{п╧}\letter{п╕}{я├}\letter{пё}{я┐}\letter{п }{п╨}\letter{п∙}{п╣}%
+% \letter{п²}{п╫}\letter{п⌠}{пЁ}\letter{п╗}{я┬}\letter{п╘}{я┴}\letter{п≈}{п╥}%
+% \letter{п╜}{я█}\letter{п╓}{я└}\letter{п╚}{я▀}\letter{п▓}{п╡}\letter{п░}{п╟}%
+% \letter{п÷}{п©}\letter{п═}{я─}\letter{п·}{п╬}\letter{п⌡}{п╩}\letter{п■}{п╢}%
+% \letter{п√}{п╤}\letter{п╞}{я▐}\letter{п╖}{я┤}\letter{п║}{я│}\letter{п°}{п╪}%
+% \letter{п≤}{п╦}\letter{п╒}{я┌}\letter{п╛}{я▄}\letter{п▒}{п╠}\letter{п╝}{я▌}%
+% \letter{п╙}{я┼}\letter{п╔}{я┘}%
 % % special for letter yo (if any)
-% \global\catcode`Е=11%
-% \global\catcode`е=11%
-% \global\uccode`Е=`Е%
-% \global\lccode`Е=`е%
-% \global\uccode`е=`Е%
-% \global\lccode`е=`е%
-% \count0=`Е\advance\count0 by "7100\global\mathcode`Е=\count0%
-% \count0=`е\advance\count0 by "7100\global\mathcode`е=\count0%
+% \global\catcode`п∙=11%
+% \global\catcode`п╣=11%
+% \global\uccode`п∙=`п∙%
+% \global\lccode`п∙=`п╣%
+% \global\uccode`п╣=`п∙%
+% \global\lccode`п╣=`п╣%
+% \count0=`п∙\advance\count0 by "7100\global\mathcode`п∙=\count0%
+% \count0=`п╣\advance\count0 by "7100\global\mathcode`п╣=\count0%
 % }%
 
-% \def\@alph#1{\ifcase#1\or а\or б\or в\or г\else\@ialph{#1}\fi}%
-% \def\@ialph#1{\ifcase#1\or \or \or \or \or д\or е\or ж\or з\or и\or й\or
-%    к\or л\or м\or н\or о\or п\or р\or с\or т\or у\or ф\or х\or ц\or ч\or ш\or
-%    щ\or ъ\or ы\or ь\or э\or ю\or я\else\@ctrerr\fi}%
-% \def\@Alph#1{\ifcase#1\or А\or Б\or В\or Г\else\@Ialph{#1}\fi}%
-% \def\@Ialph#1{\ifcase#1\or \or \or \or \or Д\or Е\or Ж\or З\or И\or Й\or
-%    К\or Л\or М\or Н\or О\or П\or Р\or С\or Т\or У\or Ф\or Х\or Й\or Ч\or Ш\or
-%    Щ\or Ъ\or Ы\or Ь\or Э\or Ю\or Я\else\@ctrerr\fi}%
+% \def\@alph#1{\ifcase#1\or п╟\or п╠\or п╡\or пЁ\else\@ialph{#1}\fi}%
+% \def\@ialph#1{\ifcase#1\or \or \or \or \or п╢\or п╣\or п╤\or п╥\or п╦\or п╧\or
+%    п╨\or п╩\or п╪\or п╫\or п╬\or п©\or я─\or я│\or я┌\or я┐\or я└\or я┘\or я├\or я┤\or я┬\or
+%    я┴\or я┼\or я▀\or я▄\or я█\or я▌\or я▐\else\@ctrerr\fi}%
+% \def\@Alph#1{\ifcase#1\or п░\or п▒\or п▓\or п⌠\else\@Ialph{#1}\fi}%
+% \def\@Ialph#1{\ifcase#1\or \or \or \or \or п■\or п∙\or п√\or п≈\or п≤\or п≥\or
+%    п \or п⌡\or п°\or п²\or п·\or п÷\or п═\or п║\or п╒\or пё\or п╓\or п╔\or п≥\or п╖\or п╗\or
+%    п╘\or п╙\or п╚\or п╛\or п╜\or п╝\or п╞\else\@ctrerr\fi}%
 % %
 % %   macro \| might be used instead of ``-'' in complicated words
 % %
@@ -1755,7 +1755,7 @@ Dissertation Committee Chair
 % %     vorlaeufige Aenderung der Umbruchparameter -- wird bei V3.0 geaendert!
 % \tolerance=2500\hbadness=1500%   % Umbruchparameter: lange deutsche Woerter
 % %%
-% \Russian% Русский язык
+% \Russian% п═я┐я│я│п╨п╦п╧ я▐п╥я▀п╨
 % \frenchspacing%
 
 % \endinput
@@ -1764,5 +1764,5 @@ Dissertation Committee Chair
 %%% Local Variables: 
 %%% mode: latex
 %%% TeX-master: t
-%%% coding: koi8-r-unix
+%%% coding: utf-8-unix
 %%% End: 

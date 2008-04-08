@@ -232,28 +232,28 @@
       \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
       \let\@mkboth\markboth
     \def\chaptermark##1{%
-      \markboth {\MakeUppercase{%
+      \markboth {%
         \ifnum \c@secnumdepth >\m@ne
             \@chapapp\ \thechapter. \ %
         \fi
-        ##1}}{}}%
+        ##1}{}}%
     \def\sectionmark##1{%
-      \markright {\MakeUppercase{%
+      \markright {%
         \ifnum \c@secnumdepth >\z@
           \thesection. \ %
         \fi
-        ##1}}}}
+        ##1}}}
 \else
   \def\ps@headings{%
     \let\@oddfoot\@empty
     \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
     \let\@mkboth\markboth
     \def\chaptermark##1{%
-      \markright {\MakeUppercase{%
+      \markright {%
         \ifnum \c@secnumdepth >\m@ne
             \@chapapp\ \thechapter. \ %
         \fi
-        ##1}}}}
+        ##1}}}
 \fi
 \def\ps@myheadings{%
     \let\@oddfoot\@empty\let\@evenfoot\@empty
@@ -734,7 +734,7 @@
     \fi
     \chapter*{\contentsname
         \@mkboth{%
-           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+           \contentsname}{\contentsname}}%
     \@starttoc{toc}%
     \if@restonecol\twocolumn\fi
     }
@@ -780,8 +780,8 @@
       \@restonecolfalse
     \fi
     \chapter*{\listfigurename
-      \@mkboth{\MakeUppercase\listfigurename}%
-              {\MakeUppercase\listfigurename}}%
+      \@mkboth{\listfigurename}%
+              {\listfigurename}}%
     \@starttoc{lof}%
     \if@restonecol\twocolumn\fi
     }
@@ -794,7 +794,7 @@
     \fi
     \chapter*{\listtablename
       \@mkboth{%
-          \MakeUppercase\listtablename}{\MakeUppercase\listtablename}}%
+          \listtablename}{\listtablename}}%
     \@starttoc{lot}%
     \if@restonecol\twocolumn\fi
     }
@@ -803,7 +803,7 @@
 \setlength\bibindent{1.5em}
 \newenvironment{thebibliography}[1]
      {\chapter*{\bibname
-        \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}}%
+        \@mkboth{\bibname}{\bibname}}%
 %% FIXME Перенести в класс библиографии (на основе natbib) ?	
         \addcontentsline{toc}{chapter}{\bibname}%
       \list{\@biblabel{\@arabic\c@enumiv}}%
@@ -830,8 +830,8 @@
                 \columnseprule \z@
                 \columnsep 35\p@
                 \twocolumn[\@makeschapterhead{\indexname}]%
-                \@mkboth{\MakeUppercase\indexname}%
-                        {\MakeUppercase\indexname}%
+                \@mkboth{\indexname}%
+                        {\indexname}%
                 \thispagestyle{plain}\parindent\z@
                 \parskip\z@ \@plus .3\p@\relax
                 \let\item\@idxitem}
@@ -881,6 +881,7 @@
   \onecolumn
 \fi
 
+%% FIXME убрать для общности ?
 %%
 %% Headers
 %%
