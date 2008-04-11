@@ -3259,13 +3259,15 @@
 
 \RequirePackage{caption}
 
-\captionsetup{font={sc,footnotesize}}
+% \captionsetup{font={sc,footnotesize}}
+\captionsetup{font={small}}
 
-\DeclareCaptionFormat{tableRight}{\hfill#1\newline{\centering #2#3}\par}
+\DeclareCaptionFormat{tableRight}{\hfill#1\newline#2#3\par}
 
-\captionsetup[figure]{labelsep=period,position=bottom}
+\captionsetup[figure]{labelsep=period,position=bottom,justification=centering}
 
-\captionsetup[table]{format=tableRight,labelsep=none,position=top,textfont=bf}
+\captionsetup[table]{format=tableRight,labelsep=none,position=top,justification=centering}
+% textfont=bf,
 
 %\newcommand{\captionLabelFontShape}{\scshape}
 %\newcommand{\captionLabelFontSize}{\footnotesize}

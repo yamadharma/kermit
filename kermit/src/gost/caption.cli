@@ -10,8 +10,8 @@
 % \DeclareCaptionFormat{tableRight}{\hfill#1\newline#2#3\par}
 \DeclareCaptionFormat{gost1.5}{\hfill#1\newline#2#3\par}
 
-\captionsetup[figure]{labelsep=period,position=bottom}
+\captionsetup[figure]{labelsep=period,position=bottom,justification=centering}
 
 % \captionsetup[table]{format=tableRight,labelsep=none,position=top}
-\captionsetup[table]{format=gost1.5,labelsep=none,position=top}
+\captionsetup[table]{format=gost1.5,labelsep=none,position=top,justification=centering}
 
