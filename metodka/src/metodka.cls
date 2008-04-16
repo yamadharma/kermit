@@ -35,11 +35,8 @@
 
 \RequirePackage{titlesec}
 
-%\titleformat{\chapter}[block]%
-%    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\ifx\chaptertitlename\@empty\else\chaptertitlename\space\fi\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
 \titleformat{\chapter}[block]%
-    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
-%    {\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
+    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape\@mkboth{}{}}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
 \titleformat{\section}[block]%
     {\normalfont\sectionFontSize\sectionFontShape}{\thesection\secaftersnum}{1em}{}
 \titleformat{\subsection}[block]%
