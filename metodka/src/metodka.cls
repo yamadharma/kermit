@@ -36,7 +36,8 @@
 \RequirePackage{titlesec}
 
 \titleformat{\chapter}[block]%
-    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape\@mkboth{}{}}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
+    {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
+%    {\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
 \titleformat{\section}[block]%
     {\normalfont\sectionFontSize\sectionFontShape}{\thesection\secaftersnum}{1em}{}
 \titleformat{\subsection}[block]%
@@ -50,6 +51,32 @@
 
 \titlespacing{\chapter}{0\p@}{0\p@}{10\p@}
 
+\RequirePackage{ifthen}
+\RequirePackage{truncate}
+\newlength{\sectionmarkWidth}
+\newlength{\chaptermarkWidth}
+\newlength{\PFUmarkWidth}
+\setlength{\PFUmarkWidth}{0.8\textwidth}
+
+\renewcommand{\chaptermark}[1]{%
+    \settowidth{\sectionmarkWidth}{\thesection. #1}%
+    \ifthenelse{\lengthtest{\sectionmarkWidth < \PFUmarkWidth}}{%
+	\markboth{\chaptertitlename\ \thechapter. #1}{\chaptertitlename\ \thechapter. #1}
+    }{%
+	\markboth{\truncate{0.8\textwidth}{\hfill\chaptertitlename\ \thechapter. #1\hfill}}{\truncate{0.8\textwidth}{\hfill\chaptertitlename\ \thechapter. #1\hfill}}
+    }
+}
+\renewcommand{\sectionmark}[1]{%
+    \settowidth{\sectionmarkWidth}{\thesection. #1}%
+    \ifthenelse{\lengthtest{\sectionmarkWidth < \PFUmarkWidth}}{%
+	\markright{\thesection. #1}%
+    }{%	
+	\markright{\truncate{0.8\textwidth}{\hfill\thesection. #1\hfill}}%
+    }
+}
+
+\fancyhead[CE]{\small \leftmark}%
+\fancyhead[CO]{\small \rightmark}%
 
 \RequirePackage{titletoc}
 
