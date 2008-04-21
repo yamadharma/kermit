@@ -1,0 +1,13 @@
+\immediate\write-1{version 2008-04-22-00:00}
+
+\input book.4ht
+\let\rm\empty
+\let\sf\empty
+\let\tt\empty
+\let\bf\empty
+\let\it\empty
+
+
+\Hinput{metodka}
+\endinput
+
