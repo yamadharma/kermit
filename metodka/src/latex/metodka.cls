@@ -16,7 +16,7 @@
 \RequirePackage{keyval}
 \RequirePackage{substr}
 
-\RequirePackage{longtable}
+% \RequirePackage{longtable}
 % \RequirePackage[longtable]{caption2}
 
 %% FEXME need move to kermit bundle
