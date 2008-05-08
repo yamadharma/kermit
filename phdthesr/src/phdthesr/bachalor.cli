@@ -27,7 +27,9 @@
     \setcounter{page}{1}
     \null\vfil
     \begin{center}
-      {\scshape \MakeUppercase{\PHDinstitut} \par}
+      {\scshape%
+        %\MakeUppercase
+        {\PHDinstitut} \par}
       \hbox to 6.5truein{\hrulefill}
       \ifx\@empty\PHDfaculty
       \else%

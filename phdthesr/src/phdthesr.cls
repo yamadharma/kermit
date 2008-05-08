@@ -1758,6 +1758,10 @@ Dissertation Committee Chair
 % \Russian% Русский язык
 % \frenchspacing%
 
+% FIXME Должно зависить от языка
+\renewcommand\appendixnum{\@Asbuk\c@chapter}
+
+
 % \endinput
 % %
 
