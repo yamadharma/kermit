@@ -9,16 +9,16 @@
 
 \PassOptionsToClass{10dd,onecolumn}{kgeneric}
 
-\renewcommand{\PFUheader}%
-{%
-  \scshape \PFUjournal,\,%
-  \PFUjornalseriesName~\textit{\PFUjournalseries}.\,% 
-  \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\,\fi{}%
-  \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber.\,\fi{}%
-  \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\,\fi{}%
-  \PFUjournalyear.\,% 
-  \cyrs.\,\pageref{starttitle}--\pageref{endtitle} 
-}
+%\renewcommand{\PFUheader}%
+%{%
+%  \scshape \PFUjournal,\,%
+%  \PFUjornalseriesName~\textit{\PFUjournalseries}.\,% 
+%  \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\,\fi{}%
+%  \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber.\,\fi{}%
+%  \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\,\fi{}%
+%  \PFUjournalyear.\,% 
+%  \cyrs.\,\pageref{starttitle}--\pageref{endtitle} 
+%}
 
 %%% Local Variables: 
 %%% mode: latex

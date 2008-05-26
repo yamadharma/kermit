@@ -66,5 +66,5 @@
 		\@float{table}}
                 {\end@float}
 
-
+\captionsetup{textfont={bf}}
 

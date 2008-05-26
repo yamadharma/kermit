@@ -667,12 +667,13 @@
   \fancyhead[LO]{%
     \iflanguage{\@defaultlanguage}%
     {%
-      \headerFontSize\PFUheader
+%%      \headerFontSize\PFUheader
+     \rightmark
     }
     {%
       \begin{otherlanguage*}{\@defaultlanguage}
-        \headerFontSize\PFUheader
-%%     \rightmark
+%%        \headerFontSize\PFUheader
+     \rightmark
       \end{otherlanguage*}
     }
 }
@@ -1589,8 +1590,10 @@
     \let\shorttitle\@title
   \fi
 %%   \renewcommand{\leftmark}{\authorsrunning{} {\shorttitle}}
-  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shorttitle} \hfill}}
-%%   \renewcommand{\rightmark}{\shorttitle}
+%  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shorttitle} \hfill}}
+%  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \textsc{\authorsrunning} \hfill}}    
+    \renewcommand{\leftmark}{\hfill \textsc{\authorsrunning} \hfill}      
+    \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\hfill \textsc{\shorttitle} \hfill}}
   \@maketitle@hook
   \begingroup
   %\if@twocolumn %
@@ -1823,7 +1826,8 @@
   \ifx\shortsubtitle\@empty 
     \let\shortsubtitle\@subtitle
   \fi
-  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shortsubtitle} \hfill}}
+%   \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shortsubtitle} \hfill}}
+%  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \textsc{\authorsrunning} \hfill}}  
   \@makesubtitle@hook
   \begingroup
   %\if@twocolumn %
@@ -2733,11 +2737,11 @@
     \vskip 10\p@\@plus -1ex \@minus -.2ex%
   }
   \addtocontents{tac}%
-  {{\vspace{8dd}\protect\noindent\protect\protect\Large\DivFontShape{#1}%
+  {{\vspace{8dd}\protect\noindent\protect\raggedright\protect\protect\Large\DivFontShape{#1}%
      \@par      
       \vspace{4dd}}} 
   \addtocontents{toc}%
-  {{\vspace{8dd}\protect\noindent\protect\protect\Large\DivFontShape{#2}%
+  {{\vspace{8dd}\protect\noindent\protect\raggedright\protect\protect\Large\DivFontShape{#2}%
       \@par
       \vspace{4dd}}}
 }
