@@ -1592,7 +1592,7 @@
 %%   \renewcommand{\leftmark}{\authorsrunning{} {\shorttitle}}
 %  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shorttitle} \hfill}}
 %  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\authorsrunning} \hfill}}    
-    \renewcommand{\leftmark}{\hfill \textsc{\authorsrunning} \hfill}      
+    \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}      
     \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\shorttitle} \hfill}}
   \@maketitle@hook
   \begingroup
