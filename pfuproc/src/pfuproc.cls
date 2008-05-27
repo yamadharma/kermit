@@ -678,6 +678,16 @@
     }
 }
 \fancyfoot{}
+
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyhead[C]{%
+\headerFontSize\PFUTitleHeader
+}
+%\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
+}
+
 }
 
 %}}}
@@ -748,6 +758,7 @@
   \refstepcounter{PFUtitle}
   \message{*********** \thePFUtitle}
   \refstepcounter{subtitle}
+  \thispagestyle{plain}
   \let\@rauthor\@empty
   \let\authorsrunning\@empty
   \let\altauthorsrunning\@empty

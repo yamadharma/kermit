@@ -55,8 +55,20 @@
 
 \let\PFUtypesetter\@empty
 
-\def\PFUjornalissueName{{\cyr\CYRV\cyrery\cyrp\cyru\cyrs\cyrk}} % Выпуск
-\def\PFUjornalseriesName{{\cyr\CYRS\cyre\cyrr\cyri\cyrya}} % Серия
+\AtBeginDocument%
+{%
+  \addto\extrasrussian%
+  {
+    \def\PFUjornalissueName{{\cyr\CYRV\cyrery\cyrp\cyru\cyrs\cyrk}} % Выпуск
+    \def\PFUjornalseriesName{{\cyr\CYRS\cyre\cyrr\cyri\cyrya}} % Серия
+  }
+  \addto\extrasenglish%
+  {
+    \def\PFUjornalissueName{Issue} % Выпуск
+    \def\PFUjornalseriesName{Series} % Серия
+  }
+}
+
 
 \providecommand{\PFUheader}%
 {%
@@ -69,7 +81,34 @@
   \cyrs.~\pageref{starttitle}--\pageref{endtitle} 
 }
 
-\providecommand{\rightmark}{\PFUheader}%
+\providecommand{\PFUTitleHeader}%
+{%
+    \iflanguage{\@defaultlanguage}%
+    {%
+    \PFUjournal
+    \hfill
+    \PFUjornalseriesName~\textit{\PFUjournalseries}.
+    \hfill
+    \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\fi{}~%
+    \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber.\fi{}~%
+    \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\fi{}~%
+    \PFUjournalyear. \CYRS.~\pageref{starttitle}--\pageref{endtitle} 
+    }
+    {%
+%      \begin{otherlanguage*}{\@defaultlanguage}
+    Bulletin of PFUR
+    \hfill
+    \PFUjornalseriesName~\textit{\PFUaltjournalseries}.
+    \hfill
+    \ifx\PFUjournalvolume\@empty\else \V.~\PFUjournalvolume.\fi{}~%
+    \ifx\PFUjournalnumber\@empty\else No~\PFUjournalnumber.\fi{}~%
+    \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\fi{}~%
+    \PFUjournalyear. Pp.~\pageref{starttitle}--\pageref{endtitle} 
+%      \end{otherlanguage*}
+    }
+}
+
+% \providecommand{\rightmark}{\PFUheader}%
 
 %%% Local Variables: 
 %%% mode: latex
