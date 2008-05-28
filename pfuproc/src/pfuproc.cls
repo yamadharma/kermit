@@ -936,17 +936,18 @@
 %     \def\authorinitials{#1}
 %     \def\authorfamily{#2}
 % }
+\def\PFUNumRunningauthor{3}
 %%%
 \def\runningauthor@fmt{%
   \begingroup\no@harm
     \if@firstauthor
-      \ifnum0\n@author@ > 2
+      \ifnum0\n@author@ > \PFUNumRunningauthor
         \global\edef\@runningauthor{\@author\ et al.}%
       \else
         \global\let\@runningauthor\@author%
       \fi
     \else % \c@author > 1
-      \ifnum0\n@author@ = 2
+      \ifnum0\n@author@ = \PFUNumRunningauthor
         \global\edef\@runningauthor{\@runningauthor\ \& \noexpand\@author}%
       \fi
     \fi
@@ -1010,8 +1011,8 @@
 %    \xdef\authorstoc{\authorstoc \and \authorfamily~\authorinitials}% 
     \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}% 
 %   \show\n@author@
-    \ifnum0\n@author@ > 2
-      \ifnum0#1 = 2 % 3
+    \ifnum0\n@author@ > \PFUNumRunningauthor
+      \ifnum0#1 = \PFUNumRunningauthor % 3
         %% FIXME removing \etal (20031214)     
         \g@addto@macro\authorsrunning{ \etal}%
       \fi
@@ -1604,7 +1605,7 @@
 %  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shorttitle} \hfill}}
 %  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\authorsrunning} \hfill}}    
     \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}      
-    \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\shorttitle} \hfill}}
+    \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
   \@maketitle@hook
   \begingroup
   %\if@twocolumn %
