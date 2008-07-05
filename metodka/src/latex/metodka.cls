@@ -37,6 +37,7 @@
 
 \titleformat{\chapter}[block]%
     {\raggedright\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
+%    {\raggedright\thispagestyle{empty}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
 %    {\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
 \titleformat{\section}[block]%
     {\raggedright\normalfont\sectionFontSize\sectionFontShape}{\thesection\secaftersnum}{1em}{}
