@@ -1,6 +1,6 @@
 \ProvidesFile{gloss-albanian.ldf}[polyglossia: module for albanian]
 \makeatletter
-\csdef{albanian@font}{\normalfontlatin}
+\def\albanian@font{\normalfontlatin}
 
 \ifx\l@albanian\@undefined
     \xpg@nopatterns{Albanian}
@@ -27,8 +27,10 @@
    %\def\enclname{\textalbanian{}}%
    %\def\ccname{\textalbanian{}}%
    %\def\headtoname{\textalbanian{}}%
-   \def\proofname{\textalbanian{Vërtetim}}% for AMS-\LaTeX
+   \def\proofname{\textalbanian{Vërtetim}}%
    \def\glossaryname{\textalbanian{Përhasja e Fjalëve}}%
+   }
+\def\datealbanian{%
    \def\today{\textalbanian{{\number\day~\ifcase\month\or
     Janar\or Shkurt\or Mars\or Prill\or Maj\or
     Qershor\or Korrik\or Gusht\or Shtator\or Tetor\or Nëntor\or
@@ -36,22 +38,14 @@
 
 \def\albanian@language{\protect\language=\l@albanian}
 
+\setlocalhyphenmins{albanian}{2}{2}
+
 \def\noextras@albanian{%
    \nofrench@indent%
    }
 
 \def\blockextras@albanian{%
-   \albanian@language%
-   \local@hyphenmins{albanian}{2}{2}%
    \french@indent%
-   \captionsalbanian%
-   \local@marks{albanian}%
-   \@ifundefined{setLR}{}{\setLR}%
-   }
-
-\def\inlineextras@albanian{%
-   \albanian@language%
-   \local@hyphenmins{albanian}{2}{2}%
    }
 
 \endinput

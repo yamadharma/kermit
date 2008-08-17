@@ -1,6 +1,6 @@
 \ProvidesFile{gloss-czech.ldf}[polyglossia: module for czech]
 \makeatletter
-\csdef{czech@font}{\normalfontlatin}
+\def\czech@font{\normalfontlatin}
 
 \ifx\l@czech\@undefined%
    \xpg@nopatterns{Czech}%
@@ -28,8 +28,10 @@
    \def\enclname{\textczech{Příloha}}%
    \def\ccname{\textczech{Na vědomí:}}%
    \def\headtoname{\textczech{Komu}}%
-   \def\proofname{\textczech{Důkaz}}% for AMS-\LaTeX
+   \def\proofname{\textczech{Důkaz}}%
    \def\glossaryname{\textczech{Slovník}}%was Glosář
+   }
+\def\dateczech{%
    \def\today{\textczech{\number\day.~\ifcase\month\or
     ledna\or února\or března\or dubna\or května\or
     června\or července\or srpna\or září\or
@@ -38,22 +40,17 @@
 
 \def\czech@language{\protect\language=\l@czech}
 
+\setlocalhyphenmins{czech}{2}{2}%
+
 \def\noextras@czech{%
    \nonfrenchspacing%
    }
 
 \def\blockextras@czech{%
-   \czech@language%
-   \local@hyphenmins{czech}{2}{2}%
    \frenchspacing%
-   \captionsczech%
-   \local@marks{czech}%
-   \@ifundefined{setLR}{}{\setLR}%
    }
 
 \def\inlineextras@czech{%
-   \czech@language%
-   \local@hyphenmins{czech}{2}{2}%
    \frenchspacing%
    }
 

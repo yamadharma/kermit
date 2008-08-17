@@ -1,6 +1,6 @@
 \ProvidesFile{gloss-dutch.ldf}[polyglossia: module for dutch]
 \makeatletter
-\csdef{dutch@font}{\normalfontlatin}
+\def\dutch@font{\normalfontlatin}
 
 \ifx\l@dutch\@undefined
    \xpg@nopatterns{Dutch}
@@ -45,21 +45,17 @@
 
 \def\dutch@language{\protect\language=\l@dutch}
 
+\setlocalhyphenmins{dutch}{2}{2}%
+
 \def\noextras@dutch{%
    \nodutch@punctuation%
 }
 
 \def\blockextras@dutch{%
-   \dutch@language%
-   \local@hyphenmins{dutch}{2}{2}%
    \dutch@punctuation%
-   \captionsdutch%
-   \local@marks{dutch}%
 }
 
 \def\inlineextras@dutch{%
-   \dutch@language%
-   \local@hyphenmins{dutch}{2}{2}%
    \dutch@punctuation%
 }
 

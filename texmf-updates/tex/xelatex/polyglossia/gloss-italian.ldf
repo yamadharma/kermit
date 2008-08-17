@@ -1,6 +1,6 @@
 \ProvidesFile{gloss-italian.ldf}[polyglossia: module for italian]
 \makeatletter
-\csdef{italian@font}{\normalfontlatin}
+\def\italian@font{\normalfontlatin}
 
 \ifx\l@italian\@undefined
    \xpg@nopatterns{Italian}
@@ -29,6 +29,8 @@
   \def\alsoname{vedi anche}%
   \def\proofname{Dimostrazione}%
   \def\glossaryname{Glossario}%
+   }
+\def\dateitalian{%
    \def\today{\textitalian{\number\day~\ifcase\month\or
     gennaio\or febbraio\or marzo\or aprile\or maggio\or giugno\or
     luglio\or agosto\or settembre\or ottobre\or novembre\or
@@ -37,17 +39,10 @@
 
 \def\italian@language{\protect\language=\l@italian}
 
-\def\blockextras@italian{%
-   \italian@language%
-   \local@hyphenmins{italian}{2}{2}%
-   \captionsitalian%
-   \local@marks{italian}%
-%TODO	\clubpenalty3000\widowpenalty3000\finalhyphendemerits50000000
-   }
+\setlocalhyphenmins{italian}{2}{2}%
 
-\def\inlineextras@italian{%
-   \italian@language%
-   \local@hyphenmins{italian}{2}{2}%
-   }
+%\def\blockextras@italian{%
+%   %TODO ? \clubpenalty3000\widowpenalty3000\finalhyphendemerits50000000
+%   }
 
 \endinput

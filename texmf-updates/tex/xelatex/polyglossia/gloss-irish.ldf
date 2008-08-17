@@ -1,6 +1,6 @@
 \ProvidesFile{gloss-irish.ldf}[polyglossia: module for irish]
 \makeatletter
-\csdef{irish@font}{\normalfontlatin}
+\def\irish@font{\normalfontlatin}
 
 \ifx\l@irish\@undefined%
    \xpg@nopatterns{Irish}%
@@ -29,8 +29,10 @@
    \def\enclname{\textirish{faoi iamh}}%
    \def\ccname{\textirish{cc}}%
    \def\headtoname{\textirish{Go}}%
-   \def\proofname{\textirish{Cruthúnas}}% for AMS-\LaTeX
+   \def\proofname{\textirish{Cruthúnas}}%
    \def\glossaryname{\textirish{Glossary}}%
+   }
+\def\dateirish{%
    \def\today{\textirish{%
     \number\day\space \ifcase\month\or
     Eanáir\or Feabhra\or Márta\or Aibreán\or
@@ -41,20 +43,6 @@
 
 \def\irish@language{\protect\language=\l@irish}
 
-\def\noextras@irish{%
-   }
-
-\def\blockextras@irish{%
-   \irish@language%
-   \local@hyphenmins{irish}{2}{2}%
-   \captionsirish%
-   \local@marks{irish}%
-   \@ifundefined{setLR}{}{\setLR}%
-   }
-
-\def\inlineextras@irish{%
-   \irish@language%
-   \local@hyphenmins{irish}{2}{3}%
-   }
+\setlocalhyphenmins{irish}{2}{2}%
 
 \endinput

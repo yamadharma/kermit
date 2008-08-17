@@ -1,6 +1,6 @@
 \ProvidesFile{gloss-breton.ldf}[polyglossia: module for breton]
 \makeatletter
-\csdef{breton@font}{\normalfontlatin}
+\def\breton@font{\normalfontlatin}
 
 \ifx\l@breton\@undefined%
    \xpg@nopatterns{Breton}%
@@ -45,8 +45,10 @@
    \def\enclname{\textbreton{Dielloù kevret}}%
    \def\ccname{\textbreton{Eilskrid da}}%
    \def\headtoname{\textbreton{evit}}%
-   \def\proofname{\textbreton{Proof}}% for AMS-\LaTeX
+   \def\proofname{\textbreton{Proof}}%
    \def\glossaryname{\textbreton{Glossary}}%
+   }
+\def\datebreton{%
    \def\today{\textbreton{\ifnum\day=1\relax 1\/\textsuperscript{añ}\else
     \number\day\fi \space a\space viz\space\ifcase\month\or
     Genver\or C'hwevrer\or Meurzh\or Ebrel\or Mae\or Mezheven\or
@@ -55,22 +57,17 @@
 
 \def\breton@language{\protect\language=\l@breton}
 
+\setlocalhyphenmins{breton}{2}{2}
+
 \def\noextras@breton{%
-   \nobreton@punctuation
+   \nobreton@punctuation%
    }
 
 \def\blockextras@breton{%
-   \breton@language%
-   \local@hyphenmins{breton}{2}{2}%
    \breton@punctuation%
-   \captionsbreton%
-   \local@marks{breton}%
-   \@ifundefined{setLR}{}{\setLR}%
    }
 
 \def\inlineextras@breton{%
-   \breton@language%
-   \local@hyphenmins{breton}{2}{2}%
    \breton@punctuation%
    }
 

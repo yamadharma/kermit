@@ -27,8 +27,10 @@
    \def\enclname{\textinterlingua{Incluso}}%
    \def\ccname{\textinterlingua{Copia}}%
    \def\headtoname{\textinterlingua{A}}%
-   \def\proofname{\textinterlingua{Prova}}% for AMS-\LaTeX
+   \def\proofname{\textinterlingua{Prova}}%
    \def\glossaryname{\textinterlingua{Glossario}}%
+   }
+\def\dateinterlingua{%
    \def\today{\textinterlingua{le~\number\day\space de \ifcase\month\or
     januario\or februario\or martio\or april\or maio\or junio\or
     julio\or augusto\or septembre\or octobre\or novembre\or
@@ -37,20 +39,6 @@
 
 \def\interlingua@language{\protect\language=\l@interlingua}
 
-\def\noextras@interlingua{%
-   }
-
-\def\blockextras@interlingua{%
-   \interlingua@language%
-   \local@hyphenmins{interlingua}{2}{2}%
-   \captionsinterlingua%
-   \local@marks{interlingua}%
-   \@ifundefined{setLR}{}{\setLR}%
-   }
-
-\def\inlineextras@interlingua{%
-   \interlingua@language%
-   \local@hyphenmins{interlingua}{2}{2}%
-   }
+\setlocalhyphenmins{interlingua}{2}{2}%
 
 \endinput

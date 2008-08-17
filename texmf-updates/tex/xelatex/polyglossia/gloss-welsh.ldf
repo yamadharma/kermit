@@ -1,9 +1,9 @@
 \ProvidesFile{gloss-welsh.ldf}[polyglossia: module for welsh]
 \makeatletter
-\csdef{welsh@font}{\normalfontlatin}
+\def\welsh@font{\normalfontlatin}
 
 \ifx\l@welsh\@undefined%
-   \xpg@nopatterns{<Lang>}%
+   \xpg@nopatterns{Welsh}%
    \adddialect\l@welsh0%
 \fi
 
@@ -28,31 +28,20 @@
    \def\enclname{\textwelsh{amgaeëdig}}%
    \def\ccname{\textwelsh{copïau}}%
    \def\headtoname{\textwelsh{At}}%
-   \def\proofname{\textwelsh{Prawf}}% for AMS-\LaTeX
+   \def\proofname{\textwelsh{Prawf}}%
    \def\glossaryname{\textwelsh{Rhestr termau}}%
+   }
+\def\datewelsh{%   
    \def\today{\textwelsh{\ifnum\day=1\relax 1\/\textsuperscript{añ}\else%
     \number\day\fi\space\ifcase\month\or
      Ionawr\or Chwefror\or Mawrth\or Ebrill\or
      Mai\or Mehefin\or Gorffennaf\or Awst\or
      Medi\or Hydref\or Tachwedd\or Rhagfyr\fi%
-     \space\number\year}}}
+     \space\number\year}}%
+     }
 
 \def\welsh@language{\protect\language=\l@welsh}
 
-\def\noextras@welsh{%
-   }
-
-\def\blockextras@welsh{%
-   \welsh@language%
-   \local@hyphenmins{welsh}{2}{2}%
-   \captionswelsh%
-   \local@marks{welsh}%
-   \@ifundefined{setLR}{}{\setLR}%
-   }
-
-\def\inlineextras@welsh{%
-   \welsh@language%
-   \local@hyphenmins{welsh}{2}{3}%
-   }
+\setlocalhyphenmins{welsh}{2}{3}%
 
 \endinput

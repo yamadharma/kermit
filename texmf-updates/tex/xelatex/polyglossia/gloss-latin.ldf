@@ -1,19 +1,11 @@
 \ProvidesFile{gloss-latin.ldf}[polyglossia: module for latin]
 \makeatletter
-\csdef{latin@font}{\normalfontlatin}
+\def\latin@font{\normalfontlatin}
 
 \ifx\l@latin\@undefined
    \xpg@nopatterns{latin}
    \adddialect\l@latin0
 \fi
-
-\def\latin@punctuation{%
-   \frenchspacing%
-}
-
-\def\nolatin@punctuation{%
-   \nonfrenchspacing%
-}
 
 \def\captionslatin{%
    \def\prefacename{\textlatin{Praefatio}}%
@@ -35,8 +27,10 @@
    \def\pagename{\textlatin{pagina}}%
    \def\seename{\textlatin{cfr.}}%
    \def\alsoname{\textlatin{cfr.}}%
-   \def\proofname{\textlatin{Demonstratio}}% for AMS-\LaTeX
+   \def\proofname{\textlatin{Demonstratio}}%
    \def\glossaryname{\textlatin{Glossarium}}%
+   }
+\def\datelatin{%   
    \def\today{\textlatin{\uppercase\expandafter{\romannumeral\day}%
       \space \ifcase\month%
       \or Januarii\or Februarii\or Martii\or Aprilis\or Maji\or Junii\or%
@@ -44,24 +38,19 @@
       Decembris\fi%
       \space \uppercase\expandafter{\romannumeral\year}}}}
 
-\def\latin@language{%
-   \protect\language=\l@latin}
+\def\latin@language{\protect\language=\l@latin}
+
+\setlocalhyphenmins{latin}{2}{2}%
 
 \def\noextras@latin{%
-   \nolatin@punctuation%
+   \nonfrenchspacing%
 }
 
 \def\blockextras@latin{%
-   \latin@language%
-   \local@hyphenmins{latin}{2}{2}%
    \frenchspacing%
-   \captionslatin%
-   \local@marks{latin}%
 }
 
 \def\inlineextras@latin{%
-   \latin@language%
-   \local@hyphenmins{latin}{2}{2}%
    \frenchspacing%
 }
 

@@ -1,6 +1,6 @@
 \ProvidesFile{gloss-icelandic.ldf}[polyglossia: module for icelandic]
 \makeatletter
-\csdef{icelandic@font}{\normalfontlatin}
+\def\icelandic@font{\normalfontlatin}
 
 \ifx\l@icelandic\@undefined%
    \xpg@nopatterns{Icelandic}%
@@ -28,31 +28,20 @@
    \def\enclname{\texticelandic{Hjálagt}}%
    \def\ccname{\texticelandic{Samrit}}%
    \def\headtoname{\texticelandic{Til:}}%
-   \def\proofname{\texticelandic{Sönnun}}% for AMS-\LaTeX
+   \def\proofname{\texticelandic{Sönnun}}%
    \def\glossaryname{\texticelandic{Orðalisti}}%
+   }
+\def\dateicelandic{%
    \def\today{\texticelandic{\number\day.~\ifcase\month\or
     janúar\or febrúar\or mars\or apríl\or maí\or
     júní\or júlí\or ágúst\or september\or
     október\or nóvember\or desember\fi
-    \space\number\year}}}
+    \space\number\year}}%
+    }
 
 \def\icelandic@language{\protect\language=\l@icelandic}
 
-\def\noextras@icelandic{%
-   }
-
-\def\blockextras@icelandic{%
-   \icelandic@language%
-   \local@hyphenmins{icelandic}{2}{2}%
-   \captionsicelandic%
-   \local@marks{icelandic}%
-   \@ifundefined{setLR}{}{\setLR}%
-   }
-
-\def\inlineextras@icelandic{%
-   \icelandic@language%
-   \local@hyphenmins{icelandic}{2}{2}%
-   }
+\setlocalhyphenmins{icelandic}{2}{2}%
 
 \endinput
 
