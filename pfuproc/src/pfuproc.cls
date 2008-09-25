@@ -473,7 +473,8 @@
   \setlength{\extrarowheight}{1ex}
 \fi
 % \RequirePackage[footnotesize,all]{caption}
-% \RequirePackage{caption}
+\RequirePackage{caption}
+\RequirePackage{ltcaption}
 % \renewcommand{\@captionsize}{\footnotesize}
 % \RequirePackage{longtable}
 \RequirePackage{truncate}
@@ -3272,8 +3273,6 @@
 %%%
 %%% Captions
 %%%
-
-\RequirePackage{caption}
 
 % \captionsetup{font={sc,footnotesize}}
 \captionsetup{font={small}}
