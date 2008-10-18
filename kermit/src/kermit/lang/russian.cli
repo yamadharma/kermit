@@ -3,9 +3,9 @@
 %{{{ Lists
 
 \addto\extrasrussian{%
-% \renewcommand{\labelitemi}{---}
-% \renewcommand{\labelitemii}{---}
-% \renewcommand{\labelitemiii}{---}
+\def\labelitemi{---}
+\def\labelitemii{---}
+\def\labelitemiii{---}
 \def\labelenumi{\theenumi)}
 \def\theenumii{\asbuk{enumii}}
 \def\labelenumii{\theenumii)}

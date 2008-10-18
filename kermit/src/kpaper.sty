@@ -212,7 +212,15 @@
 %                      5. При печати текста на цветном, сером фоне, участках многокрасочных иллюстраций оптическая плотность фона должна быть не более 0,3.
 
 
-%% 145 x 215 mm
+%% paper: 145x200 mm
+%% text: 112x175
+\DeclareOption{60x84/16}
+{%
+    \setlength \paperheight {200mm}%
+    \setlength \paperwidth  {145mm}
+}
+
+%% paper: 145x215 mm
 \DeclareOption{60x90/16}
 {%
     \setlength \paperheight {215mm}%
