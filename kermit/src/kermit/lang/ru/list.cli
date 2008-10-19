@@ -1,9 +1,11 @@
 \RequirePackage{calc}
+\RequirePackage{enumerate}[1999/03/05]
 
-\renewcommand{\theenumi}{\asbuk{enumi}}
-\renewcommand{\labelenumi}{\theenumi)}
-\renewcommand{\theenumii}{\arabic{enumii}}
-\renewcommand{\labelenumii}{\theenumii)}
+% \renewcommand{\theenumi}{\arabic{enumii}}
+% \renewcommand{\labelenumi}{\theenumii)}
+\renewcommand{\theenumii}{\asbuk{enumi}}
+\renewcommand{\labelenumii}{\theenumi)}
+
 
 \renewcommand{\labelitemi}{\bfseries\textendash}
 \renewcommand{\labelitemii}{\bfseries\textendash}
@@ -39,21 +41,20 @@
 \setlength{\itemindent}{0pt}
 \setlength{\leftmargin}{\labelwidth}
 
-% \addto\extrasrussian{%
+%\addto\extrasrussian{%
 % \def\labelitemi{---}
 % \def\labelitemii{---}
 % \def\labelitemiii{---}
-% \def\labelenumi{\theenumi)}
-% \def\theenumii{\asbuk{enumii}}
-% \def\labelenumii{\theenumii)}
+%\def\labelenumi{\theenumi)}
+%\def\theenumii{\asbuk{enumii}}
+%\def\labelenumii{\theenumii)}
 % \def\p@enumii{\theenumi}
 % \def\labelenumiii{{\bf--}}
 % \let\theenumiii\relax
 % \def\p@enumiii{\theenumi\theenumii}
-% }
+%}
 
 %% Fixup for russian enumeration
-\RequirePackage{enumerate}[1999/03/05]
 \makeatletter
 \g@addto@macro\@enhook{%
   \def\@tempb{\IeC{\CYRA}}%
