@@ -1,0 +1,73 @@
+\RequirePackage{calc}
+
+\renewcommand{\theenumi}{\asbuk{enumi}}
+\renewcommand{\labelenumi}{\theenumi)}
+\renewcommand{\theenumii}{\arabic{enumii}}
+\renewcommand{\labelenumii}{\theenumii)}
+
+\renewcommand{\labelitemi}{\bfseries\textendash}
+\renewcommand{\labelitemii}{\bfseries\textendash}
+\renewcommand{\labelitemiii}{\bfseries\textendash}
+\renewcommand{\labelitemiv}{\bfseries\textendash}
+
+\makeatletter
+\renewcommand{\@listi}{%
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt plus 0pt minus 0pt}
+  \setlength{\topsep}{0pt plus 2pt minus 0pt}  
+}
+\renewcommand{\@listii}{%
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt plus 0pt minus 0pt}
+  \setlength{\topsep}{0pt plus 2pt minus 0pt}    
+}
+\renewcommand{\@listiii}{%
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt plus 0pt minus 0pt}
+  \setlength{\topsep}{0pt plus 2pt minus 0pt}  
+}
+\renewcommand{\@listiv}{%
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt plus 0pt minus 0pt}  
+  \setlength{\topsep}{0pt plus 2pt minus 0pt}  
+}
+\let\@listI\@listi
+\@listi
+\makeatother
+
+\setlength{\labelwidth}{\parindent+.7em+\labelsep}
+\setlength{\itemindent}{0pt}
+\setlength{\leftmargin}{\labelwidth}
+
+% \addto\extrasrussian{%
+% \def\labelitemi{---}
+% \def\labelitemii{---}
+% \def\labelitemiii{---}
+% \def\labelenumi{\theenumi)}
+% \def\theenumii{\asbuk{enumii}}
+% \def\labelenumii{\theenumii)}
+% \def\p@enumii{\theenumi}
+% \def\labelenumiii{{\bf--}}
+% \let\theenumiii\relax
+% \def\p@enumiii{\theenumi\theenumii}
+% }
+
+%% Fixup for russian enumeration
+\RequirePackage{enumerate}[1999/03/05]
+\makeatletter
+\g@addto@macro\@enhook{%
+  \def\@tempb{\IeC{\CYRA}}%
+  \def\@tempc{\IeC{\cyra}}%
+  \ifx\@tempb\@entemp\def\@tempa{\@enLabel\Asbuk}\fi
+  \ifx\@tempc\@entemp\def\@tempa{\@enLabel\asbuk}\fi}
+\makeatother
+
+%% И еще запретим вкладывать четыре enumerate друг в друга ...
+%\makeatletter
+%\def\enumerate{\ifnum \@enumdepth >2% было 3, а не 2
+%\@toodeep\else
+%      \advance\@enumdepth \@ne
+%      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+%      {\csname label\@enumctr\endcsname}{\usecounter
+%        {\@enumctr}\def\makelabel##1{\hss\llap{##1}}}\fi}
+%\makeatother
