@@ -669,7 +669,8 @@
 \@addtoreset{equation}{chapter}
 \renewcommand\theequation{%
   \ifnum \c@chapter>\z@ \thechapter.\fi\@arabic\c@equation}
-\newcounter{figure}[chapter]
+%\newcounter{figure}[chapter]
+\newcounter{figure}
 \renewcommand{\thefigure}%
 {%
   \ifnum \c@chapter>\z@\thechapter.\fi \@arabic\c@figure%
