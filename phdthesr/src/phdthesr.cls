@@ -1075,17 +1075,23 @@ Dissertation Committee Chair
 
 \RequirePackage{titletoc}
 
-\titlecontents{chapter}[0pt]%                                                                                                                                  
-{\vspace{1ex minus .1ex}}%
-{\thecontentslabel.\quad}%
-{}%                                                                                                                                                          
-{\titlerule*[1pc]{.}\contentspage}                                                                                                                             
+%\titlecontents{chapter}[0pt]%
+%{\vspace{1ex minus .1ex}}%
+%{\thecontentslabel.\quad}%
+%{}%
+%{\titlerule*[1pc]{.}\contentspage}
 
-\titlecontents{section}[1pc]%                                                                                                                                  
-{}%                                                                                                                                                            
-{\thecontentslabel.\quad}%                                                                                                                                  
-{..}%                                                                                                                                                          
-{\titlerule*[1pc]{.}\contentspage}                 
+\titlecontents{chapter}[0pt]%
+{\vspace{1ex minus .1ex}\chapterFontShape}%
+{\chaptertitlename\space\thecontentslabel.\quad}%
+{}%
+{\titlerule*[1pc]{.}\contentspage}
+
+\titlecontents{section}[1pc]%
+{}%
+{\thecontentslabel.\quad}%
+{..}%
+{\titlerule*[1pc]{.}\contentspage}
 
 % \RequirePackage{tocloft}
 
@@ -1759,7 +1765,9 @@ Dissertation Committee Chair
 % \frenchspacing%
 
 % FIXME Должно зависить от языка
-\renewcommand\appendixnum{\@Asbuk\c@chapter}
+\@ifpackageloaded{babel}{%
+	\renewcommand\appendixnum{\@Asbuk\c@chapter}
+}{}
 
 
 % \endinput

@@ -117,6 +117,7 @@
 
 \AtBeginDocument%
 {%
+\@ifpackageloaded{babel}{%
   \addto\extrasrussian%
   {
     \def\TheoremName{{\CYRT}{\cyre}{\cyro}{\cyrr}{\cyre}{\cyrm}{\cyra}}
@@ -130,8 +131,6 @@
     \def\ProofName{{\CYRD}{\cyro}{\cyrk}{\cyra}{\cyrz}{\cyra}{\cyrt}{\cyre}{\cyrl}{\cyrsftsn}{\cyrs}{\cyrt}{\cyrv}{\cyro}}
   }
 %%
-%%
-%%  
   \addto\extrasenglish%
   {
     \def\TheoremName{Theorem}
@@ -144,6 +143,21 @@
     \def\ExampleName{Example}
     \def\ProofName{Proof}
   }
+}{} %% babel
+%%
+\@ifpackageloaded{polyglossia}{%
+    \def\captionsrussian@modern{%
+    \def\TheoremName{Теорема}
+    \def\LemmaName{Лемма}
+    \def\ConsName{Следствие}
+    \def\RemarkName{Замечание}
+    \def\DefName{Определение}
+    \def\PropositionName{Предложение}
+    \def\StatementName{Утверждение}
+    \def\ExampleName{Пример}
+    \def\ProofName{Доказательство}
+  }
+}{} %% polyglossia
 }
 
 %%%
