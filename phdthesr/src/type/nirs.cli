@@ -1,0 +1,17 @@
+\input{phdthesr/type/title-brs.cli}
+
+\thesistype{Отчёт по НИРС}
+
+%\AtEndOfClass{%
+% \def\@chapapp{}
+%  \setcounter{tocdepth}{1}
+%}
+
+\PassOptionsToClass{a4paper,12dd,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End: 
+

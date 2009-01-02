@@ -25,9 +25,11 @@
 \providecommand{\secaftersnum}{.}
 
 % FIXME Должно зависить от языка
+\AtBeginDocument{%
 \@ifpackageloaded{babel}{%
 	\renewcommand\appendixnum{\@Asbuk\c@chapter}
 }{}
+}
 
 %\AtBeginDocument{%
 %    \addto\captionsrussian{%

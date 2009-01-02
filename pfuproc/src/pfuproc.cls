@@ -478,7 +478,6 @@
 % \renewcommand{\@captionsize}{\footnotesize}
 % \RequirePackage{longtable}
 \RequirePackage{truncate}
-\RequirePackage{titlesec}
 
 % \RequirePackage[unicode]{hyperref}
 
@@ -2654,7 +2653,7 @@
 \providecommand{\chapaftersnum}{.}
 \providecommand{\secaftersnum}{.}
 
-% \RequirePackage{titlesec}
+\RequirePackage{titlesec}
 
 \titleformat{\chapter}[block]%
     {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\ifx\chaptertitlename\@empty\else\chaptertitlename\ \fi\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}

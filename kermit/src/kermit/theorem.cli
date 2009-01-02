@@ -146,7 +146,7 @@
 }{} %% babel
 %%
 \@ifpackageloaded{polyglossia}{%
-    \def\captionsrussian@modern{%
+    \addto\captionsrussian@modern{%
     \def\TheoremName{Теорема}
     \def\LemmaName{Лемма}
     \def\ConsName{Следствие}

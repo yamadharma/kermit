@@ -48,56 +48,6 @@
 \ProvidesClass{phdthesr}
                 [2000/01/01 v0.0.0 
     PhD Thesis Class, Russian Standard]
-%%
-\RequirePackage{keyval}
-\RequirePackage{substr}
-%%
-\def\ProcessClassOptionsWithKV#1{%
-  \let\@tempa\@empty
-  \@for\CurrentOption:=\@classoptionslist\do{%
-    \@ifundefined{KV@#1@\CurrentOption}%
-    {}{\edef\@tempa{\@tempa,\CurrentOption,}}}%
-  \edef\@tempa{%
-    \noexpand\setkeys{#1}{\@tempa\@ptionlist{\@currname.\@currext}}}%
-  \@tempa
-  \AtEndOfClass{\let\@unprocessedoptions\relax}%
-}
-%%
-\define@key{PHDthesr}{type}{%
-  \def\type{#1}%
-  \InputIfFileExists{phdthesr/#1.cli}{}{}%
-}
-\def\SetPFUprocKey#1{%
-  \let\@tempd\@empty
-  \edef\@tempd{\CurrentOption}
-  \edef\@tempd{\noexpand\setkeys{#1}{\@tempd}}
-  \@tempd
-}
-%%
-%%
-%% begin Options
-%%
-%\DeclareOption{longtable}{%
-%  \PassOptionsToPackage{longtable}{caption2}%
-%}
-%
-\DeclareOption*{%
-  \IfSubStringInString{=}{\CurrentOption}%
-  {% then
-    \SetPFUprocKey{PHDthesr}
-  }%
-  {% else
-    \PassOptionsToClass{\CurrentOption}{kgeneric}
-  }%
-}
-% \ExecuteOptions{a4paper,14pt,oneside,onecolumn,final,openany,doublespace}
-\ProcessOptions*\relax
-%%
-%% end Options
-%%
-%%
-\LoadClass{kgeneric}
-%%
 % \RequirePackage{cite}
 %\RequirePackage{caption2}
 %%
@@ -147,55 +97,55 @@
 %
 % \tableofcontents:
 %\def\contentsname{СОДЕРЖАНИЕ}
-\def\contentsname{Содержание}
+%\def\contentsname{Содержание}
 %                 ~~~~~~~~~~
 %
 % \listoffigures:
-\def\listfigurename{СПИСОК РИСУНКОВ}
+%\def\listfigurename{СПИСОК РИСУНКОВ}
 %                   ~~~~~~~~~~~~~~~
 %
 % \listoftables:
-\def\listtablename{СПИСОК ТАБЛИЦ}
+%\def\listtablename{СПИСОК ТАБЛИЦ}
 %                  ~~~~~~~~~~~~~
 %
 % \thebibliography:
 %\def\bibname{ЛИТЕРАТУРА}
-\def\bibname{Литература}
+%\def\bibname{Литература}
 %            ~~~~~~~~~~
 %
 % \theindex:
-\def\indexname{Алфавитный указатель}
+%\def\indexname{Алфавитный указатель}
 %              ~~~~~~~~~~~~~~~~~~~~
 %
 % figure environment:
-\def\figurename{Рис.}
+%\def\figurename{Рис.}
 %               ~~~~
 %
 % table environment:
-\def\tablename{Таблица}
+%\def\tablename{Таблица}
 %              ~~~~~~~
 %
 % \chapter:
-\def\chaptername{Глава}
+%\def\chaptername{Глава}
 %                ~~~~~
 % \appendix:
-\def\appendixname{Приложение}
+%\def\appendixname{Приложение}
 %                 ~~~~~~~~~~
 % \part
-\def\partname{Часть}
+%\def\partname{Часть}
 %             ~~~~~
 % abstract environment:
-\def\abstractname{Аннотация}
+%\def\abstractname{Аннотация}
 %                 ~~~~~~~~~
 %
 % acknowledge environment:
-\def\acknowledgename{Благодарности автора}
+%\def\acknowledgename{Благодарности автора}
 %                    ~~~~~~~~~~~~~~~~~~~~~
-\def\ccname{Копия}
-\def\headtoname{К}
-\def\pagename{Страница}
-\def\seename{смотри}
-\def\alsoname{смотри также}
+%\def\ccname{Копия}
+%\def\headtoname{К}
+%\def\pagename{Страница}
+%\def\seename{смотри}
+%\def\alsoname{смотри также}
 
 %% And here I try Number Sign
 %                 ~~~~~~~~~~~
@@ -203,15 +153,15 @@
 
 %% Тангенс по-русски
 %  ~~~~~~~~~~~~~~~~~
-\def\tan{\mathop{\operator@font tg}\nolimits}
+%\def\tan{\mathop{\operator@font tg}\nolimits}
 
 % we define today's date in European format
 %  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-\def\today{\number\day\space
-     \ifcase\month\or
-       января\or февраля\or марта\or апреля\or мая\or июня\or
-       июля\or августа\or сентября\or октября\or ноября\or декабря\fi
-     \space\number\year}
+%\def\today{\number\day\space
+%     \ifcase\month\or
+%       января\or февраля\or марта\or апреля\or мая\or июня\or
+%       июля\or августа\or сентября\or октября\or ноября\or декабря\fi
+%     \space\number\year}
 
 %    ****************************************
 %    *             FRONT MATTER             *
@@ -393,6 +343,57 @@
 }
 \let\PHDstudygroup\@empty
 
+%%
+\RequirePackage{keyval}
+\RequirePackage{substr}
+%%
+\def\ProcessClassOptionsWithKV#1{%
+  \let\@tempa\@empty
+  \@for\CurrentOption:=\@classoptionslist\do{%
+    \@ifundefined{KV@#1@\CurrentOption}%
+    {}{\edef\@tempa{\@tempa,\CurrentOption,}}}%
+  \edef\@tempa{%
+    \noexpand\setkeys{#1}{\@tempa\@ptionlist{\@currname.\@currext}}}%
+  \@tempa
+  \AtEndOfClass{\let\@unprocessedoptions\relax}%
+}
+%%
+\define@key{PHDthesr}{type}{%
+  \def\type{#1}%
+  \InputIfFileExists{phdthesr/type/#1.cli}{}{}%
+}
+\def\SetPFUprocKey#1{%
+  \let\@tempd\@empty
+  \edef\@tempd{\CurrentOption}
+  \edef\@tempd{\noexpand\setkeys{#1}{\@tempd}}
+  \@tempd
+}
+%%
+%%
+%% begin Options
+%%
+%\DeclareOption{longtable}{%
+%  \PassOptionsToPackage{longtable}{caption2}%
+%}
+%
+\DeclareOption*{%
+  \IfSubStringInString{=}{\CurrentOption}%
+  {% then
+    \SetPFUprocKey{PHDthesr}
+  }%
+  {% else
+    \PassOptionsToClass{\CurrentOption}{kgeneric}
+  }%
+}
+% \ExecuteOptions{a4paper,14pt,oneside,onecolumn,final,openany,doublespace}
+\ProcessOptions*\relax
+%%
+%% end Options
+%%
+%%
+\LoadClass{kgeneric}
+%%
+
 
 % \alwayssingle and \endalwayssingle
 %
@@ -441,124 +442,6 @@
 %  \global\let\and\relax
 %}
 
-
-\renewcommand{\maketitle}{%
-\begin{titlepage}%
-{
-    \ssp
-    \begin{alwayssingle}
-    \let\footnotesize\small
-    \let\footnoterule\relax
-    \thispagestyle{empty}
-%     \setcounter{page}{1}
-%    \null\vfil
-    \begin{center}
-        {\bfseries \MakeUppercase{\PHDministry} \par}
-        {\bfseries \MakeUppercase{\PHDinstitut} \par}
-        {\bfseries {\PHDfaculty} \par}
-    \end{center}
-
-    \medskip
-
-    \begin{flushright}
-        %% На правах рукописи
-        {\bfseries \cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri \par}
-    \end{flushright}
-    
-    \vspace{3cm}
-
-    \begin{center}
-        \bigskip%
-        \medskip%
-        {\bfseries \PHDauthor} \par                     % Автор
-        \bigskip% 
-        \medskip%
-        {\bfseries \Large {\PHDtitle} \par}             % Название
-
-        \ifx\@empty\PHDfield
-        \else%
-        \bigskip%
-        \medskip
-        \vspace{6ex}
-        \bigskip% 
-        \medskip%
-        {\bfseries {\PHDfield}} \par                    % Специальность
-        \fi
-        
-        \vspace{6ex}
-
-        {\PHDthesistype} \par
-        \smallskip
-        {\PHDdegree} \par
-        \bigskip%
-        \medskip%
-        \end{center}
-
-        \bigskip% 
-        \bigskip% 
-        \bigskip% 
-        \bigskip% 
-
-        \begin{flushright}
-            %% Научный руководитель 
-            \cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} 
-            \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} \\\
-            {\PHDchiefdegree} \\ 
-            {\PHDchief} \par
-        \end{flushright}
-
-
-%       \begin{flushleft}       
-%           %% Группа
-%           \ifx\@empty\PHDstudygroup
-%           \else%
-%           \cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{} \hfill
-%           \PHDstudygroup \par
-%           \smallskip      
-%           \fi
-%           %% Страна
-%           \ifx\@empty\PHDcountry 
-%           \else%
-%           \cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{} \hfill
-%           \PHDcountry \par
-%           \smallskip      
-%           \fi
-%            %% Научный руководитель 
-%           \cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} 
-%           \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} \hfill
-%            {\PHDchiefdegree} {\PHDchief} \par
-%           \smallskip      
-%            %%
-%           \ifx\@empty\PHDdepchief
-%           \else%
-%           {\PHDdepchieftitle} \hfill
-%           {\PHDdepchiefdegree} {\PHDdepchief} \par
-%           \smallskip
-%           \fi
-%       \end{flushleft}         
-        
-%        \vfil
-
-
-        \vspace*{\fill}    
-
-        \begin{center}
-            \bfseries
-            {\PHDdegreecity} ---                        % Город
-            {\PHDdegreeyear} \par      
-        \end{center}
-    
-        \vfil\null
-
-    \end{alwayssingle}%
-}    
-\end{titlepage}%
-
-\setcounter{footnote}{0}
-
-\clearpage
-\setcounter{page}{2}
-}      % End of \def\maketitle
 
 \def\titul{
         \begin{center}

@@ -1,9 +1,11 @@
 \AtBeginDocument{%
     \@ifpackageloaded{polyglossia}{%
+    \addto\captionsrussian@modern{%
 	\def\PHDauthorDescr{Студент}
 	\def\PHDstudygroupDescr{Группа}
 	\def\PHDcountryDescr{Страна}
 	\def\PHDchiefDescr{Научный руководитель}
+    }
     }{%
 	\def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
 	\def\PHDstudygroupDescr{\cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{}}
@@ -13,18 +15,8 @@
     }
 }
 
-\PassOptionsToClass{a4paper,12dd,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
-
 \AtEndOfClass{%
-  \def\@chapapp{}
-  \setcounter{tocdepth}{1}
-
-  \RequirePackage{mdwtab}
-}
-
-\AtEndOfClass{%
-% \AtBeginDocument{%
-  \thesistype{Отчёт по НИРС}
+\RequirePackage{mdwtab}
 
 \renewcommand{\maketitle}{%
   \begin{titlepage}%
@@ -51,10 +43,15 @@
         
         %% Approved stamp
         \begin{flushright}
-          «Утверждаю» \\
-          {\PHDchiefdegree} \\
+        \begin{minipage}[t]{0.4\linewidth}
+        \centerline{\textsc{«Утверждаю»}}
+        \smallskip
+          \begin{flushright}
           {\PHDdepchieftitle} \\
-          {\PHDdepchief}
+          {\PHDdepchiefdegree} \\
+          \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDdepchief}
+          \end{flushright}
+          \end{minipage}
         \end{flushright}
         
         % \begin{flushright}
@@ -62,7 +59,7 @@
         %   {\bfseries \cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri \par}
         % \end{flushright}
     
-        \vspace{3cm}
+        \vspace{2cm}
 
         \begin{center}
           % \bigskip%
@@ -78,7 +75,7 @@
           %     \medskip%
         \end{center}
 
-        \vspace{6ex}
+%        \vspace{6ex}
 
         \begin{center}
           {\bfseries \Large {\PHDtitle} \par}					% Название
@@ -94,10 +91,13 @@
 %        {\bfseries {\PHDfield}} \par                   % Специальность
 %       \fi
 
-        \medskip%
+
+	\medskip%
 
 %         \vspace{6ex}
         \bigskip%
+
+	\vfill
 
         \begin{flushleft}
           %% Автор
@@ -157,7 +157,7 @@
           \end{tabular}
         \end{center}
         
-        \vfil
+	\bigskip
 
         \begin{center}
           \vspace*{\fill}
@@ -178,9 +178,9 @@
 }
 }      % End of \def\maketitle
 
-
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
+%%% TeX-master: t
 %%% coding: utf-8-unix
-%%% End: 
+%%% End:
 
