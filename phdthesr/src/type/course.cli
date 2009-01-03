@@ -6,6 +6,12 @@
     }{%
 	\thesistype{\CYRK\cyru\cyrr\cyrs\cyro\cyrv\cyra\cyrya{} \cyrr\cyra\cyrb\cyro\cyrt\cyra}
     }
+
+    \@ifpackageloaded{polyglossia}{%
+	\addto\captionsrussian@modern{%
+	    \def\bibname{Список источников}
+	}
+    }{}
 }
 
 %\AtEndOfClass{%

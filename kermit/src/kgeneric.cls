@@ -654,9 +654,8 @@
   \setcounter{chapter}{0}%
   \setcounter{section}{0}%
   \gdef\@chapapp{\appendixname}%
-%  \gdef\thechapter{\@Alph\c@chapter}
-  \gdef\thechapter{\appendixnum}
-  \addtocontents{toc}{\protect\renewcommand{\protect\chaptername}{\appendixname}}
+  \gdef\thechapter{\appendixnum}%
+  \addtocontents{toc}{\protect\renewcommand{\protect\chaptername}{\appendixname}}%
 }
 \setlength\arraycolsep{5\p@}
 \setlength\tabcolsep{6\p@}

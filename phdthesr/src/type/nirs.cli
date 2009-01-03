@@ -1,6 +1,13 @@
 \input{phdthesr/type/title-brs.cli}
 
-\thesistype{Отчёт по НИРС}
+\AtBeginDocument{%
+    \thesistype{Отчёт по НИРС}
+    \@ifpackageloaded{polyglossia}{%
+	\addto\captionsrussian@modern{%
+	    \def\bibname{Список источников}
+	}
+    }{}
+}
 
 %\AtEndOfClass{%
 % \def\@chapapp{}
