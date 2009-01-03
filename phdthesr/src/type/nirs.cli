@@ -5,8 +5,11 @@
     \@ifpackageloaded{polyglossia}{%
 	\addto\captionsrussian@modern{%
 	    \def\bibname{Список источников}
+	    \def\chaptername{}
 	}
     }{}
+
+    
 }
 
 %\AtEndOfClass{%
