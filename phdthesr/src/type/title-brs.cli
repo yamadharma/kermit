@@ -34,8 +34,16 @@
           \smallskip
           \hrule
           \smallskip
-          {\bfseries {\PHDfaculty} \par}                                        % Факультет
-          {\bfseries {\PHDfield} \par}                                  % Специальность
+            %% Факультет
+            {\bfseries {\PHDfaculty} \par}
+            %% Кафедра
+            {\bfseries {\PHDchair} \par}
+	    %% Специальность
+	    \ifx\@empty\PHDfield
+	    \else%
+		\bigskip%
+		{\PHDfield} \par
+	    \fi
         \end{center}
         
         \bigskip
@@ -44,12 +52,14 @@
         %% Approved stamp
         \begin{flushright}
         \begin{minipage}[t]{0.4\linewidth}
-        \centerline{\textsc{«Утверждаю»}}
-        \smallskip
+        \centerline{\textsc{Утверждаю}}
+        \medskip
           \begin{flushright}
           {\PHDdepchieftitle} \\
           {\PHDdepchiefdegree} \\
-          \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDdepchief}
+          \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDdepchief} \\
+          \smallskip
+          «\underline{\ \ \ \ \ \ }» \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ } г.
           \end{flushright}
           \end{minipage}
         \end{flushright}
@@ -117,20 +127,25 @@
           \smallskip
           \fi
           %% Страна
-          \ifx\@empty\PHDcountry 
-          \else%
-          \PHDcountryDescr
-          \hfill
-          \PHDcountry \par
-          \smallskip
-          \fi
+%          \ifx\@empty\PHDcountry 
+%          \else%
+%          \PHDcountryDescr
+%          \hfill
+%          \PHDcountry \par
+%          \smallskip
+%          \fi
           % \bfseries
           %% Научный руководитель
           \PHDchiefDescr
           \hfill
-          {\PHDchiefdegree} {\PHDchief} \par
+          {\PHDchiefdegree} \par
+          \hfill
+          \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
           \smallskip
-          %% 
+          \hfill
+          «\underline{\ \ \ \ \ \ }» \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ } г.
+          %\smallskip
+          %%
           % \ifx\@empty\PHDdepchief
           % \else%
           % {\PHDdepchieftitle} \hfill
@@ -139,6 +154,7 @@
           % \fi
         \end{flushleft}
         
+        \bigskip
         \bigskip
         
         \begin{center}
