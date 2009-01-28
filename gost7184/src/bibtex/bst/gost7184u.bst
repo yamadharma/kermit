@@ -1877,7 +1877,7 @@ FUNCTION {format.annote}
 FUNCTION {article}
 { 
   output.bibitem
-  author.before    
+  author.before
 %  format.authors "author" output.check
   format.title "title" output.check
   new.slash
@@ -1885,16 +1885,16 @@ FUNCTION {article}
 %  new.dblslash
 %  new.block
   crossref missing$
-    { 
+    {
       new.dblslash
       journal "journal" output.check
 %      "~/\!/ " write$
       new.block
-      format.vol.num output
-      new.block
       format.year output.nonnull
+      new.block
+      format.vol.num output
     }
-    { 
+    {
       format.article.crossref output.nonnull
       new.block
       format.pages output
