@@ -1124,14 +1124,14 @@ FUNCTION {bookauthor.before}
 
 FUNCTION {author.after}
 {
-  author empty$ 
+  author empty$
     'skip$
     {author num.names$ #3 >
       {format.authors.after output
        new.semicolumn }
       'skip$
     if$}
-  if$    
+  if$
 }
 FUNCTION {bookauthor.after}
 {
