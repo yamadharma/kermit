@@ -836,8 +836,8 @@ FUNCTION {format.names}
           namesleft #1 >
             { ", " * t * }
             {
-              t "others" = 
-	      t "~others" = 
+              t "others" =
+	      t "~others" =
 	      or
                 { " " * bbl.etal * }
                 { ", " * t * }
@@ -854,11 +854,12 @@ FUNCTION {format.names}
   bib.name.font
 }
 
+
 %</gost7184|gost7184u>
 %<*gost7802000|gost7802000u>
 
 %FUNCTION {format.names}
-%{ 
+%{
 %  #1 "{vv~}{ll}{~jj}{,~f.}" format.name$ bib.name.font
 %}
 
@@ -1124,14 +1125,14 @@ FUNCTION {bookauthor.before}
 
 FUNCTION {author.after}
 {
-  author empty$ 
+  author empty$
     'skip$
     {author num.names$ #3 >
       {format.authors.after output
        new.semicolumn }
       'skip$
     if$}
-  if$    
+  if$
 }
 FUNCTION {bookauthor.after}
 {
@@ -2546,9 +2547,9 @@ FUNCTION {presort}
   'sort.key$ :=
 }
 
-%ITERATE {presort}
+% ITERATE {presort}
 
-%SORT
+% SORT
 
 %</gost7184|gost7802000>
 

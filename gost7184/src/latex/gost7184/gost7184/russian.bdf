@@ -3,13 +3,13 @@
 
 \AtBeginDocument%
 {%
-  %% Russian language    
+  %% Russian language
   \addto\extrasrussian%
   {
     % FUNCTION {bbl.and}
     \def\bbland{}
     % FUNCTION {bbl.etal}
-    \def\bbletal{\cyr\cyri~\cyrd\cyrr}                  %% и др.
+    \def\bbletal{\cyr\cyri~\cyrd\cyrr.}                  %% и др.
     % FUNCTION {bbl.editors}
     % { "\bbleditors{}" }
     % FUNCTION {bbl.editor}
