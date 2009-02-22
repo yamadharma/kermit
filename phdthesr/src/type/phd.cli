@@ -7,8 +7,8 @@
 
 \PassOptionsToClass{a4paper,14dd,oneside,onecolumn,final,openany,doublespace}{kgeneric}
 
-
-\providecommand{\maketitle}{%
+\AtEndOfClass{%
+\renewcommand{\maketitle}{%
 \begin{titlepage}%
 {
     \ssp
@@ -125,7 +125,7 @@
 \clearpage
 \setcounter{page}{2}
 }      % End of \def\maketitle
-
+} % End AtEndOfClass
 
 %%% Local Variables: 
 %%% mode: latex
