@@ -4,7 +4,7 @@
     Paper Sizes Package]
 %%
 \RequirePackage{xkeyval}
-%\RequirePackage{geometry}
+%\RequirePackage[a4paper]{geometry}
 %%
 %% begin Options
 %%
@@ -216,8 +216,23 @@
 %% text: 112x175
 \DeclareOption{60x84/16}
 {%
-    \setlength \paperheight {200mm}%
-    \setlength \paperwidth  {145mm}
+    \setlength \paperheight{200mm}%
+    \setlength \paperwidth {145mm}
+    %% + 1 in
+    \setlength{\hoffset}{-5mm}
+    \setlength{\textwidth}{145mm}
+%    \geometry{heightrounded}
+% \geometry{includeheadfoot}
+%    \geometry{includefoot}
+% \geometry{twoside}
+%    \geometry{papersize={145mm,200mm}}
+%% \geometry{hmargin={11mm,17mm},vmargin={11mm,19mm}}
+%    \geometry{total={112mm,175mm}}
+%    \geometry{marginparwidth=0pt,marginparsep=0pt}
+%\geometry{twosideshift=0pt}
+%    \geometry{headheight=0pt}
+%    \geometry{headsep=0pt}
+%  \geometry{footskip=2mm}
 }
 
 %% paper: 145x215 mm
