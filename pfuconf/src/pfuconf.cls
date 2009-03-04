@@ -263,7 +263,7 @@
 %%%
 \newcommand{\andify}{%
   \nxandlist{\unskip, }{\unskip{},~}{\unskip,~}}
-\def\and{\unskip{ } \ignorespaces}
+\def\and{\unskip{ }, \ignorespaces}
 %%%
 % \newcommand{\altandify}{%
 %   \nxaltandlist{\unskip, }{\unskip{} and~}{\unskip, and~}}
@@ -277,8 +277,8 @@
   \refstepcounter{title}
   \@setcopyright
   \uppercasenonmath\shorttitle
-  \ifx\@empty\shortauthors \let\shortauthors\shorttitle
-  \else \andify\shortauthors \uppercasenonmath\shortauthors \fi
+%  \ifx\@empty\shortauthors \let\shortauthors\shorttitle
+%  \else \andify\shortauthors \uppercasenonmath\shortauthors \fi
   \altandify\altauthors
   \@maketitle@hook
   \begingroup
@@ -298,7 +298,7 @@
 %   \addcontentsline{alt}{altaddresses}{\altaddresses}
 %   \addcontentsline{alt}{altaddresses}{}
 %   \addcontentsline{alt}{altabstracts}{\@altabstracts}
-    \addcontentsline{toc}{chapter}{{\bfseries \authors} \@title}
+    \addcontentsline{toc}{subchapter}{{\bfseries \authors} \@title}
   \ifx\@empty\@alts \relax  
   \else \addcontentsline{alt}{alts}{\@alts} \fi
 %  \thispagestyle{firstpage}% this sets first page specifications
@@ -370,6 +370,14 @@
 \providecommand{\titleFontShape}{\DivFontShape}
 \providecommand{\titleFontSize}{\Large}
 \providecommand{\titlePosition}{}
+%%
+% \providecommand{\chapterFontShape}{\DivFontShape}
+\renewcommand{\chapterFontSize}{\LARGE}
+\renewcommand{\chapterPosition}{\center}
+%%
+% \providecommand{\sectionFontShape}{\DivFontShape}
+\renewcommand{\sectionFontSize}{\large}
+\renewcommand{\sectionPosition}{\center}
 
 
 \AtBeginDocument{%
@@ -768,6 +776,87 @@
         \fi
 \fi}
 %%%
+\RequirePackage{titlesec}
+
+%% FEXME need move to kermit bundle
+
+\providecommand{\chapaftersnum}{.}
+\providecommand{\secaftersnum}{.}
+
+% FIXME Должно зависить от языка
+%\AtBeginDocument{%
+%\@ifpackageloaded{babel}{%
+%	\renewcommand\appendixnum{\@Asbuk\c@chapter}
+%}{}
+%}
+
+\@addtoreset{section}{title}
+\renewcommand\thesection{\@arabic\c@section}
+
+\newcounter{subchapter}
+\setcounter{subchapter}{0}%
+% \newcommand*\l@subchapter{\@dottedtocline{1}{1.5em}{2.3em}}
+\newcommand*\l@subchapter{\@dottedtocline{0}{0em}{2.3em}}
+
+\newcommand\subchapter{\if@openright\cleardoublepage\else\clearpage\fi
+                    \thispagestyle{plain}%
+                    \global\@topnum\z@
+                    \@afterindentfalse
+                    \secdef\@chapter\@schapter}
+
+%\newcommand\subchapter{%
+%  \@startsection {subchapter}{0}{\z@}%
+%  {-3.5ex \@plus -1ex \@minus -.2ex}%
+%  {2.3ex \@plus.2ex}%
+%  {\sectionPosition\normalfont\sectionFontSize\sectionFontShape}%
+%} % END \section
+
+
+\titleformat{\chapter}[block]%
+    {\raggedright\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape\chapterPosition}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
+%    {\raggedright\thispagestyle{empty}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
+%    {\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
+\titleformat{\section}[block]%
+    {\raggedright\normalfont\sectionFontSize\sectionFontShape\sectionPosition}{\thesection\secaftersnum}{1em}{}
+\titleformat{\subsection}[block]%
+    {\raggedright\normalfont\subsectionFontSize\subsectionFontShape}{\thesubsection\secaftersnum}{1em}{}
+\titleformat{\subsubsection}[block]%
+    {\raggedright\normalfont\subsubsectionFontSize\subsubsectionFontShape}{\thesubsubsection\secaftersnum}{1em}{}
+\titleformat{\paragraph}[runin]%
+    {\normalfont\paragraphFontSize\paragraphFontShape}{\theparagraph\secaftersnum}{1em}{}
+\titleformat{\subparagraph}[runin]%
+    {\normalfont\subparagraphFontSize\subparagraphFontShape}{\thesubparagraph\secaftersnum}{1em}{}
+
+\titlespacing{\chapter}{0\p@}{0\p@}{10\p@}
+
+\RequirePackage{ifthen}
+\RequirePackage{truncate}
+\newlength{\sectionmarkWidth}
+\newlength{\chaptermarkWidth}
+\newlength{\PFUmarkWidth}
+\setlength{\PFUmarkWidth}{0.8\textwidth}
+
+\renewcommand{\chaptermark}[1]{%
+    \settowidth{\sectionmarkWidth}{\thesection. #1}%
+    \ifthenelse{\lengthtest{\sectionmarkWidth < \PFUmarkWidth}}{%
+	\markboth{\chaptertitlename\ \thechapter. #1}{\chaptertitlename\ \thechapter. #1}
+    }{%
+	\markboth{\truncate{0.8\textwidth}{\hfill\chaptertitlename\ \thechapter. #1\hfill}}{\truncate{0.8\textwidth}{\hfill\chaptertitlename\ \thechapter. #1\hfill}}
+    }
+}
+\renewcommand{\sectionmark}[1]{%
+    \settowidth{\sectionmarkWidth}{\thesection. #1}%
+    \ifthenelse{\lengthtest{\sectionmarkWidth < \PFUmarkWidth}}{%
+	\markright{\thesection. #1}%
+    }{%	
+	\markright{\truncate{0.8\textwidth}{\hfill\thesection. #1\hfill}}%
+    }
+}
+
+% \fancyhead[CE]{\small \leftmark}%
+% \fancyhead[CO]{\small \rightmark}%
+
+
 \RequirePackage{titletoc}
 
 \titlecontents{chapter}[0pt]%
@@ -781,6 +870,9 @@
 {\thecontentslabel.\quad}%
 {..}%
 {\titlerule*[1pc]{.}\contentspage}
+
+\setcounter{tocdepth}{0}
+
 %%%
 \AtBeginDocument%
 {%
@@ -812,6 +904,7 @@
     \renewcommand{\keywordsname}{Key words and phrases}
   }
 }
+
 
 \def\calclayout{\advance\textheight -\headheight
   \advance\textheight -\headsep
