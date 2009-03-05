@@ -571,6 +571,7 @@
 %\newcounter{title}
 \setcounter{secnumdepth}{3}
 \@addtoreset{equation}{title}
+\renewcommand\theequation{\@arabic\c@equation}
 \def\tableofcontents{%
 \chapter*{\contentsname}
 \@starttoc{toc}
