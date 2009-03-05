@@ -572,6 +572,9 @@
 \setcounter{secnumdepth}{3}
 \@addtoreset{equation}{title}
 \renewcommand\theequation{\@arabic\c@equation}
+\@addtoreset{figure}{title}
+\renewcommand{\thefigure}{\@arabic\c@figure}
+
 \def\tableofcontents{%
 \chapter*{\contentsname}
 \@starttoc{toc}
