@@ -298,7 +298,7 @@
 %   \addcontentsline{alt}{altaddresses}{\altaddresses}
 %   \addcontentsline{alt}{altaddresses}{}
 %   \addcontentsline{alt}{altabstracts}{\@altabstracts}
-    \addcontentsline{toc}{subchapter}{{\bfseries \authors} \@title}
+    \addcontentsline{toc}{title}{{\bfseries \authors} \@title}
   \ifx\@empty\@alts \relax  
   \else \addcontentsline{alt}{alts}{\@alts} \fi
 %  \thispagestyle{firstpage}% this sets first page specifications
@@ -335,7 +335,7 @@
   \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi
   \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi  
   \@settitle\nobreak
-  \ifx\@empty\authors \else \@setauthors \fi
+  \ifx\@empty\authors \else \medskip \@setauthors \fi
   \nobreak
   \ifx\@empty\@dedicatory
   \else
@@ -344,6 +344,7 @@
       \global\dimen@i\prevdepth}\prevdepth\dimen@i
   \fi
   \nobreak%
+  \medskip
   \begingroup
   \footnotesize
   \centering
@@ -796,7 +797,7 @@
 \newcounter{subchapter}
 \setcounter{subchapter}{0}%
 % \newcommand*\l@subchapter{\@dottedtocline{1}{1.5em}{2.3em}}
-\newcommand*\l@subchapter{\@dottedtocline{0}{0em}{2.3em}}
+\newcommand*\l@title{\@dottedtocline{0}{0em}{2.3em}}
 
 \newcommand\subchapter{\if@openright\cleardoublepage\else\clearpage\fi
                     \thispagestyle{plain}%
