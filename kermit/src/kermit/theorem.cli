@@ -47,6 +47,10 @@
   % FIXME: dirty hack  
   \renewtheorem*{Cons*}{\ConsName}
 %  \@addtoreset{Cons}{title}
+  \def\CorollaryName{Corollary}
+  \newtheorem{Corollary}{\CorollaryName}
+  % FIXME: dirty hack  
+  \renewtheorem*{Corollary*}{\CorollaryName}
 }
 {
   \theoremstyle{remark}
@@ -123,6 +127,7 @@
     \def\TheoremName{{\CYRT}{\cyre}{\cyro}{\cyrr}{\cyre}{\cyrm}{\cyra}}
     \def\LemmaName{{\CYRL}{\cyre}{\cyrm}{\cyrm}{\cyra}}
     \def\ConsName{{\CYRS}{\cyrl}{\cyre}{\cyrd}{\cyrs}{\cyrt}{\cyrv}{\cyri}{\cyre}}
+    \def\CorollaryName{{\CYRS}{\cyrl}{\cyre}{\cyrd}{\cyrs}{\cyrt}{\cyrv}{\cyri}{\cyre}}
     \def\RemarkName{{\CYRZ}{\cyra}{\cyrm}{\cyre}{\cyrch}{\cyra}{\cyrn}{\cyri}{\cyre}}
     \def\DefName{{\CYRO}{\cyrp}{\cyrr}{\cyre}{\cyrd}{\cyre}{\cyrl}{\cyre}{\cyrn}{\cyri}{\cyre}}
     \def\PropositionName{{\CYRP}{\cyrr}{\cyre}{\cyrd}{\cyrl}{\cyro}{\cyrzh}{\cyre}{\cyrn}{\cyri}{\cyre}}
@@ -136,6 +141,7 @@
     \def\TheoremName{Theorem}
     \def\LemmaName{Lemma}
     \def\ConsName{Cons}
+    \def\CorollaryName{Corollary}
     \def\RemarkName{Remark}
     \def\DefName{Def}
     \def\PropositionName{Proposition}
@@ -150,6 +156,7 @@
     \def\TheoremName{Теорема}
     \def\LemmaName{Лемма}
     \def\ConsName{Следствие}
+    \def\CorollaryName{Следствие}
     \def\RemarkName{Замечание}
     \def\DefName{Определение}
     \def\PropositionName{Предложение}
