@@ -879,6 +879,33 @@
 \setcounter{tocdepth}{0}
 
 %%%
+%%%
+%%%
+%%% Captions
+%%%
+
+\InputIfFileExists{gost/caption.cli}{}{}
+
+%%%
+%%% Theorems
+%%%
+
+\InputIfFileExists{kermit/theorem.cli}{}{}
+
+
+\def\@floatboxreset{\global\@minipagefalse \centering}
+%%
+\def\@seccntformat#1{\csname the#1\endcsname.\quad}
+
+
+\renewcommand{\@biblabel}[1]{#1.}
+
+%%%
+%%%
+%%%
+
+
+%%%
 \AtBeginDocument%
 {%
 %  \providecommand{\etal}{et al.}
