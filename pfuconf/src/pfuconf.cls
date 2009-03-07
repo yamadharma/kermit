@@ -574,6 +574,8 @@
 \renewcommand\theequation{\@arabic\c@equation}
 \@addtoreset{figure}{title}
 \renewcommand{\thefigure}{\@arabic\c@figure}
+\@addtoreset{table}{title}
+\renewcommand{\thetable}{\@arabic\c@table}
 
 \def\tableofcontents{%
 \chapter*{\contentsname}
