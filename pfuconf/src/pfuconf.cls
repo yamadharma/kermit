@@ -920,7 +920,7 @@
     \def\PFUpublishedName{Published }%
     \def\etal{\cyri{} \cyrd\cyrr.}
     % Ключевые слова
-    \renewcommand{\keywordsname}{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
+    \def\keywordsname{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
   }
   \addto\extrasenglish%
   {
@@ -933,7 +933,7 @@
      \def\etal{et al.}
 %%    \renewcommand{\etal}{et al.}
 %%     \providecommand{\etal}{et al.}
-    \renewcommand{\keywordsname}{Key words and phrases}
+    \def\keywordsname{Key words and phrases}
   }
 }
 
