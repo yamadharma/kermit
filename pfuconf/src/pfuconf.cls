@@ -327,10 +327,13 @@
 %     \def\par{\let\par\@par}\@setthanks}\fi
 %  \@mkboth{\@nx\shortauthors}{\@nx\shorttitle}%
 %  \global\topskip8pc\relax % 10pc to base of first title line
-  \bigskip
+  \begingroup %% begin
+%  \bigskip
+    \vspace{2\baselineskip}
     %% FIXME убрать? или сделать переключатель?
-    \hrule
-  \bigskip
+    \leaders \hrule \vskip 0.4pt
+    \vspace{2\baselineskip}
+%  \bigskip
   \vbox{%
   \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi
   \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi  
@@ -362,6 +365,7 @@
 %     \dimen@34\p@ \advance\dimen@-\baselineskip
 %     \vskip\dimen@\relax
 %   \fi
+  \endgroup %% end
 } % end \@maketitle
 
 \renewcommand{\DivFontShape}{\scshape}
