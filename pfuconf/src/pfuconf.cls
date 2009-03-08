@@ -576,6 +576,7 @@
 \renewcommand{\thefigure}{\@arabic\c@figure}
 \@addtoreset{table}{title}
 \renewcommand{\thetable}{\@arabic\c@table}
+\@addtoreset{footnote}{title}
 
 \def\tableofcontents{%
 \chapter*{\contentsname}
