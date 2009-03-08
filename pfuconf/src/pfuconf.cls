@@ -384,6 +384,8 @@
 \renewcommand{\sectionFontSize}{\large}
 \renewcommand{\sectionPosition}{\center}
 
+\renewcommand{\subsectionPosition}{\center}
+
 
 \AtBeginDocument{%
   \@ifundefined{publname}{%
@@ -831,9 +833,9 @@
 \titleformat{\section}[block]%
     {\raggedright\normalfont\sectionFontSize\sectionFontShape\sectionPosition}{\thesection\secaftersnum}{1em}{}
 \titleformat{\subsection}[block]%
-    {\raggedright\normalfont\subsectionFontSize\subsectionFontShape}{\thesubsection\secaftersnum}{1em}{}
+    {\raggedright\normalfont\subsectionFontSize\subsectionFontShape\subsectionPosition}{\thesubsection\secaftersnum}{1em}{}
 \titleformat{\subsubsection}[block]%
-    {\raggedright\normalfont\subsubsectionFontSize\subsubsectionFontShape}{\thesubsubsection\secaftersnum}{1em}{}
+    {\raggedright\normalfont\subsubsectionFontSize\subsubsectionFontShape\subsubsectionPosition}{\thesubsubsection\secaftersnum}{1em}{}
 \titleformat{\paragraph}[runin]%
     {\normalfont\paragraphFontSize\paragraphFontShape}{\theparagraph\secaftersnum}{1em}{}
 \titleformat{\subparagraph}[runin]%
