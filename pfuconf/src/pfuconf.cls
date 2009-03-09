@@ -75,7 +75,40 @@
 \def\ref#1{\expandafter\@setref\csname r@\thetitle:#1\endcsname\@firstoftwo{\thetitle:#1}}
 \def\pageref#1{\expandafter\@setref\csname r@\thetitle:#1\endcsname
                                    \@secondoftwo{\thetitle:#1}}
-\renewcommand*{\title}[2][]{\gdef\shorttitle{#1}\gdef\@title{#2}}
+\renewcommand*{\title}[2][]%
+{%
+%%  \def\@biblabel##1{\@ifempty{##1}##1.......}
+%  \refstepcounter{PFUtitle}
+%  \refstepcounter{subtitle}
+  \thispagestyle{plain}
+  \let\@rauthor\@empty
+  \let\authorsrunning\@empty
+  \let\altauthorsrunning\@empty
+  \let\authorstoc\@empty
+  \let\altauthorstoc\@empty
+  \let\authors\@empty
+  \let\altauthors\@empty
+  \let\thankses\@empty
+  \let\addresses\@empty%
+  \let\altaddresses\@empty%
+%%   \label{starttitle}
+  \iflanguage{english}%
+  {%
+    \edef\PFUlanguage{english}
+    \edef\PFUaltlanguage{russian}
+  }%
+  {%
+    \edef\PFUlanguage{russian}
+    \edef\PFUaltlanguage{english}
+  }
+%  \if@filesw
+%    \makeatletter
+%    \@input{\PFU@auxname.aux}%
+%    \immediate\openout\PFU@aux\PFU@auxname.aux\relax
+%  \fi
+  \gdef\shorttitle{#1}\gdef\@title{#2}
+} % END \title
+% \renewcommand*{\title}[2][]{\gdef\shorttitle{#1}\gdef\@title{#2}}
 \let\@title\@empty
 %%%
 \newcommand*{\alttitle}[2][]{\gdef\shorttitle{#1}\gdef\@alttitle{#2}}
@@ -315,7 +348,9 @@
 %%%
 \let\shortaltauthors\@empty   \let\altauthors\@empty
 \let\altaddresses\@empty      \let\thankses\@empty
-\let\@altabstracts\@empty     \let\@alttitle\@empty
+\let\@altabstracts\@empty     
+\let\@title\@empty \let\@alttitle\@empty
+\let\@udcnum\@empty
 }
 \def\@maketitle@hook{\global\let\@maketitle@hook\@empty}
 \def\@maketitle{%
