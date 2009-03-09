@@ -80,7 +80,7 @@
 %%  \def\@biblabel##1{\@ifempty{##1}##1.......}
 %  \refstepcounter{PFUtitle}
 %  \refstepcounter{subtitle}
-  \thispagestyle{plain}
+%  \thispagestyle{plain}
   \let\@rauthor\@empty
   \let\authorsrunning\@empty
   \let\altauthorsrunning\@empty
