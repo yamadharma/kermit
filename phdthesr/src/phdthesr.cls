@@ -313,6 +313,13 @@
 
 %%
 
+\DeclareRobustCommand{\discipline}[1]%
+{%
+  \def\PHDdiscipline{#1}
+}
+\let\PHDdiscipline\@empty
+
+
 \DeclareRobustCommand{\title}[1]%
 {%
   \def\PHDtitle{#1}
