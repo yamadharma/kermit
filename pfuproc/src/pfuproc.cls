@@ -90,8 +90,6 @@
 \newif\if@receivedAsFooter        % If received present as footer
 \global\@receivedAsFootertrue
 %%
-\newif\if@sectionAfterTitle
-\@sectionAfterTitlefalse
 %%
 \let\report@elt\@gobble
 \def\beg@elem{\global\t@loc@notes={}\global\note@cnt\z@}
@@ -340,10 +338,14 @@
 %  \def\@biblabel#1{#1.}
 %}
 %%
-\RequirePackage{ifthen}
+\RequirePackage{xifthen}
 %% Multicolumn
 \newboolean{PFUprocMultiColumn}
 \setboolean{PFUprocMultiColumn}{false}
+% \newif\if@sectionAfterTitle
+% \@sectionAfterTitlefalse
+\newboolean{sectionAfterTitle}
+\setboolean{sectionAfterTitle}{false}
 %% \newif\if@multicolumn
 %% \@multicolumnfalse
 %%
@@ -1759,8 +1761,9 @@
 %     \newpage
 %   \else
     \dimen@34\p@ \advance\dimen@-\baselineskip
-    \vskip\dimen@\relax
-    \@sectionAfterTitletrue
+    %\vskip\dimen@\relax
+    \setboolean{sectionAfterTitle}{true}
+    % \@sectionAfterTitletrue
 %   \fi
 } % end \@maketitle
 %%%-- \@makeappendixtitle
@@ -2669,7 +2672,14 @@
     {\normalfont\subparagraphFontSize\subparagraphFontShape}{\thesubparagraph\secaftersnum}{1em}{}
 
 \titlespacing{\chapter}{\z@}{\z@}{10\p@}
-\titlespacing{\section}{\z@}{\if@sectionAfterTitle \z@ \@sectionAfterTitlefalse \else -3.5ex \@plus -1ex \@minus -.2ex \fi}{2.3ex \@plus.2ex}
+% \titlespacing{\section}{\z@}{\if@sectionAfterTitle \z@ \@sectionAfterTitlefalse \else -3.5ex \@plus -1ex \@minus -.2ex \fi}{2.3ex \@plus.2ex}
+%\titlespacing{\section}{\z@}{\ifsectionAfterTitle \z@ \else -3.5ex \@plus -1ex \@minus -.2ex \fi}{2.3ex \@plus.2ex}
+%\titlespacing{\section}{\z@}{%
+%    \ifthenelse{\boolean{sectionAfterTitle}}%
+%        {-3.5ex \@plus -1ex \@minus -.2ex}%
+%        {\z@ \setboolean{sectionAfterTitle}{false}}%
+%    }%
+%    {2.3ex \@plus.2ex}
 
 %%%--
 % \newcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
