@@ -1,3 +1,27 @@
+\AtBeginDocument{%
+    \@ifpackageloaded{polyglossia}{%
+    \addto\captionsrussian@modern{%
+	\thesistype{Выпускная работа бакалавра}
+	\def\PHDauthorDescr{Студент}
+	\def\PHDstudygroupDescr{Группа}
+	\def\PHDcountryDescr{Страна}
+	\def\PHDchiefDescr{Научный руководитель}
+	\def\PHDdisciplineDescr{по дисциплине}
+    }
+    }{%
+	\thesistype{{\CYRV}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyra}{\cyrya} 
+	    {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra} 
+	    {\cyrb}{\cyra}{\cyrk}{\cyra}{\cyrl}{\cyra}{\cyrv}{\cyrr}{\cyra}}
+	\def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
+	\def\PHDstudygroupDescr{\cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{}}
+	\def\PHDcountryDescr{\cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{}}
+	\def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
+	    \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
+	\def\PHDdisciplineDescr{{\cyrp}{\cyro} {\cyrd}{\cyri}{\cyrs}{\cyrc}{\cyri}{\cyrp}{\cyrl}{\cyri}{\cyrn}{\cyre}}
+    }
+}
+
+
 %\AtBeginDocument{%
 %}
 \AtEndOfClass{%
@@ -5,16 +29,11 @@
     \setcounter{tocdepth}{1}
 }
 
+
+
 \PassOptionsToClass{a4paper,12dd,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
 
 \AtEndOfClass{%
-
-% Выпускная работа бакалавра
-\thesistype{%
-{\CYRV}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyra}{\cyrya} 
-{\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra} 
-{\cyrb}{\cyra}{\cyrk}{\cyra}{\cyrl}{\cyra}{\cyrv}{\cyrr}{\cyra}%
-}
 
 \renewcommand{\maketitle}{%
 \begin{titlepage}%
@@ -77,31 +96,16 @@
       \fi
     \end{center}
       
-    \vspace{1cm}
+    \vspace{3cm}
       
     \begin{flushleft}   
-      %% Страна
-      \ifx\@empty\PHDstudygroup
-      \else%
-      \cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{} \hfill
-      {\PHDcountry} \par
-      \smallskip
-      \fi
-
-      %% Группа
-      \ifx\@empty\PHDstudygroup
-      \else%
-      \cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{} \hfill
-      {\PHDstudygroup} \par
-      \smallskip
-      \fi
 
       %% Научный руководитель 
-      \cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} 
-      \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} \hfill
-      {\PHDchiefdegree} {\PHDchief} \par
-      \smallskip            
-      %% 
+	\PHDchiefDescr
+	 \hfill
+	{\PHDchiefdegree} {\PHDchief} \par
+	\smallskip            
+	%% 
 
       \ifx\@empty\PHDdepchief
       \else%
