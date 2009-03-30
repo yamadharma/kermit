@@ -1,3 +1,23 @@
+\setboolean{brsTableNeeded}{true}
+
+\providecommand{\brsTable}{%
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hlx{hv}
+Вид задания & Кол-во баллов & Сумма баллов \\
+\hlx{vhv}
+1. Рубежная аттестация & 0--40 & \\
+\hlx{vhv}
+2. Курсовая работа & 0--40 & \\
+\hlx{vhv}
+3. Итоговая аттестация & 0--20 & \\
+\hlx{vhv[1]}
+\multicolumn{2}{|l|}{ИТОГО} & \\
+\hlx{v[1]h}
+\end{tabular}
+\end{center}
+}
+
 \AtBeginDocument{%
     \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian@modern{%
@@ -83,6 +103,12 @@
           {\PHDdegree} \par
           % \bigskip%
           %     \medskip%
+          \ifx\@empty\PHDthesisSubtype
+          \else
+          \smallskip
+          \PHDthesisSubtype
+          \smallskip
+          \fi
         \end{center}
 
 %        \vspace{6ex}
@@ -154,26 +180,15 @@
           % \fi
         \end{flushleft}
         
+        % Нужна ли таблица БРС
+        \ifthenelse{\boolean{brsTableNeeded}}{%
         \bigskip
         \bigskip
         
-        \begin{center}
-          \begin{tabular}{|l|c|c|}
-            \hlx{hv}
-            Вид задания & Кол-во баллов & Сумма баллов \\
-            \hlx{vhv}
-            1. Рубежная аттестация & 0--40 & \\
-            \hlx{vhv}
-            2. Курсовая работа & 0--40 & \\
-            \hlx{vhv}
-            3. Итоговая аттестация & 0--20 & \\
-            \hlx{vhv}
-            ИТОГО & & \\
-            \hlx{vh}
-          \end{tabular}
-        \end{center}
+        \brsTable
         
 	\bigskip
+	}{} %% END \ifthenelse{\boolean{brsTableNeeded}}
 
         \begin{center}
           \vspace*{\fill}

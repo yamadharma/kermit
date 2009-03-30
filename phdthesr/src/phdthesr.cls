@@ -350,6 +350,13 @@
 }
 \let\PHDstudygroup\@empty
 
+\DeclareRobustCommand{\thesisSubtype}[1]%
+{%
+  \def\PHDthesisSubtype{#1}
+}
+\let\PHDthesisSubtype\@empty
+
+
 %%
 \RequirePackage{keyval}
 \RequirePackage{substr}
@@ -375,6 +382,11 @@
   \edef\@tempd{\noexpand\setkeys{#1}{\@tempd}}
   \@tempd
 }
+%%
+\RequirePackage{xifthen}
+\provideboolean{brsTableNeeded}
+\setboolean{brsTableNeeded}{false}
+
 %%
 %%
 %% begin Options

@@ -1,5 +1,24 @@
 \input{phdthesr/type/title-brs.cli}
 
+\renewcommand{\brsTable}{%
+\begin{center}
+\begin{tabular}{|l|c|c|}
+\hlx{hv}
+Вид задания & Кол-во баллов & Сумма баллов \\
+\hlx{vhv}
+1. Рубежная аттестация & 0--40 & \\
+\hlx{vhv}
+2. Курсовая работа & 0--50 & \\
+\hlx{vhv}
+3. Итоговая аттестация & 0--10 & \\
+\hlx{vhv[1]}
+\multicolumn{2}{|l|}{ИТОГО} & \\
+\hlx{v[1]h}
+\end{tabular}
+\end{center}
+}
+
+
 \AtBeginDocument{%
     \@ifpackageloaded{polyglossia}{%
 	\thesistype{Курсовая работа}
