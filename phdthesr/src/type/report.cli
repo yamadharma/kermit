@@ -1,0 +1,215 @@
+\AtBeginDocument{%
+    \@ifpackageloaded{polyglossia}{%
+    \addto\captionsrussian@modern{%
+	\thesistype{Отчёт}
+	\def\PHDauthorDescr{Студент}
+	\def\PHDstudygroupDescr{Группа}
+	\def\PHDcountryDescr{Страна}
+	\def\PHDchiefDescr{Преподаватель}
+	\def\PHDdisciplineDescr{по дисциплине}
+    }
+    }{%
+	\thesistype{{\CYRR}{\cyre}{\cyrf}{\cyre}{\cyrr}{\cyra}{\cyrt}}
+	\def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
+	\def\PHDstudygroupDescr{\cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{}}
+	\def\PHDcountryDescr{\cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{}}
+	\def\PHDchiefDescr{{\CYRP}{\cyrr}{\cyre}{\cyrp}{\cyro}{\cyrd}{\cyra}{\cyrv}{\cyra}{\cyrt}{\cyre}{\cyrl}{\cyrsftsn}}
+	\def\PHDdisciplineDescr{{\cyrp}{\cyro} {\cyrd}{\cyri}{\cyrs}{\cyrc}{\cyri}{\cyrp}{\cyrl}{\cyri}{\cyrn}{\cyre}}
+    }
+}
+
+\PassOptionsToClass{a4paper,12dd,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
+
+\AtEndOfClass{%
+\RequirePackage{mdwtab}
+
+\renewcommand{\maketitle}{%
+  \begin{titlepage}%
+    {
+      \ssp
+      \begin{alwayssingle}
+        \let\footnotesize\small
+        \let\footnoterule\relax
+        \thispagestyle{empty}
+        \setcounter{page}{1}
+        \null\vfil
+        \begin{center}
+          {\bfseries \MakeUppercase{\PHDministry} \par}
+          {\bfseries \MakeUppercase{\PHDinstitut} \par}
+          \smallskip
+          \hrule
+          \smallskip
+            %% Факультет
+            {\bfseries {\PHDfaculty} \par}
+            %% Кафедра
+            {\bfseries {\PHDchair} \par}
+	    %% Специальность
+	    \ifx\@empty\PHDfield
+	    \else%
+		\bigskip%
+		{\PHDfield} \par
+	    \fi
+        \end{center}
+        
+        \bigskip
+        \bigskip
+        
+        %% Approved stamp
+%        \begin{flushright}
+%        \begin{minipage}[t]{0.4\linewidth}
+%        \centerline{\textsc{Утверждаю}}
+%        \medskip
+%          \begin{flushright}
+%          {\PHDdepchieftitle} \\
+%          {\PHDdepchiefdegree} \\
+%          \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDdepchief} \\
+%          \smallskip
+%          «\underline{\ \ \ \ \ \ }» \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ } г.
+%          \end{flushright}
+%          \end{minipage}
+%        \end{flushright}
+        
+        % \begin{flushright}
+        %        %%   На правах рукописи
+        %   {\bfseries \cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri \par}
+        % \end{flushright}
+    
+        \vspace{2cm}
+
+        \begin{center}
+          % \bigskip%
+          %     \medskip%
+          % {\bfseries \PHDauthor} \par						% Автор
+          % \bigskip% 
+          % \medskip%
+
+          {\Large \PHDthesistype} \par
+          \smallskip
+          {\PHDdegree} \par
+          % \bigskip%
+          %     \medskip%
+          %% по дисциплине
+          \ifx\@empty\PHDdiscipline
+          \else
+          \medskip%
+          \PHDdisciplineDescr{}
+          <<\PHDdiscipline>>
+          \bigskip
+          \fi
+        \end{center}
+
+%        \vspace{6ex}
+
+        \begin{center}
+          {\bfseries \Large {\PHDtitle} \par}					% Название
+        \end{center}
+
+%       \ifx\@empty\PHDfield
+%       \else%
+%        \bigskip%
+%       \medskip
+%        \vspace{6ex}
+%        \bigskip% 
+%       \medskip%
+%        {\bfseries {\PHDfield}} \par                   % Специальность
+%       \fi
+
+
+	\medskip%
+
+%         \vspace{6ex}
+        \bigskip%
+
+	\vfill
+
+        \begin{flushleft}
+          %% Автор
+          \ifx\@empty\PHDauthor
+          \else%
+          \PHDauthorDescr
+          \hfill
+          \PHDauthor \par
+          \smallskip
+          \fi   
+          %% Группа
+          \ifx\@empty\PHDstudygroup
+          \else%
+          \PHDstudygroupDescr
+          \hfill
+          \PHDstudygroup \par
+          \smallskip
+          \fi
+          %% Страна
+%          \ifx\@empty\PHDcountry 
+%          \else%
+%          \PHDcountryDescr
+%          \hfill
+%          \PHDcountry \par
+%          \smallskip
+%          \fi
+          % \bfseries
+          %% Научный руководитель
+          \PHDchiefDescr
+          \hfill
+          {\PHDchiefdegree} \par
+          \hfill
+          \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
+          \smallskip
+          \hfill
+          «\underline{\ \ \ \ \ \ }» \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ } г.
+          %\smallskip
+          %%
+          % \ifx\@empty\PHDdepchief
+          % \else%
+          % {\PHDdepchieftitle} \hfill
+          % {\PHDdepchiefdegree} {\PHDdepchief} \par
+          % \smallskip
+          % \fi
+        \end{flushleft}
+        
+        \bigskip
+        \bigskip
+        
+%        \begin{center}
+%          \begin{tabular}{|l|c|c|}
+%            \hlx{hv}
+%            Вид задания & Кол-во баллов & Сумма баллов \\
+%            \hlx{vhv}
+%            1. Рубежная аттестация & 0--40 & \\
+%            \hlx{vhv}
+%            2. Курсовая работа & 0--40 & \\
+%            \hlx{vhv}
+%            3. Итоговая аттестация & 0--20 & \\
+%            \hlx{vhv}
+%            ИТОГО & & \\
+%            \hlx{vh}
+%          \end{tabular}
+%        \end{center}
+        
+	\bigskip
+
+        \begin{center}
+          \vspace*{\fill}
+          \bfseries
+          {\PHDdegreecity} \par                 % Город
+          {\PHDdegreeyear} \par
+        \end{center}
+        
+        \vfil\null
+        
+      \end{alwayssingle}%
+    }    
+  \end{titlepage}%
+
+  \setcounter{footnote}{0}
+  \clearpage
+  \setcounter{page}{2}
+}
+}      % End of \def\maketitle
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% coding: utf-8-unix
+%%% End:
+
