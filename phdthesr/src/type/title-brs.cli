@@ -25,6 +25,8 @@
 	\def\PHDstudygroupDescr{Группа}
 	\def\PHDcountryDescr{Страна}
 	\def\PHDchiefDescr{Научный руководитель}
+	\def\PHDyearShort{г.}
+	\def\PHDapprove{Утверждаю}
     }
     }{%
 	\def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
@@ -32,6 +34,8 @@
 	\def\PHDcountryDescr{\cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{}}
 	\def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
 		\cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
+	\def\PHDyearShort{\cyrg.}
+	\def\PHDapprove{{\CYRU}{\cyrt}{\cyrv}{\cyre}{\cyrr}{\cyrzh}{\cyrd}{\cyra}{\cyryu}}
     }
 }
 
@@ -49,8 +53,10 @@
         \setcounter{page}{1}
         \null\vfil
         \begin{center}
-          {\bfseries \MakeUppercase{\PHDministry} \par}
-          {\bfseries \MakeUppercase{\PHDinstitut} \par}
+%          {\bfseries \MakeUppercase{\PHDministry} \par}
+%          {\bfseries \MakeUppercase{\PHDinstitut} \par}
+          {\bfseries {\PHDministry} \par}
+          {\bfseries {\PHDinstitut} \par}
           \smallskip
           \hrule
           \smallskip
@@ -72,14 +78,14 @@
         %% Approved stamp
         \begin{flushright}
         \begin{minipage}[t]{0.4\linewidth}
-        \centerline{\textsc{Утверждаю}}
+        \centerline{\textsc{\PHDapprove}}
         \medskip
           \begin{flushright}
           {\PHDdepchieftitle} \\
           {\PHDdepchiefdegree} \\
           \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDdepchief} \\
           \smallskip
-          «\underline{\ \ \ \ \ \ }» \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ } г.
+          <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort
           \end{flushright}
           \end{minipage}
         \end{flushright}
@@ -169,7 +175,7 @@
           \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
           \smallskip
           \hfill
-          «\underline{\ \ \ \ \ \ }» \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ } г.
+          <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort
           %\smallskip
           %%
           % \ifx\@empty\PHDdepchief
