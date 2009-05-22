@@ -1,5 +1,21 @@
-%\AtBeginDocument{%
-%}
+\AtBeginDocument{%
+    \@ifpackageloaded{polyglossia}{%
+    \addto\captionsrussian@modern{%
+	\thesistype{Диссертация на соискание учёной степени}
+	\def\PHDright{На правах рукописи}
+	\def\PHDchiefDescr{Научный руководитель}
+	\def\PHDdisciplineDescr{Специальность}
+    }
+    }{%
+	\thesistype{\cyr\CYRD\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyrya{} \cyr\cyrn\cyra{} 
+	    \cyr\cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrn\cyri\cyre{} \cyr\cyru\cyrch\cyryo\cyrn\cyro\cyrishrt{}
+	    \cyr\cyrs\cyrt\cyre\cyrp\cyre\cyrn\cyri}
+	\def\PHDright{\cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri}
+	\def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
+	\def\PHDdisciplineDescr{{\CYRS}{\cyrp}{\cyre}{\cyrc}{\cyri}{\cyra}{\cyrl}{\cyrsftsn}{\cyrn}{\cyro}{\cyrs}{\cyrt}{\cyrsftsn}}
+    }
+}
+
 \AtEndOfClass{%
 %    \def\@chapapp{}
     \setcounter{tocdepth}{1}
@@ -28,7 +44,7 @@
 
     \begin{flushright}
         %% На правах рукописи
-        {\bfseries \cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri \par}
+        {\bfseries \PHDright \par}
     \end{flushright}
     
     \vspace{3cm}
@@ -41,18 +57,21 @@
         \medskip%
         {\bfseries \Large {\PHDtitle} \par}             % Название
 
+        \vspace{6ex}
+
         \ifx\@empty\PHDfield
         \else%
         \bigskip%
-        \medskip
-        \vspace{6ex}
-        \bigskip% 
-        \medskip%
-        {\bfseries {\PHDfield}} \par                    % Специальность
+        \bigskip%
+        %\medskip
+        %\vspace{6ex}
+        %\bigskip% 
+        %\medskip%
+        {\PHDdisciplineDescr} {\PHDfield} \par                    % Специальность
         \fi
-        
-        \vspace{6ex}
 
+	\bigskip
+	
         {\PHDthesistype} \par
         \smallskip
         {\PHDdegree} \par
@@ -64,47 +83,15 @@
         \bigskip% 
         \bigskip% 
         \bigskip% 
+        \bigskip% 
+        \bigskip% 
 
         \begin{flushright}
             %% Научный руководитель 
-            \cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} 
-            \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} \\\
+            {\PHDchiefDescr} \\\
             {\PHDchiefdegree} \\ 
             {\PHDchief} \par
         \end{flushright}
-
-
-%       \begin{flushleft}       
-%           %% Группа
-%           \ifx\@empty\PHDstudygroup
-%           \else%
-%           \cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{} \hfill
-%           \PHDstudygroup \par
-%           \smallskip      
-%           \fi
-%           %% Страна
-%           \ifx\@empty\PHDcountry 
-%           \else%
-%           \cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{} \hfill
-%           \PHDcountry \par
-%           \smallskip      
-%           \fi
-%            %% Научный руководитель 
-%           \cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} 
-%           \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} \hfill
-%            {\PHDchiefdegree} {\PHDchief} \par
-%           \smallskip      
-%            %%
-%           \ifx\@empty\PHDdepchief
-%           \else%
-%           {\PHDdepchieftitle} \hfill
-%           {\PHDdepchiefdegree} {\PHDdepchief} \par
-%           \smallskip
-%           \fi
-%       \end{flushleft}         
-        
-%        \vfil
-
 
         \vspace*{\fill}    
 
