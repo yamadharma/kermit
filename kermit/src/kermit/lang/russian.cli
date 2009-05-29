@@ -1,5 +1,7 @@
 %%%
 
+\RequirePackage{indentfirst}
+
 %{{{ Lists
 
 \InputIfFileExists{kermit/lang/ru/list.cli}{}{}

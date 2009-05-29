@@ -1,9 +1,71 @@
 \ProvidesFile{russian.bdf}%
-    [2008/02/25  v0.0.0.2]
+    [2009/05/29  v0.0.0.3]
 
 \AtBeginDocument%
 {%
   %% Russian language
+  \@ifpackageloaded{polyglossia}{%
+%  \addto\captionsrussian@modern{%
+  \addto\extrasrussian%
+  {
+    % FUNCTION {bbl.and}
+    \def\bbland{}
+    % FUNCTION {bbl.etal}
+    \def\bbletal{\cyr\cyri~\cyrd\cyrr.}                  %% и др.
+    % FUNCTION {bbl.editors}
+    % { "\bbleditors{}" }
+    % FUNCTION {bbl.editor}
+    %\def\bbleditor{{\cyrp}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
+    % FUNCTION {bbl.edby}
+    \def\bbledby{{\cyrp}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
+    \def\bbled{{\cyrp}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
+    \def\bbleds{{\CYRP}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
+    % FUNCTION {bbl.edition}
+    \def\bbledn{издание}    %% издание
+    \def\bblvol{Т.}                                 %% Т.
+    \def\bblissue{вып.}                   %% вып.
+    \def\bblissuefirst{Вып.}              %% Вып.
+    % FUNCTION {bbl.of}
+    \def\bblof{из}
+    % FUNCTION {bbl.number}
+    \def\bblno{№}
+    \def\bblnofirst{№}
+    % FUNCTION {bbl.nr}
+    % { "\bblno{}" }
+    % FUNCTION {bbl.in}
+    % { "\bblin{}" }
+    % FUNCTION {bbl.pages}
+    \def\bblpp{С.}  %% {С}.
+    % FUNCTION {bbl.page}
+    \def\bblp{С.}   %% {с}.
+    %FUNCTION {bbl.numpages}
+    \def\bblnump{с}
+    % FUNCTION {bbl.chapter}
+    % { "\bblchap{}" }
+    % FUNCTION {bbl.techrep}
+    % { "\bbltechrep{}" }
+    % FUNCTION {bbl.mthesis}
+    \def\bblmthesis{Master's thesis}
+    % FUNCTION {bbl.phdthesis}
+    \def\bblphdthesis{Ph.D. thesis}
+    %FUNCTION {bbl.cmplr}
+    \def\bblcompiler{Сост.}
+    % MACRO {jan} {"\bbljan{}"}
+    % MACRO {feb} 
+    \def\bblfeb{Февраль}
+    % MACRO {mar} {"\bblmar{}"}
+    % MACRO {apr} {"\bblapr{}"}
+    % MACRO {may} {"\bblmay{}"}
+    % MACRO {jun} {"\bbljun{}"}
+    % MACRO {jul} {"\bbljul{}"}
+    % MACRO {aug} {"\bblaug{}"}
+    % MACRO {sep} {"\bblsep{}"}
+    % MACRO {oct} {"\bbloct{}"}
+    % MACRO {nov} {"\bblnov{}"}
+    % MACRO {dec} {"\bbldec{}"}
+
+  }
+  }{%
   \addto\extrasrussian%
   {
     % FUNCTION {bbl.and}
@@ -62,6 +124,7 @@
     % MACRO {nov} {"\bblnov{}"}
     % MACRO {dec} {"\bbldec{}"}
   }
+  } % END \@ifpackageloaded
 } % END \AtBeginDocument
 
 \endinput
