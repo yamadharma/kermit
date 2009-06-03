@@ -17,3 +17,8 @@
 %\def\NOD{\mathop{\mathrm{НОД}}\nolimits}       % ??????
 %\def\NOK{\mathop{\mathrm{НОК}}\nolimits}       % ??????
 %\def\Proj{\mathop{\mathrm{пр}}\nolimits}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End: 
