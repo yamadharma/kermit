@@ -31,6 +31,12 @@
   \@addtoreset{Def}{PFUtitle}
 }
 {
+  \theoremstyle{definition}
+  \newtheorem{definition}{\DefName}
+  \newtheorem*{definition*}{\DefName}
+  \@addtoreset{definition}{PFUtitle}
+}
+{
   \theoremstyle{plain}
   \newtheorem{Proposition}{\PropositionName}
   \newtheorem*{Proposition*}{\PropositionName}
