@@ -5,6 +5,7 @@
 %{{{ Lists
 
 \InputIfFileExists{kermit/lang/ru/list.cli}{}{}
+\InputIfFileExists{kermit/lang/ru/math.cli}{}{}
 
 %}}}
 
