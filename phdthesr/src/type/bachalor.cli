@@ -4,23 +4,19 @@
 \begin{center}
 \begin{tabular}{|l|c|c|}
 \hlx{hv}
-Вид задания & Кол-во баллов & Сумма баллов \\
+\brsTableProblemType & \brsTableBalls & \brsTableBallsSum \\
 \hlx{vhv}
-1. Текст выпускной работы
- & 0--40 & \\
+1. \brsTableText & 0--40 & \\
 \hlx{vhv}
-2. Презентация по выпускной работе
- & 0--10 & \\
+2. \brsTablePresentation & 0--10 & \\
 \hlx{vhv}
-3. Защита выпускной работы
- & 0--50 & \\
+3. \brsTableProtection & 0--50 & \\
 \hlx{vhv[1]}
-\multicolumn{2}{|l|}{ИТОГО} & \\
+\multicolumn{2}{|l|}{\brsTableTotal} & \\
 \hlx{v[1]h}
 \end{tabular}
 \end{center}
 }
-
 
 \AtBeginDocument{%
     \@ifpackageloaded{polyglossia}{%
