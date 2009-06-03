@@ -1,3 +1,6 @@
+
+\makeatletter
+
 \def\sh{\mathop{\operator@font sh}\nolimits}
 \def\ch{\mathop{\operator@font ch}\nolimits}
 \def\tg{\mathop{\operator@font tg}\nolimits}
@@ -17,6 +20,8 @@
 %\def\NOD{\mathop{\mathrm{НОД}}\nolimits}       % ??????
 %\def\NOK{\mathop{\mathrm{НОК}}\nolimits}       % ??????
 %\def\Proj{\mathop{\mathrm{пр}}\nolimits}
+
+\makeatother
 
 %%% Local Variables: 
 %%% mode: latex
