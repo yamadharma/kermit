@@ -547,7 +547,7 @@
     \def\PFUpublishedName{Published }%
     \def\etal{\cyri{} \cyrd\cyrr.}
     % Ключевые слова
-    \renewcommand{\keywordsname}{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
+    \def\keywordsname{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
   }
   \addto\extrasenglish%
   {
@@ -560,7 +560,7 @@
      \def\etal{et al.}
 %%    \renewcommand{\etal}{et al.}
 %%     \providecommand{\etal}{et al.}
-    \renewcommand{\keywordsname}{Key words and phrases}
+    \def\keywordsname{Key words and phrases}
   }
 }
 
@@ -1458,6 +1458,8 @@
 
 \def\keywords#1{\def\@keywords{#1}}
 \let\@keywords=\@empty
+\def\altkeywords#1{\def\alt@keywords{#1}}
+\let\alt@keywords=\@empty
 \def\subjclass#1{\def\@subjclass{#1}}
 \let\@subjclass=\@empty
 \def\translator#1{%
@@ -1667,7 +1669,8 @@
 %  \do\email \do\@xemail \do\curraddr \do\@xcurraddr
   \do\dedicatory \do\@dedicatory 
   \do\thanks \do\thankses
-  \do\keywords \do\@keywords \do\subjclass \do\@subjclass
+  \do\keywords \do\@keywords 
+  \do\subjclass \do\@subjclass
 %%%
 \let\shortauthors\@empty%   
 \let\authors\@empty%
@@ -1676,7 +1679,6 @@
 \let\addresses\@empty%
 \let\@address\@empty%
 \let\thankses\@empty%
-% \let\keywords\@empty%
 \let\@keywords\@empty%
 \let\@received\@empty%
 \let\@dedicatory\@empty%
@@ -2017,6 +2019,7 @@
 %%%--
   \let\@udcnum\@empty
   \let\@pacsnum\@empty  
+  \let\alt@keywords\@empty
 %%%
   \if@filesw
     \immediate\closeout\PFU@aux\relax
@@ -2055,6 +2058,7 @@
   \let\addresses\@empty%
   \let\@udcnum\@empty
   \let\@pacsnum\@empty  
+  \let\alt@keywords\@empty
   \if@filesw
     \immediate\closeout\PFU@aux\relax
   \fi
@@ -2109,6 +2113,8 @@
   \vskip 8\p@
   \unvbox\t@altabstract 
 %%%
+  \smallskip
+  \ifx\@empty\alt@keywords\else \@setaltkeywords \fi
   \normalsize
 %   \if@titlepage
 %     \newpage
@@ -2250,6 +2256,10 @@
 \def\@setkeywords{%
   \@keywordsize%
   {\DivFontShape \keywordsname:}\enspace \@keywords\@addpunct.%
+}%
+\def\@setaltkeywords{%
+  \@keywordsize%
+  {\DivFontShape \keywordsname:}\enspace \alt@keywords\@addpunct.%
 }%
 \def\@setthanks{\def\thanks##1{\par##1\@addpunct.}\thankses}
 \def\@setreceived{%
