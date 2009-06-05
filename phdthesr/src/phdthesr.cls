@@ -1272,6 +1272,7 @@ Dissertation Committee Chair
 
 % \newcounter{figure}[chapter]
 % \def\thefigure{\thechapter.\@arabic\c@figure}
+\@addtoreset{figure}{chapter}
 
 % \def\fps@figure{tbp}
 % \def\ftype@figure{1}
@@ -1286,6 +1287,7 @@ Dissertation Committee Chair
 % %
 % \newcounter{table}[chapter]
 % \def\thetable{\thechapter.\@arabic\c@table}
+\@addtoreset{table}{chapter}
 
 % \def\fps@table{tbp}
 % \def\ftype@table{2}
