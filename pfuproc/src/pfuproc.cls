@@ -1657,6 +1657,7 @@
        }
     \fi
   \endgroup
+    \normalsize
 %   \begin{multicols*}{2}
 %   \addcontentsline{alt}{alttitle}{\@alttitle}
 %   \addcontentsline{alt}{altauthors}{\altauthors}
@@ -1767,6 +1768,7 @@
     \setboolean{sectionAfterTitle}{true}
     % \@sectionAfterTitletrue
 %   \fi
+    \normalsize
 } % end \@maketitle
 %%%-- \@makeappendixtitle
 \def\makeappendixtitle{\par
@@ -2124,6 +2126,7 @@
 %   \fi
   \end{otherlanguage*}
   \endgroup
+  \normalsize
 % \selectlanguage{russian}
 } % END \@makealttitle
 
@@ -2239,7 +2242,7 @@
 \def\@setaltauthors{%
   \begingroup
   \trivlist
-  \centering \fontsize{10}{12\p@}\selectfont\@topsep12\p@\relax
+%  \centering \fontsize{10}{12\p@}\selectfont\@topsep12\p@\relax
 %%%--
   \bfseries
 %%%
@@ -3045,7 +3048,8 @@
 \def\l@altauthors#1#2{%
   \begingroup
   \trivlist
-  \centering %\fontsize{11}{13\p@}\selectfont\@topsep13\p@\relax
+  \centering 
+  %\fontsize{11}{13\p@}\selectfont\@topsep13\p@\relax
   \normalsize
   \item\relax
    #1
@@ -3055,7 +3059,8 @@
 \def\l@altabstracts#1#2{%
   \begingroup
   \trivlist
-%  \centering %\fontsize{11}{13\p@}\selectfont\@topsep13\p@\relax
+%  \centering 
+%\fontsize{11}{13\p@}\selectfont\@topsep13\p@\relax
 %  \normalsize
   \footnotesize
   \item\relax
