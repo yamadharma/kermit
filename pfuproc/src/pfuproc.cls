@@ -2242,7 +2242,7 @@
 \def\@setaltauthors{%
   \begingroup
   \trivlist
-%  \centering \fontsize{10}{12\p@}\selectfont\@topsep12\p@\relax
+  \centering \fontsize{10}{12\p@}\selectfont\@topsep12\p@\relax
 %%%--
   \bfseries
 %%%
