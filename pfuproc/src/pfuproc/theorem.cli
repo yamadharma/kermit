@@ -1,0 +1,132 @@
+\InputIfFileExists{kermit/theorem.cli}{}{}%
+
+% \RequirePackage{amsthm}
+% \RequirePackage{xtheorem}
+%\RequirePackage{amssymb}%
+%\RequirePackage{amsmath}%
+%\RequirePackage[amsmath,thmmarks]{ntheorem}
+
+% \AtBeginDocument%
+% {%
+
+
+
+%%
+%% Fonts
+%%
+
+\renewcommand{\theoremheaderFontShape}{\bfseries}
+\renewcommand{\theoremheaderFontSize}{\normalsize}
+\renewcommand{\theoremheaderPosition}{}
+%%
+\renewcommand{\theorembodyFontShape}{\itshape}
+\renewcommand{\theorembodyFontSize}{\normalsize}
+\renewcommand{\theorembodyPosition}{}
+%%
+
+
+% \def\TheoremName{Theorem}
+% \def\LemmaName{Lemma}
+% \def\ConsName{Cons}
+% \def\RemarkName{Remark}
+% \def\DefName{Def}
+% \def\PropositionName{Proposition}
+% \def\StatementName{Statement}
+% \def\ExampleName{Example}
+
+
+
+% {%
+%   \theoremstyle{plain}
+%   \renewtheorem{Theorem}{\TheoremName}
+%   \renewtheorem*{Theorem*}{\TheoremName}
+   \@addtoreset{Theorem}{PFUtitle}
+% }%
+% {
+%   \theoremstyle{plain}
+%   \renewtheorem{Lemma}{\LemmaName}
+%   \renewtheorem*{Lemma*}{\LemmaName}
+   \@addtoreset{Lemma}{PFUtitle}
+% }
+% {
+%   \theoremstyle{definition}
+%   \renewtheorem{Cons}{\ConsName}
+%   \renewtheorem*{Cons*}{\ConsName}
+   \@addtoreset{Cons}{PFUtitle}
+% }
+% {
+%   \theoremstyle{remark}
+%   \renewtheorem{Remark}{\RemarkName}
+%   \renewtheorem*{Remark*}{{\CYRZ}{\cyra}{\cyrm}{\cyre}{\cyrch}{\cyra}{\cyrn}{\cyri}{\cyre}}
+   \@addtoreset{Remark}{PFUtitle}
+% }
+% {
+%   \theoremstyle{definition}
+%   \renewtheorem{Def}{\DefName}
+%   \renewtheorem*{Def*}{\DefName}
+   \@addtoreset{Def}{PFUtitle}
+% }
+{
+   \theoremstyle{definition}
+   \def\DefName{Def}
+   \newtheorem{definition}{\DefName}
+   \renewtheorem*{definition*}{\DefName}
+   \@addtoreset{definition}{PFUtitle}
+}
+% {
+%   \theoremstyle{plain}
+%   \renewtheorem{Proposition}{\PropositionName}
+%   \renewtheorem*{Proposition*}{\PropositionName}
+   \@addtoreset{Proposition}{PFUtitle}
+% }
+% {
+%   \theoremstyle{plain}
+%   \renewtheorem{Statement}{\StatementName}
+%   \renewtheorem*{Statement*}{\StatementName}
+   \@addtoreset{Statement}{PFUtitle}
+% }
+% {
+%   \theoremstyle{definition}
+%   \renewtheorem{Example}{\ExampleName}
+%   \renewtheorem*{Example*}{\ExampleName}
+   \@addtoreset{Example}{PFUtitle}
+% }
+
+% }
+
+\AtBeginDocument%
+{%
+  \addto\extrasrussian%
+  {
+    \def\TheoremName{{\CYRT}{\cyre}{\cyro}{\cyrr}{\cyre}{\cyrm}{\cyra}}
+    \def\LemmaName{{\CYRL}{\cyre}{\cyrm}{\cyrm}{\cyra}}
+    \def\ConsName{{\CYRS}{\cyrl}{\cyre}{\cyrd}{\cyrs}{\cyrt}{\cyrv}{\cyri}{\cyre}}
+    \def\RemarkName{{\CYRZ}{\cyra}{\cyrm}{\cyre}{\cyrch}{\cyra}{\cyrn}{\cyri}{\cyre}}
+    \def\DefName{{\CYRO}{\cyrp}{\cyrr}{\cyre}{\cyrd}{\cyre}{\cyrl}{\cyre}{\cyrn}{\cyri}{\cyre}}
+    \def\PropositionName{{\CYRP}{\cyrr}{\cyre}{\cyrd}{\cyrl}{\cyro}{\cyrzh}{\cyre}{\cyrn}{\cyri}{\cyre}}
+    \def\StatementName{{\CYRU}{\cyrt}{\cyrv}{\cyre}{\cyrr}{\cyrzh}{\cyrd}{\cyre}{\cyrn}{\cyri}{\cyre}}
+    \def\ExampleName{{\CYRP}{\cyrr}{\cyri}{\cyrm}{\cyre}{\cyrr}}
+  }
+%%
+%%
+%%  
+  \addto\extrasenglish%
+  {
+    \def\TheoremName{Theorem}
+    \def\LemmaName{Lemma}
+    \def\ConsName{Cons}
+    \def\RemarkName{Remark}
+    \def\DefName{Def}
+    \def\PropositionName{Proposition}
+    \def\StatementName{Statement}
+    \def\ExampleName{Example}
+  }
+}
+
+
+%%%
+
+%%% Local Variables: 
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End: 

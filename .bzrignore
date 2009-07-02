@@ -1,3 +1,4 @@
 ls-R
 *~
 auto/*
+auto/*.el

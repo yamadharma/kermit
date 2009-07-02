@@ -1,10 +1,10 @@
 %%
-\RequirePackage{amssymb}%
-\RequirePackage{amsmath}%
-\RequirePackage[amsmath,thmmarks]{ntheorem}
-%\RequirePackage[thmmarks]{ntheorem}
+%\RequirePackage{amssymb}%
+%\RequirePackage{amsmath}%
+%\RequirePackage[amsmath,thmmarks]{ntheorem}
+\RequirePackage[thmmarks]{ntheorem}
 %\RequirePackage{ntheorem}
-
+%\RequirePackage{xtheorem}
 
 %%
 %% Fonts

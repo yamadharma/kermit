@@ -502,7 +502,7 @@
 %%%
 \@addtoreset{footnote}{PFUtitle}
 %%%% lists
-\newcounter{textenumerate}
+%\newcounter{textenumerate}
 %%
 %% Float's parameters
 %%
@@ -531,7 +531,8 @@
 %%
 %% Babel
 %%
-\InputIfFileExists{pfuproc/pfuproc_theorem.cli}{}{}%
+% \InputIfFileExists{pfuproc/pfuproc_theorem.cli}{}{}%
+\InputIfFileExists{pfuproc/theorem.cli}{}{}%
 \InputIfFileExists{pfuproc/mathmisc.cli}{}{}%
 \AtBeginDocument%
 {%
@@ -2450,29 +2451,29 @@
   \itemindent\z@
   \let\@itemlabel\@empty
   \def\makelabel##1{\upshape##1}}
-\renewenvironment{enumerate}{%
-  \ifnum \@enumdepth >3 \@toodeep\else
-      \advance\@enumdepth \@ne
-      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
-      {\csname label\@enumctr\endcsname}{\usecounter
-        {\@enumctr}\def\makelabel##1{\hss\llap{\upshape##1}}}\fi
-}{%
-  \endlist
-}
-\let\endenumerate=\endlist % for efficiency
-\renewenvironment{itemize}{%
-%  \itemindent=0pt
-  \leftmargini=2em
-  \ifnum\@itemdepth>3 \@toodeep
-  \else \advance\@itemdepth\@ne
-    \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
-    \list{\csname\@itemitem\endcsname}%
-      {\def\makelabel##1{\hss\llap{\upshape##1}}}%
-  \fi
-}{%
-  \endlist
-}
-\let\enditemize=\endlist % for efficiency
+%\renewenvironment{enumerate}{%
+%  \ifnum \@enumdepth >3 \@toodeep\else
+%      \advance\@enumdepth \@ne
+%      \edef\@enumctr{enum\romannumeral\the\@enumdepth}\list
+%      {\csname label\@enumctr\endcsname}{\usecounter
+%        {\@enumctr}\def\makelabel##1{\hss\llap{\upshape##1}}}\fi
+%}{%
+%  \endlist
+%}
+%\let\endenumerate=\endlist % for efficiency
+%\renewenvironment{itemize}{%
+%%  \itemindent=0pt
+%  \leftmargini=2em
+%  \ifnum\@itemdepth>3 \@toodeep
+%  \else \advance\@itemdepth\@ne
+%    \edef\@itemitem{labelitem\romannumeral\the\@itemdepth}%
+%    \list{\csname\@itemitem\endcsname}%
+%      {\def\makelabel##1{\hss\llap{\upshape##1}}}%
+%  \fi
+%}{%
+%  \endlist
+%}
+%\let\enditemize=\endlist % for efficiency
 % \newcommand{\descriptionlabel}[1]{\hspace\labelsep \upshape\bfseries #1:}
 % \newenvironment{description}{\list{}{%
 %   \advance\leftmargini6\p@ \itemindent-12\p@
@@ -2481,24 +2482,24 @@
 %   \endlist
 % }
 % \let\enddescription=\endlist % for efficiency
-\newenvironment{textenumerate}%
-{
-  \begin{list}%
-  {\paragraphFontShape \arabic{textenumerate}.}%
-  {
-    \usecounter{textenumerate}%
-%     \setlength{\labelsep}{0pt}%
-    \setlength{\leftmargin}{0pt}%
-%     \setlength{\labelwidth}{\parindent}%
-    \setlength{\labelwidth}{0pt}%
-    \setlength{\listparindent}{\parindent}%
-    \setlength{\itemindent}{\parindent}%
-    \setlength{\itemsep}{\medskipamount}%
-  }
-} 
-{
-  \end{list}
-} % END textenumerate
+%\newenvironment{textenumerate}%
+%{
+%  \begin{list}%
+%  {\paragraphFontShape \arabic{textenumerate}.}%
+%  {
+%    \usecounter{textenumerate}%
+%%     \setlength{\labelsep}{0pt}%
+%    \setlength{\leftmargin}{0pt}%
+%%     \setlength{\labelwidth}{\parindent}%
+%    \setlength{\labelwidth}{0pt}%
+%    \setlength{\listparindent}{\parindent}%
+%    \setlength{\itemindent}{\parindent}%
+%    \setlength{\itemsep}{\medskipamount}%
+%  }
+%} 
+%{
+%  \end{list}
+%} % END textenumerate
 \let\upn=\textup
 \AtBeginDocument{%
   \settowidth\leftmargini{\labelenumi\hskip\labelsep}%
@@ -3426,7 +3427,7 @@
 % \newskip\belowcaptionskip \belowcaptionskip=-1em \relax
 % \newdimen\captionindent \captionindent=3pc
 \newdimen\captionindent \captionindent=0pt
-\RequirePackage{amsthm}[1996/09/24]
+% \RequirePackage{amsthm}[1996/09/24]
 \def\@swapped#1#2{#2%
   \@ifnotempty{#1}{\@addpunct{.}\quad#1\unskip}}
 \def\thmhead@plain#1#2#3{%
@@ -3435,45 +3436,45 @@
 \def\swappedhead@plain#1#2#3{%
   \thmnumber{\@upn{#2}}\thmname{\@ifnotempty{#2}{. }#1}%
   \thmnote{ \textmd{\upshape(#3)}}}
-\def\th@plain{%
-  \let\thm@indent\indent
-  \thm@headfont{\scshape}% heading font small caps
-  \let\thmhead\thmhead@plain \let\swappedhead\swappedhead@plain
-  \thm@preskip.5\baselineskip\@plus.2\baselineskip
-                                    \@minus.2\baselineskip
-  \thm@postskip\thm@preskip
-  \itshape
-}
-\def\th@definition{%
-  \let\thm@indent\indent
-  \thm@headfont{\scshape}% heading font small caps
-  \let\thmhead\thmhead@plain \let\swappedhead\swappedhead@plain
-  \thm@preskip.5\baselineskip\@plus.2\baselineskip
-                                    \@minus.2\baselineskip
-  \thm@postskip\thm@preskip
-  \upshape
-}
-\def\th@remark{%
-  \let\thm@indent\indent
-  \thm@headfont{\scshape}% heading font small caps
-  \let\thmhead\thmhead@plain \let\swappedhead\swappedhead@plain
-  \thm@preskip.5\baselineskip\@plus.2\baselineskip
-                                    \@minus.2\baselineskip
-  \thm@postskip\thm@preskip
-  \upshape
-}
-\renewenvironment{proof}[1][\proofname]{\par \normalfont
-  \topsep6\p@\@plus6\p@ \trivlist \itemindent\normalparindent
-  \item[\hskip\labelsep\scshape
-    #1\@addpunct{.}]\ignorespaces
-}{%
-  \qed\endtrivlist
-}
-\if@compatibility
-\let\@newpf\proof \let\proof\relax \let\endproof\relax
-\newenvironment{pf}{\@newpf[\proofname]}{\qed\endtrivlist}
-\newenvironment{pf*}[1]{\@newpf[#1]}{\qed\endtrivlist}
-\fi
+%\def\th@plain{%
+%  \let\thm@indent\indent
+%  \thm@headfont{\scshape}% heading font small caps
+%  \let\thmhead\thmhead@plain \let\swappedhead\swappedhead@plain
+%  \thm@preskip.5\baselineskip\@plus.2\baselineskip
+%                                    \@minus.2\baselineskip
+%  \thm@postskip\thm@preskip
+%  \itshape
+%}
+%\def\th@definition{%
+%  \let\thm@indent\indent
+%  \thm@headfont{\scshape}% heading font small caps
+%  \let\thmhead\thmhead@plain \let\swappedhead\swappedhead@plain
+%  \thm@preskip.5\baselineskip\@plus.2\baselineskip
+%                                    \@minus.2\baselineskip
+%  \thm@postskip\thm@preskip
+%  \upshape
+%}
+%\def\th@remark{%
+%  \let\thm@indent\indent
+%  \thm@headfont{\scshape}% heading font small caps
+%  \let\thmhead\thmhead@plain \let\swappedhead\swappedhead@plain
+%  \thm@preskip.5\baselineskip\@plus.2\baselineskip
+%                                    \@minus.2\baselineskip
+%  \thm@postskip\thm@preskip
+%  \upshape
+%}
+%\renewenvironment{proof}[1][\proofname]{\par \normalfont
+%  \topsep6\p@\@plus6\p@ \trivlist \itemindent\normalparindent
+%  \item[\hskip\labelsep\scshape
+%    #1\@addpunct{.}]\ignorespaces
+%}{%
+%  \qed\endtrivlist
+%}
+%\if@compatibility
+%\let\@newpf\proof \let\proof\relax \let\endproof\relax
+%\newenvironment{pf}{\@newpf[\proofname]}{\qed\endtrivlist}
+%\newenvironment{pf*}[1]{\@newpf[#1]}{\qed\endtrivlist}
+%\fi
 \def\nonbreakingspace{\unskip\nobreak\ \ignorespaces}
 \def~{\protect\nonbreakingspace}
 % \def\@biblabel#1{\@ifnotempty{#1}{[#1]}}
