@@ -37,9 +37,9 @@
 % \@listi
 % \makeatother
 
-% \setlength{\labelwidth}{\parindent+.7em+\labelsep}
-% \setlength{\itemindent}{0pt}
-% \setlength{\leftmargin}{\labelwidth}
+\setlength{\labelwidth}{\parindent+.7em+\labelsep}
+\setlength{\itemindent}{0pt}
+\setlength{\leftmargin}{\labelwidth}
 
 %\addto\extrasrussian{%
 % \def\labelitemi{---}
