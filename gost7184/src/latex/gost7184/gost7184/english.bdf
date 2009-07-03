@@ -41,7 +41,7 @@
     % FUNCTION {bbl.chapter}
     % { "\bblchap{}" }
     % FUNCTION {bbl.techrep}
-    % { "\bbltechrep{}" }
+    \def\bbltechrep{Techrep}
     % FUNCTION {bbl.mthesis}
     \def\bblmthesis{Master's thesis}
     % FUNCTION {bbl.phdthesis}

@@ -43,7 +43,7 @@
     % FUNCTION {bbl.chapter}
     % { "\bblchap{}" }
     % FUNCTION {bbl.techrep}
-    % { "\bbltechrep{}" }
+    \def\bbltechrep{Отчёт}
     % FUNCTION {bbl.mthesis}
     \def\bblmthesis{Master's thesis}
     % FUNCTION {bbl.phdthesis}
@@ -103,7 +103,7 @@
     % FUNCTION {bbl.chapter}
     % { "\bblchap{}" }
     % FUNCTION {bbl.techrep}
-    % { "\bbltechrep{}" }
+    \def\bbltechrep{{\CYRO}{\cyrt}{\cyrch}{\cyryo}{\cyrt}}
     % FUNCTION {bbl.mthesis}
     \def\bblmthesis{Master's thesis}
     % FUNCTION {bbl.phdthesis}
