@@ -6,6 +6,10 @@
 %\RequirePackage{ntheorem}
 %\RequirePackage{xtheorem}
 
+% \theoremsymbol{\ensuremath{_\square}}
+\theoremsymbol{}
+\qedsymbol{\ensuremath{_\square}}
+
 %%
 %% Fonts
 %%
@@ -107,7 +111,7 @@
   \theoremstyle{nonumberplain}
 %   \theoremheaderfont{\scshape}
   \theorembodyfont{\normalfont}
-  \theoremsymbol{\ensuremath{_\blacksquare}}
+  \theoremsymbol{\ensuremath{_\square}}
   % \RequirePackage{amssymb}
   \def\ProofName{Proof}
   \newtheorem{Proof}{\ProofName}
