@@ -98,10 +98,10 @@
         \setcounter{page}{1}
         \null\vfil
         \begin{center}
-%          {\bfseries \MakeUppercase{\PHDministry} \par}
-%          {\bfseries \MakeUppercase{\PHDinstitut} \par}
-          {\bfseries {\PHDministry} \par}
-          {\bfseries {\PHDinstitut} \par}
+          {\bfseries \MakeUppercase{\PHDministry} \par}
+          {\bfseries \MakeUppercase{\PHDinstitut} \par}
+%          {\bfseries {\PHDministry} \par}
+%          {\bfseries {\PHDinstitut} \par}
           \smallskip
           \hrule
           \smallskip
