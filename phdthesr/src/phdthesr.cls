@@ -386,6 +386,8 @@
 \RequirePackage{xifthen}
 \provideboolean{brsTableNeeded}
 \setboolean{brsTableNeeded}{false}
+\provideboolean{approvedStampNeeded}
+\setboolean{approvedStampNeeded}{false}
 
 %%
 %%

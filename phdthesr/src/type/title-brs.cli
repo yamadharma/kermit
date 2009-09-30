@@ -1,6 +1,7 @@
 %{{{ BRS table
 
 \setboolean{brsTableNeeded}{true}
+\setboolean{approvedStampNeeded}{true}
 
 \def\brsTableProblemType{}
 \def\brsTableBalls{}
@@ -121,6 +122,7 @@
         \bigskip
         
         %% Approved stamp
+        \ifthenelse{\boolean{brsTableNeeded}}{%
         \begin{flushright}
         \begin{minipage}[t]{0.4\linewidth}
         \centerline{\textsc{\PHDapprove}}
@@ -140,6 +142,12 @@
         %   {\bfseries \cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri \par}
         % \end{flushright}
     
+        }{%
+        
+        \vspace{2cm}
+        
+        } % END \ifthenelse{\boolean{brsTableNeeded}}
+        
         \vspace{2cm}
 
         \begin{center}
