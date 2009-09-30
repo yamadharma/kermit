@@ -26,9 +26,9 @@
 
 % FIXME Должно зависить от языка
 \AtBeginDocument{%
-\@ifpackageloaded{babel}{%
+\@ifpackageloaded{polyglossia}{}{%
 	\renewcommand\appendixnum{\@Asbuk\c@chapter}
-}{}
+}
 }
 
 %\AtBeginDocument{%
