@@ -150,18 +150,21 @@
         
         \vspace{2cm}
 
-        \begin{center}
-          % \bigskip%
-          %     \medskip%
-          % {\bfseries \PHDauthor} \par						% Автор
-          % \bigskip% 
-          % \medskip%
 
+        \begin{center}
           {\Large \PHDthesistype} \par
           \smallskip
+
+          %% по дисциплине (для реферата)
+          \ifx\@empty\PHDdiscipline
+          \else
+          \medskip%
+          \PHDdisciplineDescr{}
+          <<\PHDdiscipline>>
+          \bigskip
+          \fi
+
           {\PHDdegree} \par
-          % \bigskip%
-          %     \medskip%
           \ifx\@empty\PHDthesisSubtype
           \else
           \smallskip
@@ -173,7 +176,10 @@
 %        \vspace{6ex}
 
         \begin{center}
+          \ifx\@empty\PHDtitle
+          \else
           {\bfseries \Large {\PHDtitle} \par}					% Название
+          \fi
         \end{center}
 
 %       \ifx\@empty\PHDfield
