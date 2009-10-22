@@ -1,15 +1,9 @@
 \InputIfFileExists{kermit/theorem.cli}{}{}%
 
-% \RequirePackage{amsthm}
-% \RequirePackage{xtheorem}
-%\RequirePackage{amssymb}%
-%\RequirePackage{amsmath}%
-%\RequirePackage[amsmath,thmmarks]{ntheorem}
 
-% \AtBeginDocument%
-% {%
-
-
+\renewtheoremstyle{plain}%
+  {\item[\hskip\parindent \hskip\labelsep \theorem@headerfont ##1\ ##2\theorem@separator]}%
+  {\item[\hskip\labelsep \theorem@headerfont ##1\ ##2\ (##3)\theorem@separator]}
 
 %%
 %% Fonts

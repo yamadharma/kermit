@@ -10,6 +10,19 @@
 \theoremsymbol{}
 \qedsymbol{\ensuremath{_\square}}
 
+\gdef\th@class@Kermit{%
+     \theoremstyle{plain}
+     \theoremheaderfont{\normalfont\bfseries}
+     \theorembodyfont{\itshape}
+     \theoremseparator{}
+     \theoremprework{\relax}
+     \theorempostwork{\relax}
+     \theoremindent0pt
+     \theoremnumbering{arabic}
+     \theoremsymbol{}}
+
+% \theoremclass{Kermit}
+
 %%
 %% Fonts
 %%
@@ -26,6 +39,7 @@
 \theoremseparator{.}
 \theoremheaderfont{\theoremheaderFontShape\theoremheaderFontSize\theoremheaderPosition}
 
+
 {%
   \theoremstyle{plain}
   \def\TheoremName{Theorem}
@@ -34,6 +48,7 @@
   \renewtheorem*{Theorem*}{\TheoremName}
 %  \@addtoreset{Theorem}{title}
 }%
+
 {
   \theoremstyle{plain}
   \def\LemmaName{Lemma}
