@@ -2258,10 +2258,12 @@
 \def\@setsubjclass{%
   {\itshape\subjclassname.}\enspace\@subjclass\@addpunct.}
 \def\@setkeywords{%
+  \hskip\parindent%
   \@keywordsize%
   {\DivFontShape \keywordsname:}\enspace \@keywords\@addpunct.%
 }%
 \def\@setaltkeywords{%
+  \hskip\parindent%
   \@keywordsize%
   {\DivFontShape \keywordsname:}\enspace \alt@keywords\@addpunct.%
 }%
