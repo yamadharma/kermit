@@ -3,8 +3,8 @@
 
 % \renewcommand{\theenumi}{\arabic{enumii}}
 % \renewcommand{\labelenumi}{\theenumii)}
-\renewcommand{\theenumii}{\asbuk{enumi}}
-\renewcommand{\labelenumii}{\theenumi)}
+% \renewcommand{\theenumii}{\asbuk{enumi}}
+% \renewcommand{\labelenumii}{\theenumi)}
 
 
 \renewcommand{\labelitemi}{\bfseries\textendash}
@@ -72,3 +72,8 @@
 %      {\csname label\@enumctr\endcsname}{\usecounter
 %        {\@enumctr}\def\makelabel##1{\hss\llap{##1}}}\fi}
 %\makeatother
+
+%%% Local Variables: 
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End:
