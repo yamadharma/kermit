@@ -7,7 +7,7 @@
 \usepackage{floatrow}
 \floatsetup[table]{style=plaintop}
 
-\captionsetup{font={footnotesize}}
+\captionsetup{font={small}}
 % \captionsetup{textfont={bf}}
 
 % \DeclareCaptionFormat{tableRight}{\hfill#1\newline#2#3\par}

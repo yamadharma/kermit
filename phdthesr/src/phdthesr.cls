@@ -842,12 +842,12 @@ Dissertation Committee Chair
 
 %% Spacing
 
-\titlespacing*{\chapter}%
-    {\z@}%
-    {\z@}
-    {\ttl@chapafter}
+%\titlespacing*{\chapter}%
+%    {\z@}%
+%    {\z@}
+%    {\ttl@chapafter}
 
-% \titlespacing*{\chapter}      {0pt}{50pt}{40pt}
+\titlespacing*{\chapter}      {\z@}{\z@}{\baselineskip}
 \titlespacing*{\section}      {0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 \titlespacing*{\subsection}   {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \titlespacing*{\subsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
