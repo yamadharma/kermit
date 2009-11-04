@@ -17,15 +17,24 @@
 }
 
 \AtEndOfClass{%
-%    \def\@chapapp{}
     \setcounter{tocdepth}{1}
 }
-
-\PassOptionsToClass{a4paper,14dd,oneside,onecolumn,final,openany,doublespace}{kgeneric}
 
 \AtEndOfClass{%
   \renewcommand{\headerFontSize}{\normalsize}
 }
+
+\AtEndOfClass{%
+\geometry{includehead}
+\geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+\geometry{bindingoffset=0mm}
+\geometry{marginparwidth=0dd,marginparsep=0dd}
+}
+
+
+\PassOptionsToClass{a4paper,14pt,oneside,onecolumn,final,openany,doublespace}{kgeneric}
+
+
 
 \AtEndOfClass{%
 \renewcommand{\maketitle}{%
