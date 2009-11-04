@@ -800,11 +800,11 @@ Dissertation Committee Chair
 %% Fonts
 %%
 \renewcommand{\chapterFontShape}{\scshape}
-\renewcommand{\chapterFontSize}{\LARGE}
+\renewcommand{\chapterFontSize}{\Large}
 \renewcommand{\chapterPosition}{\center}
 %
 \renewcommand{\sectionFontShape}{\scshape}
-\renewcommand{\sectionFontSize}{\Large}
+\renewcommand{\sectionFontSize}{\large}
 \renewcommand{\sectionPosition}{\center}
 %
 \renewcommand{\subsectionFontShape}{\scshape}

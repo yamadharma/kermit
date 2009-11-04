@@ -4,6 +4,9 @@
 
 \RequirePackage{caption}
 
+\usepackage{floatrow}
+\floatsetup[table]{style=plaintop}
+
 \captionsetup{font={footnotesize}}
 % \captionsetup{textfont={bf}}
 
