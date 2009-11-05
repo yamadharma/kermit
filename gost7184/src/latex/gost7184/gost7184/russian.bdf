@@ -17,9 +17,9 @@
     % FUNCTION {bbl.editor}
     %\def\bbleditor{{\cyrp}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
     % FUNCTION {bbl.edby}
-    \def\bbledby{{\cyrp}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
-    \def\bbled{{\cyrp}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
-    \def\bbleds{{\CYRP}{\cyro}{\cyrd} {\cyrr}{\cyre}{\cyrd}.}
+    \def\bbledby{под ред.}
+    \def\bbled{под ред.}
+    \def\bbleds{под ред.}
     % FUNCTION {bbl.edition}
     \def\bbledn{издание}    %% издание
     \def\bblvol{Т.}                                 %% Т.
