@@ -1,3 +1,28 @@
+\AtBeginDocument{%
+  \@ifpackageloaded{polyglossia}{%
+    \addto\captionsrussian@modern{%
+      \thesistype{Автореферат \\[\baselineskip] диссертации на соискание учёной степени}
+      \def\PHDright{На правах рукописи}
+      \def\PHDchiefDescr{Научный руководитель}
+      \def\PHDopponentsDescr{Официальные оппоненты}
+      \def\PHDleadorgDescr{Ведущая организация}
+      \def\PHDsecracDescr{Учёный секретарь \\ диссертационного совета}
+      \def\PHDdisciplineDescr{Специальность}
+    }
+  }{%
+    \thesistype{\CYRA\cyrv\cyrt\cyro\cyrr\cyre\cyrf\cyre\cyra\cyrt{} \\[\baselineskip] \cyr\cyrd\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyri{} \cyr\cyrn\cyra{} 
+      \cyr\cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrn\cyri\cyre{} \cyr\cyru\cyrch\cyryo\cyrn\cyro\cyrishrt{}
+      \cyr\cyrs\cyrt\cyre\cyrp\cyre\cyrn\cyri}
+    \def\PHDright{\cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri}
+    \def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
+      \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
+    \def\PHDopponentsDescr{Официальные оппоненты}
+    \def\PHDleadorgDescr{Ведущая организация}
+    \def\PHDsecracDescr{Учёный секретарь \\ диссертационного совета}
+    \def\PHDdisciplineDescr{{\CYRS}{\cyrp}{\cyre}{\cyrc}{\cyri}{\cyra}{\cyrl}{\cyrsftsn}{\cyrn}{\cyro}{\cyrs}{\cyrt}{\cyrsftsn}}
+  }
+}
+
 %\AtBeginDocument{%
 %%    \pagestyle{plain}
 %    \pagestyle{fancy} 
@@ -14,130 +39,69 @@
     \setcounter{tocdepth}{1}
 }
 
-\PassOptionsToClass{a4paper,12dd,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
+\PassOptionsToClass{a4paper,12pt,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
 
 %%% Definitions for titlepages
-
-% The name of your opponent1 and his degree
-\def\oppi#1{\gdef\@oppi{#1}}
-\def\oppidegree#1{\gdef\@oppidegree{#1}}
-
-% The name of your opponent2 and his degree
-\def\oppii#1{\gdef\@oppii{#1}}
-\def\oppiidegree#1{\gdef\@oppiidegree{#1}}
-
-% Секретарь ученого совета и его степень
-\def\secrds#1{\gdef\@secrds{#1}}
-\def\secrdsdegree#1{\gdef\@secrdsdegree{#1}}
-
-% Название института для автореферата в предложном падеже
-% (e.g. Институте физики прочности и матераловедения)
-\def\institute#1{\gdef\@institute{#1}}
-
-% Название ведущей организации
-\def\vedorg#1{\gdef\@vedorg{#1}}
-
-% The name of your Ministery CAPITALIZED
-% (e.g. СИБИРСКОЕ ОТДЕЛЕНИЕ РАН)
-\def\minister#1{\gdef\@minister{#1}}
 
 %%% titlepages
 
 \AtEndOfClass{%
-\thesistype{\CYRR\cyre\cyrf\cyre\cyra\cyrt}
+% \thesistype{\CYRR\cyre\cyrf\cyre\cyra\cyrt}
 
 \renewcommand{\maketitle}{%
 \begin{titlepage}%
 {
-    \ssp
     \begin{alwayssingle}
     \let\footnotesize\small
     \let\footnoterule\relax
     \thispagestyle{empty}
     \setcounter{page}{1}
-    \null\vfil
-%    \begin{center}
-%        {\bfseries \MakeUppercase{\PHDministry} \par}
-%        {\bfseries \MakeUppercase{\PHDinstitut} \par}
-%        {\bfseries {\PHDfaculty} \par}
-%    \end{center}
-
+    
+    \mbox{}
     \medskip
 
     \begin{flushright}
         %% На правах рукописи
-        {\bfseries \cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri \par}
+        {\bfseries \PHDright \par}
     \end{flushright}
-    
+   
     \vspace{3cm}
 
     \begin{center}
         \bigskip%
-	\medskip%
+        \medskip%
         {\bfseries \PHDauthor} \par                     % Автор
         \bigskip% 
-	\medskip%
-        {\bfseries \Large {\PHDtitle} \par}    		% Название
+        \medskip%
+        {\bfseries \Large {\PHDtitle} \par}             % Название
 
-	\ifx\@empty\PHDfield
-	\else%
+        \ifx\@empty\PHDfield
+        \else%
         \bigskip%
-	\medskip
-        \vspace{6ex}
+        % \medskip
+        % \vspace{6ex}
         \bigskip% 
-	\medskip%
-        {\bfseries {\PHDfield}} \par              	% Специальность
-	\fi
-	
+        % \medskip%
+        {\bfseries {\PHDfield}} \par                    % Специальность
+        \fi
+        
         \vspace{6ex}
 
         {\PHDthesistype} \par
         \smallskip
         {\PHDdegree} \par
         \bigskip%
-	\medskip%
+        \medskip%
         \end{center}
 
-        \vspace{6ex}
-
-	\begin{flushleft}	
-	    %% Группа
-	    \ifx\@empty\PHDstudygroup
-	    \else%
-	    \cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{} \hfill
-	    \PHDstudygroup \par
-	    \smallskip	    
-	    \fi
-	    %% Страна
-	    \ifx\@empty\PHDcountry 
-	    \else%
-	    \cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{} \hfill
-	    \PHDcountry \par
-	    \smallskip	    
-	    \fi
-%            \bfseries
-            %% Научный руководитель 
-	    \cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} 
-	    \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} \hfill
-            {\PHDchiefdegree} {\PHDchief} \par
-	    \smallskip	    
-            %%
-	    \ifx\@empty\PHDdepchief
-	    \else%
-	    {\PHDdepchieftitle} \hfill
-	    {\PHDdepchiefdegree} {\PHDdepchief} \par
-	    \smallskip
-	    \fi
-	\end{flushleft}		
-	
         \vfil
 
         \begin{center}
             \vspace*{\fill}
             \bfseries
-            {\PHDdegreecity} \par			% Город
-	    {\PHDdegreeyear} \par      
-	\end{center}
+            {\PHDdegreecity} \par                       % Город
+            {\PHDdegreeyear} \par      
+        \end{center}
     
         \vfil\null
 
@@ -155,77 +119,75 @@
 \def\makesecondpage{
 {
 \begin{alwayssingle}
-        \let\footnotesize\small
-        \let\footnoterule\relax
-        \thispagestyle{empty}
-%       \setcounter{page}{2}
+  \thispagestyle{empty}
 
-        \noindent\textsf{Работа выполнена {\@institute}.} \par
-        \bigskip
+  \noindent
+  % Работа выполнена {\PHDinstitutePrep}. \par
+  \bigskip
 
-        \begin{flushleft}
-        \begin{tabular*}{\textwidth}{ll}
-        %% Научный руководитель:
-          \textsf{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} 
-	    \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}:} & \\[14pt]
-          \textsf{\PHDdepchiefdegree} & \textsf{\PHDdepchief} \\
-          & \\
-          %% Официальные оппоненты
-          \textsf{\cyr\CYRO\cyrf\cyri\cyrc\cyri\cyra\cyrl\cyrsftsn\cyrn\cyrery\cyre{} 
-            \cyro\cyrp\cyrp\cyro\cyrn\cyre\cyrn\cyrt\cyrery{}:} &  \\[14pt]
-          \textsf{\@oppidegree} & \textsf{\@oppi} \\
-          & \\
-          \textsf{\@oppiidegree} & \textsf{\@oppii} \\
-          & \\
-          %% Ведущая организация
-          \textsf{\cyr\CYRV\cyre\cyrd\cyru\cyrshch\cyra\cyrya{} \cyro\cyrr\cyrg\cyra\cyrn\cyri\cyrz\cyra\cyrc\cyri\cyrya{}:} &  \\[14pt]
-          \multicolumn{2}{l}{
-          \textsf{\@vedorg}
-          }
-          \\
-                &  \\
-        \end{tabular*}
-        \end{flushleft}
-
-        \vspace{6ex}
-\noindent\textsf{Защита состоится
-<<\underline{\hspace*{1cm}}>>\underline{\hspace*{3cm}}~{\PHDdegreeyear}~г. в
-\underline{\hspace*{1cm}}~ч. \underline{\hspace*{1cm}}~мин \\
-на заседании диссертационного совета K 053.22.01 в Российском
-университете дружбы народов 
-%{\@institute} 
-по адресу: г.~Москва, ул. Орджоникидзе 3.}  
-
-\bigskip
-
-\noindent\textsf{С диссертацией можно ознакомиться в Научной библиотеке
-  Российского университета дружбы народов.}
-\bigskip
-
-% \noindent\textsf{Отзывы на автореферат, заверенные гербовой печатью
-% организации, просьба направлять по указанному адресу в двух экземплярах не
-% позднее, чем за две недели до защиты.}
-
-%\vspace{6ex}
-\noindent\textsf{Автореферат разослан
-<<\underline{\hspace*{1cm}}>>\underline{\hspace*{3cm}}~{\PHDdegreeyear}~г.}
-\vfill
-        \begin{flushleft}
-          \sffamily
-          \noindent
-          Учёный секретарь \\
-          диссертационного совета \\
-          \smallskip
-          \@secrdsdegree \hfill \@secrds
-        \end{flushleft}
-
-%       \newpage
+  \begin{flushleft}
+    \begin{tabular*}{\textwidth}{ll}
+      %% Научный руководитель:
+      \textbf{\PHDchiefDescr :} & \\[14pt]
+      \PHDchiefdegree & \PHDchief \\
+      & \\
+      %% Официальные оппоненты
+      \textbf{\PHDopponentsDescr :} &  \\[14pt]
+      \PHDoppidegree & \PHDoppi \\
+      & \\
+      \PHDoppiidegree & \PHDoppii \\
+      & \\
+      %% Ведущая организация
+      \textbf{\PHDleadorgDescr :} &  \\[14pt]
+      \multicolumn{2}{l}{
+        \PHDleadorg
+      }
+      \\
+      &  \\
+    \end{tabular*}
+  \end{flushleft}
+  
+  \vspace{6ex}
+  
+  \noindent
+  Защита состоится
+  <<\underline{\hspace*{1cm}}>>\underline{\hspace*{3cm}}~{\PHDdegreeyear}~г. в
+    \underline{\hspace*{1cm}}~ч. \underline{\hspace*{1cm}}~мин \\
+    на заседании диссертационного совета \PHDdiscouncil{} в Российском
+    университете дружбы народов 
+    % {\@institute} 
+    по адресу: г.~Москва, ул. Орджоникидзе 3.
+  
+  \bigskip
+  
+  \noindent
+  С диссертацией можно ознакомиться в Научной библиотеке
+  \PHDinstitutePrep.
+  \bigskip
+  
+  % \noindent\textsf{Отзывы на автореферат, заверенные гербовой печатью
+  %   организации, просьба направлять по указанному адресу в двух экземплярах не
+  %   позднее, чем за две недели до защиты.}
+  
+  % \vspace{6ex}
+  \noindent
+  Автореферат разослан
+  <<\underline{\hspace*{1cm}}>>\underline{\hspace*{3cm}}~{\PHDdegreeyear}~г.
+    
+  \vfill
+  \begin{flushleft}
+    \noindent
+    \PHDsecracDescr\par
+    \smallskip
+    \PHDsecracdegree \hfill \PHDsecrac
+  \end{flushleft}
 
 \end{alwayssingle}
+
 \setcounter{footnote}{0}
 }
-}      	% End of \def\makesecondp
-}	% End of \AtEndOfClass
+}       % End of \def\makesecondp
+}       % End of \AtEndOfClass
 
 
 %%% Local Variables: 

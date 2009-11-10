@@ -219,11 +219,25 @@
 % The name of your institution
 % (e.g. ИНСТИТУТ ФИЗИКИ ПРОЧНОСТИ И МАТЕРАЛОВЕДЕНИЯ)
 
+\DeclareRobustCommand{\institute}[1]%
+{%
+  \def\PHDinstitute{#1}
+}
+\let\PHDinstitute\@empty
+
+% В предложном падеже
+\DeclareRobustCommand{\institutePrep}[1]%
+{%
+  \def\PHDinstitutePrep{#1}
+}
+\let\PHDinstitutePrep\@empty
+
+% FIXME для совместимости
 \DeclareRobustCommand{\institut}[1]%
 {%
-  \def\PHDinstitut{#1}
+  \def\PHDinstitute{#1}
 }
-\let\PHDinstitut\@empty
+\let\PHDinstitut\PHDinstitute
 
 % The name of your Ministery
 % (e.g. СИБИРСКОЕ ОТДЕЛЕНИЕ РАН)
@@ -355,6 +369,59 @@
   \def\PHDthesisSubtype{#1}
 }
 \let\PHDthesisSubtype\@empty
+
+% Ведущая организация
+\DeclareRobustCommand{\leadorg}[1]%
+{%
+  \def\PHDleadorg{#1}
+}
+\let\PHDleadorg\@empty
+
+% The name of your opponent1 and his degree
+\DeclareRobustCommand{\oppi}[1]%
+{%
+  \def\PHDoppi{#1}
+}
+\let\PHDoppi\@empty
+
+\DeclareRobustCommand{\oppidegree}[1]%
+{%
+  \def\PHDoppidegree{#1}
+}
+\let\PHDoppidegree\@empty
+
+% The name of your opponent2 and his degree
+\DeclareRobustCommand{\oppii}[1]%
+{%
+  \def\PHDoppii{#1}
+}
+\let\PHDoppii\@empty
+
+\DeclareRobustCommand{\oppiidegree}[1]%
+{%
+  \def\PHDoppiidegree{#1}
+}
+\let\PHDoppiidegree\@empty
+
+% Секретарь ученого совета и его степень (Secretary of Academic Council)
+\DeclareRobustCommand{\secrac}[1]%
+{%
+  \def\PHDsecrac{#1}
+}
+\let\PHDsecrac\@empty
+
+\DeclareRobustCommand{\secracdegree}[1]%
+{%
+  \def\PHDsecracdegree{#1}
+}
+\let\PHDsecracdegree\@empty
+
+% Диссертационный совет (Dissertational council)
+\DeclareRobustCommand{\discouncil}[1]%
+{%
+  \def\PHDdiscouncil{#1}
+}
+\let\PHDdiscouncil\@empty
 
 
 %%
@@ -1672,7 +1739,7 @@ Dissertation Committee Chair
 
 % FIXME Должно зависить от языка
 \@ifpackageloaded{babel}{%
-	\renewcommand\appendixnum{\@Asbuk\c@chapter}
+        \renewcommand\appendixnum{\@Asbuk\c@chapter}
 }{}
 
 
