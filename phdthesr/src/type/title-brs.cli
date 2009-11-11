@@ -100,9 +100,9 @@
         \null\vfil
         \begin{center}
           {\bfseries \MakeUppercase{\PHDministry} \par}
-          {\bfseries \MakeUppercase{\PHDinstitut} \par}
+          {\bfseries \MakeUppercase{\PHDinstitute} \par}
 %          {\bfseries {\PHDministry} \par}
-%          {\bfseries {\PHDinstitut} \par}
+%          {\bfseries {\PHDinstitute} \par}
           \smallskip
           \hrule
           \smallskip

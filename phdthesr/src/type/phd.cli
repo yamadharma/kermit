@@ -49,7 +49,7 @@
 %    \null\vfil
     \begin{center}
         {\bfseries \MakeUppercase{\PHDministry} \par}
-        {\bfseries \MakeUppercase{\PHDinstitut} \par}
+        {\bfseries \MakeUppercase{\PHDinstitute} \par}
         {\bfseries {\PHDfaculty} \par}
     \end{center}
 
