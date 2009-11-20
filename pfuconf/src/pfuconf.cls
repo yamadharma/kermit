@@ -1693,8 +1693,8 @@
 
 \def\ttll@title{0}
 \titlecontents{title}[0pt]%
-{\vspace{1ex minus .1ex}\chapterFontShape}%
-{\chaptertitlename\space\thecontentslabel.\quad}%
+{}%
+{}%
 {}%
 {\titlerule*[1pc]{.}\contentspage}
 
