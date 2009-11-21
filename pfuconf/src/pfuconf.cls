@@ -236,8 +236,8 @@
   \ifnum\note@cnt>\@ne \add@xtok\t@loc@notes{\note@sep}\fi
   \add@tok\t@loc@notes{\ref{#1}}}
 \def\note@sep{,}
-% \def\thanks{\@ifnextchar[{\@tempswatrue
-%   \thanks@optarg}{\@tempswafalse\thanks@optarg[]}}
+ \def\thanks{\@ifnextchar[{\@tempswatrue
+   \thanks@optarg}{\@tempswafalse\thanks@optarg[]}}
 \def\thanks@optarg[#1]#2{\refstepcounter{footnote}
   \if@tempswa\label{#1}\else\relax\fi
   \add@tok\t@glob@notes{\footnotetext}%
@@ -1006,18 +1006,18 @@
   % \fi
 
 %%
-  \begingroup
+%  \begingroup
 %    \def\@makefntext{\noindent}
 %    \renewcommand{\@makefnmark}{}
-    \def\@thefnmark{\!\!}
-    \ifx\@empty\thankses
-     \else 
-       \@footnotetext{%
-         \def\par{\let\par\@par}
-         \@setthanks
-       }
-    \fi
-  \endgroup
+%    \def\@thefnmark{\!\!}
+%    \ifx\@empty\thankses
+%     \else 
+%       \@footnotetext{%
+%         \def\par{\let\par\@par}
+%         \@setthanks
+%       }
+%    \fi
+%  \endgroup
     \normalsize
 %   \begin{multicols*}{2}
 %   \addcontentsline{alt}{alttitle}{\@alttitle}
