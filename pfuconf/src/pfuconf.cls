@@ -1388,6 +1388,7 @@
 \@addtoreset{table}{title}
 \renewcommand{\thetable}{\@arabic\c@table}
 \@addtoreset{footnote}{title}
+\@addtoreset{footnote}{PFUtitle}
 
 \def\tableofcontents{%
 \chapter*{\contentsname}

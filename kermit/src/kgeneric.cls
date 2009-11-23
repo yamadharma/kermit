@@ -844,7 +844,7 @@
   \kern-3\p@
   \hrule\@width.4\columnwidth
   \kern2.6\p@}
-\@addtoreset{footnote}{chapter}
+% \@addtoreset{footnote}{chapter}
 \newcommand\@makefntext[1]{%
     \parindent 1em%
     \noindent
