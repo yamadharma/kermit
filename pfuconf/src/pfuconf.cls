@@ -944,14 +944,14 @@
     \message{\@biblabel{1}}
   \iflanguage{\@defaultlanguage}
   {%
-    \addcontentsline{toc}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
-    \addcontentsline{tac}{chapter}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
+    \addcontentsline{toc}{title}{{\bfseries \authorstoc} \no@harm \@title}
+    \addcontentsline{tac}{title}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
   }
   {%
     \addtocontents{toc}{\protect\select@language{\@defaultlanguage}}
-    \addcontentsline{toc}{chapter}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
+    \addcontentsline{toc}{title}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
     \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
-    \addcontentsline{tac}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
+    \addcontentsline{tac}{title}{{\bfseries \authorstoc} \no@harm \@title}
   }
 %   \@mkboth{\@journal}{\authors \@title}
 %  \@mkboth{\andify\altauthors}{\shorttitle}
@@ -1006,17 +1006,17 @@
   % \fi
 
 %%
-%  \begingroup
-%    \def\@makefntext{\noindent}
-%    \renewcommand{\@makefnmark}{}
-%    \def\@thefnmark{\!\!}
-%    \ifx\@empty\thankses
-%     \else 
-%       \@footnotetext{%
-%         \def\par{\let\par\@par}
-%         \@setthanks
-%       }
-%    \fi
+ \begingroup
+   \def\@makefntext{\noindent}
+   \renewcommand{\@makefnmark}{}
+   \def\@thefnmark{\!\!}
+   \ifx\@empty\thankses
+    \else 
+      \@footnotetext{%
+        \def\par{\let\par\@par}
+        \@setthanks
+      }
+   \fi
 %  \endgroup
     \normalsize
 %   \begin{multicols*}{2}
@@ -1157,7 +1157,7 @@
   \par
   \endgroup
   \@setabstract
-  \ifx\@empty\thankses\else \medskip \footnotesize \@setthanks\fi
+  % \ifx\@empty\thankses\else \medskip \footnotesize \@setthanks\fi
   }\nobreak%
   \normalsize\nobreak%
   \bigskip\nobreak%
