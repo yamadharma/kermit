@@ -894,7 +894,7 @@
 %%%
 \newcommand{\andify}{%
   \nxandlist{\unskip, }{\unskip{},~}{\unskip,~}}
-\def\and{\unskip{ }, \ignorespaces}
+\def\and{\unskip{}, \ignorespaces}
 %%%
 % \newcommand{\altandify}{%
 %   \nxaltandlist{\unskip, }{\unskip{} and~}{\unskip, and~}}
@@ -903,6 +903,29 @@
   \nxaltandlist{\unskip, }{\unskip{},~}{\unskip,~}}
 \def\altand{\unskip{ }and \ignorespaces}
 %%%%
+
+\long\def\@footnotetext#1%
+{%
+  \insert\footins{%
+    \reset@font\footnotesize
+    \interlinepenalty\interfootnotelinepenalty
+    \splittopskip\footnotesep
+    \splitmaxdepth \dp\strutbox \floatingpenalty \@MM
+    \hsize\columnwidth \@parboxrestore
+%%    \hbox to\columnwidth\@parboxrestore
+%%    \hbox to\columnwidth\@parboxrestore%
+    \protected@edef\@currentlabel{%
+       \csname p@footnote\endcsname\@thefnmark
+    }%
+    \color@begingroup
+      \@makefntext{%
+        \rule\z@\footnotesep\ignorespaces#1\@finalstrut\strutbox}%
+    \color@endgroup}
+}%
+
+\def\@makefnmark{\hbox{$\m@th^{\@thefnmark}$}}
+\def\@makefntext{\indent\@makefnmark}
+
 
 \def\maketitle{\par
 %%   \clearpage
@@ -1007,8 +1030,8 @@
 
 %%
  \begingroup
-   \def\@makefntext{\noindent}
-   \renewcommand{\@makefnmark}{}
+   % \def\@makefntext{\noindent}
+   % \renewcommand{\@makefnmark}{}
    \def\@thefnmark{\!\!}
    \ifx\@empty\thankses
     \else 
@@ -1132,9 +1155,9 @@
   \begingroup %% begin
 %  \bigskip
     \vspace{2\baselineskip}
-    %% FIXME убрать? или сделать переключатель?
-    \leaders \hrule \vskip 0.4pt
-    \vspace{2\baselineskip}
+    % %% FIXME убрать? или сделать переключатель?
+    % \leaders \hrule \vskip 0.4pt
+    % \vspace{2\baselineskip}
 %  \bigskip
   \vbox{%
   \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi
@@ -1153,6 +1176,7 @@
   \begingroup
   \footnotesize
   \centering
+  \normalfont
   \addresses 
   \par
   \endgroup
@@ -1265,7 +1289,8 @@
   \begingroup
   \centering
   % \begin{center}
-  \large 
+  % \large 
+  \normalsize
   % \trivlist
   % \centering \fontsize{11}{13\p@}\selectfont\@topsep13\p@\relax
   % \item\relax
@@ -1389,6 +1414,8 @@
 \renewcommand{\thetable}{\@arabic\c@table}
 \@addtoreset{footnote}{title}
 \@addtoreset{footnote}{PFUtitle}
+% \@addtoreset{section}{title}
+% \renewcommand\theequation{\@arabic\c@section}
 
 \def\tableofcontents{%
 \chapter*{\contentsname}
@@ -1595,6 +1622,38 @@
                           \labelsep\z@ }%
         \fi
 \fi}
+
+\newdimen\bibindent
+\setlength\bibindent{1.5em}
+\renewenvironment{thebibliography}[1]
+{%
+  \section*{\refname}%
+%         \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+%  }%
+    \message{88888}
+    \message{\@biblabel{1}}
+%  \def\@biblabel#1{#1)))}
+  %\xdef\@biblabel#1{\@ifnotempty{#1}{#1.}}
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\renewcommand\newblock{\hskip .11em\@plus.33em\@minus.07em}
+\let\@openbib@code\@empty
+
+
 %%%
 \RequirePackage{titlesec}
 
