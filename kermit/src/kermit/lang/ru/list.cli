@@ -12,34 +12,48 @@
 \renewcommand{\labelitemiii}{\bfseries\textendash}
 \renewcommand{\labelitemiv}{\bfseries\textendash}
 
- \makeatletter
- \renewcommand{\@listi}{%
-   \setlength{\itemsep}{0pt}
-   \setlength{\parsep}{0pt plus 0pt minus 0pt}
-   \setlength{\topsep}{0pt plus 2pt minus 0pt}  
- }
- \renewcommand{\@listii}{%
-  \setlength{\itemsep}{0pt}
-   \setlength{\parsep}{0pt plus 0pt minus 0pt}
-   \setlength{\topsep}{0pt plus 2pt minus 0pt}    
- }
- \renewcommand{\@listiii}{%
-   \setlength{\itemsep}{0pt}
-   \setlength{\parsep}{0pt plus 0pt minus 0pt}
-   \setlength{\topsep}{0pt plus 2pt minus 0pt}  
- }
- \renewcommand{\@listiv}{%
-   \setlength{\itemsep}{0pt}
-   \setlength{\parsep}{0pt plus 0pt minus 0pt}  
-   \setlength{\topsep}{0pt plus 2pt minus 0pt}  
-}
- \let\@listI\@listi
- \@listi
-\makeatother
+\setlength{\itemsep}{0pt}
+\setlength{\parsep}{0pt plus 0pt minus 0pt}  
+\setlength{\topsep}{0pt plus 2pt minus 0pt}  
 
-\setlength{\labelwidth}{\parindent+.7em+\labelsep}
-\setlength{\itemindent}{0pt}
-\setlength{\leftmargin}{\labelwidth}
+\makeatletter
+\renewcommand{\@listi}{%
+  \leftmargin\leftmargini
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt plus 0pt minus 0pt}
+  \setlength{\topsep}{0pt plus 2pt minus 0pt}  
+}
+\renewcommand{\@listii}{%
+  \leftmargin\leftmarginii
+  \labelwidth\leftmarginii
+  \advance\labelwidth-\labelsep
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt plus 0pt minus 0pt}
+  \setlength{\topsep}{0pt plus 2pt minus 0pt}    
+}
+\renewcommand{\@listiii}{%
+  \leftmargin\leftmarginiii
+  \labelwidth\leftmarginiii
+  \advance\labelwidth-\labelsep
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt plus 0pt minus 0pt}
+  \setlength{\topsep}{0pt plus 2pt minus 0pt}  
+}
+\renewcommand{\@listiv}{%
+  \leftmargin\leftmarginiv
+  \labelwidth\leftmarginiv
+  \advance\labelwidth-\labelsep
+  \setlength{\itemsep}{0pt}
+  \setlength{\parsep}{0pt plus 0pt minus 0pt}  
+  \setlength{\topsep}{0pt plus 2pt minus 0pt}  
+}
+\let\@listI\@listi
+\@listi
+\makeatother
+ 
+% \setlength{\labelwidth}{\parindent+.7em+\labelsep}
+% \setlength{\itemindent}{0pt}
+% \setlength{\leftmargin}{\labelwidth}
 
 %\addto\extrasrussian{%
 % \def\labelitemi{---}
