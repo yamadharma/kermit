@@ -16,6 +16,22 @@
 \setlength{\parsep}{0pt plus 0pt minus 0pt}  
 \setlength{\topsep}{0pt plus 2pt minus 0pt}  
 
+\AtBeginDocument{%
+\settowidth\leftmargini{\labelenumi\hskip\labelsep}%
+% \advance\leftmargini by \normalparindent
+\settowidth\leftmarginii{\labelenumii\hskip\labelsep}%
+% \advance\leftmarginii by 15pt
+\settowidth\leftmarginiii{\labelenumiii\hskip\labelsep}%
+% \advance\leftmarginiii by 12pt
+\settowidth\leftmarginiv{\labelenumiv\hskip\labelsep}%
+% \advance\leftmarginiv by 10pt
+% \leftmarginv=10pt
+% \leftmarginvi=10pt
+% \leftmargin=\leftmargini
+% \labelsep=5pt
+% \labelwidth=\leftmargini \advance\labelwidth-\labelsep
+}
+
 \makeatletter
 \renewcommand{\@listi}{%
   \leftmargin\leftmargini
