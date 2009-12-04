@@ -731,6 +731,143 @@
 %   \fi
 % }
 
+\providecommand*{\subtitle}[2][]%
+{%
+  \refstepcounter{subtitle}
+  \let\@rauthor\@empty
+  \let\authorsrunning\@empty
+  \let\altauthorsrunning\@empty
+  \let\authorstoc\@empty
+  \let\altauthorstoc\@empty
+  \let\authors\@empty
+  \let\altauthors\@empty
+  \let\thankses\@empty
+  \let\addresses\@empty%
+  \let\altaddresses\@empty%
+  \iflanguage{english}%
+  {%
+    \edef\PFUlanguage{english}
+    \edef\PFUaltlanguage{russian}
+  }%
+  {%
+    \edef\PFUlanguage{russian}
+    \edef\PFUaltlanguage{english}
+  }
+  \if@filesw
+    \makeatletter
+    \@input{\PFU@auxname.aux}%
+    \immediate\openout\PFU@aux\PFU@auxname.aux\relax
+  \fi
+  \gdef\shortsubtitle{#1}\gdef\@subtitle{#2}
+} % END \subtitle
+
+\def\makesubtitle{\par
+  \global\t@glob@notes={}
+%
+  \altandify\altauthors
+  \andify\authorsrunning
+  \ifnum\c@author>\@ne 
+    \edef\rauthor{\@rauthor{} \etal} 
+  \else \edef\rauthor{\@rauthor} 
+  \fi
+  \ifx\shortsubtitle\@empty 
+    \let\shortsubtitle\@subtitle
+  \fi
+%   \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shortsubtitle} \hfill}}
+%  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \textsc{\authorsrunning} \hfill}}  
+  \@makesubtitle@hook
+  \begingroup
+  %\if@twocolumn %
+%   \twocolumn[\@maketitle] 
+  \@makesubtitle
+  %\fi
+%   \ifx\@runauthor\relax
+%    \global\let\@runauthor\@runningauthor
+%   \fi
+   \global\n@author=\c@author
+%   \global\n@collab=\c@collab 
+  \@writecount
+%  \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
+%   \edef\@tempa{\@nx\markboth{\the\toks@}{\the\@temptokena}}\@tempa
+  \endgroup
+%%   \newif\if@twocolumn
+%%   \@twocolumntrue%
+  \if@twocolumn\typeout{2-col}%
+  \else%
+  \typeout{1-col}%
+  \fi%
+  \if@multicolumn\typeout{2-col}%
+  \else%
+  \typeout{1-col}%
+  \fi%
+  \ifthenelse{\boolean{PFUprocMultiColumn}}{\typeout{2-col}}{\typeout{1-col}}
+%  \if@twocolumn%
+%  \twocolumngrid  
+%  \fi
+  \if@multicolumn%
+    \twocolumngrid  
+  \fi
+%
+\let\shortauthors\@empty%   
+\let\authors\@empty%
+\let\authorstoc\@empty%
+%% \let\author\@empty
+\let\addresses\@empty%
+\let\@address\@empty%
+\let\thankses\@empty%
+% \let\keywords\@empty%
+\let\@keywords\@empty%
+\let\@received\@empty%
+\let\@dedicatory\@empty%
+%%%
+% \let\shortaltauthors\@empty   \let\altauthors\@empty
+% \let\altaddresses\@empty      
+% \let\altthankses\@empty
+%%%--
+% \let\@udcnum\@empty
+%%%
+} % END \makesubtitle
+
+\def\@makesubtitle@hook{\global\let\@makesubtitle@hook\@empty}
+\def\@makesubtitle{%
+\flushbottom
+  \normalfont\normalsize
+  \let\@makefnmark\relax  \let\@thefnmark\relax
+  \@setsubtitle
+%  \bigskip
+  \smallskip
+  \ifx\@empty\authors \else \@setauthors \fi
+%%%--
+  \nobreak %
+  \begingroup
+  \footnotesize
+  \centering
+  \addresses
+  \par
+  \endgroup
+%%%  
+  \ifx\@empty\@dedicatory
+  \else
+    \baselineskip26\p@
+%    \vtop{\centering{\footnotesize\itshape\@dedicatory\@@par}%
+%      \global\dimen@i\prevdepth}\prevdepth\dimen@i
+    \begin{flushright}
+      \begin{minipage}{\dedicatorywidth}
+        \footnotesize\itshape\@dedicatory\par%
+      \end{minipage}
+    \end{flushright}
+  \fi
+%   \@setabstract
+%%%--
+  \vskip 8\p@
+  \unvbox\t@abstract 
+%%%
+  \normalsize
+%  \bigskip  
+  \medskip
+} % end \@makesubtitle
+
+
 \DeclareRobustCommand{\udc}[1]{%
   \def\@udcnum{#1}}
 \let\@udcnum\@empty
