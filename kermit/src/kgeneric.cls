@@ -909,11 +909,11 @@
 \providecommand{\partPosition}{}
 %%
 \providecommand{\chapterFontShape}{\DivFontShape}
-\providecommand{\chapterFontSize}{\LARGE}
+\providecommand{\chapterFontSize}{\Large}
 \providecommand{\chapterPosition}{}
 %%
 \providecommand{\sectionFontShape}{\DivFontShape}
-\providecommand{\sectionFontSize}{\Large}
+\providecommand{\sectionFontSize}{\large}
 \providecommand{\sectionPosition}{\center}
 %%
 \providecommand{\subsectionFontShape}{\DivFontShape}
