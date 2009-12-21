@@ -42,7 +42,7 @@
 	\def\brsTableBallsSum{Сумма баллов}
 	\def\brsTableAttestInterim{Рубежная аттестация}
 	\def\brsTableAttestFinal{Итоговая аттестация}
-	\def\brsTableCourse{Курсовая работа}
+%	\def\brsTableCourse{Курсовая работа}
 	\def\brsTableTotal{ИТОГО}
 	\def\brsTableText{Текст выпускной работы}
 	\def\brsTablePresentation{Презентация по выпускной работе}
@@ -54,7 +54,7 @@
 	\def\brsTableBallsSum{{\CYRS}{\cyru}{\cyrm}{\cyrm}{\cyra} {\cyrb}{\cyra}{\cyrl}{\cyrl}{\cyro}{\cyrv}}
 	\def\brsTableAttestInterim{{\CYRR}{\cyru}{\cyrb}{\cyre}{\cyrzh}{\cyrn}{\cyra}{\cyrya} {\cyra}{\cyrt}{\cyrt}{\cyre}{\cyrs}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya}}
 	\def\brsTableAttestFinal{{\CYRI}{\cyrt}{\cyro}{\cyrg}{\cyro}{\cyrv}{\cyra}{\cyrya} {\cyra}{\cyrt}{\cyrt}{\cyre}{\cyrs}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya}}
-	\def\brsTableCourse{{\CYRK}{\cyru}{\cyrr}{\cyrs}{\cyro}{\cyrv}{\cyra}{\cyrya} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra}}
+%	\def\brsTableCourse{{\CYRK}{\cyru}{\cyrr}{\cyrs}{\cyro}{\cyrv}{\cyra}{\cyrya} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra}}
 	\def\brsTableTotal{{\CYRI}{\CYRT}{\CYRO}{\CYRG}{\CYRO}}
 	\def\brsTableText{{\CYRT}{\cyre}{\cyrk}{\cyrs}{\cyrt} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrery}}
 	\def\brsTablePresentation{{\CYRP}{\cyrr}{\cyre}{\cyrz}{\cyre}{\cyrn}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya} {\cyrp}{\cyro} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyre}}
@@ -63,6 +63,8 @@
 }
 
 %}}}
+
+\def\brsTableCourse{\PHDthesistype}
 
 \AtBeginDocument{%
     \@ifpackageloaded{polyglossia}{%
