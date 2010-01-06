@@ -19,6 +19,13 @@
 % \RequirePackage{longtable}
 % \RequirePackage[longtable]{caption2}
 
+\@addtoreset{figure}{chapter}
+\renewcommand{\thefigure}%
+{%
+  \ifnum \c@chapter>\z@\thechapter.\fi \@arabic\c@figure%
+}
+
+
 %% FEXME need move to kermit bundle
 
 \providecommand{\chapaftersnum}{.}
