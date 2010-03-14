@@ -47,7 +47,7 @@
     % FUNCTION {bbl.mthesis}
     \def\bblmthesis{Master's thesis}
     % FUNCTION {bbl.phdthesis}
-    \def\bblphdthesis{Ph.D. thesis}
+    \def\bblphdthesis{Кандидатская диссертация}
     %FUNCTION {bbl.cmplr}
     \def\bblcompiler{Сост.}
     % MACRO {jan} {"\bbljan{}"}
@@ -107,7 +107,7 @@
     % FUNCTION {bbl.mthesis}
     \def\bblmthesis{Master's thesis}
     % FUNCTION {bbl.phdthesis}
-    \def\bblphdthesis{Ph.D. thesis}
+    \def\bblphdthesis{{\CYRK}{\cyra}{\cyrn}{\cyrd}{\cyri}{\cyrd}{\cyra}{\cyrt}{\cyrs}{\cyrk}{\cyra}{\cyrya} {\cyrd}{\cyri}{\cyrs}{\cyrs}{\cyre}{\cyrr}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya}}
     %FUNCTION {bbl.cmplr}
     \def\bblcompiler{\cyr\CYRS\cyro\cyrs\cyrt.}
     % MACRO {jan} {"\bbljan{}"}

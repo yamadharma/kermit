@@ -50,6 +50,7 @@ ENTRY
     journal
     key
     language
+    booklanguage
     month
     note
     number
@@ -83,6 +84,19 @@ FUNCTION {init.state.consts}
 }
 
 STRINGS { s t }
+
+STRINGS { curlanguage }
+
+FUNCTION {change.language}
+{ booklanguage empty$
+    {""}
+    {booklanguage  'curlanguage :=
+    "\selectlanguageifdefined{"
+    curlanguage *
+    "}" *
+     }
+  if$
+}
 
 % %%%--
 % FUNCTION {block.delim}
@@ -454,85 +468,9 @@ FUNCTION {nov} {"\bblnov{}" }
 
 FUNCTION {dec} {"\bbldec{}" }
 
-
-%FUNCTION {bbl.etal}
-%{ "\bbletal"  language * "{}" * }
-
-%FUNCTION {bbl.editors}
-%{ "\bbleds"  language * "{}" * }
-
-%FUNCTION {bbl.editor}
-%{ "\bbled"  language * "{}" * }
-
-%FUNCTION {bbl.edby}
-%{ "\bbledby"  language * "{}" * }
-
-%FUNCTION {bbl.edition}
-%{ "\bbledn"  language * "{}" * }
-
-%FUNCTION {bbl.volume}
-%{ "\bblvol"  language * "{}" * }
-
-%FUNCTION {bbl.issue}
-%{ "\bblissue"  language * "{}" * }
-
-%FUNCTION {bbl.of}
-%{ "\bblof"  language * "{}" * }
-
-%FUNCTION {bbl.number}
-%{ "\bblno"  language * "{}" * }
-
-%FUNCTION {bbl.nr}
-%{ "\bblno"  language * "{}" * }
-
-%FUNCTION {bbl.in}
-%{ "\bblin"  language * "{}" * }
-
-%FUNCTION {bbl.pages}
-%{ "\bblpp"  language *  "{}" * }
-
-%FUNCTION {bbl.page}
-%{ "\bblp"  language * "{}" * }
-
-%%FUNCTION {bbl.chapter}
-%%{ "\bblchap"  language * "{}" * }
-
-%FUNCTION {bbl.techrep}
-%{ "\bbltechrep"  language * "{}" * }
-
-%FUNCTION {bbl.mthesis}
-%{ "\bblmthesis"  language * "{}" * }
-
-%FUNCTION {bbl.phdthesis}
-%{ "\bblphdthesis"  language * "{}" * }
-
-%FUNCTION {jan} {"\bbljan"  language * "{}" *}
-
-%FUNCTION {feb} {"\bblfeb"  language * "{}" *}
-
-%FUNCTION {mar} {"\bblmar"  language * "{}" *}
-
-%FUNCTION {apr} {"\bblapr"  language * "{}" *}
-
-%FUNCTION {may} {"\bblmay"  language * "{}" *}
-
-%FUNCTION {jun} {"\bbljun"  language * "{}" *}
-
-%FUNCTION {jul} {"\bbljul"  language * "{}" *}
-
-%FUNCTION {aug} {"\bblaug"  language * "{}" *}
-
-%FUNCTION {sep} {"\bblsep"  language * "{}" *}
-
-%FUNCTION {oct} {"\bbloct"  language * "{}" *}
-
-%FUNCTION {nov} {"\bblnov"  language * "{}" *}
-
-%FUNCTION {dec} {"\bbldec"  language * "{}" *}
-
- %-------------------------------------------------------------------
- % Begin module:
- % \ProvidesFile{physjour.mbs}[1999/02/24 2.0d (PWD)]
+%-------------------------------------------------------------------
+% Begin module:
+% \ProvidesFile{physjour.mbs}[1999/02/24 2.0d (PWD)]
 MACRO {aa}{"Astronomy and Astrophysics"}
 MACRO {aasup}{"Astronomy and Astrophysics, Supplement Series"}
 MACRO {aph} {"Acta Physica"}
@@ -621,10 +559,10 @@ MACRO {sjpp} {"Soviet Journal of Plasma Physics"}
 MACRO {spd} {"Soviet Physics--Doklady"}
 MACRO {sptp} {"Soviet Physics--Technical Physics"}
 MACRO {spu} {"Soviet Physics--Uspeki"}
- % End module: physjour.mbs
- %-------------------------------------------------------------------
- % Begin module:
- % \ProvidesFile{geojour.mbs}[1999/02/24 2.0e (PWD)]
+% End module: physjour.mbs
+%-------------------------------------------------------------------
+% Begin module:
+% \ProvidesFile{geojour.mbs}[1999/02/24 2.0e (PWD)]
 MACRO {aisr} {"Advances in Space Research"}
 MACRO {ag} {"Annales Geophysic\ae"}
 MACRO {anigeo} {"Annali di Geofisica"}
@@ -735,11 +673,10 @@ MACRO {wafc} {"Weather and Forecasting"}
 MACRO {ww} {"Weatherwise"}
 MACRO {wmob} {"World Meteorological Organization Bulletin"}
 MACRO {zeitmet} {"Zeitschrift f\^^b{u}r Meteorologie"}
- % End module: geojour.mbs
- %-------------------------------------------------------------------
- % Begin module:
- % \ProvidesFile{photjour.mbs}[1999/02/24 2.0b (PWD)]
-
+% End module: geojour.mbs
+%-------------------------------------------------------------------
+% Begin module:
+% \ProvidesFile{photjour.mbs}[1999/02/24 2.0b (PWD)]
 MACRO {appopt} {"Applied Optics"}
 MACRO {bell} {"Bell Systems Technical Journal"}
 MACRO {ell} {"Electronics Letters"}
@@ -769,7 +706,7 @@ MACRO {zphd} {"Zeitschrift f\^^b{u}r Physik~D"}
 MACRO {CLEO} {"Conf. on Lasers and Electro-Optics"}
 MACRO {ASSL} {"Advanced Solid State Lasers"}
 MACRO {OSA}  {"Optical Society of America"}
- % End module: photjour.mbs
+% End module: photjour.mbs
 %% Copyright 1994-1999 Patrick W Daly
 MACRO {acmcs} {"ACM Computing Surveys"}
 
@@ -822,38 +759,37 @@ FUNCTION {format.names}
   #1 'nameptr :=
   s num.names$ 'numnames :=
   numnames 'namesleft :=
-    { namesleft #0 > }
-    { s nameptr
-      "{vv~}{ll}{~jj}{~f.}" format.name$ 't :=
-      nameptr #1 >
-        {
-          nameptr #4 =
-          numnames #4 > and
-            { "others" 't :=
-              #1 'namesleft := }
-            'skip$
-          if$
-          namesleft #1 >
-            { ", " * t * }
-            {
-              t "others" =
-	      t "~others" =
-	      or
-                { " " * bbl.etal * }
-                { ", " * t * }
-              if$
-            }
-          if$
-        }
-        't
-      if$
-      nameptr #1 + 'nameptr :=
-      namesleft #1 - 'namesleft :=
-    }
+  { namesleft #0 > }
+  { s nameptr
+    "{vv~}{ll}{~jj}{~f.}" format.name$ 't :=
+    nameptr #1 >
+      {
+        nameptr #4 =
+        numnames #4 > and
+          { "others" 't :=
+            #1 'namesleft := }
+          'skip$
+        if$
+        namesleft #1 >
+          { ", " * t * }
+          {
+            t "others" =
+	    t "~others" =
+	    or
+              { " " * bbl.etal * }
+              { ", " * t * }
+            if$
+          }
+        if$
+      }
+      't
+    if$
+    nameptr #1 + 'nameptr :=
+    namesleft #1 - 'namesleft :=
+  }
   while$
   bib.name.font
 }
-
 
 %</gost7184|gost7184u>
 %<*gost7802000|gost7802000u>
@@ -2547,9 +2483,9 @@ FUNCTION {presort}
   'sort.key$ :=
 }
 
-% ITERATE {presort}
+%ITERATE {presort}
 
-% SORT
+%SORT
 
 %</gost7184|gost7802000>
 
