@@ -761,7 +761,11 @@ FUNCTION {format.names}
   numnames 'namesleft :=
   { namesleft #0 > }
   { s nameptr
-    "{vv~}{ll}{~jj}{~f.}" format.name$ 't :=
+    language "english" = language $empty or
+      {"{vv~}{ll}{~jj}{~f.}"}
+      {"{vv~}{ll}{~jj}{~ff}"} % we cannot use f. here due to BibTeX limitations... so the user should care himself
+    if$
+    format.name$ 't :=
     nameptr #1 >
       {
         nameptr #4 =
