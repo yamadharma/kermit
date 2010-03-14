@@ -1,0 +1,23 @@
+#!/bin/bash
+
+PROJNAME=kermit
+TMPDIR=/tmp
+VERSION=`cat VERSION`
+
+
+rm -rf $TMPDIR/$PROJNAME
+mkdir -p $TMPDIR/$PROJNAME
+
+cp -RL tex-tree $TMPDIR/$PROJNAME
+mv $TMPDIR/$PROJNAME/tex-tree $TMPDIR/$PROJNAME/texmf
+
+cd $TMPDIR/$PROJNAME
+
+tar -cJvf texmf-$VERSION.tar.xz texmf
+tar -cjvf texmf-$VERSION.tar.bz2 texmf
+
+scp texmf-$VERSION.tar.xz texmf-$VERSION.tar.bz2 yama_dharma,kermit@frs.sourceforge.net:/home/frs/project/k/ke/kermit/$PROJNAME
+
+
+
+
