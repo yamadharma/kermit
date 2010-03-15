@@ -375,9 +375,9 @@ FUNCTION {capitalize}
 FUNCTION {space.word}
 { " " swap$ * " " * }
 
- % Here are the language-specific definitions for explicit words.
- % Each function has a name bbl.xxx where xxx is the English word.
- % The BABEL language selection is made here; definitions in babelbst.tex.
+% Here are the language-specific definitions for explicit words.
+% Each function has a name bbl.xxx where xxx is the English word.
+% The BABEL language selection is made here; definitions in babelbst.tex.
 FUNCTION {bbl.and}
 { "\bbland{}"}
 
@@ -864,7 +864,10 @@ FUNCTION {format.names.rev}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-      "{f.}{~vv}{~ll}{, jj}"
+      language "english" =
+	{"{f.}{~vv}{~ll}{, jj}"}
+	{"{ff}{~vv}{~ll}{, jj}"}
+      if$
       format.name$ 't :=
       nameptr #1 >
         {
