@@ -60,11 +60,13 @@
   \addto\extrasrussian%
   {
     \def\PFUjornalissueName{{\cyr\CYRV\cyrery\cyrp\cyru\cyrs\cyrk}} % Выпуск
+    \def\PFUjornalissueShortName{{\cyr\CYRV\cyrery\cyrp}.} % Вып.
     \def\PFUjornalseriesName{{\cyr\CYRS\cyre\cyrr\cyri\cyrya}} % Серия
   }
   \addto\extrasenglish%
   {
     \def\PFUjornalissueName{Issue} % Выпуск
+    \def\PFUjornalissueShortName{Iss.} % Вып.
     \def\PFUjornalseriesName{Series} % Серия
   }
 }
@@ -76,7 +78,7 @@
   \PFUjornalseriesName~\textit{\PFUjournalseries}.~% 
   \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\fi{}~%
   \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber.\fi{}~%
-  \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\fi{}~%
+  \ifx\PFUjournalissue\@empty\else\PFUjornalissueShortName~\PFUjournalissue.\fi{}~%
   \PFUjournalyear. 
   \cyrs.~\pageref{starttitle}--\pageref{endtitle} 
 }
@@ -91,7 +93,7 @@
     \hfill
     \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\fi{}~%
     \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber.\fi{}~%
-    \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\fi{}~%
+    \ifx\PFUjournalissue\@empty\else\PFUjornalissueShortName~\PFUjournalissue.\fi{}~%
     \PFUjournalyear. \CYRS.~\pageref{starttitle}--\pageref{endtitle} 
     }
     {%
@@ -102,7 +104,7 @@
     \hfill
     \ifx\PFUjournalvolume\@empty\else \V.~\PFUjournalvolume.\fi{}~%
     \ifx\PFUjournalnumber\@empty\else No~\PFUjournalnumber.\fi{}~%
-    \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\fi{}~%
+    \ifx\PFUjournalissue\@empty\else\PFUjornalissueShortName~\PFUjournalissue.\fi{}~%
     \PFUjournalyear. Pp.~\pageref{starttitle}--\pageref{endtitle} 
 %      \end{otherlanguage*}
     }
