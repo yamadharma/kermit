@@ -1,5 +1,5 @@
 %%
-%% This is file `gost7184.bst',
+%% this is file `gost7184.bst',
 %% generated with the docstrip utility.
 %%
 %% ----------------------------------------
@@ -84,19 +84,6 @@ FUNCTION {init.state.consts}
 }
 
 STRINGS { s t }
-
-STRINGS { curlanguage }
-
-FUNCTION {change.language}
-{ booklanguage empty$
-    {""}
-    {booklanguage  'curlanguage :=
-    "\selectlanguageifdefined{"
-    curlanguage *
-    "}" *
-     }
-  if$
-}
 
 % %%%--
 % FUNCTION {block.delim}
@@ -761,7 +748,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
   { namesleft #0 > }
   { s nameptr
-    language "english" = language $empty or
+    language "english" = 
       {"{vv~}{ll}{~jj}{~f.}"}
       {"{vv~}{ll}{~jj}{~ff}"} % we cannot use f. here due to BibTeX limitations... so the user should care himself
     if$
