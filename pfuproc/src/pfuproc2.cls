@@ -441,7 +441,7 @@
 % \RequirePackage[english,russian]{babel}
 
 \LoadClass{kgeneric}
-%\LoadClassWithOptions{kgeneric}
+%% \LoadClassWithOptions{kgeneric}
 %%
   \message{1111111}
 %%   \newif\if@twocolumn

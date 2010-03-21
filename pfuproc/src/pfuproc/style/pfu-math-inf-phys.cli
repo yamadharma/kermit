@@ -7,7 +7,7 @@
 \altjournalseries{Mathematics. Information Sciences. Physics}
 \journalfoundationyear{2006}
 
-\PassOptionsToClass{10dd,onecolumn}{kgeneric}
+\PassOptionsToClass{10pt,onecolumn}{kgeneric}
 
 %\renewcommand{\PFUheader}%
 %{%
