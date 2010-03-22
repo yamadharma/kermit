@@ -29,6 +29,7 @@
 \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
 \geometry{bindingoffset=0mm}
 \geometry{marginparwidth=0dd,marginparsep=0dd}
+\geometry{heightrounded}
 }
 
 
