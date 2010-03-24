@@ -4,8 +4,8 @@
 
 \RequirePackage{caption}
 
-\usepackage{floatrow}
-\floatsetup[table]{style=plaintop}
+%\usepackage{floatrow}
+%\floatsetup[table]{style=plaintop}
 
 \captionsetup{font={small}}
 % \captionsetup{textfont={bf}}
