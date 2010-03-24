@@ -10,40 +10,87 @@
 
 \LoadClassWithOptions{kproc}
 
-% List of Authors
+%{{{ List of Authors
 
-\def\writeauthorlist{%
-  \@starttoc{alist}
+\def\listofauthors{%
+\begin{center}
+  \Huge
+  \textsc{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}
+  % \textsc{Наши авторы}%
+\end{center}%
+
+\normalfont
+
+\bigskip                 
+
+\@starttoc{alist}
+
 }
 
-\let\pfuproc@authorlistentry\@empty
+\newcommand{\authorFont}{\bf}
 
-\def\pfuproc@flushauthorlist{%
-  % Добавим в macro всё, что есть сейчас
-  \g@addto@macro\pfuproc@authorlistentry{%
-    \par
-    \pfuproc@authorfull~--- 
-    \pfuproc@authorrank
-    \pfuproc@authordegree
-    \pfuproc@authorpost
-    email:~\pfuproc@mail
-    Phone:~\pfuproc@phone
+\AtBeginDocument{%
+  \def\pfuproc@phoneName{Phone}
+  \@ifpackageloaded{polyglossia}{%
+    \addto\captionsrussian@modern{%
+      \def\pfuproc@phoneName{Тел.}
+    }
+  }{%
+    \addto\extrasrussian{%
+      \def\pfuproc@phoneName{\CYRT\cyre\cyrl.}
+    }
   }
+}
+
+\newenvironment{authordescription}%
+{
+  \let\pfuproc@authorlistentry\@empty
+  \let\pfuproc@authorfull\@empty
   \let\pfuproc@authorrank\@empty
   \let\pfuproc@authordegree\@empty
   \let\pfuproc@authorpost\@empty
   \let\pfuproc@mail\@empty
   \let\pfuproc@phone\@empty
+}%
+{
+  % Добавим в macro всё, что есть сейчас
+  \g@addto@macro\pfuproc@authorlistentry{%
+    \par
+    {\authorFont
+    \pfuproc@authorfull}~--- 
+    \ifx\pfuproc@authorrank\@empty
+    \else
+    \pfuproc@authorrank,
+    \fi
+    \ifx\pfuproc@authordegree\@empty
+    \else
+    \pfuproc@authordegree,
+    \fi
+    \ifx\pfuproc@authorpost\@empty
+    \else
+    \pfuproc@authorpost{}
+    \fi
+    (%
+    \ifx\pfuproc@mail\@empty
+    \else
+    email:~\pfuproc@mail{}%
+    \fi
+    \ifx\pfuproc@phone\@empty
+    \else
+    , \pfuproc@phoneName:~\pfuproc@phone{}%
+    \fi
+    )
+  }
+
+  \addtocontents{alist}{\pfuproc@authorlistentry}
 }
+
+
+\newcounter{c@pfuproc@authorlist}
 
 % Автор
 \DeclareRobustCommand{\authorfull}[1]{%
-  \ifx\pfuproc@authorfull\@empty
   \def\pfuproc@authorfull{#1}
-  \else
-  \pfuproc@flushauthorlist
-  \def\pfuproc@authorfull{#1}
-  \fi
 }
 \let\pfuproc@authorfull\@empty
 
@@ -77,13 +124,5 @@
 }
 \let\pfuproc@phone\@empty
 
-\def\@maketitle@hook{%
-  \ifx\pfuproc@authorfull\@empty
-  \else
-  \pfuproc@flushauthorlist
-  \addtocontents{alist}{\pfuproc@authorlistentry}
-  \fi
+%}}}
 
-\let\pfuproc@authorlistentry\@empty
-\let\pfuproc@authorfull\@empty
-}
