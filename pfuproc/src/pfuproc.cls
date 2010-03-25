@@ -21,9 +21,9 @@
 
 \normalfont
 
-\bigskip                 
+\bigskip
 
-\@starttoc{alist}
+\@starttoc{loa}
 
 }
 
@@ -82,7 +82,7 @@
     )
   }
 
-  \addtocontents{alist}{\pfuproc@authorlistentry}
+  \addtocontents{loa}{\pfuproc@authorlistentry}
 }
 
 
