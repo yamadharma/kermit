@@ -22,8 +22,9 @@
 \normalfont
 
 \bigskip
-
+\begin{raggedright}
 \@starttoc{loa}
+\end{raggedright}
 
 }
 
@@ -77,7 +78,7 @@
     \fi
     \ifx\pfuproc@phone\@empty
     \else
-    , \pfuproc@phoneName:~\pfuproc@phone{}%
+    , \protect\mbox{\pfuproc@phoneName:~\pfuproc@phone{}}%
     \fi
     )
   }
