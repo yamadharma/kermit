@@ -1,8 +1,8 @@
 \input{pfuproc/style/pfu-bulletin.cli}
 
 % Математика. Информатика. Физика
-\journalseries{{\CYRM}{\cyra}{\cyrt}{\cyre}{\cyrm}{\cyra}{\cyrt}{\cyri}{\cyrk}{\cyra}. 
-{\CYRI}{\cyrn}{\cyrf}{\cyro}{\cyrr}{\cyrm}{\cyra}{\cyrt}{\cyri}{\cyrk}{\cyra}. 
+\journalseries{{\CYRM}{\cyra}{\cyrt}{\cyre}{\cyrm}{\cyra}{\cyrt}{\cyri}{\cyrk}{\cyra}.
+{\CYRI}{\cyrn}{\cyrf}{\cyro}{\cyrr}{\cyrm}{\cyra}{\cyrt}{\cyri}{\cyrk}{\cyra}.
 {\CYRF}{\cyri}{\cyrz}{\cyri}{\cyrk}{\cyra}}
 \altjournalseries{Mathematics. Information Sciences. Physics}
 \journalfoundationyear{2006}
