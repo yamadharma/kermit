@@ -38,7 +38,7 @@
     }
   }{%
     \addto\extrasrussian{%
-      \def\pfuproc@phoneName{\CYRT\cyre\cyrl.}
+      \def\pfuproc@phoneName{{\CYRT }{\cyre }{\cyrl }.}
     }
   }
 }
