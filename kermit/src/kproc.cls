@@ -7,6 +7,9 @@
 \ifx\@classname\@empty \edef\@classname{\@currname}\fi
 %%%--
 \def\class@name{pfuproc}
+
+\RequirePackage{etextools}
+
 %%%
 %\def\@namedef#1{\expandafter\def\csname test:#1\endcsname}
 %\def\@nameuse#1{\csname #1\endcsname}
@@ -982,8 +985,8 @@
 %   \def\atoks{\the\toks0}
   \edef\@tempd{#4}
   \ifx\@tempd\@empty
-    \protected@xdef\authorFamIn{\authorfamily~\authorinitials}
-    \protected@xdef\authorInFam{\authorinitials~\authorfamily}
+    \protected@edef\authorFamIn{\authorfamily~\authorinitials}
+    \protected@edef\authorInFam{\authorinitials~\authorfamily}
   \else
     \protected@xdef\authorFamIn{\protect\fbox{\authorfamily\,\authorinitials}}
     \protected@xdef\authorInFam{\protect\fbox{\authorinitials\,\authorfamily}}
@@ -1007,7 +1010,8 @@
 %      \xdef\authorTmp{\authorinitials~\authorfamily}  
 %      \protected@xdef\authorTmp{\authorInFam}        
 %      \gdef\authors{\expandafter{\authorTmp}\negthickspace${}^{\mathrm{\ref{#2}}}$}%
-      \protected@xdef\authors{\authorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
+%      \protected@xdef\authors{\authorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
+      \g@addto@macro\authors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
     \fi
   \else
 %    \g@addto@macro\authorstoc{\and #3}%
@@ -1022,20 +1026,21 @@
     \else
 %       \g@addto@macro\authorsrunning{\and #3}%
 %       \g@addto@macro\authorsrunning{\and  \authorfamily~\authorinitials}%
-%      \xdef\authorsrunning{\authorsrunning \and  \authorfamily~\authorinitials}
+%      \xdef\authorsrunning{\authorsrunning \and
+%      \authorfamily~\authorinitials}
       \protected@xdef\authorsrunning{\authorsrunning \and  \authorFamIn}
     \fi
 %   \g@addto@macro\authorstoc{\and \authorfamily\ \authorinitials}% 
    \protected@edef\@tempb{#2}
    \ifx\@tempb\@empty
 %     \xdef\authors{\authors \and \authorinitials~\authorfamily}% 
-     \protected@xdef\authors{\authors \and \authorInFam}% 
-%      \g@addto@macro\authors{\and #3}% 
+%     \protected@xdef\authors{\authors \and \authorInFam}% 
+     \g@addto@macro\authors{\and \protect\mbox{#3}}% 
    \else
 %      \xdef\authors{\authors \and \authorinitials~\authorfamily\,%
 %        $^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
 %      \edef\authorTmp{\authorinitials~\authorfamily}       
-     \g@addto@macro\authors{\and #3\,$^{\mathrm{\ref{#2}}}$}%
+     \g@addto@macro\authors{\and \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
 %      \xdef\authorTmp{\authorinitials~\authorfamily}
 %      \g@addto@macro\authors{\and \authorTmp\,$^{\mathrm{\ref{#2}}}$}%
    \fi
@@ -1095,7 +1100,8 @@
     \ifx\@tempb\@empty
       \protected@xdef\altauthors{\altauthorInFam}% 
     \else
-      \protected@xdef\altauthors{\altauthorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
+%      \protected@xdef\altauthors{\altauthorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
+    \g@addto@macro\altauthors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
     \fi
   \else
     \protected@xdef\altauthorstoc{\altauthorstoc \altand \altauthorFamIn}% 
@@ -1111,7 +1117,7 @@
    \ifx\@tempb\@empty
      \protected@xdef\altauthors{\altauthors \altand \altauthorInFam}% 
    \else
-     \g@addto@macro\altauthors{\altand #3\,$^{\mathrm{\ref{#2}}}$}%
+     \g@addto@macro\altauthors{\altand \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
    \fi
   \fi
 } %% enf of \altauthor@fmt
@@ -1141,7 +1147,7 @@
   \ifnum\prev@elem=\e@collab \global\@newelemfalse \fi
   \if@newelem \collab@fmt@init \fi
   \par                                 % Start new paragraph
-  {\large #3\,$^{\mathrm{#2}}$}}
+  {\large \protect\mbox{#3}$^{\mathrm{#2}}$}}
 \def\first@collab{
   \collab@note@fmt                     % re-define \thefootnote as
   \add@tok\t@glob@notes                % appropriate for collab/address
@@ -2113,10 +2119,13 @@
   \fi
 %   \@setabstract
 %%%--
+  \nobreak
   \vskip 8\p@
   \unvbox\t@altabstract 
 %%%
+  \nobreak
   \smallskip
+  \nobreak
   \ifx\@empty\alt@keywords\else \@setaltkeywords \fi
   \normalsize
 %   \if@titlepage
