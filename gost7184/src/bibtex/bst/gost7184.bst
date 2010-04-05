@@ -369,7 +369,7 @@ FUNCTION {bbl.and}
 { "\bbland{}"}
 
 FUNCTION {bbl.etal}
-{ "\bbletal{}"}
+{ "\bbletal{}."}
 
 FUNCTION {bbl.editors}
 { "\bbleds{}" }

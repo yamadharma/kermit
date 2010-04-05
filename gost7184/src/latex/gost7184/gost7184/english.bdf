@@ -10,7 +10,7 @@
     % FUNCTION {bbl.and}
     \def\bbland{}
     % FUNCTION {bbl.etal}
-    \def\bbletal{et al}
+    \def\bbletal{et~al}
     % FUNCTION {bbl.editors}
     % { "\bbleditors{}" }
     % FUNCTION {bbl.editor}
