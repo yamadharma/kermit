@@ -1,6 +1,6 @@
 %%
 \NeedsTeXFormat{LaTeX2e}[1994/12/01]
-\ProvidesClass{pfuproc}%
+\ProvidesClass{kproc}%
         [2007/12/05 v0.0.7.3]
 \def\@tempa#1#2\@nil{\edef\@classname{#1}}
 \expandafter\@tempa\@currnamestack{}{}{}\@nil

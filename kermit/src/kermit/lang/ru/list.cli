@@ -86,11 +86,14 @@
 
 %% Fixup for russian enumeration
 \makeatletter
+\addto\extrasrussian%
+{
 \g@addto@macro\@enhook{%
   \def\@tempb{\IeC{\CYRA}}%
   \def\@tempc{\IeC{\cyra}}%
   \ifx\@tempb\@entemp\def\@tempa{\@enLabel\Asbuk}\fi
   \ifx\@tempc\@entemp\def\@tempa{\@enLabel\asbuk}\fi}
+}
 \makeatother
 
 %% И еще запретим вкладывать четыре enumerate друг в друга ...
