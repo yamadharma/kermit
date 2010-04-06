@@ -86,7 +86,6 @@
   \addtocontents{loa}{\pfuproc@authorlistentry}
 }
 
-
 \newcounter{c@pfuproc@authorlist}
 
 % Автор
@@ -127,3 +126,22 @@
 
 %}}}
 
+\newwrite\pfuproc@titleslist
+\immediate\openout\pfuproc@titleslist titleslist.tex
+
+ \def\@maketitle@hook{%
+   \def\pfuproc@titleslist@entry{%
+     % Authors
+     % \ifx\@empty\authors\else\@setauthors\fi   
+     \@title
+     \par
+     \authorstoc
+     \par
+%     \t@abstract 
+     \par
+     \keywordsname: \@keywords%
+     \par\par
+   }
+
+   \immediate\write\pfuproc@titleslist{\pfuproc@titleslist@entry}
+ }
