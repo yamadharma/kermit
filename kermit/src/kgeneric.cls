@@ -79,6 +79,71 @@
 \DeclareOption{17dd}{\renewcommand\@ptsize{17dd}}
 \DeclareOption{20dd}{\renewcommand\@ptsize{20dd}}
 %%
+
+%{{{ Paper options
+
+\DeclareOption{a0paper}
+   {\setlength\paperheight {1189mm}%
+    \setlength\paperwidth  {841mm}}
+\DeclareOption{a1paper}
+   {\setlength\paperheight {841mm}%
+    \setlength\paperwidth  {594mm}}
+\DeclareOption{a2paper}
+   {\setlength\paperheight {594mm}%
+    \setlength\paperwidth  {420mm}}
+\DeclareOption{a3paper}
+   {\setlength\paperheight {420mm}%
+    \setlength\paperwidth  {297mm}}
+\DeclareOption{a4paper}
+   {\setlength\paperheight {297mm}%
+    \setlength\paperwidth  {210mm}}
+\DeclareOption{a5paper}
+   {\setlength\paperheight {210mm}%
+    \setlength\paperwidth  {148mm}}
+\DeclareOption{b5paper}
+   {\setlength\paperheight {250mm}%
+    \setlength\paperwidth  {176mm}}
+\DeclareOption{letterpaper}
+   {\setlength\paperheight {11in}%
+    \setlength\paperwidth  {8.5in}}
+\DeclareOption{legalpaper}
+   {\setlength\paperheight {14in}%
+    \setlength\paperwidth  {8.5in}}
+\DeclareOption{executivepaper}
+   {\setlength\paperheight {10.5in}%
+    \setlength\paperwidth  {7.25in}}
+
+\DeclareOption{foolscap}
+    {\setlength\paperheight{171mm}%
+    \setlength\paperwidth{108mm}}
+\DeclareOption{crown}
+    {\setlength\paperheight{191mm}%
+    \setlength\paperwidth{127mm}}
+\DeclareOption{post}
+    {\setlength\paperheight{194mm}%
+    \setlength\paperwidth{122mm}}
+\DeclareOption{largepost}
+    {\setlength\paperheight{210mm}%
+    \setlength\paperwidth{137mm}}
+\DeclareOption{demy}
+    {\setlength\paperheight{222mm}%
+    \setlength\paperwidth{143mm}}
+\DeclareOption{medium}
+    {\setlength\paperheight{229mm}%
+    \setlength\paperwidth{146mm}}
+\DeclareOption{royal}
+    {\setlength\paperheight{254mm}%
+    \setlength\paperwidth{159mm}}
+\DeclareOption{superroyal}
+    {\setlength\paperheight{267mm}%
+    \setlength\paperwidth{171mm}}
+\DeclareOption{imperial}
+    {\setlength\paperheight{279mm}%
+    \setlength\paperwidth{191mm}}
+
+%}}}
+
+%%
 \DeclareOption{singlespace}{\set@baselineinterval{1.0}}
 \DeclareOption{onehalfspace}{\set@baselineinterval{1.5}}
 \DeclareOption{doublespace}{\set@baselineinterval{2.0}}
@@ -804,7 +869,7 @@
 \newenvironment{thebibliography}[1]
      {\chapter*{\bibname
         \@mkboth{\bibname}{\bibname}}%
-%% FIXME Перенести в класс библиографии (на основе natbib) ?	
+%% FIXME Перенести в класс библиографии (на основе natbib) ?    
         \addcontentsline{toc}{chapter}{\bibname}%
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%

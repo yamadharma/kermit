@@ -1543,11 +1543,11 @@ Dissertation Committee Chair
 
 
 % \AtBeginDocument{%
-\AtEndOfClass{%
-\geometry{left=20mm,right=15mm,top=20mm,bottom=20mm}
-\geometry{bindingoffset=10mm}
-\geometry{marginparwidth=0dd,marginparsep=0dd}
-}
+%\AtEndOfClass{%
+%\geometry{left=20mm,right=15mm,top=20mm,bottom=20mm}
+% \geometry{bindingoffset=10mm}
+%\geometry{marginparwidth=0dd,marginparsep=0dd}
+%}
 
 % ,headsep=0dd
 
