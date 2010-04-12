@@ -39,7 +39,41 @@
     \setcounter{tocdepth}{1}
 }
 
-\PassOptionsToClass{a4paper,12pt,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
+% \PassOptionsToClass{a4paper,12pt,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
+\PassOptionsToClass{oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
+% \PassOptionsToClass{a4paper,12pt}{kgeneric}
+\PassOptionsToClass{a5paper,10pt}{kgeneric}
+
+\AtEndOfClass{%
+%\AtBeginDocument{%
+\RequirePackage{geometry}
+\geometry{a5paper}
+% \geometry{left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm}
+% \geometry{twoside}
+\geometry{bindingoffset=0pt}
+\geometry{twosideshift=0pt}
+%%\geometry{includefoot=false,includehead=true}
+%\geometry{includehead}
+\geometry{nofoot}
+\geometry{nomarginpar}
+\geometry{hoffset=-13pt}
+\geometry{ignoremp}
+%\geometry{total={118mm,170mm}}
+\geometry{text={118mm,170mm}}
+% \geometry{hmargin={15mm,15mm},vmargin={20mm,20mm}}
+% \geometry{marginparwidth=0pt,marginparsep=0pt}
+\geometry{marginratio=1:1}
+% \geometry{asymmetric}
+\geometry{centering}
+\geometry{heightrounded}
+% \setlength\oddsidemargin{-13pt}
+}
+
+%%% Numeration
+
+\AtEndOfClass{%
+\renewcommand\theequation{\@arabic\c@equation}
+}
 
 %%% Definitions for titlepages
 
