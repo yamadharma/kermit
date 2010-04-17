@@ -117,7 +117,7 @@
         \begin{center}
             \vspace*{\fill}
             \bfseries
-            {\PHDdegreecity} \par                       % Город
+            {\PHDdegreecity} ---                       % Город
             {\PHDdegreeyear} \par      
         \end{center}
     
@@ -140,7 +140,8 @@
   \thispagestyle{empty}
 
   \noindent
-  % Работа выполнена {\PHDinstitutePrep}. \par
+  \PHDwriteIn
+  % Работа выполнена {\PHDinstituteGen}. \par
   \bigskip
 
   \begin{flushleft}
@@ -157,7 +158,7 @@
       & \\
       %% Ведущая организация
       \textbf{\PHDleadorgDescr :} &  \\[14pt]
-      \multicolumn{2}{l}{
+      \multicolumn{2}{p{0.9\linewidth}}{
         \PHDleadorg
       }
       \\
@@ -168,19 +169,23 @@
   \vspace{6ex}
   
   \noindent
+  \ifx\PHDthesisIn\empty
   Защита состоится
   <<\underline{\hspace*{1cm}}>>\underline{\hspace*{3cm}}~{\PHDdegreeyear}~г. в
-    \underline{\hspace*{1cm}}~ч. \underline{\hspace*{1cm}}~мин \\
+    \zz~ч. \zz~мин 
     на заседании диссертационного совета \PHDdiscouncil{} в Российском
     университете дружбы народов 
     % {\@institute} 
     по адресу: г.~Москва, ул. Орджоникидзе 3.
+    \else
+    \PHDthesisIn
+    \fi
   
   \bigskip
   
   \noindent
   С диссертацией можно ознакомиться в Научной библиотеке
-  \PHDinstitutePrep.
+  \PHDinstituteGen.
   \bigskip
   
   % \noindent\textsf{Отзывы на автореферат, заверенные гербовой печатью
@@ -195,9 +200,14 @@
   \vfill
   \begin{flushleft}
     \noindent
-    \PHDsecracDescr\par
+    \PHDsecracDescr
+    \ifx\PHDsecracdegree\empty
+    \hfill \PHDsecrac
+    \else
+    \par
     \smallskip
     \PHDsecracdegree \hfill \PHDsecrac
+    \fi
   \end{flushleft}
 
 \end{alwayssingle}

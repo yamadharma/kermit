@@ -225,7 +225,14 @@
 }
 \let\PHDinstitute\@empty
 
-% В предложном падеже
+% В родительном падеже (Кого? Чего?)
+\DeclareRobustCommand{\instituteGen}[1]%
+{%
+  \def\PHDinstituteGen{#1}
+}
+\let\PHDinstituteGen\@empty
+
+% В предложном падеже (О ком? О чём?)
 \DeclareRobustCommand{\institutePrep}[1]%
 {%
   \def\PHDinstitutePrep{#1}
@@ -423,6 +430,22 @@
 }
 \let\PHDdiscouncil\@empty
 
+% Где написана работа
+\DeclareRobustCommand{\writeIn}[1]%
+{%
+  \def\PHDwriteIn{#1}
+}
+\let\PHDwriteIn\@empty
+
+% Где состоится защита
+\DeclareRobustCommand{\thesisIn}[1]%
+{%
+  \def\PHDthesisIn{#1}
+}
+\let\PHDthesisIn\@empty
+
+\DeclareRobustCommand{\zz}{\rule{8mm}{.6pt}}
+\DeclareRobustCommand{\zzz}{\rule{24mm}{.6pt}}
 
 %%
 \RequirePackage{keyval}
