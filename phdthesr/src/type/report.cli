@@ -6,10 +6,12 @@
 \AtBeginDocument{%
     \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian@modern{%
-	\thesistype{Отчёт}
+        \thesistype{Отчёт}
+        \def\PHDdisciplineDescr{по дисциплине}
     }
     }{%
-	\thesistype{{\CYRO}{\cyrt}{\cyrch}{\cyryo}{\cyrt}}
+        \thesistype{{\CYRO}{\cyrt}{\cyrch}{\cyryo}{\cyrt}}
+        \def\PHDdisciplineDescr{{\cyrp}{\cyro} {\cyrd}{\cyri}{\cyrs}{\cyrc}{\cyri}{\cyrp}{\cyrl}{\cyri}{\cyrn}{\cyre}}
     }
 }
 

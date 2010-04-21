@@ -21,23 +21,23 @@
 \AtBeginDocument{%
     \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian@modern{%
-	\thesistype{Выпускная работа бакалавра}
-	\def\PHDauthorDescr{Студент}
-	\def\PHDstudygroupDescr{Группа}
-	\def\PHDcountryDescr{Страна}
-	\def\PHDchiefDescr{Научный руководитель}
-	\def\PHDdisciplineDescr{по дисциплине}
+        \thesistype{Выпускная работа бакалавра}
+        \def\PHDauthorDescr{Студент}
+        \def\PHDstudygroupDescr{Группа}
+        \def\PHDcountryDescr{Страна}
+        \def\PHDchiefDescr{Научный руководитель}
+        \def\PHDdisciplineDescr{по дисциплине}
     }
     }{%
-	\thesistype{{\CYRV}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyra}{\cyrya} 
-	    {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra} 
-	    {\cyrb}{\cyra}{\cyrk}{\cyra}{\cyrl}{\cyra}{\cyrv}{\cyrr}{\cyra}}
-	\def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
-	\def\PHDstudygroupDescr{\cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{}}
-	\def\PHDcountryDescr{\cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{}}
-	\def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
-	    \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
-	\def\PHDdisciplineDescr{{\cyrp}{\cyro} {\cyrd}{\cyri}{\cyrs}{\cyrc}{\cyri}{\cyrp}{\cyrl}{\cyri}{\cyrn}{\cyre}}
+        \thesistype{{\CYRV}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyra}{\cyrya} 
+            {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra} 
+            {\cyrb}{\cyra}{\cyrk}{\cyra}{\cyrl}{\cyra}{\cyrv}{\cyrr}{\cyra}}
+        \def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
+        \def\PHDstudygroupDescr{\cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{}}
+        \def\PHDcountryDescr{\cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{}}
+        \def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
+            \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
+        \def\PHDdisciplineDescr{{\cyrp}{\cyro} {\cyrd}{\cyri}{\cyrs}{\cyrc}{\cyri}{\cyrp}{\cyrl}{\cyri}{\cyrn}{\cyre}}
     }
 }
 
@@ -49,8 +49,15 @@
     \setcounter{tocdepth}{1}
 }
 
+\AtEndOfClass{%
+  \geometry{includehead}
+  \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+  \geometry{bindingoffset=0mm}
+  \geometry{marginparwidth=0dd,marginparsep=0dd}
+  \geometry{heightrounded}
+}
 
-\PassOptionsToClass{a4paper,12dd,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
+\PassOptionsToClass{a4paper,12pt,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
 
 %%% Local Variables: 
 %%% mode: latex

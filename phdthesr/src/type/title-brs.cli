@@ -17,49 +17,49 @@
 \def\brsTableProtection{}
 
 \providecommand{\brsTable}{%
-\begin{center}
-\begin{tabular}{|l|c|c|}
-\hlx{hv}
-\brsTableProblemType & \brsTableBalls & \brsTableBallsSum \\
-\hlx{vhv}
-1. \brsTableAttestInterim & 0--40 & \\
-\hlx{vhv}
-2. \brsTableCourse & 0--40 & \\
-\hlx{vhv}
-3. \brsTableAttestFinal & 0--20 & \\
-\hlx{vhv[1]}
-\multicolumn{2}{|l|}{\brsTableTotal} & \\
-\hlx{v[1]h}
-\end{tabular}
-\end{center}
+  \begin{center}
+    \begin{tabular}{|l|c|c|}
+      \hlx{hv}
+      \brsTableProblemType & \brsTableBalls & \brsTableBallsSum \\
+      \hlx{vhv}
+      1. \brsTableAttestInterim & 0--40 & \\
+      \hlx{vhv}
+      2. \brsTableCourse & 0--40 & \\
+      \hlx{vhv}
+      3. \brsTableAttestFinal & 0--20 & \\
+      \hlx{vhv[1]}
+      \multicolumn{2}{|l|}{\brsTableTotal} & \\
+      \hlx{v[1]h}
+    \end{tabular}
+  \end{center}
 }
 
 \AtBeginDocument{%
-    \@ifpackageloaded{polyglossia}{%
+  \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian@modern{%
-	\def\brsTableProblemType{Вид задания}
-	\def\brsTableBalls{Кол-во баллов}
-	\def\brsTableBallsSum{Сумма баллов}
-	\def\brsTableAttestInterim{Рубежная аттестация}
-	\def\brsTableAttestFinal{Итоговая аттестация}
-%	\def\brsTableCourse{Курсовая работа}
-	\def\brsTableTotal{ИТОГО}
-	\def\brsTableText{Текст выпускной работы}
-	\def\brsTablePresentation{Презентация по выпускной работе}
-	\def\brsTableProtection{Защита выпускной работы}
+      \def\brsTableProblemType{Вид задания}
+      \def\brsTableBalls{Кол-во баллов}
+      \def\brsTableBallsSum{Сумма баллов}
+      \def\brsTableAttestInterim{Рубежная аттестация}
+      \def\brsTableAttestFinal{Итоговая аттестация}
+      % \def\brsTableCourse{Курсовая работа}
+      \def\brsTableTotal{ИТОГО}
+      \def\brsTableText{Текст выпускной работы}
+      \def\brsTablePresentation{Презентация по выпускной работе}
+      \def\brsTableProtection{Защита выпускной работы}
     }
-    }{%
-	\def\brsTableProblemType{{\CYRV}{\cyri}{\cyrd} {\cyrz}{\cyra}{\cyrd}{\cyra}{\cyrn}{\cyri}{\cyrya}}
-	\def\brsTableBalls{{\CYRK}{\cyro}{\cyrl}-{\cyrv}{\cyro} {\cyrb}{\cyra}{\cyrl}{\cyrl}{\cyro}{\cyrv}}
-	\def\brsTableBallsSum{{\CYRS}{\cyru}{\cyrm}{\cyrm}{\cyra} {\cyrb}{\cyra}{\cyrl}{\cyrl}{\cyro}{\cyrv}}
-	\def\brsTableAttestInterim{{\CYRR}{\cyru}{\cyrb}{\cyre}{\cyrzh}{\cyrn}{\cyra}{\cyrya} {\cyra}{\cyrt}{\cyrt}{\cyre}{\cyrs}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya}}
-	\def\brsTableAttestFinal{{\CYRI}{\cyrt}{\cyro}{\cyrg}{\cyro}{\cyrv}{\cyra}{\cyrya} {\cyra}{\cyrt}{\cyrt}{\cyre}{\cyrs}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya}}
-%	\def\brsTableCourse{{\CYRK}{\cyru}{\cyrr}{\cyrs}{\cyro}{\cyrv}{\cyra}{\cyrya} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra}}
-	\def\brsTableTotal{{\CYRI}{\CYRT}{\CYRO}{\CYRG}{\CYRO}}
-	\def\brsTableText{{\CYRT}{\cyre}{\cyrk}{\cyrs}{\cyrt} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrery}}
-	\def\brsTablePresentation{{\CYRP}{\cyrr}{\cyre}{\cyrz}{\cyre}{\cyrn}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya} {\cyrp}{\cyro} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyre}}
-	\def\brsTableProtection{{\CYRZ}{\cyra}{\cyrshch}{\cyri}{\cyrt}{\cyra} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrery}}
-    }
+  }{%
+    \def\brsTableProblemType{{\CYRV}{\cyri}{\cyrd} {\cyrz}{\cyra}{\cyrd}{\cyra}{\cyrn}{\cyri}{\cyrya}}
+    \def\brsTableBalls{{\CYRK}{\cyro}{\cyrl}-{\cyrv}{\cyro} {\cyrb}{\cyra}{\cyrl}{\cyrl}{\cyro}{\cyrv}}
+    \def\brsTableBallsSum{{\CYRS}{\cyru}{\cyrm}{\cyrm}{\cyra} {\cyrb}{\cyra}{\cyrl}{\cyrl}{\cyro}{\cyrv}}
+    \def\brsTableAttestInterim{{\CYRR}{\cyru}{\cyrb}{\cyre}{\cyrzh}{\cyrn}{\cyra}{\cyrya} {\cyra}{\cyrt}{\cyrt}{\cyre}{\cyrs}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya}}
+    \def\brsTableAttestFinal{{\CYRI}{\cyrt}{\cyro}{\cyrg}{\cyro}{\cyrv}{\cyra}{\cyrya} {\cyra}{\cyrt}{\cyrt}{\cyre}{\cyrs}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya}}
+    % \def\brsTableCourse{{\CYRK}{\cyru}{\cyrr}{\cyrs}{\cyro}{\cyrv}{\cyra}{\cyrya} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra}}
+    \def\brsTableTotal{{\CYRI}{\CYRT}{\CYRO}{\CYRG}{\CYRO}}
+    \def\brsTableText{{\CYRT}{\cyre}{\cyrk}{\cyrs}{\cyrt} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrery}}
+    \def\brsTablePresentation{{\CYRP}{\cyrr}{\cyre}{\cyrz}{\cyre}{\cyrn}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya} {\cyrp}{\cyro} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyre}}
+    \def\brsTableProtection{{\CYRZ}{\cyra}{\cyrshch}{\cyri}{\cyrt}{\cyra} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrery}}
+  }
 }
 
 %}}}
@@ -67,214 +67,213 @@
 \def\brsTableCourse{\PHDthesistype}
 
 \AtBeginDocument{%
-    \@ifpackageloaded{polyglossia}{%
+  \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian@modern{%
-	\def\PHDauthorDescr{Студент}
-	\def\PHDstudygroupDescr{Группа}
-	\def\PHDcountryDescr{Страна}
-	\def\PHDchiefDescr{Научный руководитель}
-	\def\PHDyearShort{г.}
-	\def\PHDapprove{Утверждаю}
+      \def\PHDauthorDescr{Студент}
+      \def\PHDstudygroupDescr{Группа}
+      \def\PHDcountryDescr{Страна}
+      \def\PHDchiefDescr{Научный руководитель}
+      \def\PHDyearShort{г.}
+      \def\PHDapprove{Утверждаю}
     }
-    }{%
-	\def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
-	\def\PHDstudygroupDescr{\cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{}}
-	\def\PHDcountryDescr{\cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{}}
-	\def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
-		\cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
-	\def\PHDyearShort{\cyrg.}
-	\def\PHDapprove{{\CYRU}{\cyrt}{\cyrv}{\cyre}{\cyrr}{\cyrzh}{\cyrd}{\cyra}{\cyryu}}
-    }
+  }{%
+    \def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
+    \def\PHDstudygroupDescr{\cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{}}
+    \def\PHDcountryDescr{\cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{}}
+    \def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
+      \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
+    \def\PHDyearShort{\cyrg.}
+    \def\PHDapprove{{\CYRU}{\cyrt}{\cyrv}{\cyre}{\cyrr}{\cyrzh}{\cyrd}{\cyra}{\cyryu}}
+  }
+}
+
+\providecommand{\approvedStamp}{%
+  \begin{flushright}
+    \begin{minipage}[t]{0.4\linewidth}
+      \centerline{\textsc{\PHDapprove}}
+      \medskip
+      \begin{flushright}
+        {\PHDdepchieftitle} \\
+        {\PHDdepchiefdegree} \\
+        \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDdepchief} \\
+        \smallskip
+        <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort
+      \end{flushright}
+    \end{minipage}
+  \end{flushright}
+}
+
+\providecommand{\authorTable}{%
+  \begin{flushleft}
+    %% Автор
+    \ifx\@empty\PHDauthor
+    \else%
+    \PHDauthorDescr
+    \hfill
+    \PHDauthor \par
+    \smallskip
+    \fi   
+    %% Группа
+    \ifx\@empty\PHDstudygroup
+    \else%
+    \PHDstudygroupDescr
+    \hfill
+    \PHDstudygroup \par
+    \smallskip
+    \fi
+    %% Страна
+    % \ifx\@empty\PHDcountry 
+    % \else%
+    % \PHDcountryDescr
+    % \hfill
+    % \PHDcountry \par
+    % \smallskip
+    % \fi
+    % \bfseries
+    %% Научный руководитель
+    \PHDchiefDescr
+    \hfill
+    {\PHDchiefdegree} \par
+    \hfill
+    \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
+    \smallskip
+    \hfill
+    <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort
+    % \smallskip
+    %% 
+    % \ifx\@empty\PHDdepchief
+    % \else%
+    % {\PHDdepchieftitle} \hfill
+    % {\PHDdepchiefdegree} {\PHDdepchief} \par
+    % \smallskip
+    % \fi
+  \end{flushleft}
 }
 
 \AtEndOfClass{%
-\RequirePackage{mdwtab}
-
-\renewcommand{\maketitle}{%
-  \begin{titlepage}%
-    {
-      \ssp
-      \begin{alwayssingle}
-        \let\footnotesize\small
-        \let\footnoterule\relax
-        \thispagestyle{empty}
-        \setcounter{page}{1}
-        \null\vfil
-        \begin{center}
-          {\bfseries \MakeUppercase{\PHDministry} \par}
-          {\bfseries \MakeUppercase{\PHDinstitute} \par}
-%          {\bfseries {\PHDministry} \par}
-%          {\bfseries {\PHDinstitute} \par}
-          \smallskip
-          \hrule
-          \smallskip
+  \RequirePackage{mdwtab}
+  
+  \renewcommand{\maketitle}{%
+    \begin{titlepage}%
+      {
+        \ssp
+        \begin{alwayssingle}
+          \let\footnotesize\small
+          \let\footnoterule\relax
+          \thispagestyle{empty}
+          \setcounter{page}{1}
+          \null\vfil
+          \begin{center}
+            {\bfseries \MakeUppercase{\PHDministry} \par}
+            {\bfseries \MakeUppercase{\PHDinstitute} \par}
+            % {\bfseries {\PHDministry} \par}
+            % {\bfseries {\PHDinstitute} \par}
+            \smallskip
+            \hrule
+            \smallskip
             %% Факультет
             {\bfseries {\PHDfaculty} \par}
             %% Кафедра
             {\bfseries {\PHDchair} \par}
-	    %% Специальность
-	    \ifx\@empty\PHDfield
-	    \else%
-		\bigskip%
-		{\PHDfield} \par
-	    \fi
-        \end{center}
-        
-        \bigskip
-        \bigskip
-        
-        %% Approved stamp
-        \ifthenelse{\boolean{brsTableNeeded}}{%
-        \begin{flushright}
-        \begin{minipage}[t]{0.4\linewidth}
-        \centerline{\textsc{\PHDapprove}}
-        \medskip
-          \begin{flushright}
-          {\PHDdepchieftitle} \\
-          {\PHDdepchiefdegree} \\
-          \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDdepchief} \\
-          \smallskip
-          <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort
-          \end{flushright}
-          \end{minipage}
-        \end{flushright}
-        
-        % \begin{flushright}
-        %        %%   На правах рукописи
-        %   {\bfseries \cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri \par}
-        % \end{flushright}
-    
-        }{%
-        
-        \vspace{2cm}
-        
-        } % END \ifthenelse{\boolean{brsTableNeeded}}
-        
-        \vspace{2cm}
-
-
-        \begin{center}
-          {\Large \PHDthesistype} \par
-          \smallskip
-
-          %% по дисциплине (для реферата)
-          \ifx\@empty\PHDdiscipline
-          \else
-          \medskip%
-          \PHDdisciplineDescr{}
-          <<\PHDdiscipline>>
+            %% Специальность
+            \ifx\@empty\PHDfield
+            \else%
+            \bigskip%
+            {\PHDfield} \par
+            \fi
+          \end{center}
+          
           \bigskip
-          \fi
+          \bigskip
+          
+          %% Approved stamp
+          \ifthenelse{\boolean{brsTableNeeded}}{%
+            \approvedStamp
+          }{%
+            \vspace{2cm}
+          } % END \ifthenelse{\boolean{brsTableNeeded}}
+        
+          \vspace{2cm}
+          
+          \begin{center}
+            {\Large \PHDthesistype} \par
+            \smallskip
 
-          {\PHDdegree} \par
-          \ifx\@empty\PHDthesisSubtype
-          \else
-          \smallskip
-          \PHDthesisSubtype
-          \smallskip
-          \fi
-        \end{center}
+            %% по дисциплине (для реферата)
+            \ifx\@empty\PHDdiscipline
+            \else
+            \medskip%
+            \PHDdisciplineDescr{}
+            <<\PHDdiscipline>>
+            \bigskip
+            \fi
 
-%        \vspace{6ex}
+            {\PHDdegree} \par
+            \ifx\@empty\PHDthesisSubtype
+            \else
+            \smallskip
+            \PHDthesisSubtype
+            \smallskip
+            \fi
+          \end{center}
 
-        \begin{center}
-          \ifx\@empty\PHDtitle
-          \else
-          {\bfseries \Large {\PHDtitle} \par}					% Название
-          \fi
-        \end{center}
+          % \vspace{6ex}
 
-%       \ifx\@empty\PHDfield
-%       \else%
-%        \bigskip%
-%       \medskip
-%        \vspace{6ex}
-%        \bigskip% 
-%       \medskip%
-%        {\bfseries {\PHDfield}} \par                   % Специальность
-%       \fi
+          \begin{center}
+            \ifx\@empty\PHDtitle
+            \else
+            {\bfseries \Large {\PHDtitle} \par}                                   % Название
+            \fi
+          \end{center}
 
-
-	\medskip%
-
-%         \vspace{6ex}
-        \bigskip%
-
-	\vfill
-
-        \begin{flushleft}
-          %% Автор
-          \ifx\@empty\PHDauthor
-          \else%
-          \PHDauthorDescr
-          \hfill
-          \PHDauthor \par
-          \smallskip
-          \fi   
-          %% Группа
-          \ifx\@empty\PHDstudygroup
-          \else%
-          \PHDstudygroupDescr
-          \hfill
-          \PHDstudygroup \par
-          \smallskip
-          \fi
-          %% Страна
-%          \ifx\@empty\PHDcountry 
-%          \else%
-%          \PHDcountryDescr
-%          \hfill
-%          \PHDcountry \par
-%          \smallskip
-%          \fi
-          % \bfseries
-          %% Научный руководитель
-          \PHDchiefDescr
-          \hfill
-          {\PHDchiefdegree} \par
-          \hfill
-          \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
-          \smallskip
-          \hfill
-          <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort
-          %\smallskip
-          %%
-          % \ifx\@empty\PHDdepchief
+          % \ifx\@empty\PHDfield
           % \else%
-          % {\PHDdepchieftitle} \hfill
-          % {\PHDdepchiefdegree} {\PHDdepchief} \par
-          % \smallskip
+          % \bigskip%
+          % \medskip
+          % \vspace{6ex}
+          % \bigskip% 
+          % \medskip%
+          % {\bfseries {\PHDfield}} \par                   % Специальность
           % \fi
-        \end{flushleft}
-        
-        % Нужна ли таблица БРС
-        \ifthenelse{\boolean{brsTableNeeded}}{%
-        \bigskip
-        \bigskip
-        
-        \brsTable
-        
-	\bigskip
-	}{} %% END \ifthenelse{\boolean{brsTableNeeded}}
 
-        \begin{center}
-          \vspace*{\fill}
-          \bfseries
-          {\PHDdegreecity} \par                 % Город
-          {\PHDdegreeyear} \par
-        \end{center}
-        
-        \vfil\null
-        
-      \end{alwayssingle}%
-    }    
-  \end{titlepage}%
 
-  \setcounter{footnote}{0}
-  \clearpage
-  \setcounter{page}{2}
-}
-}      % End of \def\maketitle
+          \medskip%
+          
+          % \vspace{6ex}
+          \bigskip%
+          
+          \vfill
+          
+          \authorTable
+                  
+          % Нужна ли таблица БРС
+          \ifthenelse{\boolean{brsTableNeeded}}{%
+            % \bigskip
+            \bigskip
+            
+            \brsTable
+            
+            \bigskip
+          }{} %% END \ifthenelse{\boolean{brsTableNeeded}}
+
+          \begin{center}
+            \vspace*{\fill}
+            \bfseries
+            {\PHDdegreecity} \par                 % Город
+            {\PHDdegreeyear} \par
+          \end{center}
+        
+          \vfil\null
+        
+        \end{alwayssingle}%
+      }
+    \end{titlepage}%
+    
+    \setcounter{footnote}{0}
+    \clearpage
+    \setcounter{page}{2}
+  }
+} % END of \def\maketitle
 
 %%% Local Variables:
 %%% mode: latex

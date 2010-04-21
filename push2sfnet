@@ -13,11 +13,11 @@ mv $TMPDIR/$PROJNAME/tex-tree $TMPDIR/$PROJNAME/texmf
 
 cd $TMPDIR/$PROJNAME
 
+find . -type d -name "auto" -exec rm -rf {} \;
+
 tar -cJvf texmf-$VERSION.tar.xz texmf
 tar -cjvf texmf-$VERSION.tar.bz2 texmf
 
 scp texmf-$VERSION.tar.xz texmf-$VERSION.tar.bz2 yama_dharma,kermit@frs.sourceforge.net:/home/frs/project/k/ke/kermit/$PROJNAME
-
-
 
 
