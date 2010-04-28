@@ -166,7 +166,7 @@
     \end{tabular*}
   \end{flushleft}
   
-  \vspace{6ex}
+  \vfill
   
   \noindent
   \ifx\PHDthesisIn\empty
@@ -184,20 +184,29 @@
   \bigskip
   
   \noindent
+  \ifx\PHDlibraryIn\empty
   С диссертацией можно ознакомиться в Научной библиотеке
   \PHDinstituteGen.
-  \bigskip
-  
-  % \noindent\textsf{Отзывы на автореферат, заверенные гербовой печатью
-  %   организации, просьба направлять по указанному адресу в двух экземплярах не
-  %   позднее, чем за две недели до защиты.}
-  
-  % \vspace{6ex}
+  \else
+  \PHDlibraryIn
+  \fi
+  \medskip
+
+  % \noindent
+  % \ifx\PHDfeedbackArefIn\empty 
+  % Отзывы на автореферат, заверенные гербовой печатью организации,
+  % просьба направлять по указанному адресу в двух экземплярах не
+  % позднее, чем за две недели до защиты.
+  % \else
+  % \PHDfeedbackArefIn
+  % \fi
+
   \noindent
   Автореферат разослан
   <<\underline{\hspace*{1cm}}>>\underline{\hspace*{3cm}}~{\PHDdegreeyear}~г.
     
   \vfill
+
   \begin{flushleft}
     \noindent
     \PHDsecracDescr

@@ -444,6 +444,22 @@
 }
 \let\PHDthesisIn\@empty
 
+% Библиотека, где находится диссертация
+\DeclareRobustCommand{\libraryIn}[1]%
+{%
+  \def\PHDlibraryIn{#1}
+}
+\let\PHDlibraryIn\@empty
+
+% Куда присылать отзывы
+\DeclareRobustCommand{\feedbackArefIn}[1]%
+{%
+  \def\PHDfeedbackArefIn{#1}
+}
+\let\PHDfeedbackArefIn\@empty
+
+
+
 \DeclareRobustCommand{\zz}{\rule{8mm}{.6pt}}
 \DeclareRobustCommand{\zzz}{\rule{24mm}{.6pt}}
 
