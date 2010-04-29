@@ -147,17 +147,17 @@
   \begin{flushleft}
     \begin{tabular*}{\textwidth}{ll}
       %% Научный руководитель:
-      \textbf{\PHDchiefDescr :} & \\[14pt]
+      \textbf{\PHDchiefDescr :} & \\%[14pt]
       \PHDchiefdegree & \PHDchief \\
       & \\
       %% Официальные оппоненты
-      \textbf{\PHDopponentsDescr :} &  \\[14pt]
+      \textbf{\PHDopponentsDescr :} &  \\%[14pt]
       \PHDoppidegree & \PHDoppi \\
       & \\
       \PHDoppiidegree & \PHDoppii \\
       & \\
       %% Ведущая организация
-      \textbf{\PHDleadorgDescr :} &  \\[14pt]
+      \textbf{\PHDleadorgDescr :} &  \\%[14pt]
       \multicolumn{2}{p{0.9\linewidth}}{
         \PHDleadorg
       }
@@ -192,14 +192,16 @@
   \fi
   \medskip
 
-  % \noindent
-  % \ifx\PHDfeedbackArefIn\empty 
-  % Отзывы на автореферат, заверенные гербовой печатью организации,
-  % просьба направлять по указанному адресу в двух экземплярах не
-  % позднее, чем за две недели до защиты.
-  % \else
-  % \PHDfeedbackArefIn
-  % \fi
+  \noindent
+  \ifx\PHDfeedbackArefIn\empty 
+  Отзывы на автореферат, заверенные гербовой печатью организации,
+  просьба направлять по указанному адресу в двух экземплярах не
+  позднее, чем за две недели до защиты.
+  \else
+  \PHDfeedbackArefIn
+  \fi
+  
+  \medskip
 
   \noindent
   Автореферат разослан
