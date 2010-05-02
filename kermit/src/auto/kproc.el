@@ -127,6 +127,8 @@
      "altfauthor"
      "caltauthor"
      "parseauthor"
+     "authorinitials"
+     "authorfamily"
      "PFUNumRunningauthor"
      "collab"
      "collaboration"

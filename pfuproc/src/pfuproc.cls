@@ -132,10 +132,10 @@
  \def\@maketitle@hook{%
    \def\pfuproc@titleslist@entry{%
      % Authors
-     % \ifx\@empty\authors\else\@setauthors\fi   
+     % \ifx\@empty\authors\else\@setauthors\fi
      \@title
      \par
-     \authorstoc
+     %\authorstoc
      \par
 %     \t@abstract 
      \par

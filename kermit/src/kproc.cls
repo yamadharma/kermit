@@ -6,7 +6,7 @@
 \expandafter\@tempa\@currnamestack{}{}{}\@nil
 \ifx\@classname\@empty \edef\@classname{\@currname}\fi
 %%%--
-\def\class@name{pfuproc}
+\def\class@name{kproc}
 
 \RequirePackage{etextools}
 
@@ -988,8 +988,8 @@
     \protected@edef\authorFamIn{\authorfamily~\authorinitials}
     \protected@edef\authorInFam{\authorinitials~\authorfamily}
   \else
-    \protected@xdef\authorFamIn{\protect\fbox{\authorfamily\,\authorinitials}}
-    \protected@xdef\authorInFam{\protect\fbox{\authorinitials\,\authorfamily}}
+     \protected@edef\authorFamIn{\protect\fbox{\authorfamily\,\authorinitials}}
+     \protected@edef\authorInFam{\protect\fbox{\authorinitials\,\authorfamily}}
   \fi  
   \ifx\authors\@empty
 %     \gdef\authorstoc{#3}% 
@@ -1003,7 +1003,8 @@
     \protected@edef\@tempb{#2}
     \ifx\@tempb\@empty
 %      \xdef\authors{\authorinitials~\authorfamily}% 
-      \protected@xdef\authors{\authorInFam}% 
+        % \protected@xdef\authors{\authorInFam}% 
+        \g@addto@macro\authors{\protect\mbox{#3}}%
     \else
 %       \gdef\authors{#3\,$^{\mathrm{\ref{#2}}}$}%
 %       \xdef\authors{\authorinitials~\authorfamily\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
@@ -1011,12 +1012,17 @@
 %      \protected@xdef\authorTmp{\authorInFam}        
 %      \gdef\authors{\expandafter{\authorTmp}\negthickspace${}^{\mathrm{\ref{#2}}}$}%
 %      \protected@xdef\authors{\authorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
-      \g@addto@macro\authors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+      \ifx\@tempd\@empty
+        \g@addto@macro\authors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+      \else
+        \g@addto@macro\authors{\protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+      \fi
     \fi
   \else
 %    \g@addto@macro\authorstoc{\and #3}%
 %    \xdef\authorstoc{\authorstoc \and \authorfamily~\authorinitials}% 
-    \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}% 
+      % \g@addto@macro\authorstoc{\and \authorFamIn}%
+      \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}% 
 %   \show\n@author@
     \ifnum0\n@author@ > \PFUNumRunningauthor
       \ifnum0#1 = \PFUNumRunningauthor % 3
@@ -1028,19 +1034,27 @@
 %       \g@addto@macro\authorsrunning{\and  \authorfamily~\authorinitials}%
 %      \xdef\authorsrunning{\authorsrunning \and
 %      \authorfamily~\authorinitials}
-      \protected@xdef\authorsrunning{\authorsrunning \and  \authorFamIn}
+        \protected@xdef\authorsrunning{\authorsrunning \and \authorFamIn}
     \fi
 %   \g@addto@macro\authorstoc{\and \authorfamily\ \authorinitials}% 
    \protected@edef\@tempb{#2}
    \ifx\@tempb\@empty
 %     \xdef\authors{\authors \and \authorinitials~\authorfamily}% 
 %     \protected@xdef\authors{\authors \and \authorInFam}% 
-     \g@addto@macro\authors{\and \protect\mbox{#3}}% 
+     \ifx\@tempd\@empty
+       \g@addto@macro\authors{\and \protect\mbox{#3}}% 
+     \else
+       \g@addto@macro\authors{\and \protect\fbox{#3}}% 
+     \fi
    \else
 %      \xdef\authors{\authors \and \authorinitials~\authorfamily\,%
 %        $^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
 %      \edef\authorTmp{\authorinitials~\authorfamily}       
-     \g@addto@macro\authors{\and \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+     \ifx\@tempd\@empty
+       \g@addto@macro\authors{\and \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+     \else
+       \g@addto@macro\authors{\and \protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+     \fi
 %      \xdef\authorTmp{\authorinitials~\authorfamily}
 %      \g@addto@macro\authors{\and \authorTmp\,$^{\mathrm{\ref{#2}}}$}%
    \fi
@@ -1098,10 +1112,18 @@
     \protected@xdef\altauthorsrunning{\altauthorFamIn}% 
     \edef\@tempb{#2}
     \ifx\@tempb\@empty
-      \protected@xdef\altauthors{\altauthorInFam}% 
+      \ifx\@tempd\@empty
+        \protected@xdef\altauthors{\altauthorInFam}% 
+      \else
+        \g@addto@macro\altauthors{\protect\fbox{#3}}%
+      \fi
     \else
 %      \protected@xdef\altauthors{\altauthorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
-    \g@addto@macro\altauthors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+      \ifx\@tempd\@empty
+        \g@addto@macro\altauthors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+      \else
+        \g@addto@macro\altauthors{\protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+      \fi
     \fi
   \else
     \protected@xdef\altauthorstoc{\altauthorstoc \altand \altauthorFamIn}% 
@@ -1115,9 +1137,17 @@
     \fi
    \edef\@tempb{#2}
    \ifx\@tempb\@empty
+     \ifx\@tempd\@empty
      \protected@xdef\altauthors{\altauthors \altand \altauthorInFam}% 
+     \else
+       \g@addto@macro\altauthors{\altand \protect\fbox{#3}}%
+     \fi
    \else
-     \g@addto@macro\altauthors{\altand \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+     \ifx\@tempd\@empty   
+       \g@addto@macro\altauthors{\altand \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+     \else
+       \g@addto@macro\altauthors{\altand \protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+     \fi
    \fi
   \fi
 } %% enf of \altauthor@fmt
@@ -1585,6 +1615,8 @@
 %   \fi
   \altandify\altauthors
   \andify\authorsrunning
+  \andify\authorstoc
+  \altandify\altauthorstoc
 %  \renewcommand{\leftmark}{\authors}
     \message{99999}
     \message{\@biblabel{1}}
