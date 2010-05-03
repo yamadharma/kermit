@@ -66,6 +66,8 @@
 \AtEndOfClass{%
 % \thesistype{\CYRR\cyre\cyrf\cyre\cyra\cyrt}
 
+\RequirePackage{setspace}
+
 \renewcommand{\maketitle}{%
 \begin{titlepage}%
 {
@@ -136,7 +138,7 @@
 
 \def\makesecondpage{
 {
-\begin{alwayssingle}
+\begin{singlespace*}
   \thispagestyle{empty}
 
   \noindent
@@ -182,6 +184,7 @@
     \fi
   
   \bigskip
+  \bigskip
   
   \noindent
   \ifx\PHDlibraryIn\empty
@@ -190,7 +193,9 @@
   \else
   \PHDlibraryIn
   \fi
-  \medskip
+  
+  \bigskip
+  \bigskip
 
   \noindent
   \ifx\PHDfeedbackArefIn\empty 
@@ -201,7 +206,8 @@
   \PHDfeedbackArefIn
   \fi
   
-  \medskip
+  \bigskip
+  \bigskip
 
   \noindent
   Автореферат разослан
@@ -221,7 +227,7 @@
     \fi
   \end{flushleft}
 
-\end{alwayssingle}
+\end{singlespace*}
 
 \setcounter{footnote}{0}
 }
