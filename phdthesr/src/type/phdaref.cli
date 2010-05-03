@@ -41,7 +41,8 @@
 
 \PassOptionsToClass{twoside,onecolumn,final,openany,onehalfspace}{kgeneric}
 % \PassOptionsToClass{a4paper,12pt}{kgeneric}
-\PassOptionsToClass{a5paper,10pt}{kgeneric}
+\PassOptionsToClass{a5paper}{kgeneric}
+\ExecuteOptions{10pt}
 
 \AtEndOfClass{%
   \geometry{bindingoffset=0pt}
@@ -230,6 +231,7 @@
 \end{singlespace*}
 
 \setcounter{footnote}{0}
+\setcounter{page}{0}
 }
 }       % End of \def\makesecondp
 }       % End of \AtEndOfClass
