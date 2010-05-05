@@ -30,15 +30,19 @@
 
 \newcommand{\authorFont}{\bf}
 
+\newcommand{\pfuproc@bra}{(}
+\newcommand{\pfuproc@ket}{)}
+\newcommand{\pfuproc@komma}{, }
+
 \AtBeginDocument{%
   \def\pfuproc@phoneName{Phone}
   \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian@modern{%
-      \def\pfuproc@phoneName{Тел.}
+      \def\pfuproc@phoneName{тел.}
     }
   }{%
     \addto\extrasrussian{%
-      \def\pfuproc@phoneName{{\CYRT }{\cyre }{\cyrl }.}
+      \def\pfuproc@phoneName{{\cyrt }{\cyre }{\cyrl }.}
     }
   }
 }
@@ -52,8 +56,18 @@
   \let\pfuproc@authorpost\@empty
   \let\pfuproc@mail\@empty
   \let\pfuproc@phone\@empty
+  \def\pfuproc@bra{(}
+  \def\pfuproc@ket{)}
+  \def\pfuproc@komma{, }
 }%
 {
+  \ifx\pfuproc@mail\@empty
+    \let\pfuproc@komma\@empty
+    \ifx\pfuproc@phone\empty
+      \let\pfuproc@bra\@empty
+      \let\pfuproc@ket\@empty
+    \fi
+  \fi
   % Добавим в macro всё, что есть сейчас
   \g@addto@macro\pfuproc@authorlistentry{%
     \par
@@ -71,16 +85,16 @@
     \else
     \pfuproc@authorpost{}
     \fi
-    (%
+    \pfuproc@bra%
     \ifx\pfuproc@mail\@empty
     \else
     email:~\pfuproc@mail{}%
     \fi
     \ifx\pfuproc@phone\@empty
     \else
-    , \protect\mbox{\pfuproc@phoneName:~\pfuproc@phone{}}%
+    \pfuproc@komma\protect\mbox{\pfuproc@phoneName:~\pfuproc@phone{}}%
     \fi
-    )
+    \pfuproc@ket%
   }
 
   \addtocontents{loa}{\pfuproc@authorlistentry}
