@@ -193,7 +193,7 @@
             \vspace{2cm}
           } % END \ifthenelse{\boolean{brsTableNeeded}}
         
-          \vspace{2cm}
+          \vspace{\fill}
           
           \begin{center}
             {\Large \PHDthesistype} \par

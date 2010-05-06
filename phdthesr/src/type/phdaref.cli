@@ -47,7 +47,7 @@
 \AtEndOfClass{%
   \geometry{bindingoffset=0pt}
   \geometry{left=15mm,right=15mm,top=15mm,bottom=20mm}
-  \geometry{includefoot=true,includehead=true}
+  \geometry{includefoot=false,includehead=true}
   \geometry{nofoot}
   \geometry{nomarginpar}
   \geometry{centering}
