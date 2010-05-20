@@ -11,7 +11,7 @@
     % FUNCTION {bbl.and}
     \def\bbland{}
     % FUNCTION {bbl.etal}
-    \def\bbletal{\cyr\cyri~\cyrd\cyrr}                  %% и др.
+    \def\bbletal{и др}                  %% и др.
     % FUNCTION {bbl.editors}
     % { "\bbleditors{}" }
     % FUNCTION {bbl.editor}
