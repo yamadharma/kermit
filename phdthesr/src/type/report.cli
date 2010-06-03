@@ -17,6 +17,15 @@
 
 \PassOptionsToClass{a4paper,12dd,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
 
+\AtEndOfClass{%
+  \geometry{bindingoffset=0pt}
+  \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
+  \geometry{includefoot=false,includehead=true}
+  \geometry{nofoot}
+  \geometry{nomarginpar}
+  \geometry{heightrounded}
+}
+
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
