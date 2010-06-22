@@ -140,22 +140,85 @@
 
 %}}}
 
-\newwrite\pfuproc@titleslist
-\immediate\openout\pfuproc@titleslist titleslist.tex
+% \newwrite\pfuproc@titleslist
+% \immediate\openout\pfuproc@titleslist titleslist.tex
+
+\def\@startblindtoc#1{%                                                                                                                                           
+  \begingroup                                                                                                                                                
+    \makeatletter                                                                                                                                            
+%    \@input{\jobname.#1}%                                                                                                                                    
+    \if@filesw                                                                                                                                               
+      \expandafter\newwrite\csname tf@#1\endcsname                                                                                                           
+      \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax                                                                                           
+    \fi                                                                                                                                                      
+    \@nobreakfalse                                                                                                                                           
+  \endgroup
+}    
+
+\let\pfuproc@titleslist@entry\@empty
+
+\g@addto@macro\pfuproc@titleslist@entry{%
+  \string\documentclass{article}
+  \string\usepackage[cp1251]{inputenc}                                                                                                                                
+  \string\usepackage[T2A]{fontenc}                                                                                                                                    
+  \string\usepackage[english,russian]{babel}
+  \string\begin{document}
+    \par
+}
+\addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
+\let\pfuproc@titleslist@entry\@empty
 
  \def\@maketitle@hook{%
-   \def\pfuproc@titleslist@entry{%
+   \g@addto@macro\pfuproc@titleslist@entry{%
      % Authors
-     % \ifx\@empty\authors\else\@setauthors\fi
+     \newline
+     \authors
+     \par
      \@title
      \par
-     %\authorstoc
-     \par
-%     \t@abstract 
+%     \unvcopy\t@abstract
+     % \t@abstract 
      \par
      \keywordsname: \@keywords%
-     \par\par
+     \par
+     \par
+     \newline
    }
 
-   \immediate\write\pfuproc@titleslist{\pfuproc@titleslist@entry}
+%   \immediate\write\pfuproc@titleslist{\pfuproc@titleslist@entry}
+   \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
+   \let\pfuproc@titleslist@entry\@empty
  }
+
+ \def\@makealttitle@hook{%
+   \g@addto@macro\pfuproc@titleslist@entry{%
+     % Authors
+     \newline
+     \altauthors
+     \par
+     \@alttitle
+     \par
+     %\insert\t@abstract{\unvcopy\t@abstract}
+     % \t@abstract 
+     \par
+     \keywordsname: \alt@keywords%
+     \par
+     \par
+     \newline
+   }
+
+   % \immediate\write\pfuproc@titleslist{\pfuproc@titleslist@entry}
+   \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
+   \let\pfuproc@titleslist@entry\@empty
+ }
+
+% \AtEndDocument{%
+%   \g@addto@macro\pfuproc@titleslist@entry{%
+%     \string\end{document}
+%   }
+%   \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
+%   \let\pfuproc@titleslist@entry\@empty
+
+%   \@startblindtoc{titlelist.tex}
+% }
+

@@ -3,8 +3,7 @@
     (LaTeX-add-environments
      "theindex"
      "titlepage"
-     "altabstract"
-     "abstract")
+     "altabstract")
     (LaTeX-add-labels
      "#1"
      "starttitle"

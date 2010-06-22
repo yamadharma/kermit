@@ -159,6 +159,7 @@
 \let\@runningauthor\relax
 %
 \newbox\t@abstract
+% \newinsert\t@abstract
 \newif\if@hasabstract             % If abstract / keywords: do not omit rules
 \global\@hasabstractfalse       % Default:  no abstract or keywords
 \newcount\sv@hyphenpenalty        % Count register to save \hyphenpenalty
@@ -1784,7 +1785,8 @@
 %   \@setabstract
 %%%--
   \vskip 8\p@
-  \unvbox\t@abstract 
+%  \unvbox\t@abstract
+  \unvcopy\t@abstract
 %%%
   \normalsize
   \bigskip  
@@ -2313,7 +2315,76 @@
   \noindent\PFUreceivedName\enspace \@received\@addpunct.%
 }%
 %%%--
-\def\abstract{\@ifnextchar[{\@abstract}{\@abstract[]}}
+\newsavebox{\abstractbox}
+\renewenvironment{abstract}{%
+%  \begin{lrbox}{\abstractbox}
+  \global\@hasabstracttrue
+  \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
+  \global\setbox\t@abstract=\vbox\bgroup
+  \leftskip=0pt \rightskip\leftskip
+   \small
+  \parindent 1em                      % \parindent in abstract
+  \ignorespaces
+
+  % \ifx\maketitle\relax
+  %   \ClassWarning{\@classname}{Abstract should precede
+  %     \protect\maketitle\space in AMS documentclasses; reported}%
+  % \fi
+  % \global\setbox\abstractbox=\vtop \bgroup
+  % \normalfont\Small
+  % \Small
+  % \list{}{\labelwidth\z@
+  %   \leftmargin3pc \rightmargin\leftmargin
+  %   \listparindent\normalparindent \itemindent\z@
+  %   \parsep\z@ \@plus\p@
+  %   \let\fullwidthdisplay\relax
+  %   }%
+  % \item[\hskip\labelsep\scshape\abstractname.]%
+}{%
+%  \end{lrbox}
+  \par \egroup
+  % \endlist\egroup
+  % \ifx\@setabstract\relax \@setabstracta \fi
+}
+
+% \def\abstract{\@ifnextchar[{\@abstract}{\@abstract[]}}
+\def\@abstract{%
+  \global\@hasabstracttrue
+  \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
+  \global\setbox\t@abstract=\vbox\bgroup
+ %  \if@twocolumn\onecolumn \fi
+%      \if@twocolumn
+%       \@restonecoltrue\onecolumn
+%     \else
+%       \@restonecolfalse
+%     \fi
+ %\leftskip\z@
+  %\@rightskip\z@ \rightskip\@rightskip \parfillskip\@flushglue
+%   \leftskip=0.10753\textwidth \rightskip\leftskip
+  \leftskip=0pt \rightskip\leftskip
+   \small
+  \parindent 1em                      % \parindent in abstract
+%  \noindent {\bfseries\abstractname}  % caption `Abstract' (bold)
+%  \vskip 0.5\@bls    % half a line of space below
+% \noindent
+\ignorespaces
+%%%
+%\def\abstract{\par
+%\ifpreprintsty %
+%\vskip2.5pc
+%\begin{center}%
+%{\large \abstractname\par}%
+%\end{center}%
+%\vskip.5pc
+%\fi
+%\bgroup
+%\ifdim\prevdepth=-1000pt \prevdepth0pt\fi
+%\hsize\columnwidth
+%\if@twocolumn\else\leftskip=0.10753\textwidth \rightskip\leftskip\fi
+%\dimen0=-\prevdepth \advance\dimen0 by17.5pt \nointerlineskip
+%\small\vrule width 0pt height\dimen0 \relax
+%%%
+}
 \def\@abstract[#1]{%
   \global\@hasabstracttrue
   \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
@@ -2351,7 +2422,7 @@
 %\small\vrule width 0pt height\dimen0 \relax
 %%%
 }
-\def\endabstract{\par \egroup}
+%\def\endabstract{\par \egroup}
 %%%
 %%%--
 \newcommand{\altabstractname}{Abstract}
