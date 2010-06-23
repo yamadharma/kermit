@@ -12,16 +12,7 @@
      "authorFont"
      "listofauthors")
     (TeX-run-style-hooks
-     "babel"
-     "english"
-     "russian"
-     "fontenc"
-     "T2A"
-     "inputenc"
-     "cp1251"
-     "latex2e"
-     "art10"
-     "article"
      "kproc10"
-     "kproc")))
+     "kproc"
+     "preamble")))
 

@@ -3,7 +3,9 @@
     (LaTeX-add-environments
      "theindex"
      "titlepage"
-     "altabstract")
+     "altabstract"
+     "abstract"
+     "abstracta")
     (LaTeX-add-labels
      "#1"
      "starttitle"
@@ -14,7 +16,6 @@
      "endverse"
      '("urladdr" ["argument"] 1)
      '("email" ["argument"] 1)
-     '("altabstracts" ["argument"] 1)
      '("altcurraddr" ["argument"] 1)
      '("curraddr" ["argument"] 1)
      '("alttitle" ["argument"] 1)
@@ -24,6 +25,8 @@
      '("see" 2)
      '("MR" 1)
      '("tocsection" 3)
+     '("altabstracts" 1)
+     '("abstracts" 1)
      '("nxandlist" 4)
      '("xandlist" 4)
      '("nxaltandlist" 4)

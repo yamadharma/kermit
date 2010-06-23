@@ -1408,12 +1408,12 @@
 % \newcommand{\altaddress}[2][]{\g@addto@macro\altaddresses{\altaddress{#1}{#2}}}
 \newcommand{\altcurraddr}[2][]{\g@addto@macro\altaddresses{\altcurraddr{#1}{#2}}}
 %%%
-\newcommand{\altabstracts}[2][]%
-{
-  \begin{otherlanguage*}{\PFUaltlanguage}
-    \gdef\shortabstract{#1}\gdef\@altabstracts{#2}
-  \end{otherlanguage*}
-}
+% \newcommand{\altabstracts}[2][]%
+% {
+%   \begin{otherlanguage*}{\PFUaltlanguage}
+%     \gdef\shortabstract{#1}\gdef\@altabstracts{#2}
+%   \end{otherlanguage*}
+% }
 % \edef\altabstracts{\@nx\@dblarg
 %   \@xp\@nx\csname\string\altabstracts\endcsname}
 %%%
@@ -1698,6 +1698,7 @@
     \fi
   \endgroup
     \normalsize
+    \@maketitle@hook@post
 %   \begin{multicols*}{2}
 %   \addcontentsline{alt}{alttitle}{\@alttitle}
 %   \addcontentsline{alt}{altauthors}{\altauthors}
@@ -1729,10 +1730,12 @@
 % \let\altthankses\@empty
 %%%--
 % \let\@udcnum\@empty
+\let\@abstracts\@empty
 %%%
 } % END \maketitle
 
 \def\@maketitle@hook{\global\let\@maketitle@hook\@empty}
+\def\@maketitle@hook@post{\global\let\@maketitle@hook@post\@empty}
 \def\@maketitle{%
 \flushbottom
   \normalfont\normalsize
@@ -2034,6 +2037,7 @@
 %   \edef\@tempa{\@nx\markboth{\the\toks@}{\the\@temptokena}}\@tempa
   \endgroup
 %  \onecolumngrid
+  \@makealttitle@hook@post
   \clearpage
 %   \end{multicols*}
 %   \addcontentsline{alt}{alttitle}{\@alttitle}
@@ -2059,15 +2063,16 @@
 \let\@alttitle\@empty
 % \let\thankses\@empty
 \let\addresses\@empty%
-%%%--
-  \let\@udcnum\@empty
-  \let\@pacsnum\@empty  
-  \let\alt@keywords\@empty
-%%%
-  \if@filesw
-    \immediate\closeout\PFU@aux\relax
-  \fi
-%%   \end{otherlanguage*}
+%%% --
+\let\@udcnum\@empty
+\let\@pacsnum\@empty  
+\let\alt@keywords\@empty
+\let\@altabstracts\@empty
+%%% 
+\if@filesw
+\immediate\closeout\PFU@aux\relax
+\fi
+%% \end{otherlanguage*}
 } % END \makealttitle
 
 \providecommand{\makealttitleTOCOnly}%
@@ -2091,6 +2096,7 @@
 %  \@makealttitle
   \label{endtitle}
   \endgroup
+  \@makealttitle@hook@post
   \clearpage
   \let\shortaltauthors\@empty   
   \let\altauthors\@empty
@@ -2108,6 +2114,7 @@
 } % END \makealttitle*
 
 \def\@makealttitle@hook{\global\let\@makealttitle@hook\@empty}
+\def\@makealttitle@hook@post{\global\let\@makealttitle@hook@post\@empty}
 \providecommand{\@makealttitle}%
 {%
   \begingroup
@@ -2316,7 +2323,26 @@
 }%
 %%%--
 \newsavebox{\abstractbox}
-\renewenvironment{abstract}{%
+% \newcommand{\abstracts}[2][]{%
+%   \gdef\shortabstract{#1}\gdef\@abstracts{#2}
+% }
+% \newcommand{\abstracts}[1]{%
+%   \gdef\@abstracts{#1}
+% }
+
+%\def\abstract{\abstracts{}
+%\def\endabstract{\par  }}
+%\futurelet\abstract\abstracts\bgroup
+%\long\def\abstract#1\csname endabstract \endcsname{\abstracts{#1}}
+%\let\endabstract
+% \renewenvironment{abstract}{%
+%   \begingroup
+%   \abstracts{
+% }{
+%   \endgroup
+% }
+
+\newenvironment{abstracta}{%
 %  \begin{lrbox}{\abstractbox}
   \global\@hasabstracttrue
   \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
@@ -2347,7 +2373,21 @@
   % \ifx\@setabstract\relax \@setabstracta \fi
 }
 
-% \def\abstract{\@ifnextchar[{\@abstract}{\@abstract[]}}
+\newcommand{\abstracts}[1]{%
+  \gdef\@abstracts{#1}
+  \global\@hasabstracttrue
+  \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
+  \global\setbox\t@abstract=\vbox\bgroup
+  \leftskip=0pt \rightskip\leftskip
+  \small
+  \parindent 1em                      % \parindent in abstract
+  \ignorespaces
+  #1
+  \par \egroup%
+}
+\let\@abstracts\@empty
+
+\def\abstract{\@ifnextchar[{\@abstract}{\@abstract[]}}
 \def\@abstract{%
   \global\@hasabstracttrue
   \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
@@ -2368,6 +2408,7 @@
 %  \vskip 0.5\@bls    % half a line of space below
 % \noindent
 \ignorespaces
+
 %%%
 %\def\abstract{\par
 %\ifpreprintsty %
@@ -2422,9 +2463,26 @@
 %\small\vrule width 0pt height\dimen0 \relax
 %%%
 }
-%\def\endabstract{\par \egroup}
+\def\endabstract{\par \egroup}
 %%%
 %%%--
+
+\newcommand{\altabstracts}[1]{%
+  \begin{otherlanguage*}{\PFUaltlanguage}
+    \gdef\@altabstracts{#1}
+    \global\@hasaltabstracttrue
+    \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
+    \global\setbox\t@altabstract=\vbox\bgroup
+    \leftskip=0pt \rightskip\leftskip
+    \small
+    \parindent 1em                      % \parindent in abstract
+    \ignorespaces
+    #1
+    \par \egroup%
+  \end{otherlanguage*}
+}
+\let\@altabstracts\@empty
+
 \newcommand{\altabstractname}{Abstract}
 \def\altabstract{\@ifnextchar[{\@altabstract}{\@altabstract[]}}
 \def\@altabstract[#1]{%

@@ -140,8 +140,7 @@
 
 %}}}
 
-% \newwrite\pfuproc@titleslist
-% \immediate\openout\pfuproc@titleslist titleslist.tex
+%{{{ List of Titles
 
 \def\@startblindtoc#1{%                                                                                                                                           
   \begingroup                                                                                                                                                
@@ -158,67 +157,86 @@
 \let\pfuproc@titleslist@entry\@empty
 
 \g@addto@macro\pfuproc@titleslist@entry{%
-  \string\documentclass{article}
-  \string\usepackage[cp1251]{inputenc}                                                                                                                                
-  \string\usepackage[T2A]{fontenc}                                                                                                                                    
-  \string\usepackage[english,russian]{babel}
+  % \string\documentclass{article}
+  % \string\usepackage[cp1251]{inputenc}                                                                                                                                
+  % \string\usepackage[T2A]{fontenc}                                                                                                                                    
+  % \string\usepackage[english,russian]{babel}
+  \string\input{preamble}
   \string\begin{document}
-    \par
+  \string\fancyhead{} 
+  \string\fancyfoot{}
 }
 \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
 \let\pfuproc@titleslist@entry\@empty
 
- \def\@maketitle@hook{%
+ \def\@maketitle@hook@post{%
    \g@addto@macro\pfuproc@titleslist@entry{%
      % Authors
-     \newline
-     \authors
+
+     \ifx\@udcnum\empty \else
+     \string\PFUudcName{} 
+     \@udcnum \par \fi
+
+     \authorstoc
      \par
      \@title
      \par
-%     \unvcopy\t@abstract
-     % \t@abstract 
+     \@abstracts
      \par
-     \keywordsname: \@keywords%
+
+     \string\keywordsname: 
+     \@keywords%
+
      \par
      \par
-     \newline
+     \string\medskip
    }
 
-%   \immediate\write\pfuproc@titleslist{\pfuproc@titleslist@entry}
    \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
    \let\pfuproc@titleslist@entry\@empty
  }
 
- \def\@makealttitle@hook{%
+ \def\@makealttitle@hook@post{%
    \g@addto@macro\pfuproc@titleslist@entry{%
      % Authors
-     \newline
-     \altauthors
-     \par
-     \@alttitle
-     \par
-     %\insert\t@abstract{\unvcopy\t@abstract}
-     % \t@abstract 
-     \par
-     \keywordsname: \alt@keywords%
-     \par
-     \par
-     \newline
-   }
+     \string\begin{otherlanguage*}
+       {\PFUaltlanguage}
+       
+       \ifx\@udcnum\empty \else
+       \string\PFUudcName{} 
+       \@udcnum \par \fi
+       
+       \altauthorstoc
+       \par
+       \@alttitle
+       \par
+       \@altabstracts
+       \par
+ 
+       \string\keywordsname: 
+       \alt@keywords%
+       
+       \par
+       
+       \string\end{otherlanguage*}
 
-   % \immediate\write\pfuproc@titleslist{\pfuproc@titleslist@entry}
+     \par
+     \string\medskip\hrule\medskip
+   }
+   
    \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
    \let\pfuproc@titleslist@entry\@empty
  }
+ 
+\AtEndDocument{%
+  \g@addto@macro\pfuproc@titleslist@entry{%
+    \string\end{document}
+  }
+  \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
+  \let\pfuproc@titleslist@entry\@empty
 
-% \AtEndDocument{%
-%   \g@addto@macro\pfuproc@titleslist@entry{%
-%     \string\end{document}
-%   }
-%   \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
-%   \let\pfuproc@titleslist@entry\@empty
+  \@startblindtoc{titlelist.tex}
+}
 
-%   \@startblindtoc{titlelist.tex}
-% }
+%}}}
 
