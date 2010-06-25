@@ -171,15 +171,26 @@
 
  \def\@maketitle@hook@post{%
    \g@addto@macro\pfuproc@titleslist@entry{%
-     % Authors
+
+     \par
+
+     % Number of article
+     \noindent\textbf{\No~\thePFUtitle}\par
+
+     \string\begin{otherlanguage*}
+       {\PFUlanguage}
 
      \ifx\@udcnum\empty \else
      \string\PFUudcName{} 
      \@udcnum \par \fi
 
-     \authorstoc
+     % Authors
+
+     \string\makeatletter
+     \textbf{\authorstoc}
+     \string\makeatother
      \par
-     \@title
+     \textit{\@title}
      \par
      \@abstracts
      \par
@@ -187,6 +198,8 @@
      \string\keywordsname: 
      \@keywords%
 
+     \string\end{otherlanguage*}
+     
      \par
      \par
      \string\medskip
@@ -198,30 +211,34 @@
 
  \def\@makealttitle@hook@post{%
    \g@addto@macro\pfuproc@titleslist@entry{%
-     % Authors
+
      \string\begin{otherlanguage*}
        {\PFUaltlanguage}
        
        \ifx\@udcnum\empty \else
        \string\PFUudcName{} 
        \@udcnum \par \fi
-       
-       \altauthorstoc
+
+       % Authors
+    
+       \string\makeatletter
+       \textbf{\altauthorstoc}
+       \string\makeatother
        \par
-       \@alttitle
+       \textit{\@alttitle}
        \par
        \@altabstracts
        \par
  
        \string\keywordsname: 
        \alt@keywords%
-       
+   
        \par
        
        \string\end{otherlanguage*}
 
      \par
-     \string\medskip\hrule\medskip
+     \bigskip
    }
    
    \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
@@ -229,6 +246,12 @@
  }
  
 \AtEndDocument{%
+  \g@addto@macro\pfuproc@titleslist@entry{%
+    \string\clearpage
+    {\LARGE \textbf{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}}
+    \string\InputIfFileExists{default.loa}{}{}
+  }  
+
   \g@addto@macro\pfuproc@titleslist@entry{%
     \string\end{document}
   }
