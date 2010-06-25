@@ -169,7 +169,9 @@
 \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
 \let\pfuproc@titleslist@entry\@empty
 
- \def\@maketitle@hook@post{%
+ \def\@maketitle@hook{%
+   \let\pfuproc@titleslist@entry\@empty
+
    \g@addto@macro\pfuproc@titleslist@entry{%
 
      \par
@@ -209,8 +211,12 @@
    \let\pfuproc@titleslist@entry\@empty
  }
 
- \def\@makealttitle@hook@post{%
+ \def\@makealttitle@hook{%
+   \let\pfuproc@titleslist@entry\@empty
+
    \g@addto@macro\pfuproc@titleslist@entry{%
+
+     \par
 
      \string\begin{otherlanguage*}
        {\PFUaltlanguage}
@@ -246,6 +252,7 @@
  }
  
 \AtEndDocument{%
+  \let\pfuproc@titleslist@entry\@empty
   \g@addto@macro\pfuproc@titleslist@entry{%
     \string\clearpage
     {\LARGE \textbf{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}}

@@ -1582,6 +1582,7 @@
 
 % \RequirePackage{multicol}\relax
 \def\maketitle{\par
+  \@maketitle@hook
 %%   \clearpage
 % \selectlanguage{\PFUlanguage}
 %%%--
@@ -1650,7 +1651,6 @@
 %  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\authorsrunning} \hfill}}
     \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}
     \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
-  \@maketitle@hook
   \begingroup
   %\if@twocolumn %
 %   \twocolumn[\@maketitle] 
@@ -1665,7 +1665,7 @@
 %  \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
 %   \edef\@tempa{\@nx\markboth{\the\toks@}{\the\@temptokena}}\@tempa
   \endgroup
-  \message{1111111}
+%  \message{1111111}
 %%   \newif\if@twocolumn
 %%   \@twocolumntrue%
   \if@twocolumn\typeout{2-col}%
@@ -1986,6 +1986,7 @@
 %%%--
 \providecommand{\makealttitle}%
 {
+  \@makealttitle@hook
 %%   \begin{otherlanguage*}{\PFUaltlanguage}
 %   \relax
 %   \vspace*{2\bigskipamount}
@@ -2013,7 +2014,6 @@
 %  \hrule width\hsize \relax
 %  \filbreak
 %%%
-  \@makealttitle@hook
   \begingroup
 %     \if@twocolumn
 %       \@restonecoltrue\onecolumn
