@@ -541,18 +541,32 @@
 \AtBeginDocument%
 {%
 %  \providecommand{\etal}{et al.}
-  \addto\extrasrussian%
-  {
-    \def\PFUudcName{\CYRU\CYRD\CYRK}
-    \def\PFUpacsName{PACS}
-    % Статья поступила в редакцию
-    \def\PFUreceivedName{{\CYRS}{\cyrt}{\cyra}{\cyrt}{\cyrsftsn}{\cyrya} {\cyrp}{\cyro}{\cyrs}{\cyrt}{\cyru}{\cyrp}{\cyri}{\cyrl}{\cyra} {\cyrv} {\cyrr}{\cyre}{\cyrd}{\cyra}{\cyrk}{\cyrc}{\cyri}{\cyryu}}%
-    \def\PFUrevisedName{Revised }%
-    \def\PFUacceptedName{Accepted }%
-    \def\PFUpublishedName{Published }%
-    \def\etal{\cyri{} \cyrd\cyrr.}
-    % Ключевые слова
-    \def\keywordsname{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
+  \@ifpackageloaded{polyglossia}{%
+    \addto\captionsrussian{%
+      \def\PFUudcName{УДК}
+      \def\PFUpacsName{PACS}
+      % Статья поступила в редакцию
+      \def\PFUreceivedName{{\CYRS}{\cyrt}{\cyra}{\cyrt}{\cyrsftsn}{\cyrya} {\cyrp}{\cyro}{\cyrs}{\cyrt}{\cyru}{\cyrp}{\cyri}{\cyrl}{\cyra} {\cyrv} {\cyrr}{\cyre}{\cyrd}{\cyra}{\cyrk}{\cyrc}{\cyri}{\cyryu}}%
+      \def\PFUrevisedName{Revised }%
+      \def\PFUacceptedName{Accepted }%
+      \def\PFUpublishedName{Published }%
+      \def\etal{и др.}
+      % Ключевые слова
+      \def\keywordsname{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
+    }
+  }{%
+    \addto\extrasrussian{%
+      \def\PFUudcName{\CYRU\CYRD\CYRK}
+      \def\PFUpacsName{PACS}
+      % Статья поступила в редакцию
+      \def\PFUreceivedName{{\CYRS}{\cyrt}{\cyra}{\cyrt}{\cyrsftsn}{\cyrya} {\cyrp}{\cyro}{\cyrs}{\cyrt}{\cyru}{\cyrp}{\cyri}{\cyrl}{\cyra} {\cyrv} {\cyrr}{\cyre}{\cyrd}{\cyra}{\cyrk}{\cyrc}{\cyri}{\cyryu}}%
+      \def\PFUrevisedName{Revised }%
+      \def\PFUacceptedName{Accepted }%
+      \def\PFUpublishedName{Published }%
+      \def\etal{\cyri{} \cyrd\cyrr.}
+      % Ключевые слова
+      \def\keywordsname{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
+    }
   }
   \addto\extrasenglish%
   {
@@ -571,50 +585,98 @@
 
 \AtBeginDocument%
 {%
-\addto\captionsrussian{%
-  \def\prefacename{%
-    {\cyr\CYRP\cyrr\cyre\cyrd\cyri\cyrs\cyrl\cyro\cyrv\cyri\cyre}}%
-%  \def\refname{%
-%    {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
-%      \ \cyrl\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyrery}}%
-  \def\abstractname{%
-    {\cyr\CYRA\cyrn\cyrn\cyro\cyrt\cyra\cyrc\cyri\cyrya}}%
-  \def\refname{%
-    {\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
-  \def\bibname{%
-    {\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
-  \def\chaptername{{\cyr\CYRG\cyrl\cyra\cyrv\cyra}}%
-  \def\appendixname{%
-    {\cyr\CYRP\cyrr\cyri\cyrl\cyro\cyrzh\cyre\cyrn\cyri\cyre}}%
-  \@ifundefined{thechapter}%
-    {\def\contentsname{%
-      {\cyr\CYRS\cyro\cyrd\cyre\cyrr\cyrzh\cyra\cyrn\cyri\cyre}}}%
-    {\def\contentsname{%
-      {\cyr\CYRO\cyrg\cyrl\cyra\cyrv\cyrl\cyre\cyrn\cyri\cyre}}}%
-  \def\listfigurename{%
-    {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
-      \ \cyri\cyrl\cyrl\cyryu\cyrs\cyrt\cyrr\cyra\cyrc\cyri\cyrishrt}}%
-  \def\listtablename{%
-    {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
-      \ \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
-  \def\indexname{%
-    {\cyr\CYRP\cyrr\cyre\cyrd\cyrm\cyre\cyrt\cyrn\cyrery\cyrishrt
-      \ \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
-  \def\authorname{%
-    {\cyr\CYRI\cyrm\cyre\cyrn\cyrn\cyro\cyrishrt
-      \ \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
-  \def\figurename{{\cyr\CYRR\cyri\cyrs.}}%
-  \def\tablename{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
-  \def\partname{{\cyr\CYRCH\cyra\cyrs\cyrt\cyrsftsn}}%
-  \def\enclname{{\cyr\cyrv\cyrk\cyrl.}}%
-  \def\ccname{{\cyr\cyri\cyrs\cyrh.}}%
-  \def\headtoname{{\cyr\cyrv\cyrh.}}%
-  \def\pagename{{\cyr\cyrs.}}%
-  \def\seename{{\cyr\cyrs\cyrm.}}%
-  \def\alsoname{{\cyr\cyrs\cyrm.\ \cyrt\cyra\cyrk\cyrzh\cyre}}%
-  \def\proofname{{\cyr\CYRD\cyro\cyrk\cyra\cyrz\cyra\cyrt
-      \cyre\cyrl\cyrsftsn\cyrs\cyrt\cyrv\cyro}}%
-  \def\glossaryname{Glossary}% <-- Needs translation
+  \@ifpackageloaded{polyglossia}{%
+    \addto\captionsrussian{%
+      \def\prefacename{%
+        {\cyr\CYRP\cyrr\cyre\cyrd\cyri\cyrs\cyrl\cyro\cyrv\cyri\cyre}}%
+      % \def\refname{%
+      % {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
+      % \ \cyrl\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyrery}}%
+      \def\abstractname{%
+        {\cyr\CYRA\cyrn\cyrn\cyro\cyrt\cyra\cyrc\cyri\cyrya}}%
+      \def\refname{%
+        {\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
+      \def\bibname{%
+        {\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
+      \def\chaptername{{\cyr\CYRG\cyrl\cyra\cyrv\cyra}}%
+      \def\appendixname{%
+        {\cyr\CYRP\cyrr\cyri\cyrl\cyro\cyrzh\cyre\cyrn\cyri\cyre}}%
+      \@ifundefined{thechapter}%
+      {\def\contentsname{%
+          {\cyr\CYRS\cyro\cyrd\cyre\cyrr\cyrzh\cyra\cyrn\cyri\cyre}}}%
+      {\def\contentsname{%
+          {\cyr\CYRO\cyrg\cyrl\cyra\cyrv\cyrl\cyre\cyrn\cyri\cyre}}}%
+      \def\listfigurename{%
+        {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
+          \ \cyri\cyrl\cyrl\cyryu\cyrs\cyrt\cyrr\cyra\cyrc\cyri\cyrishrt}}%
+      \def\listtablename{%
+        {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
+          \ \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
+      \def\indexname{%
+        {\cyr\CYRP\cyrr\cyre\cyrd\cyrm\cyre\cyrt\cyrn\cyrery\cyrishrt
+          \ \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
+      \def\authorname{%
+        {\cyr\CYRI\cyrm\cyre\cyrn\cyrn\cyro\cyrishrt
+          \ \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
+      \def\figurename{Рис.}%
+      \def\tablename{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
+      \def\partname{{\cyr\CYRCH\cyra\cyrs\cyrt\cyrsftsn}}%
+      \def\enclname{{\cyr\cyrv\cyrk\cyrl.}}%
+      \def\ccname{{\cyr\cyri\cyrs\cyrh.}}%
+      \def\headtoname{{\cyr\cyrv\cyrh.}}%
+      \def\pagename{{\cyr\cyrs.}}%
+      \def\seename{{\cyr\cyrs\cyrm.}}%
+      \def\alsoname{{\cyr\cyrs\cyrm.\ \cyrt\cyra\cyrk\cyrzh\cyre}}%
+      \def\proofname{{\cyr\CYRD\cyro\cyrk\cyra\cyrz\cyra\cyrt
+          \cyre\cyrl\cyrsftsn\cyrs\cyrt\cyrv\cyro}}%
+      \def\glossaryname{Glossary}% <-- Needs translation
+    }
+  }{%
+    \addto\captionsrussian{%
+      \def\prefacename{%
+        {\cyr\CYRP\cyrr\cyre\cyrd\cyri\cyrs\cyrl\cyro\cyrv\cyri\cyre}}%
+      % \def\refname{%
+      % {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
+      % \ \cyrl\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyrery}}%
+      \def\abstractname{%
+        {\cyr\CYRA\cyrn\cyrn\cyro\cyrt\cyra\cyrc\cyri\cyrya}}%
+      \def\refname{%
+        {\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
+      \def\bibname{%
+        {\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
+      \def\chaptername{{\cyr\CYRG\cyrl\cyra\cyrv\cyra}}%
+      \def\appendixname{%
+        {\cyr\CYRP\cyrr\cyri\cyrl\cyro\cyrzh\cyre\cyrn\cyri\cyre}}%
+      \@ifundefined{thechapter}%
+      {\def\contentsname{%
+          {\cyr\CYRS\cyro\cyrd\cyre\cyrr\cyrzh\cyra\cyrn\cyri\cyre}}}%
+      {\def\contentsname{%
+          {\cyr\CYRO\cyrg\cyrl\cyra\cyrv\cyrl\cyre\cyrn\cyri\cyre}}}%
+      \def\listfigurename{%
+        {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
+          \ \cyri\cyrl\cyrl\cyryu\cyrs\cyrt\cyrr\cyra\cyrc\cyri\cyrishrt}}%
+      \def\listtablename{%
+        {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
+          \ \cyrt\cyra\cyrb\cyrl\cyri\cyrc}}%
+      \def\indexname{%
+        {\cyr\CYRP\cyrr\cyre\cyrd\cyrm\cyre\cyrt\cyrn\cyrery\cyrishrt
+          \ \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
+      \def\authorname{%
+        {\cyr\CYRI\cyrm\cyre\cyrn\cyrn\cyro\cyrishrt
+          \ \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
+      \def\figurename{{\cyr\CYRR\cyri\cyrs.}}%
+      \def\tablename{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
+      \def\partname{{\cyr\CYRCH\cyra\cyrs\cyrt\cyrsftsn}}%
+      \def\enclname{{\cyr\cyrv\cyrk\cyrl.}}%
+      \def\ccname{{\cyr\cyri\cyrs\cyrh.}}%
+      \def\headtoname{{\cyr\cyrv\cyrh.}}%
+      \def\pagename{{\cyr\cyrs.}}%
+      \def\seename{{\cyr\cyrs\cyrm.}}%
+      \def\alsoname{{\cyr\cyrs\cyrm.\ \cyrt\cyra\cyrk\cyrzh\cyre}}%
+      \def\proofname{{\cyr\CYRD\cyro\cyrk\cyra\cyrz\cyra\cyrt
+          \cyre\cyrl\cyrsftsn\cyrs\cyrt\cyrv\cyro}}%
+      \def\glossaryname{Glossary}% <-- Needs translation
+    }
   }
 }
 %%
@@ -765,7 +827,7 @@
   \refstepcounter{PFUtitle}
   \message{*********** \thePFUtitle}
   \refstepcounter{subtitle}
-  \thispagestyle{plain}
+  % \thispagestyle{plain}
   \let\@rauthor\@empty
   \let\authorsrunning\@empty
   \let\altauthorsrunning\@empty
@@ -2837,6 +2899,7 @@
 % \setcounter{secnumdepth}{3}
 \setcounter{secnumdepth}{3}
 \@addtoreset{equation}{PFUtitle}
+\renewcommand\theequation{\@arabic\c@equation}
 \def\partname{Part}
 
 \providecommand{\chapaftersnum}{.}
@@ -3028,7 +3091,7 @@
 \def\aufm#1{\par\vspace*{12pt}{\flushright #1\par}}
 \renewcommand{\@pnumwidth}{1.6em}
 \renewcommand{\@tocrmarg}{2.6em}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{0}
 \def\@starttoc#1{%
   \begingroup
 %%     \toc@pre
@@ -3069,7 +3132,7 @@
 % \newcommand\@pnumwidth{1.55em}
 % \newcommand\@tocrmarg{2.55em}
 \renewcommand\@dotsep{4.5}
-\setcounter{tocdepth}{2}
+% \setcounter{tocdepth}{2}
 
 \renewcommand{\tableofcontents}{%
 %     \if@twocolumn

@@ -142,24 +142,24 @@
 
 %{{{ List of Titles
 
-\def\@startblindtoc#1{%                                                                                                                                           
-  \begingroup                                                                                                                                                
-    \makeatletter                                                                                                                                            
-%    \@input{\jobname.#1}%                                                                                                                                    
-    \if@filesw                                                                                                                                               
-      \expandafter\newwrite\csname tf@#1\endcsname                                                                                                           
-      \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax                                                                                           
-    \fi                                                                                                                                                      
-    \@nobreakfalse                                                                                                                                           
+\def\@startblindtoc#1{%
+  \begingroup
+    \makeatletter
+%    \@input{\jobname.#1}%
+    \if@filesw
+      \expandafter\newwrite\csname tf@#1\endcsname
+      \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax
+    \fi
+    \@nobreakfalse
   \endgroup
-}    
+}
 
 \let\pfuproc@titleslist@entry\@empty
 
 \g@addto@macro\pfuproc@titleslist@entry{%
   % \string\documentclass{article}
-  % \string\usepackage[cp1251]{inputenc}                                                                                                                                
-  % \string\usepackage[T2A]{fontenc}                                                                                                                                    
+  % \string\usepackage[cp1251]{inputenc}
+  % \string\usepackage[T2A]{fontenc}
   % \string\usepackage[english,russian]{babel}
   \string\input{preamble}
   \string\begin{document}

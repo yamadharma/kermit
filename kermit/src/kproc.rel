@@ -1,0 +1,56 @@
+;; RefTeX parse info file
+;; File: /home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls
+;; User: dharma (Dmitry S. Kulyabov)
+
+(set reftex-docstruct-symbol '(
+
+
+(xr nil "\\\\\\\\\\\\")
+
+(index-tags)
+
+(is-multi nil)
+
+(bibview-cache)
+
+(master-dir . "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/")
+
+(label-numbers)
+
+(bof "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls")
+
+("#1" "s" "\\else\\relax\\fi \\add@tok\\t@glob@notes{\\footnotetext}% \\add@xtok\\t@glob@notes{[\\the\\c@footnote]}% \\add" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" nil)
+
+("#1" "s" "\\else\\relax\\fi % \\add@tok\\t@glob@notes{\\footnotetext}% % \\add@xtok\\t@glob@notes{[\\the\\c@footnote]}% " "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" t)
+
+("starttitle" "s" "\\iflanguage{english}% {% \\edef\\PFUlanguage{english} \\edef\\PFUaltlanguage{russian} }% {% \\edef\\PFUlan" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" t)
+
+("starttitle" "s" "\\gdef\\shortappendixtitle{#1}\\gdef\\@appendixtitle{#2}} \\newcommand*{\\altappendixtitle}[2][]{\\stepcoun" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" nil)
+
+("starttitle" "s" "\\gdef\\shortaltappendixtitle{#1}\\gdef\\@altappendixtitle{#2}} %%% \\newcommand*{\\alttitle}[2][]% { \\beg" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" nil)
+
+("#1" "s" "\\else\\relax\\fi \\address@fmt{\\c@address}{#1}{#2}{#1}% %%  %% \\label{qwerty} %% \\if@Elproofing\\else\\la" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" t)
+
+("#1" "s" "%%  %% \\if@Elproofing\\else\\label{#1}\\fi \\ignorespaces} %% END % address@optarg \\def\\address@noptarg#" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" t)
+
+("qwerty" "s" "%% \\if@Elproofing\\else\\fi \\ignorespaces} %% END % address@optarg \\def\\address@noptarg#1{% %% \\real@r" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" t)
+
+("#1" "s" "\\fi \\ignorespaces} %% END % address@optarg \\def\\address@noptarg#1{% %% \\real@refstepcounter{address}" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" t)
+
+("address:#2" "s" "% \\ifnum#1=\\z@ % #3\\,$^{\\mathrm{#2}}$\\space% $^{\\mathrm{\\ref{#2}}}$#3\\space% \\else \\ifnum#1=\\m@ne % " "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" nil)
+
+("#1" "s" "\\fi \\ignorespaces% " "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" nil)
+
+("altaddress:#2" "s" "% \\ifnum#1=\\z@ % #3\\,$^{\\mathrm{#2}}$\\space% $^{\\mathrm{\\ref{#2}}}$#3\\space% \\else \\ifnum#1=\\m@ne % " "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" nil)
+
+("starttitle" "s" "\\@setcopyright % \\uppercasenonmath\\shorttitle % \\ifx\\@empty\\shortauthors \\let\\shortauthors\\shorttitl" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" nil)
+
+("endtitle" "s" "%\\if@twocolumn %\\twocolumn[\\@makealttitle] %\\fi % \\toks@\\@xp{\\shortauthors}\\@temptokena\\@xp{\\shortti" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" nil)
+
+("endtitle" "s" "\\endgroup \\@makealttitle@hook@post \\clearpage \\let\\shortaltauthors\\@empty \\let\\altauthors\\@empty \\le" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" nil)
+
+(toc "toc" "    * \\refname" "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls" nil 2 "*" "\\section*{\\refname}" 104152)
+
+(eof "/home/dharma/work/projects/tex/kermit/repo/trunk/kermit/src/kproc.cls")
+))
+
