@@ -1072,7 +1072,7 @@
 %       \gdef\authors{#3\,$^{\mathrm{\ref{#2}}}$}%
 %       \xdef\authors{\authorinitials~\authorfamily\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
 %      \xdef\authorTmp{\authorinitials~\authorfamily}  
-%      \protected@xdef\authorTmp{\authorInFam}        
+%      \protected@xdef\authorTmp{\authorInFam}
 %      \gdef\authors{\expandafter{\authorTmp}\negthickspace${}^{\mathrm{\ref{#2}}}$}%
 %      \protected@xdef\authors{\authorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
       \ifx\@tempd\@empty
@@ -1089,7 +1089,7 @@
 %   \show\n@author@
     \ifnum0\n@author@ > \PFUNumRunningauthor
       \ifnum0#1 = \PFUNumRunningauthor % 3
-        %% FIXME removing \etal (20031214)     
+        %% FIXME removing \etal (20031214)
         \g@addto@macro\authorsrunning{ \etal}%
       \fi
     \else
@@ -1301,7 +1301,7 @@
      \fi
    \else
    \refstepcounter{address}%
-   \label{address:#2}%
+   \label{#2}%
    \ifnum#1=\z@
 %    #3\,$^{\mathrm{#2}}$\space%
     $^{\mathrm{\ref{#2}}}$#3\space%
@@ -1849,8 +1849,11 @@
   \fi
 %   \@setabstract
 %%%--
+  \ifvoid\t@abstract
+  \else
   \vskip 8\p@
   \unvbox\t@abstract
+  \fi
 %  \unvcopy\t@abstract
 %%%
   \normalsize
@@ -2037,8 +2040,11 @@
   \fi
 %   \@setabstract
 %%%--
+  \ifvoid\t@abstract
+  \else
   \vskip 8\p@
-  \unvbox\t@abstract 
+  \unvbox\t@abstract
+  \fi
 %%%
   \normalsize
 %  \bigskip  
@@ -2223,8 +2229,11 @@
 %   \@setabstract
 %%%--
   \nobreak
+  \ifvoid\t@abstract
+  \else
   \vskip 8\p@
-  \unvbox\t@altabstract 
+  \unvbox\t@altabstract
+  \fi
 %%%
   \nobreak
   \smallskip

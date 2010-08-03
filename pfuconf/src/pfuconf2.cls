@@ -410,7 +410,7 @@
 %       \gdef\authors{#3\,$^{\mathrm{\ref{#2}}}$}%
 %       \xdef\authors{\authorinitials~\authorfamily\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
 %      \xdef\authorTmp{\authorinitials~\authorfamily}  
-%      \protected@xdef\authorTmp{\authorInFam}        
+%      \protected@xdef\authorTmp{\authorInFam}
 %      \gdef\authors{\expandafter{\authorTmp}\negthickspace${}^{\mathrm{\ref{#2}}}$}%
       \protected@xdef\authors{\authorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
     \fi
