@@ -1850,8 +1850,8 @@
 %   \@setabstract
 %%%--
   \vskip 8\p@
-%  \unvbox\t@abstract
-  \unvcopy\t@abstract
+  \unvbox\t@abstract
+%  \unvcopy\t@abstract
 %%%
   \normalsize
   \bigskip  

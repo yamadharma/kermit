@@ -35,4 +35,16 @@
 
 }
 
+% \renewcommand{\chapterFontShape}{\bfseries}
+
+% \renewcommand{\titleFontShape}{\bfseries}
+% \renewcommand{\titleFontSize}{\large}
+                                                                                                                                                             
+% \renewcommand{\sectionFontShape}{\bfseries}
+\renewcommand{\sectionFontSize}{\normalfont}
+
+% \renewcommand{\subsectionFontShape}{\bfseries}
+\renewcommand{\subsectionFontSize}{\normalfont}
+
+% \renewcommand{\paragraphFontShape}{\bfseries}
 
