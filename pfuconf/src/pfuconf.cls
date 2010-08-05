@@ -35,11 +35,14 @@
 
 }
 
+\def\@maketitle@hook@pre{\vspace{2\baselineskip plus \baselineskip
+    minus \baselineskip}}
+
 % \renewcommand{\chapterFontShape}{\bfseries}
 
 % \renewcommand{\titleFontShape}{\bfseries}
 % \renewcommand{\titleFontSize}{\large}
-                                                                                                                                                             
+
 % \renewcommand{\sectionFontShape}{\bfseries}
 \renewcommand{\sectionFontSize}{\normalfont}
 

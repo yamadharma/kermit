@@ -1644,6 +1644,7 @@
 
 % \RequirePackage{multicol}\relax
 \def\maketitle{\par
+  \@maketitle@hook@pre
   \@maketitle@hook
 %%   \clearpage
 % \selectlanguage{\PFUlanguage}
@@ -1759,8 +1760,8 @@
        }
     \fi
   \endgroup
-    \normalsize
-    \@maketitle@hook@post
+  \normalsize
+  \@maketitle@hook@post
 %   \begin{multicols*}{2}
 %   \addcontentsline{alt}{alttitle}{\@alttitle}
 %   \addcontentsline{alt}{altauthors}{\altauthors}
@@ -1796,6 +1797,7 @@
 %%%
 } % END \maketitle
 
+\def\@maketitle@hook@pre{\global\let\@maketitle@hook@pre\@empty}
 \def\@maketitle@hook{\global\let\@maketitle@hook\@empty}
 \def\@maketitle@hook@post{\global\let\@maketitle@hook@post\@empty}
 \def\@maketitle{%
@@ -2229,7 +2231,7 @@
 %   \@setabstract
 %%%--
   \nobreak
-  \ifvoid\t@abstract
+  \ifvoid\t@altabstract
   \else
   \vskip 8\p@
   \unvbox\t@altabstract

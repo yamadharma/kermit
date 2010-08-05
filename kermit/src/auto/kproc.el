@@ -9,7 +9,7 @@
     (LaTeX-add-labels
      "#1"
      "starttitle"
-     "address:#2"
+     "#2"
      "altaddress:#2"
      "endtitle")
     (TeX-add-symbols
