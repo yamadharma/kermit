@@ -619,7 +619,7 @@
         {\cyr\CYRI\cyrm\cyre\cyrn\cyrn\cyro\cyrishrt
           \ \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
       \def\figurename{Рис.}%
-      \def\tablename{{\cyr\CYRT\cyra\cyrb\cyrl\cyri\cyrc\cyra}}%
+      \def\tablename{Таблица}%
       \def\partname{{\cyr\CYRCH\cyra\cyrs\cyrt\cyrsftsn}}%
       \def\enclname{{\cyr\cyrv\cyrk\cyrl.}}%
       \def\ccname{{\cyr\cyri\cyrs\cyrh.}}%
