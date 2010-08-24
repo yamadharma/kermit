@@ -1,0 +1,70 @@
+%%
+%% This is file `gloss-latin.ldf',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% polyglossia.dtx  (with options: `gloss-latin.ldf')
+%%   ____________________________
+%% 
+%%   The polyglossia package
+%%   (C) 2008–2010 François Charette
+%%   License information appended
+%% 
+\ProvidesFile{gloss-latin.ldf}[polyglossia: module for latin]
+\makeatletter
+\PolyglossiaSetup{latin}{
+  hyphennames={latin},
+  hyphenmins={2,2},
+  frenchspacing=true,
+  fontsetup=true,
+}
+
+\def\captionslatin{%
+   \def\prefacename{Praefatio}%
+   \def\refname{Conspectus librorum}%
+   \def\abstractname{Summarium}%
+   \def\bibname{Conspectus librorum}%
+   \def\chaptername{Caput}%
+   \def\appendixname{Additamentum}%
+   \def\contentsname{Index}%
+   \def\listfigurename{Conspectus descriptionum}%
+   \def\listtablename{Conspectus tabularum}%
+   \def\indexname{Index rerum notabilium}%
+   \def\figurename{Descriptio}%
+   \def\tablename{Tabula}%
+   \def\partname{Pars}%
+   \def\enclname{Additur}%
+   \def\ccname{Exemplar}%
+   \def\headtoname{\ignorespaces}%
+   \def\pagename{pagina}%
+   \def\seename{cfr.}%
+   \def\alsoname{cfr.}%
+   \def\proofname{Demonstratio}%
+   \def\glossaryname{Glossarium}%
+   }
+\def\datelatin{%
+   \def\today{\uppercase\expandafter{\romannumeral\day}%
+      \space \ifcase\month%
+      \or Januarii\or Februarii\or Martii\or Aprilis\or Maji\or Junii\or%
+      Julii\or Augusti\or Septembris\or Octobris\or Novembris\or%
+      Decembris\fi%
+      \space \uppercase\expandafter{\romannumeral\year}}}
+
+%% 
+%%  Copyright (C) 2010 by François Charette <firmicus ατ gmx δοτ net>
+%% 
+%%  This work may be distributed and/or modified under the
+%%  conditions of the LaTeX Project Public License, either version 1.3
+%%  of this license of (at your option) any later version.
+%%  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%%  and version 1.3 or later is part of all distributions of LaTeX
+%%  version 2005/12/01 or later.
+%% 
+%%  This work has the LPPL maintenance status `maintained'.
+%% 
+%%  The Current Maintainer of this work is François Charette.
+%% 
+%%
+%% End of file `gloss-latin.ldf'.

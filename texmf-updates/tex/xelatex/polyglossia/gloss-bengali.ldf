@@ -1,0 +1,105 @@
+%%
+%% This is file `gloss-bengali.ldf',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% polyglossia.dtx  (with options: `gloss-bengali.ldf')
+%%   ____________________________
+%% 
+%%   The polyglossia package
+%%   (C) 2008–2010 François Charette
+%%   License information appended
+%% 
+
+\ProvidesFile{gloss-bengali.ldf}[polyglossia: module for bengali]
+\RequirePackage{devanagaridigits}
+\makeatletter
+
+\PolyglossiaSetup{bengali}{
+  script=Bengali,
+  scripttag=beng,
+  langtag=BEN,
+  hyphennames={bengali},
+  hyphenmins={2,2},%CHECK
+  fontsetup=true,
+  %TODO nouppercase=true,
+  %TODO localnumber=bengalinumber
+}
+
+\def\tmp@western{Western}
+\newif\ifbengali@devanagari@numerals
+\bengali@devanagari@numeralstrue
+
+\define@key{bengali}{numerals}[Devanagari]{%
+  \def\@tmpa{#1}%
+  \ifx\@tmpa\tmp@western
+    \bengali@devanagari@numeralsfalse
+  \fi}
+
+\def\captionsbengali{%
+  \def\refname{তথ্যসুত্রসমূহ}%
+  \def\abstractname{সারসংক্ষেপ}%
+  \def\bibname{তথ্যবিবরণ}%
+  \def\prefacename{পূর্বকথা}%
+  \def\chaptername{অধ্যায়}%
+  \def\appendixname{পরিশিষ্ট}%
+  \def\contentsname{সূচীপত্র}%
+  \def\listfigurename{ছবি/নকশা সমূহের তালিকা}%
+  \def\listtablename{তালিকাসারণী}%
+  \def\indexname{সূচক/নির্দেশক}%
+  \def\figurename{ছবি/নকশা}%
+  \def\tablename{সারনী}%
+  %\def\thepart{}% TODO
+  \def\partname{খন্ড}%
+  \def\pagename{পৃষ্ঠা}%
+  \def\seename{দেখুন}%
+  \def\alsoname{আরও দেখুন}%
+  \def\enclname{সংযুক্তি}%
+  \def\ccname{অনুলিপি}%
+  \def\headtoname{প্রতি}%
+  \def\proofname{প্রমাণ}%
+  \def\glossaryname{পরিভাষার শব্দসম্ভার}%
+}
+\def\datebengali{%
+  \def\bengalimonth{%
+    \ifcase\month\or
+      জানুয়ারী\or
+      ফেব্রুয়ারী\or
+      মার্চ\or
+      এপ্রিল\or
+      মে\or
+      জুন\or
+      জুলাই\or
+      আগষ্ট\or
+      সেপ্টেম্বর\or
+      অক্টোবর\or
+      নভেম্বর\or
+      ডিসেম্বর\fi}%
+  \def\today{\bengalinumber\day\space\bengalimonth\space\bengalinumber\year}%
+}
+
+\def\bengalinumber#1{%
+  \ifbengali@devanagari@numerals
+    \devanagaridigits{\number#1}%
+  \else
+    \number#1%
+  \fi}
+
+%% 
+%%  Copyright (C) 2010 by François Charette <firmicus ατ gmx δοτ net>
+%% 
+%%  This work may be distributed and/or modified under the
+%%  conditions of the LaTeX Project Public License, either version 1.3
+%%  of this license of (at your option) any later version.
+%%  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%%  and version 1.3 or later is part of all distributions of LaTeX
+%%  version 2005/12/01 or later.
+%% 
+%%  This work has the LPPL maintenance status `maintained'.
+%% 
+%%  The Current Maintainer of this work is François Charette.
+%% 
+%%
+%% End of file `gloss-bengali.ldf'.
