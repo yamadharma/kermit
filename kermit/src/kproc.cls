@@ -8,6 +8,7 @@
 %%%--
 \def\class@name{kproc}
 
+\RequirePackage{etoolbox}
 \RequirePackage{etextools}
 
 %%%
@@ -727,8 +728,7 @@
 
 %{{{ Set headers
 
-\AtBeginDocument%
-{%
+\AtEndPreamble{%
   \pagestyle{fancy} 
   \fancyhead{}%
   \fancyhead[LE,RO]{\headerFontSize\thepage}%
@@ -827,7 +827,7 @@
   \refstepcounter{PFUtitle}
   \message{*********** \thePFUtitle}
   \refstepcounter{subtitle}
-  % \thispagestyle{plain}
+  \thispagestyle{plain}
   \let\@rauthor\@empty
   \let\authorsrunning\@empty
   \let\altauthorsrunning\@empty

@@ -257,7 +257,7 @@
     \string\clearpage
     {\LARGE \textbf{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}}
     \string\InputIfFileExists{default.loa}{}{}
-  }  
+  }
 
   \g@addto@macro\pfuproc@titleslist@entry{%
     \string\end{document}
