@@ -458,6 +458,20 @@
 }
 \let\PHDfeedbackArefIn\@empty
 
+% Когда разослан автореферат (число)
+\DeclareRobustCommand{\sendday}[1]%
+{%
+  \def\PHDsendday{#1}
+}
+\let\PHDsendday\@empty
+
+% Когда разослан автореферат (месяц)
+\DeclareRobustCommand{\sendmonth}[1]%
+{%
+  \def\PHDsendmonth{#1}
+}
+\let\PHDsendmonth\@empty
+
 
 
 \DeclareRobustCommand{\zz}{\rule{8mm}{.6pt}}

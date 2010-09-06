@@ -9,5 +9,7 @@
      "PHDdisciplineDescr"
      "footnotesize"
      "footnoterule"
-     "makesecondpage")))
+     "makesecondpage")
+    (TeX-run-style-hooks
+     "setspace")))
 

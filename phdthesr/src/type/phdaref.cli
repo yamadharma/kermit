@@ -194,9 +194,9 @@
   \else
   \PHDlibraryIn
   \fi
-  
-  \bigskip
-  \bigskip
+
+  %\bigskip
+  %\bigskip
 
   \noindent
   \ifx\PHDfeedbackArefIn\empty 
@@ -206,14 +206,15 @@
   \else
   \PHDfeedbackArefIn
   \fi
-  
+
   \bigskip
   \bigskip
 
   \noindent
   Автореферат разослан
-  <<\underline{\hspace*{1cm}}>>\underline{\hspace*{3cm}}~{\PHDdegreeyear}~г.
-    
+  \ifx\PHDsendday\@empty<<\underline{\hspace*{1cm}}>>\else\PHDsendday\fi~
+  \ifx\PHDsendmonth\@empty\underline{\hspace*{3cm}}\else\PHDsendmonth\fi~{\PHDdegreeyear}~г.
+
   \vfill
 
   \begin{flushleft}
