@@ -728,7 +728,8 @@
 
 %{{{ Set headers
 
-\AtEndPreamble{%
+% \AtEndPreamble{%
+\AtEndOfPackage{%
   \pagestyle{fancy} 
   \fancyhead{}%
   \fancyhead[LE,RO]{\headerFontSize\thepage}%
