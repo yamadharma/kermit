@@ -13,7 +13,7 @@
 %  \geometry{total={140mm,230mm}}
 %  \geometry{hmargin={13mm,17mm},vmargin={13mm,17mm}}
 %  \geometry{marginparwidth=0dd,marginparsep=0dd}
-  \geometry{twosideshift=0dd}
+%  \geometry{twosideshift=0dd}
 }
 
 \defaultlanguage{russian}

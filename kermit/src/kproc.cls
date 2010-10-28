@@ -42,7 +42,7 @@
 \def\@historysize{\small}
 \def\@keywordsize{\small}
 \def\@overaddressskip{2pt}
-\def\@titlesize{\Large\bfseries}
+% \def\@titlesize{\Large\bfseries}
 \def\@subtitlesize{\large\bfseries}
 \def\@authorsize{\small}
 \def\@keywordheading{{\it Key words: \ }}
@@ -484,7 +484,7 @@
 \RequirePackage{ltcaption}
 % \renewcommand{\@captionsize}{\footnotesize}
 % \RequirePackage{longtable}
-\RequirePackage{truncate}
+\RequirePackage[breakwords]{truncate}
 
 % \RequirePackage[unicode]{hyperref}
 
@@ -728,37 +728,37 @@
 
 %{{{ Set headers
 
-% \AtEndPreamble{%
-\AtEndOfPackage{%
-  \pagestyle{fancy} 
-  \fancyhead{}%
-  \fancyhead[LE,RO]{\headerFontSize\thepage}%
-  \fancyhead[RE]{\leftmark}%
-  \fancyhead[LO]{%
-    \iflanguage{\@defaultlanguage}%
-    {%
-%%      \headerFontSize\PFUheader
-     \rightmark
-    }
-    {%
-      \begin{otherlanguage*}{\@defaultlanguage}
-%%        \headerFontSize\PFUheader
-     \rightmark
-      \end{otherlanguage*}
-    }
-}
-\fancyfoot{}
+% % \AtEndPreamble{%
+% \AtEndOfPackage{%
+%   \pagestyle{fancy} 
+%   \fancyhead{}%
+%   \fancyhead[LE,RO]{\headerFontSize\thepage}%
+%   \fancyhead[RE]{\leftmark}%
+%   \fancyhead[LO]{%
+%     \iflanguage{\@defaultlanguage}%
+%     {%
+% %%      \headerFontSize\PFUheader
+%      \rightmark
+%     }
+%     {%
+%       \begin{otherlanguage*}{\@defaultlanguage}
+% %%        \headerFontSize\PFUheader
+%      \rightmark
+%       \end{otherlanguage*}
+%     }
+% }
+% \fancyfoot{}
 
-\fancypagestyle{plain}{%
-\fancyhf{} % clear all header and footer fields
-\fancyhead[C]{%
-\headerFontSize\PFUTitleHeader
-}
-%\renewcommand{\headrulewidth}{0pt}
-%\renewcommand{\footrulewidth}{0pt}
-}
+% \fancypagestyle{plain}{%
+% \fancyhf{} % clear all header and footer fields
+% \fancyhead[C]{%
+% \headerFontSize\PFUTitleHeader
+% }
+% %\renewcommand{\headrulewidth}{0pt}
+% %\renewcommand{\footrulewidth}{0pt}
+% }
 
-}
+% }
 
 %}}}
 
@@ -822,6 +822,19 @@
 %%%--
 % \def\journal#1{\gdef\@journal{#1}}
 %%%
+
+\let\@rauthor\@empty
+\let\authorsrunning\@empty
+\let\altauthorsrunning\@empty
+\let\authorstoc\@empty
+\let\altauthorstoc\@empty
+\let\authors\@empty
+\let\altauthors\@empty
+\let\thankses\@empty
+\let\addresses\@empty%
+\let\altaddresses\@empty%
+\let\shorttitle\@empty%
+
 \renewcommand*{\title}[2][]%
 {%
 %%  \def\@biblabel##1{\@ifempty{##1}##1.......}
@@ -1828,7 +1841,7 @@
   \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi  
 %   \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
   \@settitle
-  \bigskip
+  \medskip
   \ifx\@empty\authors \else \@setauthors \fi
 %%%--
   \nobreak %
@@ -1939,7 +1952,8 @@
 } % end \@makeappendixtitle
 \def\@setappendixtitle{
   \begin{center}%
-    \@titlesize
+    % \@titlesize
+    \titleFontSize\titleFontShape
     \@appendixtitle
   \end{center}%
 }
@@ -2329,7 +2343,8 @@
 %\fi
 \def\@settitle{
   \begin{center}%
-    \@titlesize
+    % \@titlesize
+    \titleFontSize\titleFontShape
     \@title
   \end{center}%
 }
@@ -2359,8 +2374,9 @@
 \providecommand{\@setalttitle}%
 {%
   \begin{center}%
-    \large
-    \bfseries
+    % \large
+    % \bfseries
+    \titleFontSize\titleFontShape
     \@alttitle
   \end{center}%
 } % END \@setalttitle
@@ -2885,13 +2901,17 @@
 %% Fonts
 %%
 
-%\providecommand{\DivFontShape}{\bfseries}
+\providecommand{\DivFontShape}{\bfseries}
+
+\providecommand{\titleFontShape}{\DivFontShape}
+\providecommand{\titleFontSize}{\large}
+\providecommand{\titlePosition}{\center}
 
 %\renewcommand{\sectionFontShape}{\scshape}
-\renewcommand{\sectionFontSize}{\Large}
+\renewcommand{\sectionFontSize}{\large}
 \renewcommand{\sectionPosition}{\center}
 %\renewcommand{\subsectionFontShape}{\scshape}
-\renewcommand{\subsectionFontSize}{\large}
+\renewcommand{\subsectionFontSize}{\normalsize}
 \renewcommand{\subsectionPosition}{\center}
 %\renewcommand{\subsubsectionFontShape}{\scshape}
 \renewcommand{\subsubsectionFontSize}{\normalsize}
@@ -2933,6 +2953,7 @@
     {\normalfont\subparagraphFontSize\subparagraphFontShape}{\thesubparagraph\secaftersnum}{1em}{}
 
 \titlespacing{\chapter}{\z@}{\z@}{10\p@}
+\titlespacing{\section}{\z@}{*4}{*1.5}
 % \titlespacing{\section}{\z@}{\if@sectionAfterTitle \z@ \@sectionAfterTitlefalse \else -3.5ex \@plus -1ex \@minus -.2ex \fi}{2.3ex \@plus.2ex}
 %\titlespacing{\section}{\z@}{\ifsectionAfterTitle \z@ \else -3.5ex \@plus -1ex \@minus -.2ex \fi}{2.3ex \@plus.2ex}
 %\titlespacing{\section}{\z@}{%
@@ -3014,7 +3035,7 @@
     \interlinepenalty\@M
     \begin{center}
       \vskip 10\p@ \@plus -1ex \@minus -.2ex
-      {\huge \DivFontShape #2\par}
+      {\LARGE \DivFontShape #2\par}
     \end{center}
     \par\nobreak
     \vskip 10\p@\@plus -1ex \@minus -.2ex%

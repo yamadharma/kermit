@@ -201,7 +201,7 @@
      \@keywords%
 
      \string\end{otherlanguage*}
-     
+
      \par
      \par
      \string\medskip
@@ -220,13 +220,13 @@
 
      \string\begin{otherlanguage*}
        {\PFUaltlanguage}
-       
+
        \ifx\@udcnum\empty \else
        \string\PFUudcName{} 
        \@udcnum \par \fi
 
        % Authors
-    
+
        \string\makeatletter
        \textbf{\altauthorstoc}
        \string\makeatother
@@ -235,22 +235,22 @@
        \par
        \@altabstracts
        \par
- 
+
        \string\keywordsname: 
        \alt@keywords%
-   
+
        \par
-       
+
        \string\end{otherlanguage*}
 
      \par
      \bigskip
    }
-   
+
    \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
    \let\pfuproc@titleslist@entry\@empty
  }
- 
+
 \AtEndDocument{%
   \let\pfuproc@titleslist@entry\@empty
   \g@addto@macro\pfuproc@titleslist@entry{%

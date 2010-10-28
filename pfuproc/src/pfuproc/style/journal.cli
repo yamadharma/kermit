@@ -87,21 +87,22 @@
 {%
     \iflanguage{\@defaultlanguage}%
     {%
-    \PFUjournal
-    \hfill
-    \PFUjornalseriesName~\textit{\PFUjournalseries}.
-    \hfill
+    \PFUjournal{}.
+%    \hfill
+    \PFUjornalseriesName~\textit{\PFUjournalseries}.~%
+%    \hfill
     \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\fi{}~%
     \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber\fi{}%
     \ifx\PFUjournalissue\@empty\else~(\PFUjournalissue)\fi{}%
-    .~\PFUjournalyear. \CYRS.~\pageref{starttitle}--\pageref{endtitle} 
+    .~\PFUjournalyear.
+    \@ifundefined{r@\thePFUtitle:starttitle}{}{\CYRS.~\pageref{starttitle}--\pageref{endtitle}}
     }
     {%
 %      \begin{otherlanguage*}{\@defaultlanguage}
-    Bulletin of PFUR
-    \hfill
-    \PFUjornalseriesName~\textit{\PFUaltjournalseries}.
-    \hfill
+    Bulletin of PFUR.~%
+%    \hfill
+    \PFUjornalseriesName~\textit{\PFUaltjournalseries}.~%
+%    \hfill
     \ifx\PFUjournalvolume\@empty\else \V.~\PFUjournalvolume.\fi{}~%
     \ifx\PFUjournalnumber\@empty\else No~\PFUjournalnumber\fi{}%
     \ifx\PFUjournalissue\@empty\else~(\PFUjournalissue)\fi{}%

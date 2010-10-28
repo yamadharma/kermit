@@ -54,6 +54,10 @@
      "subjclassname"
      "altabstractname"
      "listisep"
+     "DivFontShape"
+     "titleFontShape"
+     "titleFontSize"
+     "titlePosition"
      "chapaftersnum"
      "secaftersnum"
      "tableofaltcontents"
@@ -220,6 +224,7 @@
      "titlesec"
      "fancyhdr"
      "truncate"
+     "breakwords"
      "ltcaption"
      "caption"
      "array"
@@ -230,5 +235,6 @@
      "xifthen"
      "substr"
      "keyval"
-     "etextools")))
+     "etextools"
+     "etoolbox")))
 
