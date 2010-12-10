@@ -539,8 +539,10 @@
 % \InputIfFileExists{pfuproc/pfuproc_theorem.cli}{}{}%
 \InputIfFileExists{pfuproc/theorem.cli}{}{}%
 \InputIfFileExists{pfuproc/mathmisc.cli}{}{}%
-\AtBeginDocument%
-{%
+\AtBeginDocument{%
+%\AtEndOfClass{%
+\def\etal{et al.}
+\def\PFUudcName{UDC}
 %  \providecommand{\etal}{et al.}
   \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian{%
