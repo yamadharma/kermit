@@ -539,11 +539,14 @@
 % \InputIfFileExists{pfuproc/pfuproc_theorem.cli}{}{}%
 \InputIfFileExists{pfuproc/theorem.cli}{}{}%
 \InputIfFileExists{pfuproc/mathmisc.cli}{}{}%
-\AtBeginDocument{%
+
+%\def\etal{et al.}
+%\def\PFUudcName{UDC}
+\AtEndPreamble{%
+%\AtBeginDocument{%
 %\AtEndOfClass{%
-\def\etal{et al.}
-\def\PFUudcName{UDC}
 %  \providecommand{\etal}{et al.}
+%  \providecommand{\PFUudcName}{UDC}
   \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian{%
       \def\PFUudcName{УДК}
@@ -556,6 +559,18 @@
       \def\etal{и др.}
       % Ключевые слова
       \def\keywordsname{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
+    }
+    \addto\captionsenglish{%
+    \def\PFUudcName{UDC}
+    \def\PFUpacsName{PACS}
+    \def\PFUreceivedName{Received }%
+    \def\PFUrevisedname{Revised }%
+    \def\PFUacceptedname{Accepted }%
+    \def\PFUpublishedname{Published }%
+     \def\etal{et al.}
+%%    \renewcommand{\etal}{et al.}
+%%     \providecommand{\etal}{et al.}
+    \def\keywordsname{Key words and phrases}
     }
   }{%
     \addto\extrasrussian{%
