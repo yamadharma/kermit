@@ -1007,6 +1007,7 @@
 %%% Language
 %%%
 \AtBeginDocument{%
+%\AtEndPreamble{%
 \ifx\bbl@main@language\@undefined
 \else
   \InputIfFileExists{kermit/lang/\bbl@main@language.cli}{}{}

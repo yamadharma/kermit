@@ -2,10 +2,8 @@
 %%% Captions
 %%%
 
-\RequirePackage{caption}
 
-\RequirePackage{floatrow}
-\floatsetup[table]{style=Plaintop}
+\RequirePackage{caption}
 
 \captionsetup{font={small}}
 % \captionsetup{textfont={bf}}
@@ -18,3 +16,11 @@
 % \captionsetup[table]{format=tableRight,labelsep=none,position=top}
 \captionsetup[table]{format=gost1.5,labelsep=none,position=top,justification=centering}
 
+%\AtBeginDocument{%
+% \RequirePackage{floatrow}
+\makeatletter
+\@ifpackageloaded{floatrow}{%
+    \floatsetup[table]{style=Plaintop}
+    }{}
+\makeatother
+%}

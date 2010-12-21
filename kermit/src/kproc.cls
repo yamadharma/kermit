@@ -3059,13 +3059,14 @@
   }
   \addtocontents{tac}%
   {{\vspace{8dd}\protect\noindent\protect\raggedright\protect\protect\Large\DivFontShape{#1}%
-     \@par      
+     \@par
       \vspace{4dd}}} 
   \addtocontents{toc}%
   {{\vspace{8dd}\protect\noindent\protect\raggedright\protect\protect\Large\DivFontShape{#2}%
       \@par
       \vspace{4dd}}}
 }
+
 % \newcommand\part{\@ssect           {\z@}%
 %                                    %{-3.5ex \@plus -1ex \@minus -.2ex}%
 %                                    {-2.5ex \@plus -0.5ex \@minus -.2ex}%
