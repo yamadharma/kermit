@@ -111,7 +111,7 @@
 %%% Captions
 %%%
 
-\InputIfFileExists{gost/caption.cli}{}{}
+% \InputIfFileExists{gost/caption.cli}{}{}
 
 %%%
 %%% Theorems
