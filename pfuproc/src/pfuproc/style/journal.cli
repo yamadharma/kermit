@@ -99,14 +99,14 @@
     }
     {%
 %      \begin{otherlanguage*}{\@defaultlanguage}
-    Bulletin of PFUR.~%
+    Bulletin of PFUR.\,%
 %    \hfill
-    \PFUjornalseriesName~\textit{\PFUaltjournalseries}.~%
+    \PFUjornalseriesName\,\textit{\PFUaltjournalseries}.\,%
 %    \hfill
-    \ifx\PFUjournalvolume\@empty\else \V.~\PFUjournalvolume.\fi{}~%
-    \ifx\PFUjournalnumber\@empty\else No~\PFUjournalnumber\fi{}%
-    \ifx\PFUjournalissue\@empty\else~(\PFUjournalissue)\fi{}%
-    .~\PFUjournalyear. Pp.~\pageref{starttitle}--\pageref{endtitle} 
+    \ifx\PFUjournalvolume\@empty\else \V.~\PFUjournalvolume,\fi{}\,%
+    \ifx\PFUjournalnumber\@empty\else No~\PFUjournalnumber,\fi{}%
+    \ifx\PFUjournalissue\@empty\else~(\PFUjournalissue),\fi{}%
+    ~\PFUjournalyear. Pp.\,\pageref{starttitle}--\pageref{endtitle} 
 %      \end{otherlanguage*}
     }
 }
