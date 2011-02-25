@@ -49,7 +49,6 @@
                 [2000/01/01 v0.0.0 
     PhD Thesis Class, Russian Standard]
 % \RequirePackage{cite}
-%\RequirePackage{caption2}
 %%
 
 
@@ -1549,7 +1548,7 @@ Dissertation Committee Chair
 %%% Captions
 %%%
 
-\InputIfFileExists{gost/caption.cli}{}{}
+% \InputIfFileExists{gost/caption.cli}{}{}
 
 %%%
 %%% Theorems
@@ -1560,39 +1559,39 @@ Dissertation Committee Chair
 % ********************************************************
 % * Чтобы при include не начинал новую страницу A.Smolin *
 %
-\def\include#1{\relax
-  \ifnum\@auxout=\@partaux
-    \@latex@error{\string\include\space cannot be nested}\@eha
-  \else \@include#1 \fi}
-\def\@include#1 {%
-%%  \clearpage
-  \if@filesw
-    \immediate\write\@mainaux{\string\@input{#1.aux}}%
-  \fi
-  \@tempswatrue
-  \if@partsw
-    \@tempswafalse
-    \edef\reserved@b{#1}%
-    \@for\reserved@a:=\@partlist\do
-      {\ifx\reserved@a\reserved@b\@tempswatrue\fi}%
-  \fi
-  \if@tempswa
-    \let\@auxout\@partaux
-    \if@filesw
-      \immediate\openout\@partaux #1.aux
-      \immediate\write\@partaux{\relax}%
-    \fi
-    \@input@{#1.tex}%
-%%   \clearpage
-    \@writeckpt{#1}%
-    \if@filesw
-      \immediate\closeout\@partaux
-    \fi
-  \else
-    \@nameuse{cp@#1}%
-  \fi
-  \let\@auxout\@mainaux%
-}%% END OF\def\@include#1 %%
+% \def\include#1{\relax
+%   \ifnum\@auxout=\@partaux
+%     \@latex@error{\string\include\space cannot be nested}\@eha
+%   \else \@include#1 \fi}
+% \def\@include#1 {%
+% %%  \clearpage
+%   \if@filesw
+%     \immediate\write\@mainaux{\string\@input{#1.aux}}%
+%   \fi
+%   \@tempswatrue
+%   \if@partsw
+%     \@tempswafalse
+%     \edef\reserved@b{#1}%
+%     \@for\reserved@a:=\@partlist\do
+%       {\ifx\reserved@a\reserved@b\@tempswatrue\fi}%
+%   \fi
+%   \if@tempswa
+%     \let\@auxout\@partaux
+%     \if@filesw
+%       \immediate\openout\@partaux #1.aux
+%       \immediate\write\@partaux{\relax}%
+%     \fi
+%     \@input@{#1.tex}%
+% %%   \clearpage
+%     \@writeckpt{#1}%
+%     \if@filesw
+%       \immediate\closeout\@partaux
+%     \fi
+%   \else
+%     \@nameuse{cp@#1}%
+%   \fi
+%   \let\@auxout\@mainaux%
+% }%% END OF\def\@include#1 %%
 
 
 % \AtBeginDocument{%
@@ -1677,38 +1676,38 @@ Dissertation Committee Chair
 %\def\@cite#1#2{\printcitestart{#1\if@tempswa , #2\fi}\printcitefinish}
 \def\@cite#1#2{\printcitestart{#1\if@tempswa , #2\fi}\printcitefinish}
 % END of "from latex.ltx"
-\DeclareRobustCommand\batchcite{%
-        \@ifnextchar [{\@tempswatrue\@batchcitex}{\@tempswafalse\@batchcitex[]}
-}%
-\def\@batchcitex[#1]#2{%
-        \let\@batchcitea\@empty
-        \@batchcite{\@for\@batchciteb:=#2\do
-                        {\@batchcitea\def\@batchcitea{~--\penalty\@m\ }%
-                        \edef\@batchciteb{\expandafter\@firstofone\@batchciteb}%
-                        \if@filesw\immediate\write\@auxout{\string\citation{\@batchciteb}}\fi
-                        \@ifundefined{b@\@batchciteb}{\mbox{\reset@font\bfseries ?}%
-                                \G@refundefinedtrue
-                                \@latex@warning
-{Пакетная ссылка `\@batchciteb' на странице \thepage \space неопределна}}%
-                        {\hbox{\csname b@\@batchciteb\endcsname}}}}{#1}}% def
-%\expandafter\let\csname b@*\endcsname\@empty
-\def\@batchcite#1#2{\printcitestart{#1\if@tempswa , #2\fi}\printcitefinish}
+% \DeclareRobustCommand\batchcite{%
+%         \@ifnextchar [{\@tempswatrue\@batchcitex}{\@tempswafalse\@batchcitex[]}
+% }%
+% \def\@batchcitex[#1]#2{%
+%         \let\@batchcitea\@empty
+%         \@batchcite{\@for\@batchciteb:=#2\do
+%                         {\@batchcitea\def\@batchcitea{~--\penalty\@m\ }%
+%                         \edef\@batchciteb{\expandafter\@firstofone\@batchciteb}%
+%                         \if@filesw\immediate\write\@auxout{\string\citation{\@batchciteb}}\fi
+%                         \@ifundefined{b@\@batchciteb}{\mbox{\reset@font\bfseries ?}%
+%                                 \G@refundefinedtrue
+%                                 \@latex@warning
+% {Пакетная ссылка `\@batchciteb' на странице \thepage \space неопределна}}%
+%                         {\hbox{\csname b@\@batchciteb\endcsname}}}}{#1}}% def
+% %\expandafter\let\csname b@*\endcsname\@empty
+% \def\@batchcite#1#2{\printcitestart{#1\if@tempswa , #2\fi}\printcitefinish}
 %%
 %% Неудачная подмена \nocite !!!!
-\DeclareRobustCommand\hiddencite{%
-        \@ifnextchar [{\@tempswatrue\@hiddencitex}{\@tempswafalse\@hiddencitex[]}
-}%
-\def\@hiddencitex[#1]#2{%
-        \let\@hiddencitea\@empty
-        \@hiddencite{\@for\@hiddenciteb:=#2\do{%                        \edef\@hiddenciteb{\expandafter\@firstofone\@hiddenciteb}%
-                        \if@filesw\immediate\write\@auxout{\string\citation{\@hiddenciteb}}\fi
-                        \@ifundefined{b@\@hiddenciteb}{\mbox{\reset@font\bfseries ?}%
-                                \G@refundefinedtrue
-                                \@latex@warning
-{Скрытая ссылка `\@hiddenciteb' на странице \thepage \space неопределна}}%
-                        }}{#1}}
-\expandafter\let\csname b@*\endcsname\@empty
-\def\@hiddencite#1#2{{#1\if@tempswa , #2\fi}}
+% \DeclareRobustCommand\hiddencite{%
+%         \@ifnextchar [{\@tempswatrue\@hiddencitex}{\@tempswafalse\@hiddencitex[]}
+% }%
+% \def\@hiddencitex[#1]#2{%
+%         \let\@hiddencitea\@empty
+%         \@hiddencite{\@for\@hiddenciteb:=#2\do{%                        \edef\@hiddenciteb{\expandafter\@firstofone\@hiddenciteb}%
+%                         \if@filesw\immediate\write\@auxout{\string\citation{\@hiddenciteb}}\fi
+%                         \@ifundefined{b@\@hiddenciteb}{\mbox{\reset@font\bfseries ?}%
+%                                 \G@refundefinedtrue
+%                                 \@latex@warning
+% {Скрытая ссылка `\@hiddenciteb' на странице \thepage \space неопределна}}%
+%                         }}{#1}}
+% \expandafter\let\csname b@*\endcsname\@empty
+% \def\@hiddencite#1#2{{#1\if@tempswa , #2\fi}}
 %% END of "Here I try to make Citation as /1-4/ A.Smolin"
 %%
 
@@ -1721,15 +1720,15 @@ Dissertation Committee Chair
 % Default initializations
 
 %\ps@plain                   % 'plain' page style
-\ps@myheadings               % 'myheadings' page style
-\pagenumbering{arabic}      % Arabic page numbers
-\if@twoside\else\raggedbottom\fi % Ragged bottom unless twoside
-                                 % option.
-\if@twocolumn
- \@@input twocolum.sty\relax
-\else
- \onecolumn                 % Single-column.
-\fi
+% \ps@myheadings               % 'myheadings' page style
+% \pagenumbering{arabic}      % Arabic page numbers
+% \if@twoside\else\raggedbottom\fi % Ragged bottom unless twoside
+%                                  % option.
+% \if@twocolumn
+%  \@@input twocolum.sty\relax
+% \else
+%  \onecolumn                 % Single-column.
+% \fi
 
 
 % % --------------------------------------------------------------------- %

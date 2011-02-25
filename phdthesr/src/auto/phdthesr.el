@@ -14,6 +14,8 @@
      "dedication"
      "acknowledgements")
     (TeX-add-symbols
+     '("sendmonth" 1)
+     '("sendday" 1)
      '("feedbackArefIn" 1)
      '("libraryIn" 1)
      '("thesisIn" 1)
@@ -53,8 +55,6 @@
      "zzz"
      "descriptionmargin"
      "headerFontSize"
-     "batchcite"
-     "hiddencite"
      "ssp"
      "dsp"
      "smallssp"
@@ -99,6 +99,8 @@
      "PHDthesisIn"
      "PHDlibraryIn"
      "PHDfeedbackArefIn"
+     "PHDsendday"
+     "PHDsendmonth"
      "ProcessClassOptionsWithKV"
      "type"
      "SetPFUprocKey"
@@ -126,7 +128,6 @@
      "dblfloatpagefraction"
      "today"
      "theequation"
-     "include"
      "printcitestart"
      "printcitefinish")
     (TeX-run-style-hooks
