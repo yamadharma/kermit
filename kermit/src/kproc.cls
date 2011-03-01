@@ -36,8 +36,12 @@
 \@Elproofingfalse
 %
 
+\providecommand{\authorFontShape}{\bfseries}
+\providecommand{\authorFontSize}{\large}
+
+
 \def\tabular@font{}
-\def\author@font{\large\bfseries}
+\def\author@font{\authorFontSize\authorFontShape}
 \def\@bibliosize{\small}
 \def\@historysize{\small}
 \def\@keywordsize{\small}
@@ -2400,9 +2404,11 @@
 \def\@setaltauthors{%
   \begingroup
   \trivlist
-  \centering \fontsize{10}{12\p@}\selectfont\@topsep12\p@\relax
+%  \centering \fontsize{10}{12\p@}\selectfont\@topsep12\p@\relax
 %%%--
-  \bfseries
+  \centering
+  \author@font
+%  \bfseries
 %%%
   \item\relax
   \andify\altauthors

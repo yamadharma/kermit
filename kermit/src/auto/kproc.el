@@ -42,6 +42,8 @@
      '("uppercasenonmath" 1)
      '("defaultaltlanguage" 1)
      '("defaultlanguage" 1)
+     "authorFontShape"
+     "authorFontSize"
      "linespacing"
      "normalparindent"
      "normaltopskip"

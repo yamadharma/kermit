@@ -51,3 +51,5 @@
 
 % \renewcommand{\paragraphFontShape}{\bfseries}
 
+\renewcommand{\authorFontShape}{\bfseries}
+\renewcommand{\authorFontSize}{\normalfont}

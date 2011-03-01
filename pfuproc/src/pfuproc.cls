@@ -28,7 +28,7 @@
 
 }
 
-\newcommand{\authorFont}{\bf}
+\newcommand{\authorlistFontShape}{\bf}
 
 \newcommand{\pfuproc@bra}{(}
 \newcommand{\pfuproc@ket}{)}
@@ -71,7 +71,7 @@
   % Добавим в macro всё, что есть сейчас
   \g@addto@macro\pfuproc@authorlistentry{%
     \par
-    {\authorFont
+    {\authorlistFontShape
     \pfuproc@authorfull}~--- 
     \ifx\pfuproc@authorrank\@empty
     \else
