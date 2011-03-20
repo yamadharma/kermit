@@ -10,9 +10,9 @@
 
 \LoadClassWithOptions{kproc}
 
-\AtBeginDocument{%
-  \pagestyle{fancy} 
-  \fancyhead{}%
+% \AtBeginDocument{%
+%   \pagestyle{fancy} 
+%   \fancyhead{}%
 %   \fancyhead[LE,RO]{\headerFontSize\thepage}%
 %   \fancyhead[RE]{\leftmark}%
 %   \fancyhead[LO]{%
@@ -29,11 +29,11 @@
 %     }
 
 
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\fancyfoot[RO,LE]{{\small\textrm{\thepage}}}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}
+% \fancyfoot[RO,LE]{{\small\textrm{\thepage}}}
 
-}
+% }
 
 \def\@maketitle@hook@pre{\vspace{2\baselineskip plus \baselineskip
     minus \baselineskip}}
@@ -53,3 +53,4 @@
 
 \renewcommand{\authorFontShape}{\bfseries}
 \renewcommand{\authorFontSize}{\normalfont}
+

@@ -922,6 +922,11 @@
   \gdef\shortsubtitle{#1}\gdef\@subtitle{#2}
 } % END \subtitle
 
+\DeclareRobustCommand{\paperid}[1]{%
+  \def\@paperid{#1}
+}
+\let\@paperid\@empty
+
 
 % \edef\title{\@nx\@dblarg
 %   \@xp\@nx\csname\string\title\endcsname}
@@ -1829,8 +1834,162 @@
 %%%--
 % \let\@udcnum\@empty
 \let\@abstracts\@empty
+\let\@paperid\@empty
 %%%
 } % END \maketitle
+
+\def\maketitleToc{\par
+  \@maketitle@hook@pre
+  \@maketitle@hook
+%%   \clearpage
+% \selectlanguage{\PFUlanguage}
+%%%--
+%     \if@filesw
+%       \makeatletter
+%       \@input{\PFU@auxname.aux}%
+%       \immediate\openout\PFU@aux\PFU@auxname.aux\relax
+%     \fi
+%   \flushbottom
+%   \let\@corresp@note\relax
+  \global\t@glob@notes={}
+%   \global\c@author\z@
+%   \global\c@collab\z@ \global\c@address\z@
+% %   \sv@mathsurround\mathsurround \m@th
+%   \global\n@author=0\n@author@\relax
+%   \global\n@collab=0\n@collab@\relax
+%   \global\advance\n@author\m@ne   % In comparisons later on we need
+%   \global\advance\n@collab\m@ne   % n@author-1 and n@collab-1
+%   \global\@firstauthortrue        % set to false by first \author or \collab
+%   \global\@hasabstractfalse       % Default:  no abstract or keywords
+%   \global\@haskeywordsfalse       % Default:  no abstract or keywords
+%   \global\@prefacefalse           %           not preface
+%%%
+%  \@topnum\z@ % this prevents figures from falling at the top of page 1
+%%   \refstepcounter{title}
+  \label{starttitle}
+  % \@setcopyright
+%  \uppercasenonmath\shorttitle
+%   \ifx\@empty\shortauthors \let\shortauthors\shorttitle
+%   \else \andify\shortauthors 
+%   % \uppercasenonmath\shortauthors 
+%   \fi
+  \altandify\altauthors
+  \andify\authorsrunning
+  \andify\authorstoc
+  \altandify\altauthorstoc
+%  \renewcommand{\leftmark}{\authors}
+  \iflanguage{\@defaultlanguage}
+  {%
+    \addcontentsline{toc}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
+    \addcontentsline{tac}{chapter}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
+  }
+  {%
+    \addtocontents{toc}{\protect\select@language{\@defaultlanguage}}
+    \addcontentsline{toc}{chapter}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
+    \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
+    \addcontentsline{tac}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
+  }
+%   \@mkboth{\@journal}{\authors \@title}
+%  \@mkboth{\andify\altauthors}{\shorttitle}
+%   \toks@\@xp{\authors}
+%   \edef\atoks{\the\toks@}
+%  \renewcommand{\leftmark}{\atoks}
+  \ifnum\c@author>\@ne 
+    \edef\rauthor{\@rauthor{} \etal} 
+  \else \edef\rauthor{\@rauthor} 
+  \fi
+%   \renewcommand{\leftmark}{\rauthor\ \textit{\shorttitle}}
+  \ifx\shorttitle\@empty 
+    \let\shorttitle\@title
+  \fi
+%%   \renewcommand{\leftmark}{\authorsrunning{} {\shorttitle}}
+%  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shorttitle} \hfill}}
+%  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\authorsrunning} \hfill}}
+    \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}
+    \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
+  \begingroup
+  %\if@twocolumn %
+%   \twocolumn[\@maketitle] 
+  % \@maketitle
+  %\fi
+%   \ifx\@runauthor\relax
+%    \global\let\@runauthor\@runningauthor
+%   \fi
+   \global\n@author=\c@author
+%   \global\n@collab=\c@collab 
+  \@writecount
+%  \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
+%   \edef\@tempa{\@nx\markboth{\the\toks@}{\the\@temptokena}}\@tempa
+  \endgroup
+%  \message{1111111}
+%%   \newif\if@twocolumn
+%%   \@twocolumntrue%
+  \if@twocolumn\typeout{2-col}%
+  \else%
+  \typeout{1-col}%
+  \fi%
+  \if@multicolumn\typeout{2-col}%
+  \else%
+  \typeout{1-col}%
+  \fi%
+  \ifthenelse{\boolean{PFUprocMultiColumn}}{\typeout{2-col}}{\typeout{1-col}}
+%  \if@twocolumn%
+%  \twocolumngrid  
+%  \fi
+  \if@multicolumn%
+    \twocolumngrid  
+  \fi
+
+%%
+%   \begingroup
+% %    \def\@makefntext{\noindent}
+% %    \renewcommand{\@makefnmark}{}
+%     \def\@thefnmark{\!\!}
+%     \ifx\@empty\thankses
+%      \else 
+%        \@footnotetext{%
+%          \def\par{\let\par\@par}
+%          \@setthanks
+%        }
+%     \fi
+%   \endgroup
+  \normalsize
+  \@maketitle@hook@post
+%   \begin{multicols*}{2}
+%   \addcontentsline{alt}{alttitle}{\@alttitle}
+%   \addcontentsline{alt}{altauthors}{\altauthors}
+%   \addcontentsline{alt}{altabstracts}{\@altabstracts}
+%  \thispagestyle{firstpage}% this sets first page specifications
+%  \c@footnote\z@
+%  \def\do##1{\let##1\relax}%
+%  \do\maketitle \do\@maketitle \do\title \do\@xtitle \do\@title
+%  \do\author \do\@xauthor \do\address \do\@xaddress
+%  \do\email \do\@xemail \do\curraddr \do\@xcurraddr
+  \do\dedicatory \do\@dedicatory 
+  \do\thanks \do\thankses
+  \do\keywords \do\@keywords 
+  \do\subjclass \do\@subjclass
+%%%
+\let\shortauthors\@empty%   
+\let\authors\@empty%
+\let\authorstoc\@empty%
+%% \let\author\@empty
+\let\addresses\@empty%
+\let\@address\@empty%
+\let\thankses\@empty%
+\let\@keywords\@empty%
+\let\@received\@empty%
+\let\@dedicatory\@empty%
+%%%
+% \let\shortaltauthors\@empty   \let\altauthors\@empty
+% \let\altaddresses\@empty      
+% \let\altthankses\@empty
+%%%--
+% \let\@udcnum\@empty
+\let\@abstracts\@empty
+\let\@paperid\@empty
+%%%
+} % END \maketitleToc
 
 \def\@maketitle@hook@pre{\global\let\@maketitle@hook@pre\@empty}
 \def\@maketitle@hook{\global\let\@maketitle@hook\@empty}
