@@ -862,7 +862,7 @@
   \refstepcounter{PFUtitle}
   \message{*********** \thePFUtitle}
   \refstepcounter{subtitle}
-  \thispagestyle{plain}
+  % \thispagestyle{plain}
   \let\@rauthor\@empty
   \let\authorsrunning\@empty
   \let\altauthorsrunning\@empty
@@ -966,7 +966,11 @@
 %     \@temptokena\@xp{\t@loc@notes}
 %     \edef\@tempc{\the\@temptokena}
      \author@fmt{\the\c@author}{#1}{#2}{}%
+     \@author@hook@post
 }
+
+\def\@author@hook@post{\global\let\@author@hook@post\@empty}
+
 \def\altauthor{\@ifnextchar[{\altauthor@optarg}{\altauthor@optarg[]}}
 \def\altauthor@optarg[#1]#2{\stepcounter{altauthor}%
   \begin{otherlanguage*}{\PFUaltlanguage}
@@ -986,7 +990,10 @@
 %     \edef\@tempc{\the\@temptokena}
      \altauthor@fmt{\the\c@altauthor}{#1}{#2}{}%
    \end{otherlanguage*}
+   \@altauthor@hook@post
 }
+
+\def\@altauthor@hook@post{\global\let\@altauthor@hook@post\@empty}
 
 \def\fauthor{\@ifnextchar[{\fauthor@optarg}{\fauthor@optarg[]}}
 \def\fauthor@optarg[#1]#2{%
@@ -1034,9 +1041,11 @@
   \edef\@tempc{#3}
   \ifx\@tempc\@empty
     \edef\authorinitials{#1}
+    \edef\authorinitialsplain{#1}
     \edef\authorfamily{#2}
   \else
     \def\authorinitials{#1\leavevmode\nobreak\thinspace#2}
+    \edef\authorinitialsplain{#1 #2}
     \def\authorfamily{#3}
   \fi
 }
@@ -1088,8 +1097,8 @@
 %   \def\atoks{\the\toks0}
   \edef\@tempd{#4}
   \ifx\@tempd\@empty
-    \protected@edef\authorFamIn{\authorfamily~\authorinitials}
-    \protected@edef\authorInFam{\authorinitials~\authorfamily}
+    \protected@edef\authorFamIn{\authorfamily\,\authorinitials}
+    \protected@edef\authorInFam{\authorinitials\,\authorfamily}
   \else
      \protected@edef\authorFamIn{\protect\fbox{\authorfamily\,\authorinitials}}
      \protected@edef\authorInFam{\protect\fbox{\authorinitials\,\authorfamily}}

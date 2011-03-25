@@ -270,3 +270,6 @@
 
 %}}}
 
+\def\@maketitle@hook@pre{%
+   \thispagestyle{plain}
+}
