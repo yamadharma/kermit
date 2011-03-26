@@ -197,7 +197,7 @@
      \@abstracts
      \par
 
-     \string\keywordsname: 
+     \string\keywordsname:
      \@keywords%
 
      \string\end{otherlanguage*}
