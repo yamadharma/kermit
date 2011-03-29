@@ -546,13 +546,15 @@
 
 %\def\etal{et al.}
 %\def\PFUudcName{UDC}
-\AtEndPreamble{%
-%\AtBeginDocument{%
+
+\def\keywordsname{Key words and phrases}
+%\AtEndPreamble{%
+\AtBeginDocument{%
 %\AtEndOfClass{%
 %  \providecommand{\etal}{et al.}
 %  \providecommand{\PFUudcName}{UDC}
   \@ifpackageloaded{polyglossia}{%
-    \addto\captionsrussian{%
+    \addto\captionsrussian@modern{%
       \def\PFUudcName{УДК}
       \def\PFUpacsName{PACS}
       % Статья поступила в редакцию
@@ -562,7 +564,7 @@
       \def\PFUpublishedName{Published }%
       \def\etal{и др.}
       % Ключевые слова
-      \def\keywordsname{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
+      \def\keywordsname{Ключевые слова}
     }
     \addto\captionsenglish{%
     \def\PFUudcName{UDC}
@@ -2392,7 +2394,8 @@
 \providecommand{\@makealttitle}%
 {%
   \begingroup
-  \begin{otherlanguage*}{\PFUaltlanguage}
+  % \begin{otherlanguage*}{\PFUaltlanguage}
+  \begin{otherlanguage}{\PFUaltlanguage}
 %   \bigskip
 %   \bigskip
   \samepage
@@ -2452,7 +2455,8 @@
 %     \dimen@34\p@ \advance\dimen@-\baselineskip
 %     \vskip\dimen@\relax
 %   \fi
-  \end{otherlanguage*}
+  %\end{otherlanguage*}
+  \end{otherlanguage}
   \endgroup
   \normalsize
 % \selectlanguage{russian}
@@ -2521,7 +2525,7 @@
   \fi
 }
 % \newcommand{\abstractname}{Abstract}
-\newcommand{\keywordsname}{Key words and phrases}
+% \newcommand{\keywordsname}{Key words and phrases}
 \newcommand{\subjclassname}{\textup{1991} Mathematics Subject
      Classification}
 %\def\@tempb{amsproc}
