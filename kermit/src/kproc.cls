@@ -2394,8 +2394,8 @@
 \providecommand{\@makealttitle}%
 {%
   \begingroup
-  % \begin{otherlanguage*}{\PFUaltlanguage}
-  \begin{otherlanguage}{\PFUaltlanguage}
+  \begin{otherlanguage*}{\PFUaltlanguage}
+  % \begin{otherlanguage}{\PFUaltlanguage}
 %   \bigskip
 %   \bigskip
   \samepage
@@ -2455,8 +2455,8 @@
 %     \dimen@34\p@ \advance\dimen@-\baselineskip
 %     \vskip\dimen@\relax
 %   \fi
-  %\end{otherlanguage*}
-  \end{otherlanguage}
+  \end{otherlanguage*}
+  % \end{otherlanguage}
   \endgroup
   \normalsize
 % \selectlanguage{russian}
