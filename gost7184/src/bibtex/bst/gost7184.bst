@@ -65,6 +65,7 @@ ENTRY
     url
     volume
     year
+    translit
   }
   {}
   { label }
@@ -215,9 +216,21 @@ FUNCTION {end.selectlanguage}
 
 
 FUNCTION {fin.entry}
-{ 
+{
   add.period$
   write$
+%{{{ translit entry
+    translit empty$
+	'skip$
+	{newline$
+	    "\begin{bibtranslit}" write$
+	    newline$
+	    translit write$
+	    newline$
+	    "\end{bibtranslit}" write$
+	}
+    if$
+%}}}
   end.selectlanguage
   newline$
 }
@@ -1808,7 +1821,7 @@ FUNCTION {format.annote}
 %%%---------------------------------------------------------------------
 
 FUNCTION {article}
-{ 
+{
   output.bibitem
   author.before
 %  format.authors "author" output.check
@@ -2535,7 +2548,7 @@ FUNCTION {begin.bib}
   preamble$ empty$
     'skip$
     { preamble$ write$ newline$ }
-  if$  
+  if$
 }
 
 EXECUTE {begin.bib}
