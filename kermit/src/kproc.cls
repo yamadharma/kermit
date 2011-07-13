@@ -861,6 +861,8 @@
 \renewcommand*{\title}[2][]%
 {%
 %%  \def\@biblabel##1{\@ifempty{##1}##1.......}
+  \@title@hook@pre
+  \@title@hook
   \refstepcounter{PFUtitle}
   \message{*********** \thePFUtitle}
   \refstepcounter{subtitle}
@@ -891,7 +893,12 @@
     \immediate\openout\PFU@aux\PFU@auxname.aux\relax
   \fi
   \gdef\shorttitle{#1}\gdef\@title{#2}
+  \@title@hook@post
 } % END \title
+
+\def\@title@hook@pre{\global\let\@title@hook@pre\@empty}
+\def\@title@hook{\global\let\@title@hook\@empty}
+\def\@title@hook@post{\global\let\@title@hook@post\@empty}
 
 
 \providecommand*{\subtitle}[2][]%
