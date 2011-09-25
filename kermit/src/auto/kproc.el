@@ -52,7 +52,7 @@
      "upchars"
      "andify"
      "altandify"
-     "makealttitle"
+     "makealtitle"
      "makealttitleTOCOnly"
      "subjclassname"
      "altabstractname"
