@@ -765,7 +765,7 @@ FUNCTION {format.names}
   { s nameptr
     language "english" = 
       {"{vv~}{ll}{~jj}{~f.}"}
-      {"{vv~}{ll}{~jj}{~ff}"} % we cannot use f. here due to BibTeX limitations... so the user should care himself
+      {"{vv~}{ll}{~jj}{~f.}"} % we cannot use f. here due to BibTeX limitations... so the user should care himself
     if$
     format.name$ 't :=
     nameptr #1 >
