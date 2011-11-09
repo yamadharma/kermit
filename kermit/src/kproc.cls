@@ -857,6 +857,7 @@
 \let\addresses\@empty%
 \let\altaddresses\@empty%
 \let\shorttitle\@empty%
+\let\shortalttitle\@empty%
 
 \renewcommand*{\title}[2][]%
 {%
@@ -3689,7 +3690,7 @@
 \def\theindex{\@restonecoltrue\if@twocolumn\@restonecolfalse\fi
   \columnseprule\z@ \columnsep 35\p@
   \twocolumn[\@xp\section\@xp*\@xp{\indexname}]%
-  \thispagestyle{plain}%
+%  \thispagestyle{plain}%
   \let\item\@idxitem
   \parindent\z@  \parskip\z@\@plus.3\p@\relax
   \footnotesize}
@@ -3844,7 +3845,7 @@
 
 \def\subfigure{\subfloat}
 
-\InputIfFileExists{pfuproc/caption_explane.cli}{}{}%
+% \InputIfFileExists{pfuproc/caption_explane.cli}{}{}%
 
 % \newcounter{table}[title]
 \def\ftype@table{2}
@@ -4016,7 +4017,7 @@ Le-gendre Mar-kov-ian Noe-ther-ian No-vem-ber Rie-mann-ian Sep-tem-ber}
 % \calclayout % initialize
 \pagenumbering{arabic}
 \pagestyle{headings}
-\thispagestyle{plain}
+%\thispagestyle{plain}
 \if@compatibility \else\endinput\fi
 \def\tiny{\Tiny}
 \def\defaultfont{\normalfont}
