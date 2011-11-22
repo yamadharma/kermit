@@ -29,6 +29,14 @@
   \paperid{\currfilebase}
 }
 
+\def\tableofcontents@hook{%
+  \paperid{tableofcontents}
+}
+
+\def\tableofaltcontents@hook{%
+  \paperid{tableofaltcontents}
+}
+
 % \newwrite\trackidFile
 % \immediate\openout\trackidFile=split-track
 

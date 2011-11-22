@@ -3372,6 +3372,7 @@
 % \setcounter{tocdepth}{2}
 
 \renewcommand{\tableofcontents}{%
+  \tableofcontents@hook
 %     \if@twocolumn
 %       \@restonecoltrue\onecolumn
 %     \else
@@ -3388,6 +3389,9 @@
     \raggedbottom\relax
 %    \clearpage
 }
+
+\def\tableofcontents@hook{\global\let\tableofcontents@hook\@empty}
+
 % \newcommand\tableofcontents{%
 %     \if@twocolumn
 %       \@restonecoltrue\onecolumn
@@ -3404,6 +3408,7 @@
 %     }
 %%%--
 \newcommand{\tableofaltcontents}{%
+  \tableofaltcontents@hook
 %     \if@twocolumn
 %       \@restonecoltrue\onecolumn
 %     \else
@@ -3420,6 +3425,8 @@
     \raggedbottom
 %    \clearpage
 }
+
+\def\tableofaltcontents@hook{\global\let\tableofaltcontents@hook\@empty}
 %%%
 %%%
 % \def\tableofcontents{\@starttoc{toc}\contentsname
