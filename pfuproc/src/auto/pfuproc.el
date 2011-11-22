@@ -9,10 +9,10 @@
      '("authordegree" 1)
      '("authorrank" 1)
      '("authorfull" 1)
-     "authorFont"
+     "authorlistFontShape"
      "listofauthors")
     (TeX-run-style-hooks
+     "currfile"
      "kproc10"
-     "kproc"
-     "preamble")))
+     "kproc")))
 

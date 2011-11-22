@@ -10,6 +10,38 @@
 
 \LoadClassWithOptions{kproc}
 
+%{{{ \paperid{}
+
+\RequirePackage{currfile}
+
+\newwrite\paperidFile
+\immediate\openout\paperidFile=split-paper
+
+\renewcommand{\paperid}[1]{
+  \immediate\write\paperidFile{#1 \thepage}
+}
+
+\AtEndDocument{%
+  \immediate\closeout\paperidFile
+}
+
+\def\@maketitle@hook@post{%
+  \paperid{\currfilebase}
+}
+
+% \newwrite\trackidFile
+% \immediate\openout\trackidFile=split-track
+
+% \newcommand{\trackid}[1]{
+%   \immediate\write\trackidFile{#1 \thepage}
+% }
+
+% \AtEndDocument{%
+%   \immediate\closeout\trackidFile
+% }
+
+%}}}
+
 %{{{ List of Authors
 
 \def\listofauthors{%
@@ -17,6 +49,7 @@
   \Huge
   \textsc{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}
   % \textsc{Наши авторы}%
+  \paperid{listofauthors}
 \end{center}%
 
 \normalfont
@@ -273,3 +306,4 @@
 \def\@maketitle@hook@pre{%
    \thispagestyle{plain}
 }
+
