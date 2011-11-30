@@ -26,8 +26,8 @@
     % FUNCTION {bbl.of}
     \def\bblof{of}
     % FUNCTION {bbl.number}
-    \def\bblno{No}
-    \def\bblnofirst{No}
+    \def\bblno{No.}
+    \def\bblnofirst{No.}
     % FUNCTION {bbl.nr}
     % { "\bblno{}" }
     % FUNCTION {bbl.in}

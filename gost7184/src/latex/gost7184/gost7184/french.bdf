@@ -31,7 +31,7 @@
     \def\bblof{de}
     % FUNCTION {bbl.number}
     \def\bblno{\no}
-    \def\bblnofirst{\No}
+    \def\bblnofirst{No.}
     % FUNCTION {bbl.nr}
     % { "\bblno{}" }
     % FUNCTION {bbl.in}
