@@ -135,11 +135,11 @@ FUNCTION {output.nonnull}
     { ", " * write$ }
     { output.state after.block =
         { 
-	  add.period$ write$
+          add.period$ write$
 %          " " quote$ "--- " * *  write$
 %          newline$
 %          "\newblock " write$
-	  "~--- " write$
+          "~--- " write$
         }
         { output.state before.all =
             'write$
@@ -221,14 +221,14 @@ FUNCTION {fin.entry}
   write$
 %{{{ translit entry
     translit empty$
-	'skip$
-	{newline$
-	    "\begin{bibtranslit}" write$
-	    newline$
-	    translit write$
-	    newline$
-	    "\end{bibtranslit}" write$
-	}
+'skip$
+{newline$
+    "\begin{bibtranslit}" write$
+    newline$
+    translit write$
+    newline$
+    "\end{bibtranslit}" write$
+}
     if$
 %}}}
   end.selectlanguage
@@ -780,8 +780,8 @@ FUNCTION {format.names}
           { ", " * t * }
           {
             t "others" =
-	    t "~others" =
-	    or
+            t "~others" =
+            or
               { " " * bbl.etal * }
               { ", " * t * }
             if$
@@ -867,8 +867,8 @@ FUNCTION {format.names.rev}
     { namesleft #0 > }
     { s nameptr
       language "english" =
-	{"{f.}{~vv}{~ll}{, jj}"}
-	{"{ff}{~vv}{~ll}{, jj}"}
+        {"{f.}{~vv}{~ll}{, jj}"}
+        {"{ff}{~vv}{~ll}{, jj}"}
       if$
       format.name$ 't :=
       nameptr #1 >
@@ -1222,13 +1222,13 @@ FUNCTION {output.my}
 %     { ", " * write$ }
     { output.state after.block =
         { 
-	  write$    
-%	  add.period$ write$
+          write$    
+%         add.period$ write$
 %          newline$
 %           "\newblock " write$
 %          "~--- " write$
-	  "}" write$    
-%	  "}{%" write$    	  
+          "}" write$    
+%         "}{%" write$            
         }
         { output.state before.all =
             'write$
@@ -1249,8 +1249,8 @@ FUNCTION {output.bibitem}
 %  { language empty$
 %      'skip$
 %      {"\begin{otherlanguage*}{" write$ 
-%	language * write$
-%	"}" write$ 
+%       language * write$
+%       "}" write$ 
 %      }
 %    if$
 %  } 
@@ -1449,7 +1449,7 @@ FUNCTION {format.pages}
         { bbl.pages pages n.dashify tie.or.space.connect }
 %         { bbl.page pages tie.or.space.connect }
 %       { pages bbl.page tie.or.space.connect }
-        { bbl.page pages tie.or.space.connect }	
+        { bbl.page pages tie.or.space.connect } 
       if$
     }
   if$
@@ -1498,7 +1498,7 @@ FUNCTION {format.journal.pages}
     { duplicate$ empty$
         { pop$ format.pages }
         {
-%%	  ", " *
+%%        ", " *
           ".~--- " *
           pages multi.page.check
            { bbl.pages }
@@ -1869,13 +1869,13 @@ FUNCTION {book}
 %   author empty$
 %     {"~/~" format.authors.resp "author" output.check}
 %     {""}
-%   if$	
+%   if$ 
   new.slash
   author.after
   editor.organization.after  
   crossref missing$
     { 
-      new.sentence	
+      new.sentence      
       format.number.series output  
       new.block
       format.edition output
@@ -1985,38 +1985,65 @@ FUNCTION {inbook}
 %}
 
 
+% FUNCTION {incollection}
+% { output.bibitem
+%     author.before
+% %  format.authors "author" output.check
+%   format.date "year" output.check
+%   date.block
+%   format.title "title" output.check
+%   new.slash
+%   author.after
+%   new.block
+%   crossref missing$
+%     { 
+%       format.in.ed.booktitle "booktitle" output.check
+%       format.bvolume output
+%       format.number.series output
+%       format.edition output
+%       format.chapter.pages output
+%       new.sentence
+%       format.publisher.address output
+%       format.isbn output
+%     }
+%     { format.incoll.inproc.crossref output.nonnull
+%       format.chapter.pages output
+%     }
+%   if$
+%   format.pages "pages" output.check
+%   new.block
+%   format.url output
+%   new.block
+%   format.note output
+%   fin.entry
+% }
+
 FUNCTION {incollection}
 { output.bibitem
-    author.before
-%  format.authors "author" output.check
-  format.date "year" output.check
-  date.block
+  author.before
+  new.sentence
   format.title "title" output.check
   new.slash
   author.after
+  new.dblslash
+  booktitle "booktitle" output.check
+  new.slash
+  editor.organization.after
   new.block
-  crossref missing$
-    { 
-      format.in.ed.booktitle "booktitle" output.check
-      format.bvolume output
-      format.number.series output
-      format.edition output
-      format.chapter.pages output
-      new.sentence
-      format.publisher.address output
-      format.isbn output
-    }
-    { format.incoll.inproc.crossref output.nonnull
-      format.chapter.pages output
-    }
-  if$
-  format.pages "pages" output.check
+  output.address.publisher.date
   new.block
+  format.bvolume output
+  format.number.series output
+  new.block
+  format.pages.page output
+  new.block
+  note output
+  new.sentence
   format.url output
-  new.block
-  format.note output
+  format.annote output
   fin.entry
 }
+
 
 %FUNCTION {inproceedings}
 %{ 
