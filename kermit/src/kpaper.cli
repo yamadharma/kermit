@@ -1,10 +1,10 @@
-\NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesPackage{kpaper}
-              [2007/11/29 v0.0.1
-    Paper Sizes Package]
+%\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+%\ProvidesPackage{kpaper}
+%              [2007/11/29 v0.0.1
+%    Paper Sizes Package]
 %%
-\RequirePackage{xkeyval}
-%\RequirePackage[a4paper]{geometry}
+%\RequirePackage{xkeyval}
+%\RequirePackage{geometry}
 %%
 %% begin Options
 %%
@@ -69,12 +69,12 @@
 
 %%
 
-\let\KermitKeyMedia\@empty
-\let\KermitKeyPaper\@empty
+%\let\KermitKeyMedia\@empty
+%\let\KermitKeyPaper\@empty
 
-\DeclareOptionX{media}[a4paper]{\def\KermitKeyMedia{#1}}
+%\DeclareOptionX{media}[a4paper]{\def\KermitKeyMedia{#1}}
 
-\DeclareOptionX{paper}[a4paper]{\def\KermitKeyPaper{#1}}
+%\DeclareOptionX{paper}[a4paper]{\def\KermitKeyPaper{#1}}
 
 %% GOST 5773-90
 
@@ -236,6 +236,7 @@
 }
 
 %% paper: 145x215 mm
+%% 60x90/16
 \DeclareOption{60x90/16}
 {%
     \setlength \paperheight {215mm}%
@@ -245,16 +246,16 @@
 
 %%
 \DeclareOption{landscape}
-{ 
+{
     \setlength\@tempdima   {\paperheight}%
     \setlength\paperheight {\paperwidth}%
     \setlength\paperwidth  {\@tempdima}
 }
 
 %%
-\ExecuteOptions{a4paper}
+%\ExecuteOptions{a4paper}
 
-\ProcessOptionsX*
+%\ProcessOptionsX*
 \ProcessOptions
 %%
 %% end Options

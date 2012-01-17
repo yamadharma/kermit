@@ -3,8 +3,10 @@
               [2008/01/08 v0.0.0.2
     Non Standard LaTeX document class]
 %% load packages
-\RequirePackage{kpaper}
+%\RequirePackage{kpaper}
+\RequirePackage[a4paper]{geometry}
 \RequirePackage{calc}
+%\InputIfFileExists{kermit/kpaper.cli}{}{}
 %% declarations
 \newcounter{tempCntA}
 \newcounter{tempCntB}
@@ -95,7 +97,8 @@
    {\setlength\paperheight {420mm}%
     \setlength\paperwidth  {297mm}}
 \DeclareOption{a4paper}
-   {\setlength\paperheight {297mm}%
+   {\geometry{a4paper}
+     \setlength\paperheight {297mm}%
     \setlength\paperwidth  {210mm}}
 \DeclareOption{a5paper}
    {\setlength\paperheight {210mm}%
@@ -140,6 +143,53 @@
 \DeclareOption{imperial}
     {\setlength\paperheight{279mm}%
     \setlength\paperwidth{191mm}}
+
+%% paper: 145x200 mm
+%% text: 112x175
+\DeclareOption{60x84/16}
+{%
+  \geometry{papersize={145mm,200mm}}
+  \geometry{total={112mm,175mm}}
+
+    % \setlength \paperheight{200mm}%
+    % \setlength \paperwidth {145mm}
+    % %% + 1 in
+    % \setlength{\hoffset}{-5mm}
+    % \setlength{\textwidth}{145mm}
+%    \geometry{heightrounded}
+% \geometry{includeheadfoot}
+%    \geometry{includefoot}
+% \geometry{twoside}
+%    \geometry{papersize={145mm,200mm}}
+%% \geometry{hmargin={11mm,17mm},vmargin={11mm,19mm}}
+%    \geometry{total={112mm,175mm}}
+%    \geometry{marginparwidth=0pt,marginparsep=0pt}
+%\geometry{twosideshift=0pt}
+%    \geometry{headheight=0pt}
+%    \geometry{headsep=0pt}
+%  \geometry{footskip=2mm}
+}
+
+%% paper: 145x215 mm
+%% 60x90/16
+\DeclareOption{60x90/16}
+{%
+  % \geometry{reset}
+  \geometry{papersize={145mm,215mm}}
+  \geometry{total={112mm,200mm}}
+
+  % \setlength{\paperheight}{215mm}%
+  % \setlength{\paperwidth}{145mm}
+  
+  % \setlength{\textheight}{215mm}
+  % \setlength{\textwidth}{112mm}
+  
+  % \addtolength{\topmargin}{-1in}
+  % \geometry{includehead}
+  % \geometry{includeheadfoot}
+  % \geometry{includefoot}
+
+}
 
 %}}}
 
@@ -186,8 +236,9 @@
 %% end Options
 %%
 %% \RequirePackage{fixltx2e}
-\RequirePackage{geometry}
 \RequirePackage{relsize}
+% \RequirePackage{geometry}
+% \geometry{heightrounded}
 %\RequirePackage{array}
 %\setlength{\extrarowheight}{1ex}
 

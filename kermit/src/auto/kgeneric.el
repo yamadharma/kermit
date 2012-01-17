@@ -94,11 +94,11 @@
     (TeX-run-style-hooks
      "fancyhdr"
      "relsize"
-     "geometry"
      "keyval"
      "ifthen"
      "calc"
-     "kpaper"
+     "geometry"
+     "a4paper"
      "leqno"
      "fleqn")))
 

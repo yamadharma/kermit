@@ -6,7 +6,7 @@
     Method Book Class, Russian Standard]
 %%
 
-\ExecuteOptions{a4paper,10dd,twoside,onecolumn,final,openany}
+\ExecuteOptions{a5paper,10pt,twoside,onecolumn,final,openany}
 \ProcessOptions*\relax
 
 \LoadClassWithOptions{kgeneric}
@@ -34,13 +34,13 @@
 % FIXME Должно зависить от языка
 \AtBeginDocument{%
 \@ifpackageloaded{polyglossia}{}{%
-	\renewcommand\appendixnum{\@Asbuk\c@chapter}
+        \renewcommand\appendixnum{\@Asbuk\c@chapter}
 }
 }
 
 %\AtBeginDocument{%
 %    \addto\captionsrussian{%
-%	\def\chaptername{}%
+%       \def\chaptername{}%
 %    }
 %}
 
@@ -73,17 +73,17 @@
 \renewcommand{\chaptermark}[1]{%
     \settowidth{\sectionmarkWidth}{\thesection. #1}%
     \ifthenelse{\lengthtest{\sectionmarkWidth < \PFUmarkWidth}}{%
-	\markboth{\chaptertitlename\ \thechapter. #1}{\chaptertitlename\ \thechapter. #1}
+        \markboth{\chaptertitlename\ \thechapter. #1}{\chaptertitlename\ \thechapter. #1}
     }{%
-	\markboth{\truncate{0.8\textwidth}{\hfill\chaptertitlename\ \thechapter. #1\hfill}}{\truncate{0.8\textwidth}{\hfill\chaptertitlename\ \thechapter. #1\hfill}}
+        \markboth{\truncate{0.8\textwidth}{\hfill\chaptertitlename\ \thechapter. #1\hfill}}{\truncate{0.8\textwidth}{\hfill\chaptertitlename\ \thechapter. #1\hfill}}
     }
 }
 \renewcommand{\sectionmark}[1]{%
     \settowidth{\sectionmarkWidth}{\thesection. #1}%
     \ifthenelse{\lengthtest{\sectionmarkWidth < \PFUmarkWidth}}{%
-	\markright{\thesection. #1}%
-    }{%	
-	\markright{\truncate{0.8\textwidth}{\hfill\thesection. #1\hfill}}%
+        \markright{\thesection. #1}%
+    }{% 
+        \markright{\truncate{0.8\textwidth}{\hfill\thesection. #1\hfill}}%
     }
 }
 
@@ -98,7 +98,7 @@
 {}%
 {\titlerule*[1pc]{.}\contentspage}
 
-\titlecontents{section}[1pc]%
+\titlecontents{section}[0pt]%
 {}%
 {\thecontentslabel.\quad}%
 {..}%
@@ -176,6 +176,14 @@
 %%%
 %%%
 %%%
+
+\geometry{includehead}
+% \geometry{includeheadfoot}
+% \geometry{includefoot}
+% \geometry{twoside}
+\geometry{nofoot}
+\geometry{bindingoffset=0pt}
+\geometry{marginparwidth=0pt,marginparsep=0pt}
 
 %\AtEndOfClass%
 %{
