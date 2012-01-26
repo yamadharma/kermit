@@ -2424,6 +2424,7 @@
   \nobreak%
   \@setalttitle%
   \nobreak%
+  \smallskip
   \ifx\@empty\altauthors \else \@setaltauthors \fi
 %%%--
   \nobreak%
