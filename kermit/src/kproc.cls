@@ -932,11 +932,6 @@
   \gdef\shortsubtitle{#1}\gdef\@subtitle{#2}
 } % END \subtitle
 
-\DeclareRobustCommand{\paperid}[1]{%
-  \def\@paperid{#1}
-}
-\let\@paperid\@empty
-
 
 % \edef\title{\@nx\@dblarg
 %   \@xp\@nx\csname\string\title\endcsname}

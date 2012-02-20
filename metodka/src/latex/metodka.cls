@@ -201,3 +201,28 @@
 %  \geometry{footskip=2mm}
 %}
 
+%{{{ \paperid{}
+
+\newwrite\paperidFile
+\immediate\openout\paperidFile=split-paper
+
+\renewcommand{\paperid}[1]{
+  \immediate\write\paperidFile{#1 \thepage}
+}
+
+\AtEndDocument{%
+  \immediate\closeout\paperidFile
+}
+
+% \newwrite\trackidFile
+% \immediate\openout\trackidFile=split-track
+
+% \newcommand{\trackid}[1]{
+%   \immediate\write\trackidFile{#1 \thepage}
+% }
+
+% \AtEndDocument{%
+%   \immediate\closeout\trackidFile
+% }
+
+%}}}

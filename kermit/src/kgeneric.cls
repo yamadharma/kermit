@@ -324,6 +324,12 @@
     \setlength{\textheight}{\baselineinterval * \thetempCntC + \topskip}
 }
 %%
+
+\DeclareRobustCommand{\paperid}[1]{%
+  \def\@paperid{#1}
+}
+\let\@paperid\@empty
+
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
 \renewcommand\baselinestretch{}

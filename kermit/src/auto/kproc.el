@@ -39,7 +39,6 @@
      '("received" 1)
      '("pacs" 1)
      '("udc" 1)
-     '("paperid" 1)
      '("uppercasenonmath" 1)
      '("defaultaltlanguage" 1)
      '("defaultlanguage" 1)

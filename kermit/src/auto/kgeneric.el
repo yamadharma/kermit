@@ -14,6 +14,7 @@
     (TeX-add-symbols
      '("descriptionlabel" 1)
      '("chaptermark" 1)
+     '("paperid" 1)
      "set"
      "part"
      "chapter"
