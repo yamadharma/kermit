@@ -83,11 +83,11 @@
 }
 {
   \theoremstyle{definition}
-  % FIXME: dirty hack    
-  \theorembodyfont{\normalfont}  
-  \def\DefName{Def}
+  % FIXME: dirty hack
+  \theorembodyfont{\normalfont}
+  \def\DefName{Definition}
   \newtheorem{Def}{\DefName}
-  % FIXME: dirty hack    
+  % FIXME: dirty hack
   \renewtheorem*{Def*}{\DefName}
 %  \@addtoreset{Def}{title}
 }
