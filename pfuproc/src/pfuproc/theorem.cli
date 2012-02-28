@@ -79,7 +79,7 @@
 % }
 {
    \theoremstyle{definition}
-   \def\DefName{Def}
+   \def\DefName{Definition}
    \newtheorem{definition}{\DefName}
    \renewtheorem*{definition*}{\DefName}
    \@addtoreset{definition}{PFUtitle}
