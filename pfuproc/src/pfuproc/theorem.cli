@@ -127,7 +127,7 @@
     \def\LemmaName{Lemma}
     \def\ConsName{Cons}
     \def\RemarkName{Remark}
-    \def\DefName{Def}
+    \def\DefName{Definition}
     \def\PropositionName{Proposition}
     \def\StatementName{Statement}
     \def\ExampleName{Example}

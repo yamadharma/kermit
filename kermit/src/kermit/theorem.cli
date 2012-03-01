@@ -162,7 +162,7 @@
     \def\ConsName{Cons}
     \def\CorollaryName{Corollary}
     \def\RemarkName{Remark}
-    \def\DefName{Def}
+    \def\DefName{Definition}
     \def\PropositionName{Proposition}
     \def\StatementName{Statement}
     \def\ExampleName{Example}
