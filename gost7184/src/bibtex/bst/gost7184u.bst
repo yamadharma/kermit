@@ -2227,7 +2227,7 @@ FUNCTION {misc}
 
 
 FUNCTION {phdthesis}
-{ 
+{
   output.bibitem
   format.authors "author" output.check
   new.sentence
@@ -2246,6 +2246,7 @@ FUNCTION {phdthesis}
   format.note output
   fin.entry
 }
+
 
 %FUNCTION {phdthesis}
 %{ output.bibitem
