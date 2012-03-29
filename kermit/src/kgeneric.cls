@@ -1054,7 +1054,9 @@
 \providecommand{\subparagraphFontSize}{\normalsize}
 \providecommand{\subparagraphPosition}{}
 %%
-
+\providecommand{\contentsnameFontShape}{\DivFontShape}
+\providecommand{\contentsnameFontSize}{\Large}
+\providecommand{\contentsnamePosition}{\flushleft}
 %%%
 %%%
 %%%

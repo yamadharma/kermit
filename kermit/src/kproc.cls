@@ -39,7 +39,6 @@
 \providecommand{\authorFontShape}{\bfseries}
 \providecommand{\authorFontSize}{\large}
 
-
 \def\tabular@font{}
 \def\author@font{\authorFontSize\authorFontShape}
 \def\@bibliosize{\small}
@@ -3375,9 +3374,9 @@
 %       \@restonecolfalse
 %     \fi
 %    \section*{\flushleft\textbf{\contentsname}}
-    {\flushleft\textbf{\contentsname}%
+    {\contentsnamePosition\contentsnameFontShape\contentsnameFontSize\contentsname}%
     \par\nobreak%
-    \vskip 1ex \@plus -1ex \@minus -.2ex}%
+    \vskip 1ex \@plus -1ex \@minus -.2ex%
 %         \@mkboth{%
 %            \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
     \@starttoc{toc}%
