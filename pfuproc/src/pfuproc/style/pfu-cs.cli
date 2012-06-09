@@ -17,7 +17,7 @@
   \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber.\,\fi{}%
   \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\,\fi{}%
   \PFUjournalyear.\,% 
-  \cyrs.\,\pageref{starttitle}--\pageref{endtitle} 
+  \cyrs.\,\pageref{starttitle}--\pageref{endtitle}
 }
 
 %%% Local Variables: 

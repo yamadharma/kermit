@@ -24,7 +24,7 @@
 %  \scshape \PFUjournal,\,%
 %  \PFUjornalseriesName\,\textit{\PFUjournalseries}.\,%
 %  \CYRT.\,\PFUjournalvolume,\,\No\,\PFUjournalnumber.\,\PFUjournalyear.\,%
-%  \cyrs.\,\pageref{starttitle}--\pageref{endtitle} 
+%  \cyrs.\,\pageref{starttitle}--\pageref{endtitle}
 %}
 
 \PassOptionsToClass{10dd,twoside,final,singlespace}{kgeneric}
