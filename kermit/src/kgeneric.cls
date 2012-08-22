@@ -101,7 +101,8 @@
      \setlength\paperheight {297mm}%
     \setlength\paperwidth  {210mm}}
 \DeclareOption{a5paper}
-   {\setlength\paperheight {210mm}%
+   {\geometry{a5paper}
+   \setlength\paperheight {210mm}%
     \setlength\paperwidth  {148mm}}
 \DeclareOption{b5paper}
    {\setlength\paperheight {250mm}%

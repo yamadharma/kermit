@@ -532,6 +532,7 @@
 %%
 %%
 \LoadClass{kgeneric}
+%\LoadClassWithOptions{kgeneric}
 %%
 
 
