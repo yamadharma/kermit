@@ -155,7 +155,7 @@
     \begin{tabular*}{\textwidth}{p{0.6\linewidth}p{0.3\linewidth}}
       %% Научный руководитель:
       \textbf{\PHDchiefDescr :} & \\%[14pt]
-      \PHDchiefdegree & \PHDchief \\
+      \parbox{\linewidth}{\PHDchiefdegree} & \parbox{\linewidth}{\PHDchief} \\
       & \\
       %% Официальные оппоненты
       \textbf{\PHDopponentsDescr :} &  \\%[14pt]
