@@ -16,16 +16,20 @@
     \def\PHDright{\cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri}
     \def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
       \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
-    \def\PHDopponentsDescr{Официальные оппоненты}
-    \def\PHDleadorgDescr{Ведущая организация}
-    \def\PHDsecracDescr{Учёный секретарь \\ диссертационного совета}
+    % Официальные оппоненты
+    \def\PHDopponentsDescr{\CYRO\cyrf\cyri\cyrc\cyri\cyra\cyrl\cyrsftsn\cyrn\cyrery\cyre{} \cyro\cyrp\cyrp\cyro\cyrn\cyre\cyrn\cyrt\cyrery{}}
+    % Ведущая организация
+    \def\PHDleadorgDescr{\CYRV\cyre\cyrd\cyru\cyrshch\cyra\cyrya{} \cyro\cyrr\cyrg\cyra\cyrn\cyri\cyrz\cyra\cyrc\cyri\cyrya{}}
+    % Учёный секретарь \\ диссертационного совета
+    \def\PHDsecracDescr{\CYRU\cyrch\cyryo\cyrn\cyrery\cyrishrt{} \cyrs\cyre\cyrk\cyrr\cyre\cyrt\cyra\cyrr\cyrsftsn{} \\ \cyrd\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyro\cyrn\cyrn\cyro\cyrg\cyro{} \cyrs\cyro\cyrv\cyre\cyrt\cyra{}}
+    % Специальность
     \def\PHDdisciplineDescr{{\CYRS}{\cyrp}{\cyre}{\cyrc}{\cyri}{\cyra}{\cyrl}{\cyrsftsn}{\cyrn}{\cyro}{\cyrs}{\cyrt}{\cyrsftsn}}
   }
 }
 
 %\AtBeginDocument{%
 %%    \pagestyle{plain}
-%    \pagestyle{fancy} 
+%    \pagestyle{fancy}
 %    \fancyhead{}%
 %    \fancyfoot{}%
 %%    \fancyhead[C]{\headerFontSize\thepage}%
@@ -77,7 +81,7 @@
     \let\footnoterule\relax
     \thispagestyle{empty}
     \setcounter{page}{1}
-    
+
     \mbox{}
     \medskip
 
@@ -85,7 +89,7 @@
         %% На правах рукописи
         {\bfseries \PHDright \par}
     \end{flushright}
-   
+
     \vspace{3cm}
 
     \begin{center}
@@ -105,7 +109,7 @@
         % \medskip%
         {\bfseries {\PHDfield}} \par                    % Специальность
         \fi
-        
+
         \vspace{6ex}
 
         {\PHDthesistype} \par
@@ -148,16 +152,16 @@
   \bigskip
 
   \begin{flushleft}
-    \begin{tabular*}{\textwidth}{ll}
+    \begin{tabular*}{\textwidth}{p{0.6\linewidth}p{0.3\linewidth}}
       %% Научный руководитель:
       \textbf{\PHDchiefDescr :} & \\%[14pt]
       \PHDchiefdegree & \PHDchief \\
       & \\
       %% Официальные оппоненты
       \textbf{\PHDopponentsDescr :} &  \\%[14pt]
-      \PHDoppidegree & \PHDoppi \\
+      \parbox{\linewidth}{\PHDoppidegree} & \parbox{\linewidth}{\PHDoppi} \\
       & \\
-      \PHDoppiidegree & \PHDoppii \\
+      \parbox{\linewidth}{\PHDoppiidegree} & \parbox{\linewidth}{\PHDoppii} \\
       & \\
       %% Ведущая организация
       \textbf{\PHDleadorgDescr :} &  \\%[14pt]
@@ -199,7 +203,7 @@
   %\bigskip
 
   \noindent
-  \ifx\PHDfeedbackArefIn\empty 
+  \ifx\PHDfeedbackArefIn\empty
   Отзывы на автореферат, заверенные гербовой печатью организации,
   просьба направлять по указанному адресу в двух экземплярах не
   позднее, чем за две недели до защиты.
