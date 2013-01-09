@@ -28,6 +28,7 @@
 
 %% FEXME need move to kermit bundle
 
+\providecommand{\partaftersnum}{}
 \providecommand{\chapaftersnum}{.}
 \providecommand{\secaftersnum}{.}
 
@@ -45,6 +46,20 @@
 %}
 
 \RequirePackage{titlesec}
+
+\titleformat{\part}[display]
+   {\thispagestyle{empty}\normalfont\partFontSize\partFontShape\filcenter}
+   {\partname{}\space\thepart\partaftersnum}
+   {0em}
+   {\hrule}
+
+\let\titlesec@part\part
+\renewcommand{\part}{\@ifstar\part@star\part@nostar}
+\def\part@star#1{\NR@gettitle{#1}\titlesec@part*{#1}}
+\def\part@nostar{\@ifnextchar[\part@nostar@opt\part@nostar@nopt}
+\def\part@nostar@nopt#1{\NR@gettitle{#1}\titlesec@part{#1}}
+\def\part@nostar@opt[#1]#2{\NR@gettitle{#2}\titlesec@part[#1]{#2}}
+
 
 \titleformat{\chapter}[block]%
     {\raggedright\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
