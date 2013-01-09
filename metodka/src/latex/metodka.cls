@@ -113,10 +113,16 @@
 {}%
 {\titlerule*[1pc]{.}\contentspage}
 
+%\titlecontents{section}[0pt]%
+%{}%
+%{\thecontentslabel.\quad}%
+%{..}%
+%{\titlerule*[1pc]{.}\contentspage}
+
 \titlecontents{section}[0pt]%
 {}%
 {\thecontentslabel.\quad}%
-{..}%
+{}%
 {\titlerule*[1pc]{.}\contentspage}
 
 
