@@ -111,9 +111,8 @@
   \fi
   % Добавим в macro всё, что есть сейчас
   \g@addto@macro\pfuproc@authorlistentry{%
-    \par
     {\authorlistFontShape
-    \pfuproc@authorfull}~--- 
+    \pfuproc@authorfull}~---
     \ifx\pfuproc@authorrank\@empty
     \else
     \pfuproc@authorrank,
@@ -138,7 +137,7 @@
     \pfuproc@ket%
   }
 
-  \addtocontents{loa}{\pfuproc@authorlistentry}
+  \addtocontents{loa}{\pfuproc@authorlistentry\newline}
 }
 
 \newcounter{c@pfuproc@authorlist}
@@ -224,7 +223,7 @@
        {\PFUlanguage}
 
      \ifx\@udcnum\empty \else
-     \string\PFUudcName{} 
+     \string\PFUudcName{}
      \@udcnum \par \fi
 
      % Authors
