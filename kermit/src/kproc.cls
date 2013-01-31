@@ -3240,11 +3240,11 @@
   }
   \addtocontents{tac}%
   {{\vspace{8dd}\protect\noindent\protect\raggedright\protect\protect\Large\DivFontShape{#1}%
-     \@par
-      \vspace{4dd}}} 
+      \@par%
+      \vspace{4dd}}}
   \addtocontents{toc}%
   {{\vspace{8dd}\protect\noindent\protect\raggedright\protect\protect\Large\DivFontShape{#2}%
-      \@par
+      \@par%
       \vspace{4dd}}}
 }
 
@@ -3843,9 +3843,8 @@
 %%% Subfigures
 %%%
 
-\RequirePackage{subfig}
-
-\def\subfigure{\subfloat}
+%\RequirePackage{subfig}
+%\def\subfigure{\subfloat}
 
 % \InputIfFileExists{pfuproc/caption_explane.cli}{}{}%
 
