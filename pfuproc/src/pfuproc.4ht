@@ -1,0 +1,173 @@
+\immediate\write-1{version 2013-02-01-00:00}
+
+\edef\@ptsize{\ifdim \normalbaselineskip>14pt 2\else
+   \ifdim \normalbaselineskip>13pt 2\else 0\fi\fi}
+
+\Configure{UndefinedSec}{likepart}
+\Configure{UndefinedSec}{likechapter}
+\Configure{UndefinedSec}{likesection}
+\Configure{UndefinedSec}{likesubsection}
+
+\def\tableofcontents{%
+   \ifx\contentsname\empty \else
+      %
+\chapter*{\contentsname}%
+      %
+%
+   \fi
+   \:tableofcontents}
+
+\let\:tempb\chapter
+\Def:Section\chapter{\thechapter}{#1}
+\let\:chapter\chapter
+\let\chapter\:tempb
+\def\@makechapterhead#1{}
+\let\no@chapter\@chapter
+\def\@chapter[#1]#2{%
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+   {\SkipRefstepAnchor \let\addcontentsline\:gobbleIII\no@chapter[#1]{}}%
+   \HtmlEnv   \Toc:Title{#1}\:chapter{#2}}
+\Def:Section\likechapter{}{#1}
+\let\:likechapter\likechapter
+\let\likechapter\:UnDef
+\let\no@schapter\@schapter
+\def\@schapter#1{%
+   \gdef\sch:ttl{#1}%
+%
+   {\let\addcontentsline\:gobbleIII\no@schapter{}}%
+   \HtmlEnv   \:likechapter{#1}}
+\let\no@appendix\appendix
+\Def:Section\appendix{\thechapter}{#1}
+\let\:appendix\appendix
+\def\appendix{%
+   \def\@chapter[##1]##2{%
+      \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+      {\def\addcontentsline####1####2####3{}\no@chapter[##1]{}}%
+      \HtmlEnv \Toc:Title{##1}\:appendix{##2}}%
+   \no@appendix}
+
+
+\edef\:TOC{%
+   \noexpand\ifx [\noexpand\:temp
+      \noexpand\expandafter\noexpand\:TableOfContents
+   \noexpand\else
+      \noexpand\Auto:ent{\ifnum \c@tocdepth >-2 part,\fi
+\expandafter\ifx \csname @chapter\endcsname\relax
+   \ifnum \c@tocdepth >\z@  section,\fi
+\else
+   \ifnum \c@tocdepth >\m@ne chapter,appendix,\fi
+   \ifnum \z@>\c@tocdepth\else section,\fi
+   \ifnum 1>\c@tocdepth \else subsection,\fi
+\fi
+\ifnum 2>\c@tocdepth \else subsection,\fi
+\ifnum 3>\c@tocdepth \else subsubsection,\fi
+\ifnum 4>\c@tocdepth \else paragraph,\fi
+\ifnum 5>\c@tocdepth \else subparagraph,\fi
+UnDFexyz}%
+   \noexpand\fi}
+\def\:tableofcontents{\futurelet\:temp\:TOC}
+\def\Auto:ent#1{%
+   \edef\auto:toc{\noexpand\:TableOfContents[\ifx \auto:toc\:UnDef
+      #1\else \auto:toc \fi]}  \auto:toc
+   \global\let\auto:toc\:UnDef }
+
+\def\:tocs{\noexpand\:tableofcontents}
+\pend:defIII\addcontentsline{%
+   \def\:temp{##1}\def\:tempa{toc}\ifx \:temp\:tempa
+   \gHAdvance\TitleCount  1 \fi }
+\def\@dottedtocline#1#2#3#4#5{\hbox{\def\numberline##1{\e:listof
+                ##1\f:listof}\c:listof#4\d:listof}\ignorespaces}
+\def\@starttoc#1{%
+  \begingroup
+    \makeatletter   \Configure{cite}{}{}{}{}%
+    \def\:temp{#1}\def\:tempa{toc}%
+    \a:listof\par
+    \@input{\jobname.\ifx \:temp\:tempa 4ct\else #1\fi}%
+    \b:listof
+    \if@filesw
+      \expandafter\expandafter\csname
+          newwrite\endcsname\csname tf@#1\endcsname
+      \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax
+    \fi
+    \global\@nobreakfalse
+  \endgroup}
+
+
+
+\NewConfigure{tableofcontents*}[1]{%
+   \def\:tempa{#1}\ifx\empty\:tempa
+      \ifx \au:StartSec\:UnDef \else \gdef\:StartSec{\au:StartSec}\fi
+   \else
+      \edef\auto:toc{#1}%
+         \ifx \au:StartSec\:UnDef
+            \let\au:StartSec\:StartSec
+            \def\:StartSec{\:tableofcontents
+               \global\let\auto:toc\:UnDef \:StartSec}%
+            \pend:def\:tableofcontents{\gdef\:StartSec{\au:StartSec}}%
+   \fi  \fi
+}
+
+%%
+
+\let\:tempc\listoffigures
+\pend:def\:tempc{\begingroup \a:listoffigures
+   \def\@starttoc{\:tableofcontents[lof]\:gobble}}
+\append:def\:tempc{\b:listoffigures \endgroup}
+\HLet\listoffigures\:tempc
+\NewConfigure{listoffigures}{2}
+
+\let\:tempc\listoftables
+\pend:def\:tempc{\begingroup \a:listoftables
+   \def\@starttoc{\:tableofcontents[lot]\:gobble}}
+\append:def\:tempc{\b:listoftables \endgroup}
+\HLet\listoftables\:tempc
+\NewConfigure{listoftables}{2}
+
+\let\:tempc\tableofaltcontents
+\pend:def\:tempc{\begingroup \a:tableofaltcontents
+   \def\@starttoc{\:tableofcontents[tac]\:gobble}}
+\append:def\:tempc{\b:tableofaltcontents \endgroup}
+\HLet\tableofaltcontents\:tempc
+\NewConfigure{tableofaltcontents}{2}
+
+\let\:tempc\listofauthors
+\pend:def\:tempc{\begingroup \a:listofauthors
+   \def\@starttoc{\:tableofcontents[loa]\:gobble}}
+\append:def\:tempc{\b:listofauthors \endgroup}
+\HLet\listofauthors\:tempc
+\NewConfigure{listofauthors}{2}
+
+\ConfigureToc{tac}  {\empty}{\ }{}{\HCode{<br\xml:empty>}}
+
+%\let\sv:toctac\toctac
+%\def\toctac#1#2#3{%
+%   \bgroup
+%     \def\a:TocLink##1##2##3##4{\gdef\:temp{##4}}%
+%     #2%
+%   \egroup
+%   \ifx \:temp\empty \else
+%      \sv:toctac{#1}{#2}{#3}%
+%   \fi
+%}
+%\let\tac:ConfigureToc\ConfigureToc
+%\long\def\ConfigureToc#1#2#3#4#5{%
+%   \lof:ConfigureToc{#1}{#2}{#3}{#4}{#5}%
+%   \def\:temp{#1}\def\:tempa{tac}\ifx \:temp\:tempa
+%      \let\toc:tac\toctac
+%      \def\toctac##1##2##3{%
+%         \bgroup
+%           \def\a:TocLink####1####2####3####4{\gdef\:temp{####4}}%
+%           ##2%
+%         \egroup
+%         \ifx\:temp\empty\else
+%            \toc:tac {##1}{##2}{##3}%
+%         \fi
+%   }%
+%}
+
+\Hinput{pfuproc}
+\endinput
