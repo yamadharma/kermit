@@ -152,16 +152,16 @@
   \bigskip
 
   \begin{flushleft}
-    \begin{tabular*}{\textwidth}{p{0.6\linewidth}p{0.3\linewidth}}
+    \begin{tabular*}{\textwidth}{p{0.55\linewidth}p{0.4\linewidth}}
       %% Научный руководитель:
       \textbf{\PHDchiefDescr :} & \\%[14pt]
-      \parbox{\linewidth}{\PHDchiefdegree} & \parbox{\linewidth}{\PHDchief} \\
+      \parbox[t]{\linewidth}{\PHDchiefdegree} & \parbox[t]{\linewidth}{\PHDchief} \\
       & \\
       %% Официальные оппоненты
       \textbf{\PHDopponentsDescr :} &  \\%[14pt]
-      \parbox{\linewidth}{\PHDoppidegree} & \parbox{\linewidth}{\PHDoppi} \\
+      \parbox[t]{\linewidth}{\PHDoppidegree} & \parbox[t]{\linewidth}{\PHDoppi} \\
       & \\
-      \parbox{\linewidth}{\PHDoppiidegree} & \parbox{\linewidth}{\PHDoppii} \\
+      \parbox[t]{\linewidth}{\PHDoppiidegree} & \parbox[t]{\linewidth}{\PHDoppii} \\
       & \\
       %% Ведущая организация
       \textbf{\PHDleadorgDescr :} &  \\%[14pt]
@@ -172,9 +172,9 @@
       &  \\
     \end{tabular*}
   \end{flushleft}
-  
+
   \vfill
-  
+
   \noindent
   \ifx\PHDthesisIn\empty
   Защита состоится

@@ -541,7 +541,7 @@
 %%
 % \InputIfFileExists{pfuproc/pfuproc_theorem.cli}{}{}%
 \InputIfFileExists{pfuproc/theorem.cli}{}{}%
-\InputIfFileExists{pfuproc/mathmisc.cli}{}{}%
+% \InputIfFileExists{pfuproc/mathmisc.cli}{}{}%
 
 %\def\etal{et al.}
 %\def\PFUudcName{UDC}
