@@ -3507,7 +3507,7 @@
 \def\l@part{\@tocline{-1}{12pt plus2pt}{0pt}{}{\DivFontShape}}
 %\let\tocpart\tocsection
 % \def\l@chapter{\@tocline{0}{8pt plus1pt}{0pt}{}{}}
-\def\l@chapter{\@dottedtocline{0}{0pt}{8pt}}
+\def\l@chapter{\@dottedtocline{0}{0pt}{0pt}}
 \let\tocchapter\tocsection
 \let\tocappendix\tocchapter
 \def\l@figure{\@tocline{0}{3pt plus2pt}{0pt}{}{}}
