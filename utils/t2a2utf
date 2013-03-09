@@ -2,18 +2,40 @@
 
 sed -i '
 {
+s/\\unhbox//g
+s/\\voidb@x//g
+s/\\penalty//g
+s/\\@M//g
+s/\\hbox {}//g
+}
+'  $1
+
+
+sed -i '
+{
 s/\\IeC //g
+s/\. \\T2A/\. /g
+}
+'  $1
+
+sed -i '
+{
+s/ \\T2A//g
+s/ \./\./g
+s/\\unhbox \\voidb@x \\hbox//g
 s/{\\CYRA}/А/g
 s/{\\CYRB}/Б/g
 s/{\\CYRV}/В/g
 s/{\\CYRG}/Г/g
 s/{\\CYRD}/Д/g
+s/{\\CYREREV}/Э/g
+s/{\\CYRERY}/Ы/g
 s/{\\CYRE}/Е/g
 s/{\\CYRYO}/Ё/g
 s/{\\CYRZH}/Ж/g
 s/{\\CYRZ}/З/g
-s/{\\CYRI}/И/g
 s/{\\CYRISHRT}/Й/g
+s/{\\CYRI}/И/g
 s/{\\CYRK}/К/g
 s/{\\CYRL}/Л/g
 s/{\\CYRM}/М/g
@@ -21,19 +43,17 @@ s/{\\CYRN}/Н/g
 s/{\\CYRO}/О/g
 s/{\\CYRP}/П/g
 s/{\\CYRR}/Р/g
+s/{\\CYRSHCH}/Щ/g
+s/{\\CYRSH}/Ш/g
 s/{\\CYRS}/С/g
 s/{\\CYRT}/Т/g
 s/{\\CYRU}/У/g
 s/{\\CYRF}/Ф/g
 s/{\\CYRH}/Х/g
-s/{\\CYRC}/Ц/g
 s/{\\CYRCH}/Ч/g
-s/{\\CYRSH}/Ш/g
-s/{\\CYRSHCH}/Щ/g
+s/{\\CYRC}/Ц/g
 s/{\\CYRHRDSN}/Ъ/g
-s/{\\CYRERY}/Ы/g
 s/{\\CYRSFTSN}/Ь/g
-s/{\\CYREREV}/Э/g
 s/{\\CYRYU}/Ю/g
 s/{\\CYRYA}/Я/g
 s/{\\cyra}/а/g
@@ -41,12 +61,14 @@ s/{\\cyrb}/б/g
 s/{\\cyrv}/в/g
 s/{\\cyrg}/г/g
 s/{\\cyrd}/д/g
+s/{\\cyrerev}/э/g
+s/{\\cyrery}/ы/g
 s/{\\cyre}/е/g
 s/{\\cyryo}/ё/g
 s/{\\cyrzh}/ж/g
 s/{\\cyrz}/з/g
-s/{\\cyri}/и/g
 s/{\\cyrishrt}/й/g
+s/{\\cyri}/и/g
 s/{\\cyrk}/к/g
 s/{\\cyrl}/л/g
 s/{\\cyrm}/м/g
@@ -54,19 +76,17 @@ s/{\\cyrn}/н/g
 s/{\\cyro}/о/g
 s/{\\cyrp}/п/g
 s/{\\cyrr}/р/g
+s/{\\cyrshch}/щ/g
+s/{\\cyrsh}/ш/g
 s/{\\cyrs}/с/g
 s/{\\cyrt}/т/g
 s/{\\cyru}/у/g
 s/{\\cyrf}/ф/g
 s/{\\cyrh}/х/g
-s/{\\cyrc}/ц/g
 s/{\\cyrch}/ч/g
-s/{\\cyrsh}/ш/g
-s/{\\cyrshch}/щ/g
+s/{\\cyrc}/ц/g
 s/{\\cyrhrdsn}/ъ/g
-s/{\\cyrery}/ы/g
 s/{\\cyrsftsn}/ь/g
-s/{\\cyrerev}/э/g
 s/{\\cyryu}/ю/g
 s/{\\cyrya}/я/g
 s/{\\CYRA }/А/g
@@ -74,12 +94,14 @@ s/{\\CYRB }/Б/g
 s/{\\CYRV }/В/g
 s/{\\CYRG }/Г/g
 s/{\\CYRD }/Д/g
+s/{\\CYREREV }/Э/g
+s/{\\CYRERY }/Ы/g
 s/{\\CYRE }/Е/g
 s/{\\CYRYO }/Ё/g
 s/{\\CYRZH }/Ж/g
 s/{\\CYRZ }/З/g
-s/{\\CYRI }/И/g
 s/{\\CYRISHRT }/Й/g
+s/{\\CYRI }/И/g
 s/{\\CYRK }/К/g
 s/{\\CYRL }/Л/g
 s/{\\CYRM }/М/g
@@ -87,19 +109,17 @@ s/{\\CYRN }/Н/g
 s/{\\CYRO }/О/g
 s/{\\CYRP }/П/g
 s/{\\CYRR }/Р/g
+s/{\\CYRSHCH }/Щ/g
+s/{\\CYRSH }/Ш/g
 s/{\\CYRS }/С/g
 s/{\\CYRT }/Т/g
 s/{\\CYRU }/У/g
 s/{\\CYRF }/Ф/g
 s/{\\CYRH }/Х/g
-s/{\\CYRC }/Ц/g
 s/{\\CYRCH }/Ч/g
-s/{\\CYRSH }/Ш/g
-s/{\\CYRSHCH }/Щ/g
+s/{\\CYRC }/Ц/g
 s/{\\CYRHRDSN }/Ъ/g
-s/{\\CYRERY }/Ы/g
 s/{\\CYRSFTSN }/Ь/g
-s/{\\CYREREV }/Э/g
 s/{\\CYRYU }/Ю/g
 s/{\\CYRYA }/Я/g
 s/{\\cyra }/а/g
@@ -107,6 +127,8 @@ s/{\\cyrb }/б/g
 s/{\\cyrv }/в/g
 s/{\\cyrg }/г/g
 s/{\\cyrd }/д/g
+s/{\\cyrerev }/э/g
+s/{\\cyrery }/ы/g
 s/{\\cyre }/е/g
 s/{\\cyryo }/ё/g
 s/{\\cyrzh }/ж/g
@@ -120,19 +142,17 @@ s/{\\cyrn }/н/g
 s/{\\cyro }/о/g
 s/{\\cyrp }/п/g
 s/{\\cyrr }/р/g
+s/{\\cyrshch }/щ/g
+s/{\\cyrsh }/ш/g
 s/{\\cyrs }/с/g
 s/{\\cyrt }/т/g
 s/{\\cyru }/у/g
 s/{\\cyrf }/ф/g
 s/{\\cyrh }/х/g
-s/{\\cyrc }/ц/g
 s/{\\cyrch }/ч/g
-s/{\\cyrsh }/ш/g
-s/{\\cyrshch }/щ/g
+s/{\\cyrc }/ц/g
 s/{\\cyrhrdsn }/ъ/g
-s/{\\cyrery }/ы/g
 s/{\\cyrsftsn }/ь/g
-s/{\\cyrerev }/э/g
 s/{\\cyryu }/ю/g
 s/{\\cyrya }/я/g
 s/\\CYRA/А/g
@@ -140,12 +160,14 @@ s/\\CYRB/Б/g
 s/\\CYRV/В/g
 s/\\CYRG/Г/g
 s/\\CYRD/Д/g
+s/\\CYREREV/Э/g
+s/\\CYRERY/Ы/g
 s/\\CYRE/Е/g
 s/\\CYRYO/Ё/g
 s/\\CYRZH/Ж/g
 s/\\CYRZ/З/g
-s/\\CYRI/И/g
 s/\\CYRISHRT/Й/g
+s/\\CYRI/И/g
 s/\\CYRK/К/g
 s/\\CYRL/Л/g
 s/\\CYRM/М/g
@@ -153,19 +175,17 @@ s/\\CYRN/Н/g
 s/\\CYRO/О/g
 s/\\CYRP/П/g
 s/\\CYRR/Р/g
+s/\\CYRSHCH/Щ/g
+s/\\CYRSH/Ш/g
 s/\\CYRS/С/g
 s/\\CYRT/Т/g
 s/\\CYRU/У/g
 s/\\CYRF/Ф/g
 s/\\CYRH/Х/g
-s/\\CYRC/Ц/g
 s/\\CYRCH/Ч/g
-s/\\CYRSHCH/Щ/g
-s/\\CYRSH/Ш/g
+s/\\CYRC/Ц/g
 s/\\CYRHRDSN/Ъ/g
-s/\\CYRERY/Ы/g
 s/\\CYRSFTSN/Ь/g
-s/\\CYREREV/Э/g
 s/\\CYRYU/Ю/g
 s/\\CYRYA/Я/g
 s/\\cyra/а/g
@@ -173,12 +193,14 @@ s/\\cyrb/б/g
 s/\\cyrv/в/g
 s/\\cyrg/г/g
 s/\\cyrd/д/g
+s/\\cyrerev/э/g
+s/\\cyrery/ы/g
 s/\\cyre/е/g
 s/\\cyryo/ё/g
 s/\\cyrzh/ж/g
 s/\\cyrz/з/g
-s/\\cyri/и/g
 s/\\cyrishrt/й/g
+s/\\cyri/и/g
 s/\\cyrk/к/g
 s/\\cyrl/л/g
 s/\\cyrm/м/g
@@ -186,19 +208,17 @@ s/\\cyrn/н/g
 s/\\cyro/о/g
 s/\\cyrp/п/g
 s/\\cyrr/р/g
+s/\\cyrsftsn/ь/g
+s/\\cyrshch/щ/g
+s/\\cyrsh/ш/g
 s/\\cyrs/с/g
 s/\\cyrt/т/g
 s/\\cyru/у/g
 s/\\cyrf/ф/g
 s/\\cyrh/х/g
-s/\\cyrc/ц/g
 s/\\cyrch/ч/g
-s/\\cyrshch/щ/g
-s/\\cyrsh/ш/g
+s/\\cyrc/ц/g
 s/\\cyrhrdsn/ъ/g
-s/\\cyrery/ы/g
-s/\\cyrsftsn/ь/g
-s/\\cyrerev/э/g
 s/\\cyryu/ю/g
 s/\\cyrya/я/g
 }
