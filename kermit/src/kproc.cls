@@ -487,7 +487,7 @@
 \RequirePackage{ltcaption}
 % \renewcommand{\@captionsize}{\footnotesize}
 % \RequirePackage{longtable}
-\RequirePackage[breakwords]{truncate}
+\RequirePackage{truncate}
 
 % \RequirePackage[unicode]{hyperref}
 

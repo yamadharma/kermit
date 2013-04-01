@@ -8,7 +8,7 @@
 \journalfoundationyear{2006}
 
 \AtEndOfPackage{%
-  \RequirePackage[breakwords]{truncate}
+  \RequirePackage{truncate}
   % \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}
   % \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
   
