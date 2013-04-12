@@ -3455,6 +3455,7 @@
 \def\@writetocindents{%
   \begingroup
   \@for\@tempa:=-1,0,1,2,3\do{%
+    \let\protect\@unexpandable@protect
     \immediate\write\@auxout{%
       \string\newlabel{tocindent\@tempa}{%
         \csname r@tocindent\@tempa\endcsname}}%
