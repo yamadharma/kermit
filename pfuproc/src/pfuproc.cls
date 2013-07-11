@@ -137,6 +137,7 @@
     \pfuproc@ket%
   }
 
+%  \addtocontents{loa}{\begin{otherlanguage}{russian}\pfuproc@authorlistentry\end{otherlanguage}\newline}
   \addtocontents{loa}{\pfuproc@authorlistentry\newline}
 }
 

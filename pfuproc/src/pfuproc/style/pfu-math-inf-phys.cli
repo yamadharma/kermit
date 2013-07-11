@@ -14,10 +14,42 @@
   
   \pagestyle{fancy} 
   \fancyhead{}%
-  \fancyhead[LE,RO]{\headerFontSize\thepage}%
-  % \fancyhead[RE]{\leftmark}%
-  \fancyhead[CO]{\truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}}%
+  % \fancyhead[LE,RO]{\headerFontSize\thepage}%
+  \fancyhead[LE,RO]{%
+    \iflanguage{\@defaultlanguage}%
+    {%
+	\headerFontSize\thepage
+    }
+    {%
+      \begin{otherlanguage*}{\@defaultlanguage}
+	\headerFontSize\thepage
+      \end{otherlanguage*}
+    }
+  }        
+%  \fancyhead[CO]{\truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}}%
+  \fancyhead[CO]{%
+    \iflanguage{\@defaultlanguage}%
+    {%
+        \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}
+    }
+    {%
+      \begin{otherlanguage*}{\@defaultlanguage}
+        \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}
+      \end{otherlanguage*}
+    }
+  }
   \fancyhead[RE]{\headerFontSize \PFUTitleHeader}%
+%  \fancyhead[RE]{%
+%    \iflanguage{\@defaultlanguage}%
+%    {%
+%	\headerFontSize \PFUTitleHeader
+%    }
+%    {%
+%      \begin{otherlanguage*}{\@defaultlanguage}
+%	\headerFontSize \PFUTitleHeader
+%      \end{otherlanguage*}
+%    }
+%  }
   % \fancyhead[LO]{%
   %   \iflanguage{\@defaultlanguage}%
   %   {%
