@@ -128,7 +128,7 @@
     \pfuproc@bra%
     \ifx\pfuproc@mail\@empty
     \else
-    email:~\pfuproc@mail{}%
+    e-mail:~\protect\url{\pfuproc@mail}%
     \fi
     \ifx\pfuproc@phone\@empty
     \else
