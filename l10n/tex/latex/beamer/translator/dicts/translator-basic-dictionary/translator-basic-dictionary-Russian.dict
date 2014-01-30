@@ -20,13 +20,16 @@
 \providetranslation{Conclusion}{Conclusion}
 \providetranslation{conclusion}{conclusion}
 \providetranslation{Contents}{Contents}
+\providetranslation{Continuation}{Continuation}
+\providetranslation{continuation}{continuation}
+\providetranslation{cont}{cont}
 \providetranslation{encl (plural)}{encl}
 \providetranslation{encl (singular)}{encl}
 \providetranslation{encl}{encl}
 \providetranslation{Figures}{Figures}
 \providetranslation{figures}{figures}
-\providetranslation{Figure}{Figure}
-\providetranslation{figure}{figure}
+\providetranslation{Figure}{Рис.}
+\providetranslation{figure}{рис.}
 \providetranslation{From}{From}
 \providetranslation{from}{from}
 \providetranslation{Glossary}{Glossary}
