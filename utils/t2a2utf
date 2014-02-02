@@ -8,7 +8,7 @@ s/\\penalty//g
 s/\\@M//g
 s/\\hbox {}//g
 }
-'  $1
+'  "$1"
 
 
 sed -i '
@@ -16,7 +16,7 @@ sed -i '
 s/\\IeC //g
 s/\. \\T2A/\. /g
 }
-'  $1
+'  "$1"
 
 sed -i '
 {
@@ -222,4 +222,4 @@ s/\\cyrhrdsn/ъ/g
 s/\\cyryu/ю/g
 s/\\cyrya/я/g
 }
-' $1
+' "$1"

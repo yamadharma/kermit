@@ -69,4 +69,4 @@ s/э/{\\cyrerev}/g
 s/ю/{\\cyryu}/g
 s/я/{\\cyrya}/g
 }
-' $1 
+' "$1"
