@@ -10,6 +10,13 @@ s/\\hbox {}//g
 }
 '  "$1"
 
+sed -i '
+{
+s/{\\guillemotleft}/<</g
+s/{\\guillemotright}/>>/g
+}
+'  "$1"
+
 
 sed -i '
 {
