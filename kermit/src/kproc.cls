@@ -2376,7 +2376,7 @@
   \label{endtitle}
   \endgroup
   \@makealttitle@hook@post
-  \clearpage
+  %\clearpage
   \let\shortaltauthors\@empty   
   \let\altauthors\@empty
   \let\altauthorstoc\@empty
