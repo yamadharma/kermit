@@ -2264,6 +2264,7 @@
 %%%--
 \providecommand{\makealttitle}%
 {
+  \@makealttitle@hook@pre
   \@makealttitle@hook
 %%   \begin{otherlanguage*}{\PFUaltlanguage}
 %   \relax
@@ -2316,7 +2317,7 @@
   \endgroup
 %  \onecolumngrid
   \@makealttitle@hook@post
-  \clearpage
+  %\clearpage
 %   \end{multicols*}
 %   \addcontentsline{alt}{alttitle}{\@alttitle}
 %   \addcontentsline{alt}{altauthors}{\altauthors}
@@ -2391,6 +2392,8 @@
   \fi
 } % END \makealttitle*
 
+
+\def\@makealttitle@hook@pre{\global\let\@makealttitle@hook@pre\@empty}
 \def\@makealttitle@hook{\global\let\@makealttitle@hook\@empty}
 \def\@makealttitle@hook@post{\global\let\@makealttitle@hook@post\@empty}
 \providecommand{\@makealttitle}%
