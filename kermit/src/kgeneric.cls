@@ -30,6 +30,7 @@
 %%
 \@titlepagetrue
 \newif\if@openright
+\newif\if@openrightpart
 %% Set base line spacing
 \newcommand{\set@baselineinterval}[1]{%
     \AtBeginDocument{%
@@ -57,7 +58,7 @@
   \AtEndOfClass{\let\@unprocessedoptions\relax}}
 %%
 
-
+\RequirePackage{kvoptions}
 %%
 %% begin Options
 %%
@@ -205,8 +206,9 @@
 \DeclareOption{final}{\setlength\overfullrule{0pt}}
 \DeclareOption{titlepage}{\@titlepagetrue}
 \DeclareOption{notitlepage}{\@titlepagefalse}
-\DeclareOption{openright}{\@openrighttrue}
-\DeclareOption{openany}{\@openrightfalse}
+\DeclareOption{openright}{\@openrighttrue \@openrightparttrue}
+\DeclareOption{openrightpart}{\@openrightparttrue}
+\DeclareOption{openany}{\@openrightfalse \@openrightpartfalse}
 
 %% \DeclareOption{onecolumn}{\@twocolumnfalse}
 \DeclareOption{onecolumn}{\@twocolumnfalse \@multicolumnfalse}
@@ -231,6 +233,7 @@
 %% }
 \OptionNotUsed
 \ExecuteOptions{a4paper,10pt,oneside,onecolumn,final,openany,singlespace}
+%\ExecuteOptions{a4paper,10pt,oneside,onecolumn,final,singlespace}
 \ProcessOptions\relax
 %% \ProcessOptionsWithKV{Kermit}\relax
 %%
@@ -544,7 +547,7 @@
 \renewcommand\thesubparagraph {\theparagraph.\@arabic\c@subparagraph}
 \newcommand\@chapapp{\chaptername}
 \newcommand\part{%
-  \if@openright
+  \if@openrightpart
     \cleardoublepage
   \else
     \clearpage

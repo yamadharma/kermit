@@ -7,13 +7,15 @@
 %%
 
 \ExecuteOptions{a5paper,10pt,twoside,onecolumn,final,openany}
-\ProcessOptions*\relax
+%\ExecuteOptions{a5paper,10pt,twoside,onecolumn,final}
+\ProcessOptions\relax
 
 \LoadClassWithOptions{kgeneric}
 %%
 % \RequirePackage{tocloft}
 % \RequirePackage{cite}
 \RequirePackage{keyval}
+
 \RequirePackage{substr}
 
 % \RequirePackage{longtable}
@@ -45,13 +47,33 @@
 %    }
 %}
 
-\RequirePackage{titlesec}
+\RequirePackage[clearempty]{titlesec}
+
+\titleclass{\part}{page}
+
+\assignpagestyle{\part}{empty}
 
 \titleformat{\part}[display]
-   {\thispagestyle{empty}\normalfont\partFontSize\partFontShape\filcenter}
+   {\normalfont\partFontSize\partFontShape\filcenter}
    {\partname{}\space\thepart\partaftersnum}
    {0em}
    {\hrule}
+
+\titleclass{\part}{top}
+\newcommand{\partbreak}{%
+  \if@openrightpart
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+}
+
+
+%\titleformat{\part}[display]
+%   {\partbreak\thispagestyle{empty}\normalfont\partFontSize\partFontShape\filcenter}
+%   {\partname{}\space\thepart\partaftersnum}
+%   {0em}
+%   {\hrule}
 
 \let\titlesec@part\part
 \renewcommand{\part}{\@ifstar\part@star\part@nostar}
