@@ -54,8 +54,10 @@
 
 \def\listofauthors{%
 \begin{center}
-  \Huge
-  \textsc{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}
+  %\Huge
+\Large
+  %\textsc{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}
+\textsc{{\CYRS}{\cyrv}{\cyre}{\cyrd}{\cyre}{\cyrn}{\cyri}{\cyrya} {\cyro}{\cyrb} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyra}{\cyrh}}
   % \textsc{Наши авторы}%
   \paperid{listofauthors}
 \end{center}%
