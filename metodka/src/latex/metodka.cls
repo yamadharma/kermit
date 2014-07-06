@@ -49,8 +49,6 @@
 
 \RequirePackage[clearempty]{titlesec}
 
-\titleclass{\part}{page}
-
 \assignpagestyle{\part}{empty}
 
 \titleformat{\part}[display]
