@@ -317,3 +317,8 @@
    \thispagestyle{plain}
 }
 
+\InputIfFileExists{pfuproc/patch/bibunits.cli}{}{}%
+
+%%% Local Variables:
+%%% coding: utf-8-unix
+%%% End:

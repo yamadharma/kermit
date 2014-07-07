@@ -1,0 +1,48 @@
+% \RequirePackage{bibunits}
+
+\DeclareRobustCommand{\mainbibstyle}[1]{%
+    \def\PFUmainbibstyle{#1}%
+}
+\let\PFUaltbibstyle\@empty
+
+\DeclareRobustCommand{\altbibstyle}[1]{%
+    \def\PFUaltbibstyle{#1}%
+}
+\let\PFUaltbibstyle\@empty
+
+\DeclareRobustCommand{\curbibstyle}[1]{%
+    \def\PFUcurbibstyle{#1}%
+}
+\let\PFUcurbibstyle\@empty
+
+\DeclareRobustCommand{\putaltbib}[1][]{%
+\begingroup
+
+  \iflanguage{\@defaultlanguage}%
+  {%
+    \curbibstyle{\PFUaltbibstyle}
+    \def\refname{References}
+  }%
+  {%
+    \curbibstyle{\PFUmainbibstyle}
+    \def\refname{{\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
+  }
+
+  \begin{bibunit}[\PFUcurbibstyle]
+  \putbib[#1]
+  \end{bibunit}
+\endgroup
+\clearpage
+}
+
+\def\@title@hook@pre{%
+
+  \iflanguage{\@defaultlanguage}%
+  {%
+    \bibliographystyle*{\PFUmainbibstyle}%
+  }%
+  {%
+    \bibliographystyle*{\PFUaltbibstyle}%
+  }
+
+}
