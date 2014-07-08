@@ -195,6 +195,7 @@ FUNCTION {begin.selectlanguage}
       'skip$
       {"\begin{otherlanguage*}{" language * "}" * write$}
 %      {"{\selectlanguage{" language * "}" * write$}
+%      {"\foreignlanguage[" language * "]{%" * write$}
     if$
 %  } 
 %  if$
@@ -209,6 +210,7 @@ FUNCTION {end.selectlanguage}
       'skip$
       {newline$ "\end{otherlanguage*}" write$}
 %      {"}%selectlanguage" write$}
+%      {"}%foreignlanguage" write$}
     if$
 %  } 
 %  if$

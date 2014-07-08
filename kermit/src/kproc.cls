@@ -858,6 +858,18 @@
 \let\shorttitle\@empty%
 \let\shortalttitle\@empty%
 
+\AtBeginDocument{%
+  \iflanguage{english}%
+  {%
+    \edef\PFUlanguage{english}
+    \edef\PFUaltlanguage{russian}
+  }%
+  {%
+    \edef\PFUlanguage{russian}
+    \edef\PFUaltlanguage{english}
+  }
+}
+
 \renewcommand*{\title}[2][]%
 {%
 %%  \def\@biblabel##1{\@ifempty{##1}##1.......}

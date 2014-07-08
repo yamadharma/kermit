@@ -15,6 +15,11 @@
 }
 \let\PFUcurbibstyle\@empty
 
+\DeclareRobustCommand{\curaltlanguage}[1]{%
+    \def\PFUcuraltlanguage{#1}%
+}
+\let\PFUcuraltlanguage\@empty
+
 \DeclareRobustCommand{\putaltbib}[1][]{%
 \begingroup
 
@@ -22,14 +27,19 @@
   {%
     \curbibstyle{\PFUaltbibstyle}
     \def\refname{References}
+    \curaltlanguage{\@defaultaltlanguage}
   }%
   {%
     \curbibstyle{\PFUmainbibstyle}
     \def\refname{{\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
+    \curaltlanguage{\@defaultlanguage}
   }
 
+
   \begin{bibunit}[\PFUcurbibstyle]
+  %\begin{otherlanguage*}{\PFUcuraltlanguage}
   \putbib[#1]
+  %\end{otherlanguage*}
   \end{bibunit}
 \endgroup
 \clearpage

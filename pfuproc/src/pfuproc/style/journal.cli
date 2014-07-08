@@ -1,7 +1,30 @@
+% \DeclareRobustCommand{\journal}[1]%
+% {%
+%   \def\PFUjournal{#1}
+% }
+% \let\PFUjournal\@empty
+
 \DeclareRobustCommand{\journal}[1]%
 {%
-  \def\PFUjournal{#1}
+\AtBeginDocument%
+{%
+  \addto\extrasrussian%
+  {
+    \def\PFUjournal{#1}
+  }  
 }
+}
+\DeclareRobustCommand{\altjournal}[1]%
+{%
+\AtBeginDocument%
+{%
+  \addto\extrasenglish%
+  {
+    \def\PFUjournal{#1}
+  }
+}
+}
+\let\PFUjournal\@empty
 
 \DeclareRobustCommand{\journalvolume}[1]%
 {%
@@ -28,30 +51,53 @@
   \def\PFUjournalfoundationyear{#1}
 }
 
+% \DeclareRobustCommand{\journalseries}[1]%
+% {%
+%   \def\PFUjournalseries{#1}
+% }
+% \let\PFUjournalseries\@empty
+
+% \DeclareRobustCommand{\altjournalseries}[1]%
+% {%
+%   \def\PFUaltjournalseries{#1}
+% }
+% \let\PFUaltjournalseries\@empty
+
 \DeclareRobustCommand{\journalseries}[1]%
 {%
-  \def\PFUjournalseries{#1}
+\AtBeginDocument%
+{%
+  \addto\extrasrussian%
+  {
+    \def\PFUjournalseries{#1}
+  } 
+}
 }
 
 \DeclareRobustCommand{\altjournalseries}[1]%
 {%
-  \def\PFUaltjournalseries{#1}
+\AtBeginDocument%
+{%
+  \addto\extrasenglish%
+  {
+    \def\PFUjournalseries{#1}
+  }
 }
+}
+\let\PFUjournalseries\@empty
 
 \DeclareRobustCommand{\typesetter}[1]%
 {%
   \def\PFUtypesetter{#1}
 }
 
-
-\let\PFUjournal\@empty
 \let\PFUjournalvolume\@empty
 \let\PFUjournalnumber\@empty
 \let\PFUjournalissue\@empty
 \let\PFUjournalyear\@empty
 \let\PFUjournalfoundationyear\@empty
-\let\PFUjournalseries\@empty
-\let\PFUaltjournalseries\@empty
+
+
 
 \let\PFUtypesetter\@empty
 
@@ -62,53 +108,77 @@
     \def\PFUjornalissueName{{\cyr\CYRV\cyrery\cyrp\cyru\cyrs\cyrk}} % Выпуск
     \def\PFUjornalissueShortName{{\cyr\CYRV\cyrery\cyrp}.} % Вып.
     \def\PFUjornalseriesName{{\cyr\CYRS\cyre\cyrr\cyri\cyrya}} % Серия
+    \def\PFUjornalPagesShortName{{\cyr\CYRS}.} % Страница
+    \def\PFUjornalnumberName{\No{}} % Номер
+    \def\PFUjournalvolumeName{{\cyr\CYRT}.} % Том
   }
   \addto\extrasenglish%
   {
     \def\PFUjornalissueName{Issue} % Выпуск
     \def\PFUjornalissueShortName{Is.} % Вып.
     \def\PFUjornalseriesName{Series} % Серия
+    \def\PFUjornalPagesShortName{Pp.} % Страница
+    \def\PFUjornalnumberName{No{}} % Номер
+    \def\PFUjournalvolumeName{V.} % Том
   }
 }
 
 
+% \providecommand{\PFUheader}%
+% {%
+%   \scshape \PFUjournal,~%
+%   \PFUjornalseriesName~\textit{\PFUjournalseries}.~% 
+%   \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\fi{}~%
+%   \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber\fi{}%
+%   \ifx\PFUjournalissue\@empty\else~(\PFUjournalissue)\fi{}%
+%   .~\PFUjournalyear.
+%   \cyrs.~\pageref{starttitle}--\pageref{endtitle}
+% }
+
+% \providecommand{\PFUTitleHeader}%
+% {%
+%     \iflanguage{\@defaultlanguage}%
+%     {%
+%     \PFUjournal{}.
+% %    \hfill
+%     \PFUjornalseriesName~\textit{\PFUjournalseries}.~%
+% %    \hfill
+%     \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\fi{}~%
+%     \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber\fi{}%
+%     \ifx\PFUjournalissue\@empty\else~(\PFUjournalissue)\fi{}%
+%     .~\PFUjournalyear.
+%     \@ifundefined{r@\thePFUtitle:starttitle}{}{\CYRS.~\pageref{starttitle}--\pageref{endtitle}}
+%     }
+%     {%
+% %      \begin{otherlanguage*}{\@defaultlanguage}
+%     Bulletin of PFUR.\,%
+% %    \hfill
+%     \PFUjornalseriesName\,\textit{\PFUaltjournalseries}.\,%
+% %    \hfill
+%     \ifx\PFUjournalvolume\@empty\else \V.~\PFUjournalvolume,\fi{}\,%
+%     \ifx\PFUjournalnumber\@empty\else No~\PFUjournalnumber,\fi{}%
+%     \ifx\PFUjournalissue\@empty\else~(\PFUjournalissue),\fi{}%
+%     ~\PFUjournalyear. Pp.\,\pageref{starttitle}--\pageref{endtitle} 
+% %      \end{otherlanguage*}
+%     }
+% }
+
 \providecommand{\PFUheader}%
 {%
-  \scshape \PFUjournal,~%
-  \PFUjornalseriesName~\textit{\PFUjournalseries}.~% 
-  \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\fi{}~%
-  \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber\fi{}%
-  \ifx\PFUjournalissue\@empty\else~(\PFUjournalissue)\fi{}%
-  .~\PFUjournalyear.
-  \cyrs.~\pageref{starttitle}--\pageref{endtitle}
+  \PFUjournal.~%
+  \PFUjornalseriesName\,\textit{\PFUjournalseries}.\,% 
+  \ifx\PFUjournalvolume\@empty\else\PFUjournalvolumeName\,\PFUjournalvolume,\fi{}~%
+  \ifx\PFUjournalnumber\@empty\else\PFUjornalnumberName\,\PFUjournalnumber,\fi{}%
+  \ifx\PFUjournalissue\@empty\else\,(\PFUjournalissue),\fi{}%
+  \,\PFUjournalyear.~%
+  \PFUjornalPagesShortName\,\pageref{starttitle}--\pageref{endtitle}
 }
 
 \providecommand{\PFUTitleHeader}%
 {%
-    \iflanguage{\@defaultlanguage}%
-    {%
-    \PFUjournal{}.
-%    \hfill
-    \PFUjornalseriesName~\textit{\PFUjournalseries}.~%
-%    \hfill
-    \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\fi{}~%
-    \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber\fi{}%
-    \ifx\PFUjournalissue\@empty\else~(\PFUjournalissue)\fi{}%
-    .~\PFUjournalyear.
-    \@ifundefined{r@\thePFUtitle:starttitle}{}{\CYRS.~\pageref{starttitle}--\pageref{endtitle}}
-    }
-    {%
-%      \begin{otherlanguage*}{\@defaultlanguage}
-    Bulletin of PFUR.\,%
-%    \hfill
-    \PFUjornalseriesName\,\textit{\PFUaltjournalseries}.\,%
-%    \hfill
-    \ifx\PFUjournalvolume\@empty\else \V.~\PFUjournalvolume,\fi{}\,%
-    \ifx\PFUjournalnumber\@empty\else No~\PFUjournalnumber,\fi{}%
-    \ifx\PFUjournalissue\@empty\else~(\PFUjournalissue),\fi{}%
-    ~\PFUjournalyear. Pp.\,\pageref{starttitle}--\pageref{endtitle} 
-%      \end{otherlanguage*}
-    }
+  \begin{otherlanguage*}{\PFUlanguage}
+    \PFUheader
+  \end{otherlanguage*}
 }
 
 % \providecommand{\rightmark}{\PFUheader}%

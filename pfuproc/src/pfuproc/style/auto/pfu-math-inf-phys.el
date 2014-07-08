@@ -2,6 +2,6 @@
  (lambda ()
     (TeX-run-style-hooks
      "truncate"
-     "breakwords"
+     ""
      "pfuproc/style/pfu-bulletin")))
 
