@@ -42,6 +42,7 @@
   %\end{otherlanguage*}
   \end{bibunit}
 \endgroup
+\label{endtitle}
 \clearpage
 }
 

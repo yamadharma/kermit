@@ -163,21 +163,24 @@
 %     }
 % }
 
-\providecommand{\PFUheader}%
+\providecommand{\PFUTitle}%
 {%
   \PFUjournal.~%
   \PFUjornalseriesName\,\textit{\PFUjournalseries}.\,% 
   \ifx\PFUjournalvolume\@empty\else\PFUjournalvolumeName\,\PFUjournalvolume,\fi{}~%
   \ifx\PFUjournalnumber\@empty\else\PFUjornalnumberName\,\PFUjournalnumber,\fi{}%
   \ifx\PFUjournalissue\@empty\else\,(\PFUjournalissue),\fi{}%
-  \,\PFUjournalyear.~%
-  \PFUjornalPagesShortName\,\pageref{starttitle}--\pageref{endtitle}
+  \,\PFUjournalyear%
+    %dirty hack
+    \@ifundefined{r@\thePFUtitle:starttitle}{}{%
+      .~\PFUjornalPagesShortName\,\pageref{starttitle}--\pageref{endtitle}
+    }
 }
 
 \providecommand{\PFUTitleHeader}%
 {%
   \begin{otherlanguage*}{\PFUlanguage}
-    \PFUheader
+    \PFUTitle
   \end{otherlanguage*}
 }
 
