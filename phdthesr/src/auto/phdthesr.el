@@ -21,6 +21,7 @@
      '("thesisIn" 1)
      '("writeIn" 1)
      '("discouncil" 1)
+     '("secracsign" 1)
      '("secracdegree" 1)
      '("secrac" 1)
      '("oppiidegree" 1)
@@ -94,6 +95,7 @@
      "PHDoppiidegree"
      "PHDsecrac"
      "PHDsecracdegree"
+     "PHDsecracsign"
      "PHDdiscouncil"
      "PHDwriteIn"
      "PHDthesisIn"
@@ -138,5 +140,6 @@
      "kgeneric"
      "xifthen"
      "substr"
-     "keyval")))
+     "keyval"
+     "")))
 

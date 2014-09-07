@@ -422,6 +422,12 @@
 }
 \let\PHDsecracdegree\@empty
 
+\DeclareRobustCommand{\secracsign}[1]%
+{%
+  \def\PHDsecracsign{#1}
+}
+\let\PHDsecracsign\@empty
+
 % Диссертационный совет (Dissertational council)
 \DeclareRobustCommand{\discouncil}[1]%
 {%

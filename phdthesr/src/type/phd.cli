@@ -32,9 +32,7 @@
   \geometry{heightrounded}
 }
 
-
 \PassOptionsToClass{a4paper,14pt,oneside,onecolumn,final,openany,doublespace}{kgeneric}
-
 
 
 \AtEndOfClass{%

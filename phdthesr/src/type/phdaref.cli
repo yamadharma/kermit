@@ -1,16 +1,19 @@
 \AtBeginDocument{%
   \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian@modern{%
-      \thesistype{Автореферат \\[\baselineskip] диссертации на соискание учёной степени}
+      \thesistype{\MakeUppercase{Автореферат} \\[\baselineskip] диссертации на соискание учёной степени}
       \def\PHDright{На правах рукописи}
       \def\PHDchiefDescr{Научный руководитель}
       \def\PHDopponentsDescr{Официальные оппоненты}
       \def\PHDleadorgDescr{Ведущая организация}
-      \def\PHDsecracDescr{Учёный секретарь \\ диссертационного совета}
+      \def\PHDsecracDescr{Учёный секретарь диссертационного совета}
       \def\PHDdisciplineDescr{Специальность}
+      \def\PHDsendtext{Автореферат разослан}
+      \def\PHDyearshort{г}
+      \def\PHDfieldtext{Специальность}
     }
   }{%
-    \thesistype{\CYRA\cyrv\cyrt\cyro\cyrr\cyre\cyrf\cyre\cyra\cyrt{} \\[\baselineskip] \cyr\cyrd\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyri{} \cyr\cyrn\cyra{} 
+    \thesistype{\MakeUppercase{\CYRA\cyrv\cyrt\cyro\cyrr\cyre\cyrf\cyre\cyrr\cyra\cyrt{}} \\[\baselineskip] \cyr\cyrd\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyri{} \cyr\cyrn\cyra{} 
       \cyr\cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrn\cyri\cyre{} \cyr\cyru\cyrch\cyryo\cyrn\cyro\cyrishrt{}
       \cyr\cyrs\cyrt\cyre\cyrp\cyre\cyrn\cyri}
     \def\PHDright{\cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri}
@@ -21,9 +24,18 @@
     % Ведущая организация
     \def\PHDleadorgDescr{\CYRV\cyre\cyrd\cyru\cyrshch\cyra\cyrya{} \cyro\cyrr\cyrg\cyra\cyrn\cyri\cyrz\cyra\cyrc\cyri\cyrya{}}
     % Учёный секретарь \\ диссертационного совета
-    \def\PHDsecracDescr{\CYRU\cyrch\cyryo\cyrn\cyrery\cyrishrt{} \cyrs\cyre\cyrk\cyrr\cyre\cyrt\cyra\cyrr\cyrsftsn{} \\ \cyrd\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyro\cyrn\cyrn\cyro\cyrg\cyro{} \cyrs\cyro\cyrv\cyre\cyrt\cyra{}}
+    \def\PHDsecracDescr{\CYRU\cyrch\cyryo\cyrn\cyrery\cyrishrt{}
+      \cyrs\cyre\cyrk\cyrr\cyre\cyrt\cyra\cyrr\cyrsftsn{} 
+      \cyrd\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyro\cyrn\cyrn\cyro\cyrg\cyro{}
+      \cyrs\cyro\cyrv\cyre\cyrt\cyra{}}
     % Специальность
     \def\PHDdisciplineDescr{{\CYRS}{\cyrp}{\cyre}{\cyrc}{\cyri}{\cyra}{\cyrl}{\cyrsftsn}{\cyrn}{\cyro}{\cyrs}{\cyrt}{\cyrsftsn}}
+    % Автореферат разослан
+    \def\PHDsendtext{{\CYRA}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyre}{\cyrf}{\cyre}{\cyrr}{\cyra}{\cyrt}
+      {\cyrr}{\cyra}{\cyrz}{\cyro}{\cyrs}{\cyrl}{\cyra}{\cyrn}}
+    \def\PHDyearshort{{\cyrg}}
+    % Специальность
+    \def\PHDfieldtext{{\CYRS}{\cyrp}{\cyre}{\cyrc}{\cyri}{\cyra}{\cyrl}{\cyrsftsn}{\cyrn}{\cyro}{\cyrs}{\cyrt}{\cyrsftsn}}
   }
 }
 
@@ -82,55 +94,65 @@
     \thispagestyle{empty}
     \setcounter{page}{1}
 
-    \mbox{}
-    \medskip
+    \vspace*{-2cm}
+    % \mbox{}
+    % \medskip
 
     \begin{flushright}
-        %% На правах рукописи
-        {\bfseries \PHDright \par}
+      % На правах рукописи
+      \textit{\PHDright} \par
     \end{flushright}
 
-    \vspace{3cm}
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
+    \bigskip
 
     \begin{center}
-        \bigskip%
-        \medskip%
-        {\bfseries \PHDauthor} \par                     % Автор
-        \bigskip% 
-        \medskip%
-        {\bfseries \Large {\PHDtitle} \par}             % Название
+      {\bfseries \PHDauthor} \par                     % Автор
+      \bigskip% 
+      \medskip%
+      {\bfseries \Large \MakeUppercase{\PHDtitle} \par}             % Название
 
-        \ifx\@empty\PHDfield
-        \else%
-        \bigskip%
-        % \medskip
-        % \vspace{6ex}
-        \bigskip% 
-        % \medskip%
-        {\bfseries {\PHDfield}} \par                    % Специальность
-        \fi
-
-        \vspace{6ex}
-
-        {\PHDthesistype} \par
-        \smallskip
-        {\PHDdegree} \par
-        \bigskip%
-        \medskip%
-        \end{center}
-
-        \vfil
-
-        \begin{center}
-            \vspace*{\fill}
-            \bfseries
-            {\PHDdegreecity} ---                       % Город
-            {\PHDdegreeyear} \par      
-        \end{center}
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      
+      % Специальность
+      \ifx\@empty\PHDfield
+      \else
+      \PHDfieldtext:\par
+      \PHDfield\par                    
+      \fi
+      
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      \bigskip
+      
+      {\PHDthesistype} \par
+      {\PHDdegree} \par
+    \end{center}
     
-        \vfil\null
-
-    \end{alwayssingle}%
+    \vfil
+    
+    \begin{center}
+      \vspace*{\fill}
+      \bfseries
+      {\PHDdegreecity} ---                       % Город
+      {\PHDdegreeyear} \par      
+    \end{center}
+    
+    \vfil\null
+    
+  \end{alwayssingle}%
 }    
 \end{titlepage}%
 
@@ -152,23 +174,22 @@
   \bigskip
 
   \begin{flushleft}
-    \begin{tabular*}{\textwidth}{p{0.55\linewidth}p{0.4\linewidth}}
+    \begin{tabular*}{\textwidth}{p{0.38\linewidth}p{0.6\linewidth}}
       %% Научный руководитель:
-      \textbf{\PHDchiefDescr :} & \\%[14pt]
-      \parbox[t]{\linewidth}{\PHDchiefdegree} & \parbox[t]{\linewidth}{\PHDchief} \\
+      \textbf{\PHDchiefDescr :} & 
+      \parbox[t]{\linewidth}{\PHDchiefdegree \\ 
+        \textbf{\PHDchief}} \\
       & \\
       %% Официальные оппоненты
-      \textbf{\PHDopponentsDescr :} &  \\%[14pt]
-      \parbox[t]{\linewidth}{\PHDoppidegree} & \parbox[t]{\linewidth}{\PHDoppi} \\
+      \textbf{\PHDopponentsDescr :} &
+      \parbox[t]{\linewidth}{\PHDoppidegree \\
+        \textbf{\PHDoppi}} \\
       & \\
-      \parbox[t]{\linewidth}{\PHDoppiidegree} & \parbox[t]{\linewidth}{\PHDoppii} \\
+      & \parbox[t]{\linewidth}{ \PHDoppiidegree \\ \textbf{\PHDoppii}} \\
       & \\
       %% Ведущая организация
-      \textbf{\PHDleadorgDescr :} &  \\%[14pt]
-      \multicolumn{2}{p{0.9\linewidth}}{
-        \PHDleadorg
-      }
-      \\
+      \textbf{\PHDleadorgDescr :} & 
+      \parbox[t]{\linewidth}{\PHDleadorg} \\
       &  \\
     \end{tabular*}
   \end{flushleft}
@@ -215,9 +236,9 @@
   \bigskip
 
   \noindent
-  Автореферат разослан
-  \ifx\PHDsendday\@empty<<\underline{\hspace*{1cm}}>>\else\PHDsendday\fi~
-  \ifx\PHDsendmonth\@empty\underline{\hspace*{3cm}}\else\PHDsendmonth\fi~{\PHDdegreeyear}~г.
+  \PHDsendtext~%
+  \ifx\PHDsendday\@empty<<\underline{\hspace*{1cm}}>>\else\PHDsendday\fi~%
+  \ifx\PHDsendmonth\@empty\underline{\hspace*{3cm}}\else\PHDsendmonth\fi~{\PHDdegreeyear}~\PHDyearshort.
 
   \vfill
 
@@ -225,7 +246,7 @@
     \noindent
     \PHDsecracDescr
     \ifx\PHDsecracdegree\empty
-    \hfill \PHDsecrac
+    \hfill \includegraphics[width=0.2\linewidth]{\PHDsecracsign} \hfill \PHDsecrac
     \else
     \par
     \smallskip
