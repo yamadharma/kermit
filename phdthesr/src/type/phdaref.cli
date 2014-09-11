@@ -126,7 +126,6 @@
       % Специальность
       \ifx\@empty\PHDfield
       \else
-      \PHDfieldtext:\par
       \PHDfield\par                    
       \fi
       
