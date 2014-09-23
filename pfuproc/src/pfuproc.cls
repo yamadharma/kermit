@@ -19,7 +19,9 @@
 
 \renewcommand{\paperid}[1]{
   \immediate\write\paperidFile{#1 \thepage}
+  \def\PFUpaperid{#1}
 }
+\let\PFUpaperid\@empty
 
 \AtEndDocument{%
   \immediate\closeout\paperidFile
@@ -99,6 +101,7 @@
   \let\pfuproc@authorpost\@empty
   \let\pfuproc@mail\@empty
   \let\pfuproc@phone\@empty
+  \let\pfuproc@country\@empty
   \def\pfuproc@bra{(}
   \def\pfuproc@ket{)}
   \def\pfuproc@komma{, }
@@ -141,7 +144,9 @@
 
 %  \addtocontents{loa}{\begin{otherlanguage}{russian}\pfuproc@authorlistentry\end{otherlanguage}\newline}
   \addtocontents{loa}{\pfuproc@authorlistentry\newline}
+  \authordescription@hook@post
 }
+\def\authordescription@hook@post{}
 
 \newcounter{c@pfuproc@authorlist}
 
@@ -180,6 +185,12 @@
   \def\pfuproc@phone{#1}
 }
 \let\pfuproc@phone\@empty
+
+% Страна
+\DeclareRobustCommand{\country}[1]{%
+  \def\pfuproc@country{#1}
+}
+\let\pfuproc@country\@empty
 
 %}}}
 
@@ -318,6 +329,7 @@
 }
 
 \InputIfFileExists{pfuproc/patch/bibunits.cli}{}{}%
+\InputIfFileExists{pfuproc/patch/ojs.cli}{}{}%
 
 %%% Local Variables:
 %%% coding: utf-8-unix
