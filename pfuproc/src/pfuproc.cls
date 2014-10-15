@@ -329,7 +329,13 @@
 }
 
 \InputIfFileExists{pfuproc/patch/bibunits.cli}{}{}%
-\InputIfFileExists{pfuproc/patch/ojs.cli}{}{}%
+\AtEndPreamble{
+  \@ifpackageloaded{tex4ht}{}{%
+    \makeatletter
+    \InputIfFileExists{pfuproc/patch/ojs.cli}{}{}%
+    \makeatother
+  }
+}
 
 %%% Local Variables:
 %%% coding: utf-8-unix
