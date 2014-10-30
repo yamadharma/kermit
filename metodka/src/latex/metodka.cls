@@ -98,7 +98,7 @@
 
 \titlespacing{\chapter}{0\p@}{0\p@}{10\p@}
 
-\RequirePackage{ifthen}
+\RequirePackage{xifthen}
 \RequirePackage{truncate}
 \newlength{\sectionmarkWidth}
 \newlength{\chaptermarkWidth}

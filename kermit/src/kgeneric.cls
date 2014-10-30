@@ -17,7 +17,7 @@
 \newlength{\baselineinterval}
 \setlength{\baselineinterval}{\baselineskip}
 %%
-\RequirePackage{ifthen}
+\RequirePackage{xifthen}
 \newif\if@restonecol
 \newif\if@titlepage
 %% Multicolumn
