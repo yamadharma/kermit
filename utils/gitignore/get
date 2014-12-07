@@ -1,0 +1,12 @@
+#!/bin/bash
+
+lang=$1
+
+[[ -d lang ]] || mkdir -p lang
+
+if [[ "$lang" = "list" ]]
+then
+    curl -L -s https://www.gitignore.io/api/list
+else
+    curl -L -s https://www.gitignore.io/api/"$lang" > lang/"$lang"
+fi
