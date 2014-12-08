@@ -1,5 +1,5 @@
 \ProvidesFile{gost-authoryear.cbx}
-[2014/02/15\space v1.0\space biblatex-gost styles]
+[2014/11/28\space v1.1\space biblatex-gost styles]
 
 \ExecuteBibliographyOptions{dashed=false,citetracker=constrict,loccittracker=constrict,
                             singletitle=false,labeldate,labeltitleyear,uniquename=init,
@@ -20,8 +20,7 @@
 \renewcommand*{\postnotedelim}{\addcomma\addspace}
 \renewcommand*{\nameyeardelim}{\addcomma\addspace}
 \renewcommand*{\compcitedelim}{\addsemicolon\space}
-\renewcommand*{\bibleftparen}{\blx@postpunct\ifcitation{[\bibsentence}{(}}
-\renewcommand*{\bibrightparen}{\blx@postpunct\ifcitation{]}{)}\midsentence}
+\newcommand{\mkbibbracketssentence}[1]{\bibsentence\mkbibbrackets{#1}\midsentence}
 
 \DeclareFieldFormat*{citetitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{extratitleyear}{%
@@ -245,7 +244,7 @@
   {}
   {\usebibmacro{cite:postnote}}
 
-\DeclareCiteCommand{\parencite}[\mkbibparens]
+\DeclareCiteCommand{\parencite}[\mkbibbracketssentence]
   {\usebibmacro{cite:init}%
    \usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
@@ -253,7 +252,7 @@
   {}
   {\usebibmacro{cite:postnote}}
 
-\DeclareCiteCommand*{\parencite}[\mkbibparens]
+\DeclareCiteCommand*{\parencite}[\mkbibbracketssentence]
   {\usebibmacro{cite:init}%
    \usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
@@ -277,7 +276,7 @@
   {}
   {\usebibmacro{cite:postnote}}
 
-\DeclareCiteCommand{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
+\DeclareCiteCommand{\smartcite}[\iffootnote\mkbibbracketssentence\mkbibfootnote]
   {\usebibmacro{cite:init}%
    \usebibmacro{prenote}}
   {\usebibmacro{citeindex}%
@@ -323,13 +322,13 @@
 \pretocmd{\cbx@textcites@init}{\UseNextMultiCiteHook}{}{}
 
 \DeclareMultiCiteCommand{\cites}{\cite}{\setunit{\multicitedelim}}
-\DeclareMultiCiteCommand{\parencites}[\mkbibparens]
+\DeclareMultiCiteCommand{\parencites}[\mkbibbracketssentence]
   {\parencite}{\setunit{\multicitedelim}}
 \DeclareMultiCiteCommand{\footcites}[\mkbibfootnote]
   {\footcite}{\setunit{\multicitedelim}}
 \DeclareMultiCiteCommand{\footcitetexts}[\mkbibfootnotetext]
   {\footcitetext}{\setunit{\multicitedelim}}
-\DeclareMultiCiteCommand{\smartcites}[\iffootnote\mkbibparens\mkbibfootnote]
+\DeclareMultiCiteCommand{\smartcites}[\iffootnote\mkbibbracketssentence\mkbibfootnote]
   {\smartcite}{\setunit{\multicitedelim}}
 
 \endinput
