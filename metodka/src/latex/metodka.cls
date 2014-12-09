@@ -80,9 +80,11 @@
 \def\part@nostar@nopt#1{\NR@gettitle{#1}\titlesec@part{#1}}
 \def\part@nostar@opt[#1]#2{\NR@gettitle{#2}\titlesec@part[#1]{#2}}
 
+\def\@chapter@hook@post{}
+
 
 \titleformat{\chapter}[block]%
-    {\raggedright\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
+    {\raggedright\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}[\@chapter@hook@post]
 %    {\raggedright\thispagestyle{empty}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
 %    {\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
 \titleformat{\section}[block]%
@@ -244,6 +246,8 @@
 
 %{{{ \paperid{}
 
+\RequirePackage{currfile}
+
 \newwrite\paperidFile
 \immediate\openout\paperidFile=split-paper
 
@@ -254,6 +258,8 @@
 \AtEndDocument{%
   \immediate\closeout\paperidFile
 }
+
+\g@addto@macro\@chapter@hook@post{\paperid{\currfilebase}}
 
 % \newwrite\trackidFile
 % \immediate\openout\trackidFile=split-track
