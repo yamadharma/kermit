@@ -7,6 +7,7 @@
 - Скачать в домашний каталог
 
 `cd ~`
+
 `git clone https://yamadharma@bitbucket.org/yamadharma/soft-tex-kermit.git ~/kermit`
 
 - Сделать символическую ссылку для домашнего дерева texmf
