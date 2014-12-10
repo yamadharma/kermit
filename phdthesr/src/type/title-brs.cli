@@ -47,6 +47,7 @@
       \def\brsTableText{Текст выпускной работы}
       \def\brsTablePresentation{Презентация по выпускной работе}
       \def\brsTableProtection{Защита выпускной работы}
+      \def\PHDtitleDescr{на тему} 
     }
   }{%
     \def\brsTableProblemType{{\CYRV}{\cyri}{\cyrd} {\cyrz}{\cyra}{\cyrd}{\cyra}{\cyrn}{\cyri}{\cyrya}}
@@ -58,7 +59,10 @@
     \def\brsTableTotal{{\CYRI}{\CYRT}{\CYRO}{\CYRG}{\CYRO}}
     \def\brsTableText{{\CYRT}{\cyre}{\cyrk}{\cyrs}{\cyrt} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrery}}
     \def\brsTablePresentation{{\CYRP}{\cyrr}{\cyre}{\cyrz}{\cyre}{\cyrn}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya} {\cyrp}{\cyro} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyre}}
-    \def\brsTableProtection{{\CYRZ}{\cyra}{\cyrshch}{\cyri}{\cyrt}{\cyra} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrery}}
+    \def\brsTableProtection{{\CYRZ}{\cyra}{\cyrshch}{\cyri}{\cyrt}{\cyra}
+      {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt}
+      {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrery}}
+    \def\PHDtitleDescr{\cyrn\cyra{} \cyrt\cyre\cyrm\cyru} 
   }
 }
 
@@ -104,50 +108,52 @@
 }
 
 \providecommand{\authorTable}{%
-  \begin{flushleft}
-    %% Автор
-    \ifx\@empty\PHDauthor
-    \else%
-    \PHDauthorDescr
-    \hfill
-    \PHDauthor \par
-    \smallskip
-    \fi   
-    %% Группа
-    \ifx\@empty\PHDstudygroup
-    \else%
-    \PHDstudygroupDescr
-    \hfill
-    \PHDstudygroup \par
-    \smallskip
-    \fi
-    %% Страна
-    % \ifx\@empty\PHDcountry 
-    % \else%
-    % \PHDcountryDescr
-    % \hfill
-    % \PHDcountry \par
-    % \smallskip
-    % \fi
-    % \bfseries
-    %% Научный руководитель
-    \PHDchiefDescr
-    \hfill
-    {\PHDchiefdegree} \par
-    \hfill
-    \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
-    \smallskip
-    \hfill
-    <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort
-    % \smallskip
-    %% 
-    % \ifx\@empty\PHDdepchief
-    % \else%
-    % {\PHDdepchieftitle} \hfill
-    % {\PHDdepchiefdegree} {\PHDdepchief} \par
-    % \smallskip
-    % \fi
-  \end{flushleft}
+  \begin{flushright}
+    \begin{minipage}[t]{0.4\linewidth}
+      %% Автор
+      \ifx\@empty\PHDauthor
+      \else%
+      \PHDauthorDescr
+      \hfill
+      \PHDauthor \par
+      \smallskip
+      \fi   
+      %% Группа
+      \ifx\@empty\PHDstudygroup
+      \else%
+      \PHDstudygroupDescr
+      \hfill
+      \PHDstudygroup \par
+      \smallskip
+      \fi
+      %% Страна
+      % \ifx\@empty\PHDcountry 
+      % \else%
+      % \PHDcountryDescr
+      % \hfill
+      % \PHDcountry \par
+      % \smallskip
+      % \fi
+      % \bfseries
+      %% Научный руководитель
+      \PHDchiefDescr
+      \hfill
+      {\PHDchiefdegree} \par
+      \hfill
+      \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
+      \smallskip
+      \hfill
+      <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort
+      % \smallskip
+      %% 
+      % \ifx\@empty\PHDdepchief
+      % \else%
+      % {\PHDdepchieftitle} \hfill
+      % {\PHDdepchiefdegree} {\PHDdepchief} \par
+      % \smallskip
+      % \fi
+    \end{minipage}
+  \end{flushright}
 }
 
 \AtEndOfClass{%
@@ -169,37 +175,41 @@
             % {\bfseries {\PHDministry} \par}
             % {\bfseries {\PHDinstitute} \par}
             \smallskip
-            \hrule
+            % \hrule
             \smallskip
             %% Факультет
             {\bfseries {\PHDfaculty} \par}
             %% Кафедра
             {\bfseries {\PHDchair} \par}
-            %% Специальность
-            \ifx\@empty\PHDfield
-            \else%
-            \bigskip%
-            {\PHDfield} \par
-            \fi
+            %{{{ Специальность
+
+            % \ifx\@empty\PHDfield
+            % \else%
+            % \bigskip%
+            % {\PHDfield} \par
+            % \fi
+            
+            %}}}
           \end{center}
           
           \bigskip
           \bigskip
           
           %% Approved stamp
-          \ifthenelse{\boolean{brsTableNeeded}}{%
+          \ifthenelse{\boolean{approvedStampNeeded}}{%
             \approvedStamp
           }{%
             \vspace{2cm}
-          } % END \ifthenelse{\boolean{brsTableNeeded}}
+          } % END \ifthenelse{\boolean{approvedStampNeeded}}
         
           \vspace{\fill}
           
           \begin{center}
-            {\Large \PHDthesistype} \par
+            
+            {\MakeUppercase{\PHDthesistype}} \par
             \smallskip
-
-            %% по дисциплине (для реферата)
+            
+            % По дисциплине (для реферата)
             \ifx\@empty\PHDdiscipline
             \else
             \medskip%
@@ -219,52 +229,42 @@
 
           % \vspace{6ex}
 
+          % Название
           \begin{center}
             \ifx\@empty\PHDtitle
             \else
-            {\bfseries \Large {\PHDtitle} \par}                                   % Название
+            {\PHDtitleDescr} \par
+            {\bfseries {\PHDtitle} \par}                                   
             \fi
+
+            % Специальность
+            \ifx\@empty\PHDfield
+            \else%
+            \bigskip%
+            {\PHDfield} \par
+            \fi
+            
           \end{center}
-
-          % \ifx\@empty\PHDfield
-          % \else%
-          % \bigskip%
-          % \medskip
-          % \vspace{6ex}
-          % \bigskip% 
-          % \medskip%
-          % {\bfseries {\PHDfield}} \par                   % Специальность
-          % \fi
-
-
-          \medskip%
-          
-          % \vspace{6ex}
-          \bigskip%
-          
+        
           \vfill
           
           \authorTable
                   
           % Нужна ли таблица БРС
           \ifthenelse{\boolean{brsTableNeeded}}{%
-            % \bigskip
             \bigskip
-            
             \brsTable
-            
             \bigskip
           }{} %% END \ifthenelse{\boolean{brsTableNeeded}}
-
+          
           \begin{center}
             \vspace*{\fill}
             \bfseries
-            {\PHDdegreecity} \par                 % Город
-            {\PHDdegreeyear} \par
+            % Город
+            {\PHDdegreecity}
+            {\PHDdegreeyear}
           \end{center}
-        
-          \vfil\null
-        
+                
         \end{alwayssingle}%
       }
     \end{titlepage}%
