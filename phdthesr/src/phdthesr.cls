@@ -274,6 +274,13 @@
 \cyr\cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrn\cyri\cyre{} \cyr\cyru\cyrch\cyryo\cyrn\cyro\cyrishrt{}
 \cyr\cyrs\cyrt\cyre\cyrp\cyre\cyrn\cyri}
 
+%% The title of your chief
+
+\DeclareRobustCommand{\chieftitle}[1]%
+{%
+  \def\PHDchieftitle{#1}
+}
+\let\PHDchieftitle\@empty
 
 %% The name of your chief and his degree
 
@@ -369,6 +376,12 @@
   \def\PHDstudygroup{#1}
 }
 \let\PHDstudygroup\@empty
+
+\DeclareRobustCommand{\studentid}[1]%
+{%
+  \def\PHDstudentid{#1}
+}
+\let\PHDstudentid\@empty
 
 \DeclareRobustCommand{\thesisSubtype}[1]%
 {%
