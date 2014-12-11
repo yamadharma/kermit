@@ -383,6 +383,12 @@
 }
 \let\PHDstudentid\@empty
 
+\DeclareRobustCommand{\studentdegree}[1]%
+{%
+  \def\PHDstudentdegree{#1}
+}
+\let\PHDstudentdegree\@empty
+
 \DeclareRobustCommand{\thesisSubtype}[1]%
 {%
   \def\PHDthesisSubtype{#1}

@@ -24,6 +24,7 @@
     "PHDchiefDescr"
     "PHDyearShort"
     "PHDapprove"
+    "PHDstudentdegreeText"
     "footnotesize"
     "footnoterule")))
 

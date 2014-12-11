@@ -73,21 +73,29 @@
 \AtBeginDocument{%
   \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian@modern{%
-      \def\PHDauthorDescr{Студент}
-      \def\PHDstudygroupDescr{Группа}
+      % \def\PHDauthorDescr{Студент}
+      \def\PHDauthorDescr{Разработчик}
+      % \def\PHDstudygroupDescr{Группа}
+      \def\PHDstudygroupDescr{Студент группы}
       \def\PHDcountryDescr{Страна}
-      \def\PHDchiefDescr{Научный руководитель}
+      % \def\PHDchiefDescr{Научный руководитель}
+      \def\PHDchiefDescr{Руководитель}
       \def\PHDyearShort{г.}
       \def\PHDapprove{Утверждаю}
+      \def\PHDstudentdegreeText{Квалификация (степень)}
     }
   }{%
-    \def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
-    \def\PHDstudygroupDescr{\cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{}}
+    % \def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
+    \def\PHDauthorDescr{{\CYRR}{\cyra}{\cyrz}{\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrch}{\cyri}{\cyrk}}
+    % \def\PHDstudygroupDescr{\cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{}}
+    \def\PHDstudygroupDescr{{\CYRS}{\cyrt}{\cyru}{\cyrd}{\cyre}{\cyrn}{\cyrt} {\cyrg}{\cyrr}{\cyru}{\cyrp}{\cyrp}{\cyrery}}
     \def\PHDcountryDescr{\cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{}}
-    \def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
-      \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
+    % \def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
+    %   \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
+    \def\PHDchiefDescr{\cyr\CYRR\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
     \def\PHDyearShort{\cyrg.}
     \def\PHDapprove{{\CYRU}{\cyrt}{\cyrv}{\cyre}{\cyrr}{\cyrzh}{\cyrd}{\cyra}{\cyryu}}
+    \def\PHDstudentdegreeText{{\CYRK}{\cyrv}{\cyra}{\cyrl}{\cyri}{\cyrf}{\cyri}{\cyrk}{\cyra}{\cyrc}{\cyri}{\cyrya} ({\cyrs}{\cyrt}{\cyre}{\cyrp}{\cyre}{\cyrn}{\cyrsftsn})}
   }
 }
 
@@ -110,22 +118,24 @@
 \providecommand{\authorTable}{%
   \begin{flushright}
     \begin{minipage}[t]{0.4\linewidth}
-      %% Автор
-      \ifx\@empty\PHDauthor
-      \else%
-      \PHDauthorDescr
-      \hfill
-      \PHDauthor \par
+      \PHDauthorDescr \par
       \smallskip
-      \fi   
-      %% Группа
+      % Группа
       \ifx\@empty\PHDstudygroup
       \else%
-      \PHDstudygroupDescr
-      \hfill
-      \PHDstudygroup \par
+      {\PHDstudygroupDescr}
+      {\PHDstudygroup} \par
       \smallskip
       \fi
+      % Автор
+      \ifx\@empty\PHDauthor
+      \else%
+      \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+      \PHDauthor \par
+      <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort 
+      \par
+      \smallskip
+      \fi   
       %% Страна
       % \ifx\@empty\PHDcountry 
       % \else%
@@ -135,11 +145,12 @@
       % \smallskip
       % \fi
       % \bfseries
+      \bigskip
       %% Научный руководитель
-      \PHDchiefDescr
-      \hfill
+      \PHDchiefDescr \par
+      \smallskip
+      {\PHDchieftitle} \par
       {\PHDchiefdegree} \par
-      \hfill
       \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
       \smallskip
       \hfill
@@ -243,7 +254,13 @@
             \bigskip%
             {\PHDfield} \par
             \fi
-            
+
+            \ifx\@empty\PHDstudentdegree
+            \else%
+            \bigskip%
+            \PHDstudentdegreeText: \PHDstudentdegree \par
+            \fi
+
           \end{center}
         
           \vfill
