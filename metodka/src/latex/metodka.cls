@@ -1,10 +1,6 @@
-%%% 
-
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{metodka}
-                [2008/01/08 v0.0.0.2 
-    Method Book Class, Russian Standard]
-%%
+[2014/12/19\space v0.0.0.3\space Method Book Class, Russian Standard]
 
 \ExecuteOptions{a5paper,10pt,twoside,onecolumn,final,openany}
 %\ExecuteOptions{a5paper,10pt,twoside,onecolumn,final}
@@ -51,11 +47,11 @@
 
 \assignpagestyle{\part}{empty}
 
-\titleformat{\part}[display]
-   {\normalfont\partFontSize\partFontShape\filcenter}
-   {\partname{}\space\thepart\partaftersnum}
-   {0em}
-   {\hrule}
+\titleformat{\part}[display]%
+  {\normalfont\partFontSize\partFontShape\filcenter}
+  {\partname{}\space\thepart\partaftersnum}
+  {0em}
+  {\hrule}
 
 \titleclass{\part}{top}
 \newcommand{\partbreak}{%
@@ -80,11 +76,17 @@
 \def\part@nostar@nopt#1{\NR@gettitle{#1}\titlesec@part{#1}}
 \def\part@nostar@opt[#1]#2{\NR@gettitle{#2}\titlesec@part[#1]{#2}}
 
+\fancypagestyle{pagestyleChapter}{
+  \fancyhead[CE]{}%
+  \fancyhead[CO]{}%
+  \fancyhead[RE]{}%
+  \fancyhead[LO]{}%
+}
+
 \def\@chapter@hook@post{}
 
-
 \titleformat{\chapter}[block]%
-    {\raggedright\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}[\@chapter@hook@post]
+    {\raggedright\thispagestyle{pagestyleChapter}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}[\@chapter@hook@post]
 %    {\raggedright\thispagestyle{empty}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
 %    {\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
 \titleformat{\section}[block]%
@@ -116,16 +118,20 @@
     }
 }
 \renewcommand{\sectionmark}[1]{%
-    \settowidth{\sectionmarkWidth}{\thesection. #1}%
-    \ifthenelse{\lengthtest{\sectionmarkWidth < \PFUmarkWidth}}{%
-        \markright{\thesection. #1}%
-    }{% 
-        \markright{\truncate{0.8\textwidth}{\hfill\thesection. #1\hfill}}%
-    }
+  \settowidth{\sectionmarkWidth}{\thesection. #1}%
+  \ifthenelse{\lengthtest{\sectionmarkWidth < \PFUmarkWidth}}{%
+    \markright{\thesection. #1}%
+  }{% 
+    \markright{\truncate{0.8\textwidth}{\hfill\thesection. #1\hfill}}%
+  }
 }
 
-\fancyhead[CE]{\small \leftmark}%
-\fancyhead[CO]{\small \rightmark}%
+% \fancyhead[CE]{\small \leftmark}%
+% \fancyhead[CO]{\small \rightmark}%
+\fancyhead[CE]{}%
+\fancyhead[CO]{}%
+\fancyhead[RE]{\small \leftmark}%
+\fancyhead[LO]{\small \rightmark}%
 
 \RequirePackage{titletoc}
 
