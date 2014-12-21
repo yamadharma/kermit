@@ -47,7 +47,7 @@
       \def\brsTableText{Текст выпускной работы}
       \def\brsTablePresentation{Презентация по выпускной работе}
       \def\brsTableProtection{Защита выпускной работы}
-      \def\PHDtitleDescr{на тему} 
+      \def\PHDtitleDescr{на тему}
     }
   }{%
     \def\brsTableProblemType{{\CYRV}{\cyri}{\cyrd} {\cyrz}{\cyra}{\cyrd}{\cyra}{\cyrn}{\cyri}{\cyrya}}
@@ -58,7 +58,10 @@
     % \def\brsTableCourse{{\CYRK}{\cyru}{\cyrr}{\cyrs}{\cyro}{\cyrv}{\cyra}{\cyrya} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra}}
     \def\brsTableTotal{{\CYRI}{\CYRT}{\CYRO}{\CYRG}{\CYRO}}
     \def\brsTableText{{\CYRT}{\cyre}{\cyrk}{\cyrs}{\cyrt} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrery}}
-    \def\brsTablePresentation{{\CYRP}{\cyrr}{\cyre}{\cyrz}{\cyre}{\cyrn}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya} {\cyrp}{\cyro} {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt} {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyre}}
+    \def\brsTablePresentation{{\CYRP}{\cyrr}{\cyre}{\cyrz}{\cyre}{\cyrn}{\cyrt}{\cyra}{\cyrc}{\cyri}{\cyrya}
+      {\cyrp}{\cyro}
+      {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt}
+      {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyre}}
     \def\brsTableProtection{{\CYRZ}{\cyra}{\cyrshch}{\cyri}{\cyrt}{\cyra}
       {\cyrv}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyro}{\cyrishrt}
       {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyrery}}
@@ -82,7 +85,8 @@
       \def\PHDchiefDescr{Руководитель}
       \def\PHDyearShort{г.}
       \def\PHDapprove{Утверждаю}
-      \def\PHDstudentdegreeText{Квалификация (степень)}
+      \def\PHDstudentdegreeDescr{Квалификация (степень)}
+      \def\PHDstudentidDescr{Студенческий билет №}
     }
   }{%
     % \def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
@@ -91,11 +95,14 @@
     \def\PHDstudygroupDescr{{\CYRS}{\cyrt}{\cyru}{\cyrd}{\cyre}{\cyrn}{\cyrt} {\cyrg}{\cyrr}{\cyru}{\cyrp}{\cyrp}{\cyrery}}
     \def\PHDcountryDescr{\cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{}}
     % \def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
-    %   \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
+    % \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
     \def\PHDchiefDescr{\cyr\CYRR\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
     \def\PHDyearShort{\cyrg.}
     \def\PHDapprove{{\CYRU}{\cyrt}{\cyrv}{\cyre}{\cyrr}{\cyrzh}{\cyrd}{\cyra}{\cyryu}}
-    \def\PHDstudentdegreeText{{\CYRK}{\cyrv}{\cyra}{\cyrl}{\cyri}{\cyrf}{\cyri}{\cyrk}{\cyra}{\cyrc}{\cyri}{\cyrya} ({\cyrs}{\cyrt}{\cyre}{\cyrp}{\cyre}{\cyrn}{\cyrsftsn})}
+    \def\PHDstudentdegreeDescr{{\CYRK}{\cyrv}{\cyra}{\cyrl}{\cyri}{\cyrf}{\cyri}{\cyrk}{\cyra}{\cyrc}{\cyri}{\cyrya}
+      ({\cyrs}{\cyrt}{\cyre}{\cyrp}{\cyre}{\cyrn}{\cyrsftsn})}
+    \def\PHDstudentidDescr{{\CYRS}{\cyrt}{\cyru}{\cyrd}{\cyre}{\cyrn}{\cyrch}{\cyre}{\cyrs}{\cyrk}{\cyri}{\cyrishrt}
+      {\cyrb}{\cyri}{\cyrl}{\cyre}{\cyrt} \No{}}
   }
 }
 
@@ -127,6 +134,13 @@
       {\PHDstudygroup} \par
       \smallskip
       \fi
+      % Студбилет
+      \ifx\@empty\PHDstudentid
+      \else%
+      {\PHDstudentidDescr}
+      {\PHDstudentid} \par
+      \smallskip
+      \fi      
       % Автор
       \ifx\@empty\PHDauthor
       \else%
@@ -153,7 +167,6 @@
       {\PHDchiefdegree} \par
       \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
       \smallskip
-      \hfill
       <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort
       % \smallskip
       %% 
@@ -258,7 +271,7 @@
             \ifx\@empty\PHDstudentdegree
             \else%
             \bigskip%
-            \PHDstudentdegreeText: \PHDstudentdegree \par
+            \PHDstudentdegreeDescr: \PHDstudentdegree \par
             \fi
 
           \end{center}
