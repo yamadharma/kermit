@@ -1,0 +1,6 @@
+# Created by https://www.gitignore.io
+
+### LibreOffice ###
+# LibreOffice locks
+.~lock.*#
+

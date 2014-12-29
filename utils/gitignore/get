@@ -6,7 +6,7 @@ lang=$1
 
 if [[ "$lang" = "list" ]]
 then
-    curl -L -s https://www.gitignore.io/api/list
+    curl -L -k -s https://www.gitignore.io/api/list
 else
-    curl -L -s https://www.gitignore.io/api/"$lang" > lang/"$lang"
+    curl -L -k -s https://www.gitignore.io/api/"$lang" > lang/"$lang"
 fi
