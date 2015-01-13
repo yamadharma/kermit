@@ -536,6 +536,7 @@
 \def\gref#1{\expandafter\@setref\csname r@#1\endcsname\@firstoftwo{#1}}
 \def\gpageref#1{\expandafter\@setref\csname r@#1\endcsname
   \@secondoftwo{#1}}
+
 %%
 %% Babel
 %%
@@ -965,6 +966,17 @@
 %   \@xp\@nx\csname\string\alttitle\endcsname}
 %%%
 %%%--
+
+\RequirePackage{xparse}
+\ExplSyntaxOn
+
+\NewDocumentCommand{\refList}{ m }
+ {
+  \clist_map_inline:nn { #1 } { \ref{##1} }
+ }
+
+\ExplSyntaxOff
+
 \def\author{\@ifnextchar[{\author@optarg}{\author@optarg[]}}
 \def\author@optarg[#1]#2{\stepcounter{author}%
   \beg@elem
@@ -981,7 +993,8 @@
 % %    \let\@tempc\string{\the\t@loc@notes}
 %     \@temptokena\@xp{\t@loc@notes}
 %     \edef\@tempc{\the\@temptokena}
-     \author@fmt{\the\c@author}{#1}{#2}{}%
+     \author@fmt{\the\c@author}{\refList{#1}}{#2}{}%
+%     \author@fmt{\the\c@author}{#1}{#2}{}%
      \@author@hook@post
 }
 
@@ -1004,7 +1017,7 @@
 % %    \let\@tempc\string{\the\t@loc@notes}
 %     \@temptokena\@xp{\t@loc@notes}
 %     \edef\@tempc{\the\@temptokena}
-     \altauthor@fmt{\the\c@altauthor}{#1}{#2}{}%
+     \altauthor@fmt{\the\c@altauthor}{\refList{#1}}{#2}{}%
    \end{otherlanguage*}
    \@altauthor@hook@post
 }
@@ -1141,9 +1154,11 @@
 %      \gdef\authors{\expandafter{\authorTmp}\negthickspace${}^{\mathrm{\ref{#2}}}$}%
 %      \protected@xdef\authors{\authorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
       \ifx\@tempd\@empty
-        \g@addto@macro\authors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+%        \g@addto@macro\authors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        \g@addto@macro\authors{\protect\mbox{#3}$^{\mathrm{{#2}}}$}%
       \else
-        \g@addto@macro\authors{\protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+%        \g@addto@macro\authors{\protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        \g@addto@macro\authors{\protect\fbox{#3}$^{\mathrm{{#2}}}$}%
       \fi
     \fi
   \else
@@ -1179,9 +1194,11 @@
 %        $^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
 %      \edef\authorTmp{\authorinitials~\authorfamily}       
      \ifx\@tempd\@empty
-       \g@addto@macro\authors{\and \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+%       \g@addto@macro\authors{\and \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+       \g@addto@macro\authors{\and \protect\mbox{#3}$^{\mathrm{{#2}}}$}%
      \else
-       \g@addto@macro\authors{\and \protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+       % \g@addto@macro\authors{\and \protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+       \g@addto@macro\authors{\and \protect\fbox{#3}$^{\mathrm{{#2}}}$}%
      \fi
 %      \xdef\authorTmp{\authorinitials~\authorfamily}
 %      \g@addto@macro\authors{\and \authorTmp\,$^{\mathrm{\ref{#2}}}$}%
@@ -1248,9 +1265,11 @@
     \else
 %      \protected@xdef\altauthors{\altauthorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
       \ifx\@tempd\@empty
-        \g@addto@macro\altauthors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        % \g@addto@macro\altauthors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        \g@addto@macro\altauthors{\protect\mbox{#3}$^{\mathrm{{#2}}}$}%
       \else
-        \g@addto@macro\altauthors{\protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        % \g@addto@macro\altauthors{\protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        \g@addto@macro\altauthors{\protect\fbox{#3}$^{\mathrm{{#2}}}$}%
       \fi
     \fi
   \else
@@ -1272,9 +1291,11 @@
      \fi
    \else
      \ifx\@tempd\@empty   
-       \g@addto@macro\altauthors{\altand \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+       % \g@addto@macro\altauthors{\altand \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+       \g@addto@macro\altauthors{\altand \protect\mbox{#3}$^{\mathrm{{#2}}}$}%
      \else
-       \g@addto@macro\altauthors{\altand \protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+       % \g@addto@macro\altauthors{\altand \protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+       \g@addto@macro\altauthors{\altand \protect\fbox{#3}$^{\mathrm{{#2}}}$}%
      \fi
    \fi
   \fi
