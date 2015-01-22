@@ -4,7 +4,7 @@
 %    Paper Sizes Package]
 %%
 %\RequirePackage{xkeyval}
-%\RequirePackage{geometry}
+\RequirePackage{geometry}
 %%
 %% begin Options
 %%
@@ -241,6 +241,17 @@
 {%
     \setlength \paperheight {215mm}%
     \setlength \paperwidth  {145mm}
+}
+
+%% paper: a4, margin = 1in
+\DeclareOption{a4wide}
+{%
+\geometry{
+    reset,
+    papername=a5paper,
+    includeheadfoot,
+    margin=2.54cm
+    }
 }
 
 

@@ -193,6 +193,16 @@
 
 }
 
+%% paper: a4, margin = 20mm
+\DeclareOption{a4wide}
+{%
+    \geometry{papername=a4paper}
+    %\geometry{includeheadfoot}
+    \geometry{noheadfoot}
+    \geometry{hmargin={20mm,20mm},vmargin={20mm,20mm}}
+    % \geometry{heightrounded}
+}
+
 %}}}
 
 %%
