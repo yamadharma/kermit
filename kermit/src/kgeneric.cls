@@ -1081,9 +1081,15 @@
 %%%
 \AtBeginDocument{%
 %\AtEndPreamble{%
+% babel
 \ifx\bbl@main@language\@undefined
 \else
   \InputIfFileExists{kermit/lang/\bbl@main@language.cli}{}{}
+\fi
+% polyglossia (don't work)
+\ifx\languagename\@undefined
+\else
+  \InputIfFileExists{kermit/lang/\languagename.cli}{}{}
 \fi
 }
 %%%
