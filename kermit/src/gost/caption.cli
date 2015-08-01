@@ -2,7 +2,6 @@
 %%% Captions
 %%%
 
-
 \RequirePackage{caption}
 
 \captionsetup{font={small}}
@@ -24,3 +23,4 @@
     }{}
 \makeatother
 %}
+

@@ -1079,6 +1079,7 @@
 %%%
 %%% Language
 %%%
+\RequirePackage{caption}
 \AtBeginDocument{%
 %\AtEndPreamble{%
 % babel
@@ -1087,9 +1088,10 @@
   \InputIfFileExists{kermit/lang/\bbl@main@language.cli}{}{}
 \fi
 % polyglossia (don't work)
-\ifx\languagename\@undefined
+\ifx\xpg@main@language\@undefined
 \else
-  \InputIfFileExists{kermit/lang/\languagename.cli}{}{}
+  \newcommand{\mainlanguage}{\xpg@main@language}
+  \InputIfFileExists{kermit/lang/\xpg@main@language.cli}{}{}
 \fi
 }
 %%%
