@@ -102,6 +102,14 @@
 %   \renewtheorem*{Example*}{\ExampleName}
    \@addtoreset{Example}{PFUtitle}
 % }
+{
+   \theoremstyle{plain}
+   \renewtheorem{Condition}{\ConditionName}
+   \renewtheorem*{Condition*}{\ConditionName}
+   \@addtoreset{Condision}{PFUtitle}
+}
+
+
 
 % }
 
@@ -116,6 +124,7 @@
     \def\DefName{{\CYRO}{\cyrp}{\cyrr}{\cyre}{\cyrd}{\cyre}{\cyrl}{\cyre}{\cyrn}{\cyri}{\cyre}}
     \def\PropositionName{{\CYRP}{\cyrr}{\cyre}{\cyrd}{\cyrl}{\cyro}{\cyrzh}{\cyre}{\cyrn}{\cyri}{\cyre}}
     \def\StatementName{{\CYRU}{\cyrt}{\cyrv}{\cyre}{\cyrr}{\cyrzh}{\cyrd}{\cyre}{\cyrn}{\cyri}{\cyre}}
+    \def\ConditionName{{\CYRU}{\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyri}{\cyre}}
     \def\ExampleName{{\CYRP}{\cyrr}{\cyri}{\cyrm}{\cyre}{\cyrr}}
   }
 %%
@@ -130,6 +139,7 @@
     \def\DefName{Definition}
     \def\PropositionName{Proposition}
     \def\StatementName{Statement}
+    \def\ConditionName{Condition}
     \def\ExampleName{Example}
   }
 }
