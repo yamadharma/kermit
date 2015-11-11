@@ -104,6 +104,7 @@
 % }
 {
    \theoremstyle{plain}
+   \def\ConditionName{Condition}
    \newtheorem{Condition}{\ConditionName}
    \newtheorem*{Condition*}{\ConditionName}
    \@addtoreset{Condision}{PFUtitle}
