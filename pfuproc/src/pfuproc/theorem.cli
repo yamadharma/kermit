@@ -104,8 +104,8 @@
 % }
 {
    \theoremstyle{plain}
-   \renewtheorem{Condition}{\ConditionName}
-   \renewtheorem*{Condition*}{\ConditionName}
+   \newtheorem{Condition}{\ConditionName}
+   \newtheorem*{Condition*}{\ConditionName}
    \@addtoreset{Condision}{PFUtitle}
 }
 
