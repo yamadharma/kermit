@@ -133,6 +133,42 @@
 \fancyhead[RE]{\small \leftmark}%
 \fancyhead[LO]{\small \rightmark}%
 
+
+%{{{ Подстройка из текущей методички
+
+\geometry{hcentering}
+
+\fancyhead[CE]{}%
+\fancyhead[CO]{}%
+\fancyhead[RE]{\footnotesize \leftmark}%
+\fancyhead[LO]{\footnotesize \rightmark}%
+
+
+\fancypagestyle{pagestyleChapter}{
+\fancyhead[CE]{}%
+\fancyhead[CO]{}%
+\fancyhead[RE]{}%
+\fancyhead[LO]{}%
+}
+
+\titleformat{\chapter}[block]%
+    {\raggedright\thispagestyle{pagestyleChapter}\normalfont\chapterFontSize\chapterFontShape}{\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}[\def\leftmark{\thechapter\space\protect\chaptercontents}]
+%    {\raggedright\thispagestyle{empty}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
+%    {\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
+\titleformat{\section}[block]%
+    {\raggedright\normalfont\sectionFontSize\sectionFontShape}{\thesection\secaftersnum}{1em}{}
+
+\def\rightmark{\authorheadings{} \titleheadings}
+
+%\renewcommand{\chaptermark}[1]{%
+%  \def\chaptercontents{#1}
+%  \markboth{\thechapter\space\protect\chaptercontents}{\authorheadings{} \titleheadings}
+%    \def\leftmark{\thechapter\space\protect\chaptercontents}
+%}
+
+
+%}}}
+
 \RequirePackage{titletoc}
 
 \titlecontents{chapter}[0pt]%
