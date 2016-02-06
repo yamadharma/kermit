@@ -11,6 +11,7 @@
 % \RequirePackage{tocloft}
 % \RequirePackage{cite}
 \RequirePackage{keyval}
+\RequirePackage{xspace}
 
 \RequirePackage{substr}
 
@@ -86,7 +87,7 @@
 \def\@chapter@hook@post{}
 
 \titleformat{\chapter}[block]%
-    {\raggedright\thispagestyle{pagestyleChapter}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}[\@chapter@hook@post]
+    {\raggedright\thispagestyle{pagestyleChapter}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\xspace\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}[\@chapter@hook@post]
 %    {\raggedright\thispagestyle{empty}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
 %    {\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
 \titleformat{\section}[block]%
@@ -150,13 +151,6 @@
 \fancyhead[RE]{}%
 \fancyhead[LO]{}%
 }
-
-\titleformat{\chapter}[block]%
-    {\raggedright\thispagestyle{pagestyleChapter}\normalfont\chapterFontSize\chapterFontShape}{\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}[\def\leftmark{\thechapter\space\protect\chaptercontents}]
-%    {\raggedright\thispagestyle{empty}\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
-%    {\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename\space\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}    
-\titleformat{\section}[block]%
-    {\raggedright\normalfont\sectionFontSize\sectionFontShape}{\thesection\secaftersnum}{1em}{}
 
 \def\rightmark{\authorheadings{} \titleheadings}
 
