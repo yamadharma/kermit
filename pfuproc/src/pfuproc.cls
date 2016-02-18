@@ -117,7 +117,10 @@
   % Добавим в macro всё, что есть сейчас
   \g@addto@macro\pfuproc@authorlistentry{%
     {\authorlistFontShape
-    \pfuproc@authorfull}~---
+    \pfuproc@authorfull}%
+  \ifx\pfuproc@country\@empty
+  \else{ (\pfuproc@country)}
+  \fi~---
     \ifx\pfuproc@authorrank\@empty
     \else
     \pfuproc@authorrank,
