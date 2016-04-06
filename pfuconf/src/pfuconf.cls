@@ -38,18 +38,18 @@
 \def\@maketitle@hook@pre{\vspace{2\baselineskip plus \baselineskip
     minus \baselineskip}}
 
-% \renewcommand{\chapterFontShape}{\bfseries}
+\renewcommand{\chapterFontShape}{\bfseries}
 
-% \renewcommand{\titleFontShape}{\bfseries}
-% \renewcommand{\titleFontSize}{\large}
+\renewcommand{\titleFontShape}{\bfseries}
+\renewcommand{\titleFontSize}{\large}
 
-% \renewcommand{\sectionFontShape}{\bfseries}
+\renewcommand{\sectionFontShape}{\bfseries}
 \renewcommand{\sectionFontSize}{\normalfont}
 
-% \renewcommand{\subsectionFontShape}{\bfseries}
+\renewcommand{\subsectionFontShape}{\bfseries}
 \renewcommand{\subsectionFontSize}{\normalfont}
 
-% \renewcommand{\paragraphFontShape}{\bfseries}
+\renewcommand{\paragraphFontShape}{\bfseries}
 
 \renewcommand{\authorFontShape}{\bfseries}
 \renewcommand{\authorFontSize}{\normalfont}

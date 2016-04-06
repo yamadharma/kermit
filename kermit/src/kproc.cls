@@ -1732,6 +1732,7 @@
 \def\maketitle{\par
   \@maketitle@hook@pre
   \@maketitle@hook
+  \begin{otherlanguage}{\PFUlanguage}
 %%   \clearpage
 % \selectlanguage{\PFUlanguage}
 %%%--
@@ -1882,6 +1883,7 @@
 \let\@abstracts\@empty
 \let\@paperid\@empty
 %%%
+\end{otherlanguage}
 } % END \maketitle
 
 \def\maketitleToc{\par
@@ -2299,6 +2301,7 @@
 {
   \@makealttitle@hook@pre
   \@makealttitle@hook
+  \begin{otherlanguage}{\PFUaltlanguage}
 %%   \begin{otherlanguage*}{\PFUaltlanguage}
 %   \relax
 %   \vspace*{2\bigskipamount}
@@ -2384,7 +2387,7 @@
 \if@filesw
 \immediate\closeout\PFU@aux\relax
 \fi
-%% \end{otherlanguage*}
+\end{otherlanguage}
 } % END \makealttitle
 
 \providecommand{\makealttitleTOCOnly}%

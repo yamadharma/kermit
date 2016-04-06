@@ -1,5 +1,5 @@
 \ProvidesFile{biblatex-gost.def}
-[2016/02/04\space v1.4\space biblatex-gost styles]
+[2016/04/05\space v1.6\space biblatex-gost styles]
 
 % these declarations should be here, not in lbx, to be initialized for all languages
 \NewBibliographyString{
@@ -527,6 +527,8 @@
   {book,collection,proceedings,reference}{%
   \inherit{shorttitle}{shorttitle}}
 
+\DeclareDataInheritance{article}{periodical}{%
+  \noinherit{pagetotal}}
 \DeclareDataInheritance{book}{inbook,bookinbook,suppbook}{%
   \inherit{translator}{booktranslator}
   \inherit{introduction}{bookintroduction}

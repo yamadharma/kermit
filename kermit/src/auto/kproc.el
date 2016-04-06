@@ -55,6 +55,7 @@
     "normaltopskip"
     "headerFontSize"
     "upchars"
+    "refList"
     "andify"
     "altandify"
     "makealttitle"
@@ -256,5 +257,7 @@
     "address"
     "altaddress")
    (LaTeX-add-saveboxes
-    "abstractbox")))
+    "abstractbox")
+   (LaTeX-add-caption-DeclareCaptions
+    '("\\DeclareCaptionFormat{tableRight}" "Format" "tableRight"))))
 

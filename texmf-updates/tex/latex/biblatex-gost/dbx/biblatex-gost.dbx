@@ -1,7 +1,14 @@
 % Biblatex-GOST data model
 
-\DeclareDatamodelFields[type=field, datatype=literal]{
+\DeclareDatamodelFields[type=field, datatype=range]{
+  number,
   book,
+  part,
+  volume,
+  issue,
+}
+
+\DeclareDatamodelFields[type=field, datatype=literal]{
   books,parts,issues,
   volsorder,
   sortvolume,
@@ -16,7 +23,7 @@
   heading,
 }
 
-\DeclareDatamodelFields[type=field, datatype=date, skipout]{
+\DeclareDatamodelFields[type=field, datatype=date]{
   update,
   prdate,
   publdate,
@@ -50,6 +57,10 @@
 }
 
 \DeclareDatamodelEntryfields{
+  number,
+  book,part,issue,
+  books,parts,issues,
+  language,
   media,
   credits,
   editioncredits,
@@ -58,18 +69,14 @@
   heading,
 }
 
-\DeclareDatamodelEntryfields[article]{
+\DeclareDatamodelEntryfields[article,periodical]{
   journalcredits,
+  location,
+  publisher,
 }
 
 \DeclareDatamodelEntryfields[book,collection,proceedings,reference]{
-  book,
-  books,parts,issues,
   sortvolume,
-}
-
-\DeclareDatamodelEntryfields[mvbook,mvcollection,mvproceedings,mvreference]{
-  books,parts,issues,
 }
 
 \DeclareDatamodelEntryfields[inbook,incollection,inproceedings,inreference,bookinbook,suppbook,suppcollection]{
@@ -92,6 +99,7 @@
 }
 
 \DeclareDatamodelEntryfields[patent]{
+  pagetotal,
   prday,prmonth,pryear,
   publday,publmonth,publyear,
   publication,reqnumber,ipc,prnumber,prcountry,
