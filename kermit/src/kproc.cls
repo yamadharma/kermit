@@ -62,6 +62,7 @@
 \def\@secnumfont#1{\upshape}
 \def\@catchlinesize{\footnotesize}
 \def\@runheadsize{\normalsize}
+\def\acknowledgmentsname{Acknowledgments}
 %
 \newtoks\t@glob@notes                   % List of all notes
 \newtoks\t@loc@notes                    % List of notes for one element
@@ -565,6 +566,7 @@
       \def\etal{и др.}
       % Ключевые слова
       \def\keywordsname{Ключевые слова}
+      \def\acknowledgmentsname{Благодарности}
     }
     \addto\captionsenglish{%
     \def\PFUudcName{UDC}
@@ -577,6 +579,7 @@
 %%    \renewcommand{\etal}{et al.}
 %%     \providecommand{\etal}{et al.}
     \def\keywordsname{Key words and phrases}
+    \def\acknowledgmentsname{Acknowledgments}
     }
   }{%
     \addto\extrasrussian{%
@@ -589,7 +592,9 @@
       \def\PFUpublishedName{Published }%
       \def\etal{\cyri{} \cyrd\cyrr.}
       % Ключевые слова
-      \def\keywordsname{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre} {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
+      \def\keywordsname{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre}
+        {\cyrs}{\cyrl}{\cyro}{\cyrv}{\cyra}}
+      \def\acknowledgmentsname{\CYRB\cyrl\cyra\cyrg\cyro\cyrd\cyra\cyrr\cyrn\cyro\cyrs\cyrt\cyri}
     }
   }
   \addto\extrasenglish%
@@ -604,6 +609,7 @@
 %%    \renewcommand{\etal}{et al.}
 %%     \providecommand{\etal}{et al.}
     \def\keywordsname{Key words and phrases}
+    \def\acknowledgmentsname{Acknowledgments}
   }
 }
 
@@ -862,12 +868,12 @@
 \AtBeginDocument{%
   \iflanguage{english}%
   {%
-    \edef\PFUlanguage{english}
-    \edef\PFUaltlanguage{russian}
+    \gdef\PFUlanguage{english}
+    \gdef\PFUaltlanguage{russian}
   }%
   {%
-    \edef\PFUlanguage{russian}
-    \edef\PFUaltlanguage{english}
+    \gdef\PFUlanguage{russian}
+    \gdef\PFUaltlanguage{english}
   }
 }
 
@@ -1732,9 +1738,12 @@
 \def\maketitle{\par
   \@maketitle@hook@pre
   \@maketitle@hook
-  \begin{otherlanguage}{\PFUlanguage}
+  
+  
+ % \begin{otherlanguage}{\PFUlanguage}
 %%   \clearpage
-% \selectlanguage{\PFUlanguage}
+  % {
+  %   \selectlanguage{\PFUlanguage}
 %%%--
 %     \if@filesw
 %       \makeatletter
@@ -1883,7 +1892,8 @@
 \let\@abstracts\@empty
 \let\@paperid\@empty
 %%%
-\end{otherlanguage}
+% \end{otherlanguage}
+% } % END \selectlanguage
 } % END \maketitle
 
 \def\maketitleToc{\par
@@ -2301,7 +2311,7 @@
 {
   \@makealttitle@hook@pre
   \@makealttitle@hook
-  \begin{otherlanguage}{\PFUaltlanguage}
+  % \begin{otherlanguage}{\PFUaltlanguage}
 %%   \begin{otherlanguage*}{\PFUaltlanguage}
 %   \relax
 %   \vspace*{2\bigskipamount}
@@ -2387,7 +2397,7 @@
 \if@filesw
 \immediate\closeout\PFU@aux\relax
 \fi
-\end{otherlanguage}
+% \end{otherlanguage}
 } % END \makealttitle
 
 \providecommand{\makealttitleTOCOnly}%
@@ -3808,6 +3818,27 @@
 % \newenvironment{figure}
 %                {\@float{figure}}
 %                {\end@float}
+
+\newenvironment{acknowledgments}{%
+  % \acknowledgments@sw{%
+  \section*{\acknowledgmentsname}%
+  % }
+  {%
+    \par
+    \phantomsection
+    \addcontentsline{toc}{section}{\protect\numberline{}\acknowledgmentsname}%
+  }%
+}
+{%
+  \par
+}%
+% \@booleantrue\acknowledgments@sw
+% \newenvironment{acknowledgements}{%
+%   \replace@environment{acknowledgements}{acknowledgments}%
+% }
+{%
+  \endacknowledgments
+}%
 
 %%%
 %%% Captions

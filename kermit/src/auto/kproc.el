@@ -112,6 +112,7 @@
     "PFUpublishedname"
     "etal"
     "keywordsname"
+    "acknowledgmentsname"
     "prefacename"
     "abstractname"
     "chaptername"
@@ -241,7 +242,8 @@
     "titlepage"
     "altabstract"
     "abstract"
-    "abstracta")
+    "abstracta"
+    "acknowledgments")
    (LaTeX-add-pagestyles
     "empty"
     "plain"
