@@ -259,8 +259,10 @@
 \geometry{includehead}
 % \geometry{includeheadfoot}
 % \geometry{includefoot}
-% \geometry{twoside}
+\geometry{twoside}
 \geometry{nofoot}
+\geometry{heightrounded}
+\geometry{headsep=\baselineskip}
 \geometry{bindingoffset=0pt}
 \geometry{marginparwidth=0pt,marginparsep=0pt}
 
