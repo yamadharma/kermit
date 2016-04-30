@@ -1,5 +1,7 @@
 \input{phdthesr/type/title-brs.cli}
 
+\setboolean{brsTableNeeded}{false}
+
 \renewcommand{\brsTable}{%
 \begin{center}
 \begin{tabular}{|l|c|c|}
@@ -186,7 +188,11 @@
     
     \setcounter{footnote}{0}
     \clearpage
-    \setcounter{page}{3}
+    \ifthenelse{\boolean{brsTableNeeded}}{%
+	\setcounter{page}{3}
+    }{%
+	\setcounter{page}{2}
+    }
   }
 } % END of \def\maketitle
 
