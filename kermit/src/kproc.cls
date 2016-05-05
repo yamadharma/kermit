@@ -962,9 +962,9 @@
 %%%
 \newcommand*{\alttitle}[2][]%
 {
-  \begin{otherlanguage*}{\PFUaltlanguage}
+  \begin{otherlanguage}{\PFUaltlanguage}
     \gdef\shortalttitle{#1}\gdef\@alttitle{#2}
-  \end{otherlanguage*}
+  \end{otherlanguage}
 }
 \let\@alttitle\@empty
 
@@ -1008,7 +1008,7 @@
 
 \def\altauthor{\@ifnextchar[{\altauthor@optarg}{\altauthor@optarg[]}}
 \def\altauthor@optarg[#1]#2{\stepcounter{altauthor}%
-  \begin{otherlanguage*}{\PFUaltlanguage}
+  \begin{otherlanguage}{\PFUaltlanguage}
   \beg@elem
   \@for\@tempa:=#1\do{\expandafter\add@thanksref\expandafter{\@tempa}}%
   \report@elt{altauthor}\proc@elem{altauthor}{#2}%
@@ -1024,7 +1024,7 @@
 %     \@temptokena\@xp{\t@loc@notes}
 %     \edef\@tempc{\the\@temptokena}
      \altauthor@fmt{\the\c@altauthor}{\refList{#1}}{#2}{}%
-   \end{otherlanguage*}
+   \end{otherlanguage}
    \@altauthor@hook@post
 }
 
@@ -1044,14 +1044,14 @@
 \def\altfauthor{\@ifnextchar[{\altfauthor@optarg}{\altfauthor@optarg[]}}
 \def\altfauthor@optarg[#1]#2{%
   \stepcounter{altauthor}%
-  \begin{otherlanguage*}{\PFUaltlanguage}
+  \begin{otherlanguage}{\PFUaltlanguage}
   \beg@elem
   \@for\@tempa:=#1\do{\expandafter\add@thanksref\expandafter{\@tempa}}%
   \report@elt{altauthor}\proc@elem{altauthor}{#2}%
   \def\caltauthor{\value{altauthor}}
   \ifnum\c@altauthor=\@ne \edef\@raltauthor{#2} \fi
   \altauthor@fmt{\the\c@altauthor}{#1}{#2}{fbox}%
-  \end{otherlanguage*}
+  \end{otherlanguage}
 }      
 
 %%%--
@@ -1418,7 +1418,7 @@
   {\@ifnextchar[{\altaddress@optarg}{\altaddress@noptarg}}}
 \def\altaddress@optarg[#1]#2%
 {
-  \begin{otherlanguage*}{\PFUaltlanguage}
+  \begin{otherlanguage}{\PFUaltlanguage}
   \real@refstepcounter{altaddress}%
 %  \beg@elem
   \report@elt{altaddress}\proc@elem{altaddress}{#2}%
@@ -1426,29 +1426,29 @@
   \altaddress@fmt{\c@altaddress}{#1}{#2}{#1}%
   \if@Elproofing\else\label{#1}\fi
   \ignorespaces%
-\end{otherlanguage*}
+\end{otherlanguage}
 } %END \altaddress@optarg
 
 \def\altaddress@noptarg#1%
 {
-  \begin{otherlanguage*}{\PFUaltlanguage}
+  \begin{otherlanguage}{\PFUaltlanguage}
  \real@refstepcounter{altaddress}%
 %  \beg@elem
   \proc@elem{altaddress}{#1}%
 %  \address@fmt{\z@}{\the\t@loc@notes}{\@address}{\theaddress}%
   \altaddress@fmt{\z@}{\the\t@loc@notes}{#1}{\thealtaddress}%
   \ignorespaces%
-\end{otherlanguage*}
+\end{otherlanguage}
 } %END \altaddress@noptarg
 
 \def\altaddress@star#1%
 {%
-  \begin{otherlanguage*}{\PFUaltlanguage}
+  \begin{otherlanguage}{\PFUaltlanguage}
   \beg@elem
   \proc@elem{altaddress}{#1}%
   \altaddress@fmt{\m@ne}{\the\t@loc@notes}{\@altaddress}{*}%
   \ignorespaces%
-\end{otherlanguage*}
+\end{otherlanguage}
 } %END \altaddress@star
 
 \def\thealtaddress{\fnsymbol{altaddress}}
@@ -2445,7 +2445,7 @@
 \providecommand{\@makealttitle}%
 {%
   \begingroup
-  \begin{otherlanguage*}{\PFUaltlanguage}
+  \begin{otherlanguage}{\PFUaltlanguage}
   % \begin{otherlanguage}{\PFUaltlanguage}
 %   \bigskip
 %   \bigskip
@@ -2507,7 +2507,7 @@
 %     \dimen@34\p@ \advance\dimen@-\baselineskip
 %     \vskip\dimen@\relax
 %   \fi
-  \end{otherlanguage*}
+  \end{otherlanguage}
   % \end{otherlanguage}
   \endgroup
   \normalsize
@@ -2805,7 +2805,7 @@
 %%%--
 
 \newcommand{\altabstracts}[1]{%
-  \begin{otherlanguage*}{\PFUaltlanguage}
+  \begin{otherlanguage}{\PFUaltlanguage}
     \gdef\@altabstracts{#1}
     \global\@hasaltabstracttrue
     \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
@@ -2816,14 +2816,14 @@
     \ignorespaces
     #1
     \par \egroup%
-  \end{otherlanguage*}
+  \end{otherlanguage}
 }
 \let\@altabstracts\@empty
 
 \newcommand{\altabstractname}{Abstract}
 \def\altabstract{\@ifnextchar[{\@altabstract}{\@altabstract[]}}
 \def\@altabstract[#1]{%
-  \begin{otherlanguage*}{\PFUaltlanguage}
+  \begin{otherlanguage}{\PFUaltlanguage}
   \global\@hasaltabstracttrue
   \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
 %     \if@twocolumn
@@ -2849,7 +2849,7 @@
 %\noindent
 \ignorespaces
 }
- \def\endaltabstract{\par \egroup \end{otherlanguage*}}
+ \def\endaltabstract{\par \egroup \end{otherlanguage}}
 %%%
 % \newbox\abstractbox
 % \newenvironment{abstract}{%
