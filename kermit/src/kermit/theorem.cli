@@ -44,6 +44,7 @@
   \theoremstyle{plain}
   \def\TheoremName{Theorem}
   \newtheorem{Theorem}{\TheoremName}
+  \newtheorem{theorem}{\TheoremName}
   % FIXME: dirty hack
   \renewtheorem*{Theorem*}{\TheoremName}
 %  \@addtoreset{Theorem}{title}
@@ -107,6 +108,7 @@
   \theorembodyfont{\normalfont}
   \def\StatementName{Statement}
   \newtheorem{Statement}{\StatementName}
+  \newtheorem{statement}{\StatementName}
   % FIXME: dirty hack    
   \renewtheorem*{Statement*}{\StatementName}
 %  \@addtoreset{Statement}{title}
@@ -182,6 +184,19 @@
     \def\StatementName{Утверждение}
     \def\ExampleName{Пример}
     \def\ProofName{Доказательство}
+  }
+  \addto\captionsenglish%
+  {
+    \def\TheoremName{Theorem}
+    \def\LemmaName{Lemma}
+    \def\ConsName{Cons}
+    \def\CorollaryName{Corollary}
+    \def\RemarkName{Remark}
+    \def\DefName{Definition}
+    \def\PropositionName{Proposition}
+    \def\StatementName{Statement}
+    \def\ExampleName{Example}
+    \def\ProofName{Proof}
   }
 }{} %% polyglossia
 }
