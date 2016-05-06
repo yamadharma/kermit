@@ -308,6 +308,12 @@
 
 %}}}
 
+
+\newif\ifpolyglossia\polyglossiafalse
+\AtBeginDocument{%
+  \@ifpackageloaded{polyglossia}{\polyglossiatrue}{\polyglossiafalse}
+}
+
 %%
 \RequirePackage{keyval}
 \RequirePackage{substr}
@@ -962,9 +968,9 @@
 %%%
 \newcommand*{\alttitle}[2][]%
 {
-  \begin{otherlanguage}{\PFUaltlanguage}
+  \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
     \gdef\shortalttitle{#1}\gdef\@alttitle{#2}
-  \end{otherlanguage}
+  \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
 }
 \let\@alttitle\@empty
 
@@ -1008,7 +1014,7 @@
 
 \def\altauthor{\@ifnextchar[{\altauthor@optarg}{\altauthor@optarg[]}}
 \def\altauthor@optarg[#1]#2{\stepcounter{altauthor}%
-  \begin{otherlanguage}{\PFUaltlanguage}
+  \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
   \beg@elem
   \@for\@tempa:=#1\do{\expandafter\add@thanksref\expandafter{\@tempa}}%
   \report@elt{altauthor}\proc@elem{altauthor}{#2}%
@@ -1024,7 +1030,7 @@
 %     \@temptokena\@xp{\t@loc@notes}
 %     \edef\@tempc{\the\@temptokena}
      \altauthor@fmt{\the\c@altauthor}{\refList{#1}}{#2}{}%
-   \end{otherlanguage}
+   \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
    \@altauthor@hook@post
 }
 
@@ -1044,14 +1050,14 @@
 \def\altfauthor{\@ifnextchar[{\altfauthor@optarg}{\altfauthor@optarg[]}}
 \def\altfauthor@optarg[#1]#2{%
   \stepcounter{altauthor}%
-  \begin{otherlanguage}{\PFUaltlanguage}
+  \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
   \beg@elem
   \@for\@tempa:=#1\do{\expandafter\add@thanksref\expandafter{\@tempa}}%
   \report@elt{altauthor}\proc@elem{altauthor}{#2}%
   \def\caltauthor{\value{altauthor}}
   \ifnum\c@altauthor=\@ne \edef\@raltauthor{#2} \fi
   \altauthor@fmt{\the\c@altauthor}{#1}{#2}{fbox}%
-  \end{otherlanguage}
+  \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
 }      
 
 %%%--
@@ -1418,7 +1424,7 @@
   {\@ifnextchar[{\altaddress@optarg}{\altaddress@noptarg}}}
 \def\altaddress@optarg[#1]#2%
 {
-  \begin{otherlanguage}{\PFUaltlanguage}
+  \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
   \real@refstepcounter{altaddress}%
 %  \beg@elem
   \report@elt{altaddress}\proc@elem{altaddress}{#2}%
@@ -1426,29 +1432,29 @@
   \altaddress@fmt{\c@altaddress}{#1}{#2}{#1}%
   \if@Elproofing\else\label{#1}\fi
   \ignorespaces%
-\end{otherlanguage}
+\ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
 } %END \altaddress@optarg
 
 \def\altaddress@noptarg#1%
 {
-  \begin{otherlanguage}{\PFUaltlanguage}
+  \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
  \real@refstepcounter{altaddress}%
 %  \beg@elem
   \proc@elem{altaddress}{#1}%
 %  \address@fmt{\z@}{\the\t@loc@notes}{\@address}{\theaddress}%
   \altaddress@fmt{\z@}{\the\t@loc@notes}{#1}{\thealtaddress}%
   \ignorespaces%
-\end{otherlanguage}
+\ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
 } %END \altaddress@noptarg
 
 \def\altaddress@star#1%
 {%
-  \begin{otherlanguage}{\PFUaltlanguage}
+  \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
   \beg@elem
   \proc@elem{altaddress}{#1}%
   \altaddress@fmt{\m@ne}{\the\t@loc@notes}{\@altaddress}{*}%
   \ignorespaces%
-\end{otherlanguage}
+\ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
 } %END \altaddress@star
 
 \def\thealtaddress{\fnsymbol{altaddress}}
@@ -1564,9 +1570,9 @@
 %%%
 % \newcommand{\altabstracts}[2][]%
 % {
-%   \begin{otherlanguage*}{\PFUaltlanguage}
+%   \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
 %     \gdef\shortabstract{#1}\gdef\@altabstracts{#2}
-%   \end{otherlanguage*}
+%   \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
 % }
 % \edef\altabstracts{\@nx\@dblarg
 %   \@xp\@nx\csname\string\altabstracts\endcsname}
@@ -2312,7 +2318,7 @@
   \@makealttitle@hook@pre
   \@makealttitle@hook
   % \begin{otherlanguage}{\PFUaltlanguage}
-%%   \begin{otherlanguage*}{\PFUaltlanguage}
+%%   \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
 %   \relax
 %   \vspace*{2\bigskipamount}
 %   \bigskip
@@ -2445,7 +2451,7 @@
 \providecommand{\@makealttitle}%
 {%
   \begingroup
-  \begin{otherlanguage}{\PFUaltlanguage}
+  \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
   % \begin{otherlanguage}{\PFUaltlanguage}
 %   \bigskip
 %   \bigskip
@@ -2507,7 +2513,7 @@
 %     \dimen@34\p@ \advance\dimen@-\baselineskip
 %     \vskip\dimen@\relax
 %   \fi
-  \end{otherlanguage}
+  \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
   % \end{otherlanguage}
   \endgroup
   \normalsize
@@ -2805,7 +2811,7 @@
 %%%--
 
 \newcommand{\altabstracts}[1]{%
-  \begin{otherlanguage}{\PFUaltlanguage}
+  \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
     \gdef\@altabstracts{#1}
     \global\@hasaltabstracttrue
     \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
@@ -2816,14 +2822,14 @@
     \ignorespaces
     #1
     \par \egroup%
-  \end{otherlanguage}
+  \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
 }
 \let\@altabstracts\@empty
 
 \newcommand{\altabstractname}{Abstract}
 \def\altabstract{\@ifnextchar[{\@altabstract}{\@altabstract[]}}
 \def\@altabstract[#1]{%
-  \begin{otherlanguage}{\PFUaltlanguage}
+  \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
   \global\@hasaltabstracttrue
   \hyphenpenalty\sv@hyphenpenalty     % restore \hyphenpenalty
 %     \if@twocolumn
@@ -2849,7 +2855,7 @@
 %\noindent
 \ignorespaces
 }
- \def\endaltabstract{\par \egroup \end{otherlanguage}}
+ \def\endaltabstract{\par \egroup \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi}
 %%%
 % \newbox\abstractbox
 % \newenvironment{abstract}{%
