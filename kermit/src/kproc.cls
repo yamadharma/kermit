@@ -1795,7 +1795,7 @@
   {%
     \addtocontents{toc}{\protect\select@language{\@defaultlanguage}}
     \addcontentsline{toc}{chapter}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
-    \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
+    % \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
     \addcontentsline{tac}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
   }
 %   \@mkboth{\@journal}{\authors \@title}
@@ -1950,7 +1950,7 @@
   {%
     \addtocontents{toc}{\protect\select@language{\@defaultlanguage}}
     \addcontentsline{toc}{chapter}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
-    \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
+    % \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
     \addcontentsline{tac}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
   }
 %   \@mkboth{\@journal}{\authors \@title}
@@ -3464,9 +3464,9 @@
 %     \else
 %       \@restonecolfalse
 %     \fi
-  {\flushleft\textbf{\altcontentsname}%
+  {\contentsnamePosition\contentsnameFontShape\contentsnameFontSize\altcontentsname}%
     \par\nobreak%
-    \vskip 1ex \@plus -1ex \@minus -.2ex}%
+    \vskip 1ex \@plus -1ex \@minus -.2ex%
 %     \section*{\flushleft\textbf{\altcontentsname}
 %         \@mkboth{%
 %            \MakeUppercase\altcontentsname}{\MakeUppercase\altcontentsname}}%
