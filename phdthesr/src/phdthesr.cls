@@ -193,6 +193,12 @@
 }
 \let\PHDchair\@empty
 
+\DeclareRobustCommand{\chairname}[1]%
+{%
+  \def\PHDchairname{#1}
+}
+\let\PHDchairname\@empty
+
 
 % The names of your other committe members, one per line
 \def\othermembers#1{\gdef\@othermembers{#1}}

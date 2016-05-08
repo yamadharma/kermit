@@ -26,6 +26,7 @@
     "PHDapprove"
     "PHDstudentdegreeDescr"
     "PHDstudentidDescr"
+    "PHDdegreeDescr"
     "footnotesize"
     "footnoterule")))
 

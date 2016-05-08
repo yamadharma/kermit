@@ -84,9 +84,11 @@
       % \def\PHDchiefDescr{Научный руководитель}
       \def\PHDchiefDescr{Руководитель}
       \def\PHDyearShort{г.}
-      \def\PHDapprove{Утверждаю}
+      % \def\PHDapprove{Утверждаю}
+      \def\PHDapprove{«К защите допускается»}
       \def\PHDstudentdegreeDescr{Квалификация (степень)}
       \def\PHDstudentidDescr{Студенческий билет №}
+      \def\PHDdegreeDescr{Квалификация (степень):}
     }
   }{%
     % \def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
@@ -98,18 +100,23 @@
     % \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
     \def\PHDchiefDescr{\cyr\CYRR\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
     \def\PHDyearShort{\cyrg.}
-    \def\PHDapprove{{\CYRU}{\cyrt}{\cyrv}{\cyre}{\cyrr}{\cyrzh}{\cyrd}{\cyra}{\cyryu}}
+    % \def\PHDapprove{{\CYRU}{\cyrt}{\cyrv}{\cyre}{\cyrr}{\cyrzh}{\cyrd}{\cyra}{\cyryu}}
+    \def\PHDapprove{<<{\CYRK} {\cyrz}{\cyra}{\cyrshch}{\cyri}{\cyrt}{\cyre} {\cyrd}{\cyro}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyra}{\cyre}{\cyrt}{\cyrs}{\cyrya}>>}
     \def\PHDstudentdegreeDescr{{\CYRK}{\cyrv}{\cyra}{\cyrl}{\cyri}{\cyrf}{\cyri}{\cyrk}{\cyra}{\cyrc}{\cyri}{\cyrya}
       ({\cyrs}{\cyrt}{\cyre}{\cyrp}{\cyre}{\cyrn}{\cyrsftsn})}
     \def\PHDstudentidDescr{{\CYRS}{\cyrt}{\cyru}{\cyrd}{\cyre}{\cyrn}{\cyrch}{\cyre}{\cyrs}{\cyrk}{\cyri}{\cyrishrt}
       {\cyrb}{\cyri}{\cyrl}{\cyre}{\cyrt} \No{}}
+    \def\PHDdegreeDescr{{\CYRK}{\cyrv}{\cyra}{\cyrl}{\cyri}{\cyrf}{\cyri}{\cyrk}{\cyra}{\cyrc}{\cyri}{\cyrya} ({\cyrs}{\cyrt}{\cyre}{\cyrp}{\cyre}{\cyrn}{\cyrsftsn}):}
   }
 }
 
 \providecommand{\approvedStamp}{%
   \begin{flushright}
     \begin{minipage}[t]{0.4\linewidth}
-      \centerline{\textsc{\PHDapprove}}
+      % \centerline{\textsc{\PHDapprove}}
+      \begin{flushright}
+        \PHDapprove
+      \end{flushright}
       \medskip
       \begin{flushright}
         {\PHDdepchieftitle} \\
@@ -161,11 +168,13 @@
       % \bfseries
       \bigskip
       %% Научный руководитель
-      \PHDchiefDescr \par
-      \smallskip
-      {\PHDchieftitle} \par
-      {\PHDchiefdegree} \par
-      \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
+      \begin{flushleft}
+        \PHDchiefDescr \par
+        \smallskip
+        {\PHDchieftitle} \par
+        {\PHDchiefdegree} \par
+        \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } {\PHDchief} \par
+      \end{flushleft}
       \smallskip
       <<\underline{\ \ \ \ \ \ }>> \underline{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } 20\underline{\ \ \ \ }\PHDyearShort
       % \smallskip
@@ -242,7 +251,6 @@
             \bigskip
             \fi
 
-            {\PHDdegree} \par
             \ifx\@empty\PHDthesisSubtype
             \else
             \smallskip
@@ -274,6 +282,14 @@
             \PHDstudentdegreeDescr: \PHDstudentdegree \par
             \fi
 
+          \end{center}
+        
+          \begin{center}
+            \ifx\@empty\PHDdegree
+            \else
+            {\PHDdegreeDescr}
+            {\PHDdegree}
+            \fi
           \end{center}
         
           \vfill
