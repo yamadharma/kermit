@@ -190,7 +190,24 @@
   % \geometry{includehead}
   % \geometry{includeheadfoot}
   % \geometry{includefoot}
+}
 
+%% paper: 170x240 mm
+%% 70x100/16
+\DeclareOption{70x100/16}
+{%
+  \geometry{papersize={170mm,240mm}}
+  \geometry{total={384dd,552dd}}
+  % \geometry{total={140mm,210mm}}
+}
+
+%% paper: 170x260 mm
+%% 70x108/16
+\DeclareOption{70x108/16}
+{%
+  \geometry{papersize={170mm,260mm}}
+  % \geometry{total={384pt,600pt}}
+  \geometry{total={140mm,230mm}}
 }
 
 %% paper: a4, margin = 20mm
@@ -238,6 +255,11 @@
       }%
    \renewcommand\newblock{\par}}%
 }
+
+\AtEndOfPackage{%
+  \geometry{heightrounded}
+}
+
 %% \DeclareOption*{%
 %%   \setkeys{Kermit}{\CurrentOption}
 %% }

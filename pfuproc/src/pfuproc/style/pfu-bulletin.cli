@@ -5,30 +5,30 @@
 \altjournal{Bulletin of PFUR}
 \journalfoundationyear{1993}
 
-\AtEndOfClass{%
-  \RequirePackage{geometry}
-  % \geometry{reset}
-  \geometry{twoside}
-  % % \geometry{papersize={165mm,250mm}}
-  \geometry{papersize={170mm,260mm}}
-  % \geometry{footskip=16dd}
-  % \geometry{total={135mm,225mm}}
-  % \geometry{hmargin={15mm,20mm},vmargin={17mm,22mm}}
-  % \geometry{total={140mm,221mm}}
-  \geometry{total={140mm,230mm}}
-  % \geometry{hmargin={13mm,17mm},vmargin={13mm,17mm}}
-  % \geometry{hmargin={13mm,17mm},vmargin={15mm,20mm}}
-  \geometry{marginparwidth=0dd,marginparsep=0dd}
-  % \geometry{hmargin={13mm,17mm},vmargin={14mm,19mm}}
-  % \geometry{twosideshift=0dd}
-  \geometry{headsep=0.5\baselineskip}
-  \geometry{bindingoffset=0pt}
-  \geometry{includehead}
-  \geometry{nofoot}
-  % \geometry{includefoot}
-  \geometry{hcentering}
-  \geometry{vcentering}
-}
+% \AtEndOfClass{%
+%   \RequirePackage{geometry}
+%   % \geometry{reset}
+%   \geometry{twoside}
+%   % % \geometry{papersize={165mm,250mm}}
+%   \geometry{papersize={170mm,260mm}}
+%   % \geometry{footskip=16dd}
+%   % \geometry{total={135mm,225mm}}
+%   % \geometry{hmargin={15mm,20mm},vmargin={17mm,22mm}}
+%   % \geometry{total={140mm,221mm}}
+%   \geometry{total={140mm,230mm}}
+%   % \geometry{hmargin={13mm,17mm},vmargin={13mm,17mm}}
+%   % \geometry{hmargin={13mm,17mm},vmargin={15mm,20mm}}
+%   \geometry{marginparwidth=0dd,marginparsep=0dd}
+%   % \geometry{hmargin={13mm,17mm},vmargin={14mm,19mm}}
+%   % \geometry{twosideshift=0dd}
+%   \geometry{headsep=0.5\baselineskip}
+%   \geometry{bindingoffset=0pt}
+%   \geometry{includehead}
+%   \geometry{nofoot}
+%   % \geometry{includefoot}
+%   \geometry{hcentering}
+%   \geometry{vcentering}
+% }
 
 \defaultlanguage{russian}
 \defaultaltlanguage{english}
@@ -41,7 +41,12 @@
 %  \cyrs.\,\pageref{starttitle}--\pageref{endtitle} 
 %}
 
-\PassOptionsToClass{twoside,final,singlespace}{kgeneric}
+\geometry{hcentering}
+\geometry{includehead}
+\geometry{nofoot}
+\geometry{marginparwidth=0pt,marginparsep=0pt}
+
+\PassOptionsToClass{twoside,final,singlespace,70x100/16}{kgeneric}
 
 %%% Local Variables: 
 %%% mode: latex

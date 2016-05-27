@@ -1,7 +1,11 @@
 (TeX-add-style-hook
  "pfuproc"
  (lambda ()
+   (TeX-add-to-alist 'LaTeX-provided-package-options
+                     '(("geometry" "a4paper")))
    (TeX-run-style-hooks
+    "xkeyval"
+    "geometry"
     "kproc"
     "kproc10"
     "currfile")
@@ -14,6 +18,7 @@
     '("authorrank" 1)
     '("authorfull" 1)
     "authorlistFontShape"
+    "series"
     "PFUpaperid"
     "listofauthors")
    (LaTeX-add-environments

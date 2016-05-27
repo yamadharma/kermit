@@ -315,7 +315,7 @@
 }
 
 %%
-\RequirePackage{keyval}
+\RequirePackage{xkeyval}
 \RequirePackage{substr}
 %%
 \def\ProcessClassOptionsWithKV#1{%
@@ -328,10 +328,10 @@
   \@tempa
   \AtEndOfClass{\let\@unprocessedoptions\relax}}
 %%
-\define@key{PFUproc}{series}{%
-  \def\series{#1}%
-  \InputIfFileExists{pfuproc/style/#1.cli}{}{}%
-}
+% \define@key{PFUproc}{series}{%
+%   \def\series{#1}%
+%   \InputIfFileExists{pfuproc/style/#1.cli}{}{}%
+% }
 %% \def\SetPFUprocKey#1{{\setkeys{PFUproc}{#1}}}
 \def\SetPFUprocKey#1{%
   \let\@tempd\@empty

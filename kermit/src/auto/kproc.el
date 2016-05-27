@@ -4,7 +4,7 @@
    (TeX-run-style-hooks
     "etoolbox"
     "etextools"
-    "keyval"
+    "xkeyval"
     "substr"
     "xifthen"
     "kgeneric"
@@ -93,7 +93,6 @@
     "subsubsectionmark"
     "paragraphmark"
     "ProcessClassOptionsWithKV"
-    "series"
     "SetPFUprocKey"
     "label"
     "ref"
