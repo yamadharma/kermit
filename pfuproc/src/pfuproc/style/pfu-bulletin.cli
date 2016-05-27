@@ -46,7 +46,7 @@
 \geometry{nofoot}
 \geometry{marginparwidth=0pt,marginparsep=0pt}
 
-\PassOptionsToClass{twoside,final,singlespace,70x100/16}{kgeneric}
+\PassOptionsToClass{twoside,final,singlespace,70x108/16}{kgeneric}
 
 %%% Local Variables: 
 %%% mode: latex

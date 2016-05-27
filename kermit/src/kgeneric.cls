@@ -206,8 +206,8 @@
 \DeclareOption{70x108/16}
 {%
   \geometry{papersize={170mm,260mm}}
-  % \geometry{total={384pt,600pt}}
-  \geometry{total={140mm,230mm}}
+  \geometry{total={384dd,600dd}}
+  % \geometry{total={140mm,230mm}}
 }
 
 %% paper: a4, margin = 20mm
