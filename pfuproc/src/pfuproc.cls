@@ -62,13 +62,35 @@
 
 %{{{ List of Authors
 
+\AtBeginDocument{%
+  \def\listauthorsname{List of authors}
+  \@ifpackageloaded{polyglossia}{%
+    \addto\captionsrussian@modern{%
+      \def\listauthorsname{Список авторов}
+    }
+  }{%
+    \addto\extrasrussian{%
+      \def\listauthorsname{{\CYRS}{\cyrv}{\cyre}{\cyrd}{\cyre}{\cyrn}{\cyri}{\cyrya} {\cyro}{\cyrb} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyra}{\cyrh}}
+    }
+  }
+  \addto\captionsenglish{%
+    \def\listauthorsname{List of authors}
+  }
+}
+
+
 \def\listofauthors{%
 \begin{center}
-  %\Huge
-\Large
-  %\textsc{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}
-\textsc{{\CYRS}{\cyrv}{\cyre}{\cyrd}{\cyre}{\cyrn}{\cyri}{\cyrya} {\cyro}{\cyrb} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyra}{\cyrh}}
+  % \Huge
+  \Large
+  % \textsc{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}
+  % \textsc{{\CYRS}{\cyrv}{\cyre}{\cyrd}{\cyre}{\cyrn}{\cyri}{\cyrya}
+  % {\cyro}{\cyrb} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyra}{\cyrh}}
   % \textsc{Наши авторы}%
+  \textsc{\listauthorsname}
+  \addcontentsline{toc}{chapter}{\listauthorsname}%
+  \addtocontents{tac}{\string\select@language{\PFUaltlanguage}}
+  \addcontentsline{tac}{chapter}{\string\listauthorsname}%
   \paperid{listofauthors}
 \end{center}%
 

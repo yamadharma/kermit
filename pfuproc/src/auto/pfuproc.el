@@ -4,6 +4,7 @@
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("geometry" "a4paper")))
    (TeX-run-style-hooks
+    "preamble"
     "xkeyval"
     "geometry"
     "kproc"
@@ -20,6 +21,7 @@
     "authorlistFontShape"
     "series"
     "PFUpaperid"
+    "listauthorsname"
     "listofauthors")
    (LaTeX-add-environments
     "authordescription")))
