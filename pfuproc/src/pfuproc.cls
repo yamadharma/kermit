@@ -63,10 +63,10 @@
 %{{{ List of Authors
 
 \AtBeginDocument{%
-  \def\listauthorsname{List of authors}
+  \def\listauthorsname{Information about the authors}
   \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian@modern{%
-      \def\listauthorsname{Список авторов}
+      \def\listauthorsname{Сведения об авторах}
     }
   }{%
     \addto\extrasrussian{%
@@ -74,7 +74,7 @@
     }
   }
   \addto\captionsenglish{%
-    \def\listauthorsname{List of authors}
+    \def\listauthorsname{Information about the authors}
   }
 }
 
