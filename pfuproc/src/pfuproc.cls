@@ -362,6 +362,19 @@
 }
 
 \InputIfFileExists{pfuproc/patch/bibunits.cli}{}{}%
+
+\def\papercopyright{%
+\bigskip
+\begin{flushright}
+\copyright{} \authorstoc{}, \PFUjournalyear{}
+\end{flushright}
+}
+
+\def\@putaltbib@hook@post{%
+  \papercopyright
+}
+
+
 \AtEndPreamble{
   \@ifpackageloaded{tex4ht}{}{%
     \makeatletter

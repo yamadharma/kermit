@@ -1853,12 +1853,13 @@
   \begingroup
 %    \def\@makefntext{\noindent}
 %    \renewcommand{\@makefnmark}{}
-    \def\@thefnmark{\!\!}
+    % \def\@thefnmark{\!\!}
+    \def\@thefnmark{}
     \ifx\@empty\thankses
      \else 
        \@footnotetext{%
          \def\par{\let\par\@par}
-         \@setthanks
+         \noindent\hspace{-3\footnotesep}\@setthanks
        }
     \fi
   \endgroup
@@ -1881,7 +1882,7 @@
 %%%
 \let\shortauthors\@empty%   
 \let\authors\@empty%
-\let\authorstoc\@empty%
+% \let\authorstoc\@empty%
 %% \let\author\@empty
 \let\addresses\@empty%
 \let\@address\@empty%
@@ -2124,7 +2125,7 @@
   \fi
 %
   \if@receivedAsFooter% 
-    \ifx\@empty\@received \else \@footnotetext{\@setreceived} \fi
+    \ifx\@empty\@received \else \@footnotetext{\hspace{-2.5\footnotesep}\@setreceived} \fi
   \else
     \ifx\@empty\@received \else \par\@setreceived \fi
   \fi
