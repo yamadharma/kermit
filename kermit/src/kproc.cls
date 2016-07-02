@@ -2654,12 +2654,12 @@
 \def\@setkeywords{%
   \hskip\parindent%
   \@keywordsize%
-  {\DivFontShape \keywordsname:}\enspace \@keywords\@addpunct.%
+  {\DivFontShape \keywordsname:}\enspace \@keywords%\@addpunct.%
 }%
 \def\@setaltkeywords{%
   \hskip\parindent%
   \@keywordsize%
-  {\DivFontShape \keywordsname:}\enspace \alt@keywords\@addpunct.%
+  {\DivFontShape \keywordsname:}\enspace \alt@keywords%\@addpunct.%
 }%
 \def\@setthanks{\def\thanks##1{\par##1\@addpunct.}\thankses}
 \def\@setreceived{%
