@@ -1115,153 +1115,162 @@
 
 \def\author@fmt#1#2#3#4%
 {%
-%% #1 Maximum number of authors in header
-%% #2 Reference to address
-%% #3 Author
-%% #4 Additional format
-%% \author[#2]{#3}
+  %% #1 Maximum number of authors in header
+  %% #2 Reference to address
+  %% #3 Author
+  %% #4 Additional format
+  %% \author[#2]{#3}
+
   \@newelemtrue
   \if@firstauthor
-  \first@author \global\@firstauthorfalse \fi
+    \first@author \global\@firstauthorfalse \fi
   \ifnum\prev@elem=\e@author \global\@newelemfalse \fi
-%   \if@newelem \author@fmt@init \fi
-%%%  
-%  \getinicials{#3}
-%\tracingmacros=1
+  % \if@newelem \author@fmt@init \fi
+  %%% 
+  % \getinicials{#3}
+  % \tracingmacros=1
+
   \parseauthor#3 \nil
-%  \parseauthor{#3}
-%\tracingmacros=0
-%   \toks@\@xp{\authorfamily}
-%   \edef\atoks{\the\toks@}
-%  \renewcommand{\leftmark}{\atoks}
-%   \toks0={\authorfamily}
-%   \def\atoks{\the\toks0}
-  \edef\@tempd{#4}
+  % \parseauthor{#3}
+  % \tracingmacros=0
+  % \toks@\@xp{\authorfamily}
+  % \edef\atoks{\the\toks@}
+  % \renewcommand{\leftmark}{\atoks}
+  % \toks0={\authorfamily}
+  % \def\atoks{\the\toks0}
+
+  \protected@edef\@tempd{#4}
   \ifx\@tempd\@empty
     \protected@edef\authorFamIn{\authorfamily\,\authorinitials}
     \protected@edef\authorInFam{\authorinitials\,\authorfamily}
   \else
-     \protected@edef\authorFamIn{\protect\fbox{\authorfamily\,\authorinitials}}
-     \protected@edef\authorInFam{\protect\fbox{\authorinitials\,\authorfamily}}
+    \protected@edef\authorFamIn{\protect\csname\@tempd \endcsname{\authorfamily\,\authorinitials}}
+    \protected@edef\authorInFam{\protect\csname\@tempd \endcsname{\authorinitials\,\authorfamily}}
   \fi
+
   \ifx\authors\@empty
-%     \gdef\authorstoc{#3}% 
+    % \gdef\authorstoc{#3}% 
     \protected@xdef\authorstoc{\authorFamIn}% 
-%    \xdef\authorstoc{\authorfamily~\authorinitials}% 
-%    \gdef\authorsrunning{#3}%
-%    \xdef\authorsrunning{\mbox{\authorfamily~\authorinitials}}% 
+    % \xdef\authorstoc{\authorfamily~\authorinitials}% 
+    % \gdef\authorsrunning{#3}%
+    % \xdef\authorsrunning{\mbox{\authorfamily~\authorinitials}}% 
     \protected@xdef\authorsrunning{\authorFamIn}% 
-%     \gdef\authorstoc{\authorfamily\ \authorinitials}% 
-%     \gdef\authorstoc{\atoks\ \authorinitials}% 
+    % \gdef\authorstoc{\authorfamily\ \authorinitials}% 
+    % \gdef\authorstoc{\atoks\ \authorinitials}% 
+    
     \protected@edef\@tempb{#2}
     \ifx\@tempb\@empty
-%      \xdef\authors{\authorinitials~\authorfamily}% 
-        % \protected@xdef\authors{\authorInFam}% 
-        \g@addto@macro\authors{\protect\mbox{#3}}%
-    \else
-%       \gdef\authors{#3\,$^{\mathrm{\ref{#2}}}$}%
-%       \xdef\authors{\authorinitials~\authorfamily\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
-%      \xdef\authorTmp{\authorinitials~\authorfamily}
-%      \protected@xdef\authorTmp{\authorInFam}
-%      \gdef\authors{\expandafter{\authorTmp}\negthickspace${}^{\mathrm{\ref{#2}}}$}%
-%      \protected@xdef\authors{\authorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
+      % \xdef\authors{\authorinitials~\authorfamily}% 
+      % \protected@xdef\authors{\authorInFam}% 
       \ifx\@tempd\@empty
-%        \g@addto@macro\authors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        \g@addto@macro\authors{\protect\mbox{#3}}%
+      \else
+        \g@addto@macro\authors{\protect\csname\@tempd \endcsname{#3}}%
+      \fi
+    \else
+      % \gdef\authors{#3\,$^{\mathrm{\ref{#2}}}$}%
+      % \xdef\authors{\authorinitials~\authorfamily\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
+      % \xdef\authorTmp{\authorinitials~\authorfamily}
+      % \protected@xdef\authorTmp{\authorInFam}
+      % \gdef\authors{\expandafter{\authorTmp}\negthickspace${}^{\mathrm{\ref{#2}}}$}%
+      % \protected@xdef\authors{\authorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
+      \ifx\@tempd\@empty
+        % \g@addto@macro\authors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
         \g@addto@macro\authors{\protect\mbox{#3}$^{\mathrm{{#2}}}$}%
       \else
-%        \g@addto@macro\authors{\protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
-        \g@addto@macro\authors{\protect\fbox{#3}$^{\mathrm{{#2}}}$}%
+        % \g@addto@macro\authors{\protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        \g@addto@macro\authors{\protect\csname\@tempd \endcsname{#3}$^{\mathrm{{#2}}}$}%
       \fi
     \fi
   \else
-%    \g@addto@macro\authorstoc{\and #3}%
-%    \xdef\authorstoc{\authorstoc \and \authorfamily~\authorinitials}% 
-      % \g@addto@macro\authorstoc{\and \authorFamIn}%
-      \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}% 
-%   \show\n@author@
+    % \g@addto@macro\authorstoc{\and #3}%
+    % \xdef\authorstoc{\authorstoc \and \authorfamily~\authorinitials}% 
+    % \g@addto@macro\authorstoc{\and \authorFamIn}%
+    \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}% 
+    % \show\n@author@
     \ifnum0\n@author@ > \PFUNumRunningauthor
       \ifnum0#1 = \PFUNumRunningauthor % 3
         %% FIXME removing \etal (20031214)
         \g@addto@macro\authorsrunning{ \etal}%
       \fi
     \else
-%       \g@addto@macro\authorsrunning{\and #3}%
-%       \g@addto@macro\authorsrunning{\and  \authorfamily~\authorinitials}%
-%      \xdef\authorsrunning{\authorsrunning \and
-%      \authorfamily~\authorinitials}
-        \protected@xdef\authorsrunning{\authorsrunning \and \authorFamIn}
+      % \g@addto@macro\authorsrunning{\and #3}%
+      % \g@addto@macro\authorsrunning{\and  \authorfamily~\authorinitials}%
+      % \xdef\authorsrunning{\authorsrunning \and
+      % \authorfamily~\authorinitials}
+      \protected@xdef\authorsrunning{\authorsrunning \and \authorFamIn}
     \fi
-%   \g@addto@macro\authorstoc{\and \authorfamily\ \authorinitials}% 
-   \protected@edef\@tempb{#2}
-   \ifx\@tempb\@empty
-%     \xdef\authors{\authors \and \authorinitials~\authorfamily}% 
-%     \protected@xdef\authors{\authors \and \authorInFam}% 
-     \ifx\@tempd\@empty
-       \g@addto@macro\authors{\and \protect\mbox{#3}}% 
-     \else
-       \g@addto@macro\authors{\and \protect\fbox{#3}}% 
-     \fi
-   \else
-%      \xdef\authors{\authors \and \authorinitials~\authorfamily\,%
-%        $^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
-%      \edef\authorTmp{\authorinitials~\authorfamily}       
-     \ifx\@tempd\@empty
-%       \g@addto@macro\authors{\and \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
-       \g@addto@macro\authors{\and \protect\mbox{#3}$^{\mathrm{{#2}}}$}%
-     \else
-       % \g@addto@macro\authors{\and \protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
-       \g@addto@macro\authors{\and \protect\fbox{#3}$^{\mathrm{{#2}}}$}%
-     \fi
-%      \xdef\authorTmp{\authorinitials~\authorfamily}
-%      \g@addto@macro\authors{\and \authorTmp\,$^{\mathrm{\ref{#2}}}$}%
-   \fi
+    % \g@addto@macro\authorstoc{\and \authorfamily\ \authorinitials}% 
+    \protected@edef\@tempb{#2}
+    \ifx\@tempb\@empty
+      % \xdef\authors{\authors \and \authorinitials~\authorfamily}% 
+      % \protected@xdef\authors{\authors \and \authorInFam}% 
+      \ifx\@tempd\@empty
+        \g@addto@macro\authors{\and \protect\mbox{#3}}% 
+      \else
+        \g@addto@macro\authors{\and \protect\csname\@tempd \endcsname{#3}}% 
+      \fi
+    \else
+      % \xdef\authors{\authors \and \authorinitials~\authorfamily\,%
+      % $^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
+      % \edef\authorTmp{\authorinitials~\authorfamily}       
+      \ifx\@tempd\@empty
+        % \g@addto@macro\authors{\and \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        \g@addto@macro\authors{\and \protect\mbox{#3}$^{\mathrm{{#2}}}$}%
+      \else
+        % \g@addto@macro\authors{\and \protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        \g@addto@macro\authors{\and \protect\csname\@tempd \endcsname{#3}$^{\mathrm{{#2}}}$}%
+      \fi
+      % \xdef\authorTmp{\authorinitials~\authorfamily}
+      % \g@addto@macro\authors{\and \authorTmp\,$^{\mathrm{\ref{#2}}}$}%
+    \fi
   \fi
-%   \ifx\@empty\authors
-%     \gdef\authors{\author@font%
-%   \if@newelem \author@fmt@init \fi
-%   \edef\@tempb{#2}%
-%   \ifx\@tempb\@empty
-%     #3 \else
-%     #3\,$^{\mathrm{#2}}$%
-%     \fi
-%     }%
-%   \else
-%   \g@addto@macro\authors{\and
-%     \edef\@tempb{#2}
-%     \ifx\@tempb\@empty
-%     #3 \else
-%     #3\,$^{\mathrm{#2}}$%
-%     \fi
-%    }
-%  \fi
-%  \edef\@tempb{#2}\ifx\@tempb\@empty
-%     \hbox{{\auhor@font #3}}\else
-%     \hbox{{\author@font #3}\,$^{\mathrm{#2}}$}%
-%   \else
-%   \g@addto@macro\authors{\and#3\,$^{\mathrm{#2}}$}
-%   \fi
+  % \ifx\@empty\authors
+  % \gdef\authors{\author@font%
+  % \if@newelem \author@fmt@init \fi
+  % \edef\@tempb{#2}%
+  % \ifx\@tempb\@empty
+  %   #3 \else
+  %   #3\,$^{\mathrm{#2}}$%
+  % \fi
+  % }%
+  %   \else
+  %   \g@addto@macro\authors{\and
+  %   \edef\@tempb{#2}
+  %   \ifx\@tempb\@empty
+  %   #3 \else
+  %   #3\,$^{\mathrm{#2}}$%
+  %   \fi
+  % }
+  %   \fi
+  %   \edef\@tempb{#2}\ifx\@tempb\@empty
+  %   \hbox{{\auhor@font #3}}\else
+  %   \hbox{{\author@font #3}\,$^{\mathrm{#2}}$}%
+  %   \else
+  %   \g@addto@macro\authors{\and#3\,$^{\mathrm{#2}}$}
+  %   \fi
 } % END \author@fmt
 
 \def\altauthor@fmt#1#2#3#4%
 {%
-%% #1 Maximum number of authors in header
-%% #2 Reference to address
-%% #3 Author
-%% #4 Additional format
-%% \altauthor[#2]{#3}
-
+  %% #1 Maximum number of authors in header
+  %% #2 Reference to address
+  %% #3 Author
+  %% #4 Additional format
+  %% \altauthor[#2]{#3}
+  
   \if@firstauthor
-  \first@author \global\@firstauthorfalse \fi
+    \first@author \global\@firstauthorfalse \fi
   \ifnum\prev@elem=\e@author \global\@newelemfalse \fi
   \parseauthor#3 \nil
-
+  
   \edef\@tempd{#4}
   \ifx\@tempd\@empty
     \protected@xdef\altauthorFamIn{\authorfamily~\authorinitials}
     \protected@xdef\altauthorInFam{\authorinitials~\authorfamily}
   \else
-    \protected@xdef\altauthorFamIn{\protect\fbox{\authorfamily\,\authorinitials}}
-    \protected@xdef\altauthorInFam{\protect\fbox{\authorinitials\,\authorfamily}}
+    \protected@xdef\altauthorFamIn{\protect\csname\@tempd \endcsname{\authorfamily\,\authorinitials}}
+    \protected@xdef\altauthorInFam{\protect\csname\@tempd \endcsname{\authorinitials\,\authorfamily}}
   \fi  
 
   \ifx\@empty\altauthors
@@ -1272,16 +1281,16 @@
       \ifx\@tempd\@empty
         \protected@xdef\altauthors{\altauthorInFam}% 
       \else
-        \g@addto@macro\altauthors{\protect\fbox{#3}}%
+        \g@addto@macro\altauthors{\protect\csname\@tempd \endcsname{#3}}%
       \fi
     \else
-%      \protected@xdef\altauthors{\altauthorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
+      % \protected@xdef\altauthors{\altauthorInFam\,$^{\noexpand\mathrm{\noexpand\ref{\noexpand#2}}}$}%
       \ifx\@tempd\@empty
         % \g@addto@macro\altauthors{\protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
         \g@addto@macro\altauthors{\protect\mbox{#3}$^{\mathrm{{#2}}}$}%
       \else
         % \g@addto@macro\altauthors{\protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
-        \g@addto@macro\altauthors{\protect\fbox{#3}$^{\mathrm{{#2}}}$}%
+        \g@addto@macro\altauthors{\protect\csname\@tempd \endcsname{#3}$^{\mathrm{{#2}}}$}%
       \fi
     \fi
   \else
@@ -1289,27 +1298,27 @@
     \ifnum0\n@author@ > 3
       \ifnum0#1 = 2
         %% FIXME removing \etal (20031214)     
-        %\g@addto@macro\altauthorsrunning{ \etal}%
+        % \g@addto@macro\altauthorsrunning{ \etal}%
       \fi
     \else
       \protected@xdef\altauthorsrunning{\altauthorsrunning \altand  \altauthorFamIn}
     \fi
-   \edef\@tempb{#2}
-   \ifx\@tempb\@empty
-     \ifx\@tempd\@empty
-     \protected@xdef\altauthors{\altauthors \altand \altauthorInFam}% 
-     \else
-       \g@addto@macro\altauthors{\altand \protect\fbox{#3}}%
-     \fi
-   \else
-     \ifx\@tempd\@empty   
-       % \g@addto@macro\altauthors{\altand \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
-       \g@addto@macro\altauthors{\altand \protect\mbox{#3}$^{\mathrm{{#2}}}$}%
-     \else
-       % \g@addto@macro\altauthors{\altand \protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
-       \g@addto@macro\altauthors{\altand \protect\fbox{#3}$^{\mathrm{{#2}}}$}%
-     \fi
-   \fi
+    \edef\@tempb{#2}
+    \ifx\@tempb\@empty
+      \ifx\@tempd\@empty
+        \protected@xdef\altauthors{\altauthors \altand \altauthorInFam}% 
+      \else
+        \g@addto@macro\altauthors{\altand \protect\fbox{#3}}%
+      \fi
+    \else
+      \ifx\@tempd\@empty   
+        % \g@addto@macro\altauthors{\altand \protect\mbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        \g@addto@macro\altauthors{\altand \protect\mbox{#3}$^{\mathrm{{#2}}}$}%
+      \else
+        % \g@addto@macro\altauthors{\altand \protect\fbox{#3}$^{\mathrm{\ref{#2}}}$}%
+        \g@addto@macro\altauthors{\altand \protect\fbox{#3}$^{\mathrm{{#2}}}$}%
+      \fi
+    \fi
   \fi
 } %% enf of \altauthor@fmt
 
@@ -1744,49 +1753,47 @@
 \def\maketitle{\par
   \@maketitle@hook@pre
   \@maketitle@hook
-  
-  
- % \begin{otherlanguage}{\PFUlanguage}
-%%   \clearpage
-  % {
+  % \begin{otherlanguage}{\PFUlanguage}
+  %%   \clearpage
+  %   {
   %   \selectlanguage{\PFUlanguage}
-%%%--
-%     \if@filesw
-%       \makeatletter
-%       \@input{\PFU@auxname.aux}%
-%       \immediate\openout\PFU@aux\PFU@auxname.aux\relax
-%     \fi
-%   \flushbottom
-%   \let\@corresp@note\relax
+  %%%   --
+  %   \if@filesw
+  %   \makeatletter
+  %   \@input{\PFU@auxname.aux}%
+  %   \immediate\openout\PFU@aux\PFU@auxname.aux\relax
+  %   \fi
+  %   \flushbottom
+  %   \let\@corresp@note\relax
   \global\t@glob@notes={}
-%   \global\c@author\z@
-%   \global\c@collab\z@ \global\c@address\z@
-% %   \sv@mathsurround\mathsurround \m@th
-%   \global\n@author=0\n@author@\relax
-%   \global\n@collab=0\n@collab@\relax
-%   \global\advance\n@author\m@ne   % In comparisons later on we need
-%   \global\advance\n@collab\m@ne   % n@author-1 and n@collab-1
-%   \global\@firstauthortrue        % set to false by first \author or \collab
-%   \global\@hasabstractfalse       % Default:  no abstract or keywords
-%   \global\@haskeywordsfalse       % Default:  no abstract or keywords
-%   \global\@prefacefalse           %           not preface
-%%%
-%  \@topnum\z@ % this prevents figures from falling at the top of page 1
-%%   \refstepcounter{title}
+  % \global\c@author\z@
+  % \global\c@collab\z@ \global\c@address\z@
+  % % \sv@mathsurround\mathsurround \m@th
+  % \global\n@author=0\n@author@\relax
+  % \global\n@collab=0\n@collab@\relax
+  % \global\advance\n@author\m@ne   % In comparisons later on we need
+  % \global\advance\n@collab\m@ne   % n@author-1 and n@collab-1
+  % \global\@firstauthortrue        % set to false by first \author or \collab
+  % \global\@hasabstractfalse       % Default:  no abstract or keywords
+  % \global\@haskeywordsfalse       % Default:  no abstract or keywords
+  % \global\@prefacefalse           %           not preface
+  %%% 
+  % \@topnum\z@ % this prevents figures from falling at the top of page 1
+  %% \refstepcounter{title}
   \label{starttitle}
   \@setcopyright
-%  \uppercasenonmath\shorttitle
-%   \ifx\@empty\shortauthors \let\shortauthors\shorttitle
-%   \else \andify\shortauthors 
-%   % \uppercasenonmath\shortauthors 
-%   \fi
+  % \uppercasenonmath\shorttitle
+  % \ifx\@empty\shortauthors \let\shortauthors\shorttitle
+  % \else \andify\shortauthors 
+  %   % \uppercasenonmath\shortauthors 
+  % \fi
   \altandify\altauthors
   \andify\authorsrunning
   \andify\authorstoc
   \altandify\altauthorstoc
-%  \renewcommand{\leftmark}{\authors}
-    \message{99999}
-    \message{\@biblabel{1}}
+  % \renewcommand{\leftmark}{\authors}
+  \message{99999}
+  \message{\@biblabel{1}}
   \iflanguage{\@defaultlanguage}
   {%
     \addcontentsline{toc}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
@@ -1795,44 +1802,44 @@
   {%
     \addtocontents{toc}{\protect\select@language{\@defaultlanguage}}
     \addcontentsline{toc}{chapter}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
-    % \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
+    \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
     \addcontentsline{tac}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
   }
-%   \@mkboth{\@journal}{\authors \@title}
-%  \@mkboth{\andify\altauthors}{\shorttitle}
-%   \toks@\@xp{\authors}
-%   \edef\atoks{\the\toks@}
-%  \renewcommand{\leftmark}{\atoks}
+  % \@mkboth{\@journal}{\authors \@title}
+  % \@mkboth{\andify\altauthors}{\shorttitle}
+  % \toks@\@xp{\authors}
+  % \edef\atoks{\the\toks@}
+  % \renewcommand{\leftmark}{\atoks}
   \ifnum\c@author>\@ne 
-    \edef\rauthor{\@rauthor{} \etal} 
+  \edef\rauthor{\@rauthor{} \etal} 
   \else \edef\rauthor{\@rauthor} 
   \fi
-%   \renewcommand{\leftmark}{\rauthor\ \textit{\shorttitle}}
+  % \renewcommand{\leftmark}{\rauthor\ \textit{\shorttitle}}
   \ifx\shorttitle\@empty 
-    \let\shorttitle\@title
+  \let\shorttitle\@title
   \fi
-%%   \renewcommand{\leftmark}{\authorsrunning{} {\shorttitle}}
-%  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shorttitle} \hfill}}
-%  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\authorsrunning} \hfill}}
-    \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}
-    \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
+  %% \renewcommand{\leftmark}{\authorsrunning{} {\shorttitle}}
+  % \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shorttitle} \hfill}}
+  % \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\authorsrunning} \hfill}}
+  \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}
+  \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
   \begingroup
-  %\if@twocolumn %
-%   \twocolumn[\@maketitle] 
+  % \if@twocolumn %
+  % \twocolumn[\@maketitle] 
   \@maketitle
-  %\fi
-%   \ifx\@runauthor\relax
-%    \global\let\@runauthor\@runningauthor
-%   \fi
-   \global\n@author=\c@author
-%   \global\n@collab=\c@collab 
+  % \fi
+  % \ifx\@runauthor\relax
+  % \global\let\@runauthor\@runningauthor
+  % \fi
+  \global\n@author=\c@author
+  % \global\n@collab=\c@collab 
   \@writecount
-%  \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
-%   \edef\@tempa{\@nx\markboth{\the\toks@}{\the\@temptokena}}\@tempa
+  % \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
+  % \edef\@tempa{\@nx\markboth{\the\toks@}{\the\@temptokena}}\@tempa
   \endgroup
-%  \message{1111111}
-%%   \newif\if@twocolumn
-%%   \@twocolumntrue%
+  % \message{1111111}
+  %% \newif\if@twocolumn
+  %% \@twocolumntrue%
   \if@twocolumn\typeout{2-col}%
   \else%
   \typeout{1-col}%
@@ -1842,107 +1849,107 @@
   \typeout{1-col}%
   \fi%
   \ifthenelse{\boolean{PFUprocMultiColumn}}{\typeout{2-col}}{\typeout{1-col}}
-%  \if@twocolumn%
-%  \twocolumngrid  
-%  \fi
+  % \if@twocolumn%
+  % \twocolumngrid  
+  % \fi
   \if@multicolumn%
-    \twocolumngrid  
+  \twocolumngrid  
   \fi
-
-%%
+  
+  %% 
   \begingroup
-%    \def\@makefntext{\noindent}
-%    \renewcommand{\@makefnmark}{}
-    % \def\@thefnmark{\!\!}
-    \def\@thefnmark{}
-    \ifx\@empty\thankses
-     \else 
-       \@footnotetext{%
-         \def\par{\let\par\@par}
-         \noindent\hspace{-3\footnotesep}\@setthanks
-       }
-    \fi
+  % \def\@makefntext{\noindent}
+  % \renewcommand{\@makefnmark}{}
+  % \def\@thefnmark{\!\!}
+  \def\@thefnmark{}
+  \ifx\@empty\thankses
+  \else 
+  \@footnotetext{%
+    \def\par{\let\par\@par}
+    \noindent\hspace{-3\footnotesep}\@setthanks
+  }
+  \fi
   \endgroup
   \normalsize
   \@maketitle@hook@post
-%   \begin{multicols*}{2}
-%   \addcontentsline{alt}{alttitle}{\@alttitle}
-%   \addcontentsline{alt}{altauthors}{\altauthors}
-%   \addcontentsline{alt}{altabstracts}{\@altabstracts}
-%  \thispagestyle{firstpage}% this sets first page specifications
-%  \c@footnote\z@
-%  \def\do##1{\let##1\relax}%
-%  \do\maketitle \do\@maketitle \do\title \do\@xtitle \do\@title
-%  \do\author \do\@xauthor \do\address \do\@xaddress
-%  \do\email \do\@xemail \do\curraddr \do\@xcurraddr
+  % \begin{multicols*}{2}
+  %   \addcontentsline{alt}{alttitle}{\@alttitle}
+  %   \addcontentsline{alt}{altauthors}{\altauthors}
+  %   \addcontentsline{alt}{altabstracts}{\@altabstracts}
+  %   \thispagestyle{firstpage}% this sets first page specifications
+  %   \c@footnote\z@
+  %   \def\do##1{\let##1\relax}%
+  %   \do\maketitle \do\@maketitle \do\title \do\@xtitle \do\@title
+  %   \do\author \do\@xauthor \do\address \do\@xaddress
+  %   \do\email \do\@xemail \do\curraddr \do\@xcurraddr
   \do\dedicatory \do\@dedicatory 
   \do\thanks \do\thankses
   \do\keywords \do\@keywords 
   \do\subjclass \do\@subjclass
-%%%
-\let\shortauthors\@empty%   
-\let\authors\@empty%
-% \let\authorstoc\@empty%
-%% \let\author\@empty
-\let\addresses\@empty%
-\let\@address\@empty%
-\let\thankses\@empty%
-\let\@keywords\@empty%
-\let\@received\@empty%
-\let\@dedicatory\@empty%
-%%%
-% \let\shortaltauthors\@empty   \let\altauthors\@empty
-% \let\altaddresses\@empty      
-% \let\altthankses\@empty
-%%%--
-% \let\@udcnum\@empty
-\let\@abstracts\@empty
-\let\@paperid\@empty
-%%%
-% \end{otherlanguage}
-% } % END \selectlanguage
+  %%% 
+  \let\shortauthors\@empty%   
+  \let\authors\@empty%
+  % \let\authorstoc\@empty%
+  %% \let\author\@empty
+  \let\addresses\@empty%
+  \let\@address\@empty%
+  \let\thankses\@empty%
+  \let\@keywords\@empty%
+  \let\@received\@empty%
+  \let\@dedicatory\@empty%
+  %%% 
+  % \let\shortaltauthors\@empty   \let\altauthors\@empty
+  % \let\altaddresses\@empty      
+  % \let\altthankses\@empty
+  %%% --
+  % \let\@udcnum\@empty
+  \let\@abstracts\@empty
+  \let\@paperid\@empty
+  %%% 
+  % \end{otherlanguage}
+  % } % END \selectlanguage
 } % END \maketitle
 
 \def\maketitleToc{\par
   \@maketitle@hook@pre
   \@maketitle@hook
-%%   \clearpage
-% \selectlanguage{\PFUlanguage}
-%%%--
-%     \if@filesw
-%       \makeatletter
-%       \@input{\PFU@auxname.aux}%
-%       \immediate\openout\PFU@aux\PFU@auxname.aux\relax
-%     \fi
-%   \flushbottom
-%   \let\@corresp@note\relax
+  %% \clearpage
+  % \selectlanguage{\PFUlanguage}
+  %%% --
+  % \if@filesw
+  % \makeatletter
+  % \@input{\PFU@auxname.aux}%
+  % \immediate\openout\PFU@aux\PFU@auxname.aux\relax
+  % \fi
+  % \flushbottom
+  % \let\@corresp@note\relax
   \global\t@glob@notes={}
-%   \global\c@author\z@
-%   \global\c@collab\z@ \global\c@address\z@
-% %   \sv@mathsurround\mathsurround \m@th
-%   \global\n@author=0\n@author@\relax
-%   \global\n@collab=0\n@collab@\relax
-%   \global\advance\n@author\m@ne   % In comparisons later on we need
-%   \global\advance\n@collab\m@ne   % n@author-1 and n@collab-1
-%   \global\@firstauthortrue        % set to false by first \author or \collab
-%   \global\@hasabstractfalse       % Default:  no abstract or keywords
-%   \global\@haskeywordsfalse       % Default:  no abstract or keywords
-%   \global\@prefacefalse           %           not preface
-%%%
-%  \@topnum\z@ % this prevents figures from falling at the top of page 1
-%%   \refstepcounter{title}
+  % \global\c@author\z@
+  % \global\c@collab\z@ \global\c@address\z@
+  % % \sv@mathsurround\mathsurround \m@th
+  % \global\n@author=0\n@author@\relax
+  % \global\n@collab=0\n@collab@\relax
+  % \global\advance\n@author\m@ne   % In comparisons later on we need
+  % \global\advance\n@collab\m@ne   % n@author-1 and n@collab-1
+  % \global\@firstauthortrue        % set to false by first \author or \collab
+  % \global\@hasabstractfalse       % Default:  no abstract or keywords
+  % \global\@haskeywordsfalse       % Default:  no abstract or keywords
+  % \global\@prefacefalse           %           not preface
+  %%% 
+  % \@topnum\z@ % this prevents figures from falling at the top of page 1
+  %% \refstepcounter{title}
   \label{starttitle}
   % \@setcopyright
-%  \uppercasenonmath\shorttitle
-%   \ifx\@empty\shortauthors \let\shortauthors\shorttitle
-%   \else \andify\shortauthors 
-%   % \uppercasenonmath\shortauthors 
-%   \fi
+  % \uppercasenonmath\shorttitle
+  % \ifx\@empty\shortauthors \let\shortauthors\shorttitle
+  % \else \andify\shortauthors 
+  %   % \uppercasenonmath\shortauthors 
+  % \fi
   \altandify\altauthors
   \andify\authorsrunning
   \andify\authorstoc
   \altandify\altauthorstoc
-%  \renewcommand{\leftmark}{\authors}
+  % \renewcommand{\leftmark}{\authors}
   \iflanguage{\@defaultlanguage}
   {%
     \addcontentsline{toc}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
@@ -1951,44 +1958,44 @@
   {%
     \addtocontents{toc}{\protect\select@language{\@defaultlanguage}}
     \addcontentsline{toc}{chapter}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
-    % \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
+    \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
     \addcontentsline{tac}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
   }
-%   \@mkboth{\@journal}{\authors \@title}
-%  \@mkboth{\andify\altauthors}{\shorttitle}
-%   \toks@\@xp{\authors}
-%   \edef\atoks{\the\toks@}
-%  \renewcommand{\leftmark}{\atoks}
+  % \@mkboth{\@journal}{\authors \@title}
+  % \@mkboth{\andify\altauthors}{\shorttitle}
+  % \toks@\@xp{\authors}
+  % \edef\atoks{\the\toks@}
+  % \renewcommand{\leftmark}{\atoks}
   \ifnum\c@author>\@ne 
-    \edef\rauthor{\@rauthor{} \etal} 
+  \edef\rauthor{\@rauthor{} \etal} 
   \else \edef\rauthor{\@rauthor} 
   \fi
-%   \renewcommand{\leftmark}{\rauthor\ \textit{\shorttitle}}
+  % \renewcommand{\leftmark}{\rauthor\ \textit{\shorttitle}}
   \ifx\shorttitle\@empty 
-    \let\shorttitle\@title
+  \let\shorttitle\@title
   \fi
-%%   \renewcommand{\leftmark}{\authorsrunning{} {\shorttitle}}
-%  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shorttitle} \hfill}}
-%  \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\authorsrunning} \hfill}}
-    \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}
-    \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
+  %% \renewcommand{\leftmark}{\authorsrunning{} {\shorttitle}}
+  % \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shorttitle} \hfill}}
+  % \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\authorsrunning} \hfill}}
+  \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}
+  \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
   \begingroup
-  %\if@twocolumn %
-%   \twocolumn[\@maketitle] 
+  % \if@twocolumn %
+  % \twocolumn[\@maketitle] 
   % \@maketitle
-  %\fi
-%   \ifx\@runauthor\relax
-%    \global\let\@runauthor\@runningauthor
-%   \fi
-   \global\n@author=\c@author
-%   \global\n@collab=\c@collab 
+  % \fi
+  % \ifx\@runauthor\relax
+  % \global\let\@runauthor\@runningauthor
+  % \fi
+  \global\n@author=\c@author
+  % \global\n@collab=\c@collab 
   \@writecount
-%  \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
-%   \edef\@tempa{\@nx\markboth{\the\toks@}{\the\@temptokena}}\@tempa
+  % \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
+  % \edef\@tempa{\@nx\markboth{\the\toks@}{\the\@temptokena}}\@tempa
   \endgroup
-%  \message{1111111}
-%%   \newif\if@twocolumn
-%%   \@twocolumntrue%
+  % \message{1111111}
+  %% \newif\if@twocolumn
+  %% \@twocolumntrue%
   \if@twocolumn\typeout{2-col}%
   \else%
   \typeout{1-col}%
@@ -1998,97 +2005,97 @@
   \typeout{1-col}%
   \fi%
   \ifthenelse{\boolean{PFUprocMultiColumn}}{\typeout{2-col}}{\typeout{1-col}}
-%  \if@twocolumn%
-%  \twocolumngrid  
-%  \fi
+  % \if@twocolumn%
+  % \twocolumngrid  
+  % \fi
   \if@multicolumn%
-    \twocolumngrid  
+  \twocolumngrid  
   \fi
-
-%%
-%   \begingroup
-% %    \def\@makefntext{\noindent}
-% %    \renewcommand{\@makefnmark}{}
-%     \def\@thefnmark{\!\!}
-%     \ifx\@empty\thankses
-%      \else 
-%        \@footnotetext{%
-%          \def\par{\let\par\@par}
-%          \@setthanks
-%        }
-%     \fi
-%   \endgroup
+  
+  %% 
+  % \begingroup
+  % % \def\@makefntext{\noindent}
+  % % \renewcommand{\@makefnmark}{}
+  % \def\@thefnmark{\!\!}
+  % \ifx\@empty\thankses
+  % \else 
+  % \@footnotetext{%
+  % \def\par{\let\par\@par}
+  % \@setthanks
+  % }
+  %   \fi
+  %   \endgroup
   \normalsize
   \@maketitle@hook@post
-%   \begin{multicols*}{2}
-%   \addcontentsline{alt}{alttitle}{\@alttitle}
-%   \addcontentsline{alt}{altauthors}{\altauthors}
-%   \addcontentsline{alt}{altabstracts}{\@altabstracts}
-%  \thispagestyle{firstpage}% this sets first page specifications
-%  \c@footnote\z@
-%  \def\do##1{\let##1\relax}%
-%  \do\maketitle \do\@maketitle \do\title \do\@xtitle \do\@title
-%  \do\author \do\@xauthor \do\address \do\@xaddress
-%  \do\email \do\@xemail \do\curraddr \do\@xcurraddr
+  % \begin{multicols*}{2}
+  %   \addcontentsline{alt}{alttitle}{\@alttitle}
+  %   \addcontentsline{alt}{altauthors}{\altauthors}
+  %   \addcontentsline{alt}{altabstracts}{\@altabstracts}
+  %   \thispagestyle{firstpage}% this sets first page specifications
+  %   \c@footnote\z@
+  %   \def\do##1{\let##1\relax}%
+  %   \do\maketitle \do\@maketitle \do\title \do\@xtitle \do\@title
+  %   \do\author \do\@xauthor \do\address \do\@xaddress
+  %   \do\email \do\@xemail \do\curraddr \do\@xcurraddr
   \do\dedicatory \do\@dedicatory 
   \do\thanks \do\thankses
   \do\keywords \do\@keywords 
   \do\subjclass \do\@subjclass
-%%%
-\let\shortauthors\@empty%   
-\let\authors\@empty%
-\let\authorstoc\@empty%
-%% \let\author\@empty
-\let\addresses\@empty%
-\let\@address\@empty%
-\let\thankses\@empty%
-\let\@keywords\@empty%
-\let\@received\@empty%
-\let\@dedicatory\@empty%
-%%%
-% \let\shortaltauthors\@empty   \let\altauthors\@empty
-% \let\altaddresses\@empty      
-% \let\altthankses\@empty
-%%%--
-% \let\@udcnum\@empty
-\let\@abstracts\@empty
-\let\@paperid\@empty
-%%%
+  %%% 
+  \let\shortauthors\@empty%   
+  \let\authors\@empty%
+  \let\authorstoc\@empty%
+  %% \let\author\@empty
+  \let\addresses\@empty%
+  \let\@address\@empty%
+  \let\thankses\@empty%
+  \let\@keywords\@empty%
+  \let\@received\@empty%
+  \let\@dedicatory\@empty%
+  %%% 
+  % \let\shortaltauthors\@empty   \let\altauthors\@empty
+  % \let\altaddresses\@empty      
+  % \let\altthankses\@empty
+  %%% --
+  % \let\@udcnum\@empty
+  \let\@abstracts\@empty
+  \let\@paperid\@empty
+  %%% 
 } % END \maketitleToc
 
 \def\@maketitle@hook@pre{\global\let\@maketitle@hook@pre\@empty}
 \def\@maketitle@hook{\global\let\@maketitle@hook\@empty}
 \def\@maketitle@hook@post{\global\let\@maketitle@hook@post\@empty}
 \def\@maketitle{%
-\flushbottom
+  \flushbottom
   \normalfont\normalsize
   \let\@makefnmark\relax  \let\@thefnmark\relax
-%   \ifx\@empty\@subjclass\else \@footnotetext{\@setsubjclass}\fi
+  % \ifx\@empty\@subjclass\else \@footnotetext{\@setsubjclass}\fi
   \if@keywordsAsFooter% 
-    \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords} \fi
+  \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords} \fi
   \fi
-%  \if@receivedAsFooter% 
-%    \ifx\@empty\@received \else        \@footnotetext{\PFUreceivedName \@received} \fi
-%  \else
-%    \ifx\@empty\@received \else        \PFUreceivedName \@received \fi
-%  \fi
-%   \ifx\@empty\thankses\else \@footnotetext{\def\par{\let\par\@par}\@setthanks}
-%   \fi
-%   \ifx\@empty\thankses\else \footnotetext{\thankses}
-%   \fi
-%   \@mkboth{\@journalname}{\authors{} \@title}
-%  \@mkboth{\@nx\shortauthors}{\@nx\shorttitle}%
-%  \global\topskip8pc\relax % 10pc to base of first title line
-%   \bigskip
-%   \bigskip
-%   \vspace{2\bigskipamount}
+  % \if@receivedAsFooter% 
+  % \ifx\@empty\@received \else        \@footnotetext{\PFUreceivedName \@received} \fi
+  % \else
+  % \ifx\@empty\@received \else        \PFUreceivedName \@received \fi
+  % \fi
+  % \ifx\@empty\thankses\else \@footnotetext{\def\par{\let\par\@par}\@setthanks}
+  % \fi
+  % \ifx\@empty\thankses\else \footnotetext{\thankses}
+  % \fi
+  % \@mkboth{\@journalname}{\authors{} \@title}
+  % \@mkboth{\@nx\shortauthors}{\@nx\shorttitle}%
+  % \global\topskip8pc\relax % 10pc to base of first title line
+  % \bigskip
+  % \bigskip
+  % \vspace{2\bigskipamount}
   \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi
   \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi  
-%   \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
+  % \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
   \@settitle
   \medskip
   \ifx\@empty\authors \else \@setauthors \fi
-%%%--
+  %%% --
   \nobreak %
   \begingroup
   \footnotesize
@@ -2096,56 +2103,56 @@
   \addresses
   \par
   \endgroup
-%%%  
+  %%% 
   \ifx\@empty\@dedicatory
   \else
-    \baselineskip26\p@
-%    \vtop{\centering{\footnotesize\itshape\@dedicatory\@@par}%
-%      \global\dimen@i\prevdepth}\prevdepth\dimen@i
-    \begin{flushright}
-      \begin{minipage}{\dedicatorywidth}
-        \footnotesize\itshape\@dedicatory\par%
-      \end{minipage}
-    \end{flushright}
+  \baselineskip26\p@
+  % \vtop{\centering{\footnotesize\itshape\@dedicatory\@@par}%
+  % \global\dimen@i\prevdepth}\prevdepth\dimen@i
+  \begin{flushright}
+    \begin{minipage}{\dedicatorywidth}
+      \footnotesize\itshape\@dedicatory\par%
+    \end{minipage}
+  \end{flushright}
   \fi
-%   \@setabstract
-%%%--
+  % \@setabstract
+  %%% --
   \ifvoid\t@abstract
   \else
   \vskip 8\p@
   \unvbox\t@abstract
   \fi
-%  \unvcopy\t@abstract
-%%%
+  % \unvcopy\t@abstract
+  %%% 
   \normalsize
   \bigskip  
   \if@keywordsAsFooter% 
   \else
-    \ifx\@empty\@keywords\else \@setkeywords \fi
+  \ifx\@empty\@keywords\else \@setkeywords \fi
   \fi
-%
+  % 
   \if@receivedAsFooter% 
-    \ifx\@empty\@received \else \@footnotetext{\hspace{-2.5\footnotesep}\@setreceived} \fi
+  \ifx\@empty\@received \else \@footnotetext{\hspace{-2.5\footnotesep}\@setreceived} \fi
   \else
-    \ifx\@empty\@received \else \par\@setreceived \fi
+  \ifx\@empty\@received \else \par\@setreceived \fi
   \fi
-%
-%   \if@titlepage
-%     \newpage
-%   \else
-    \dimen@34\p@ \advance\dimen@-\baselineskip
-    %\vskip\dimen@\relax
-    \setboolean{sectionAfterTitle}{true}
-    % \@sectionAfterTitletrue
-%   \fi
-    \normalsize
+  % 
+  % \if@titlepage
+  % \newpage
+  % \else
+  \dimen@34\p@ \advance\dimen@-\baselineskip
+  % \vskip\dimen@\relax
+  \setboolean{sectionAfterTitle}{true}
+  % \@sectionAfterTitletrue
+  % \fi
+  \normalsize
 } % end \@maketitle
-%%%-- \@makeappendixtitle
+%%% -- \@makeappendixtitle
 \def\makeappendixtitle{\par
   \addcontentsline{toc}{chapter}{\@appendixtitle}
   \addcontentsline{tac}{chapter}{\@altappendixtitle}
-%   \renewcommand{\leftmark}{\rauthor\ \textit{\shorttitle}}
-%   \renewcommand{\rightmark}{\shorttitle}
+  % \renewcommand{\leftmark}{\rauthor\ \textit{\shorttitle}}
+  % \renewcommand{\rightmark}{\shorttitle}
   \@makeappendixtitle@hook
   \begingroup
   \@makeappendixtitle
@@ -2155,45 +2162,45 @@
 \def\@makeappendixtitle{%
   \normalfont\normalsize
   \let\@makefnmark\relax  \let\@thefnmark\relax
-%   \ifx\@empty\@subjclass\else \@footnotetext{\@setsubjclass}\fi
-%   \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords}\fi
-%   \ifx\@empty\thankses\else \@footnotetext{%
-%     \def\par{\let\par\@par}\@setthanks}\fi
-%   \@mkboth{\@journalname}{\authors{} \@title}
-%  \@mkboth{\@nx\shortauthors}{\@nx\shorttitle}%
-%  \global\topskip8pc\relax % 10pc to base of first title line
+  % \ifx\@empty\@subjclass\else \@footnotetext{\@setsubjclass}\fi
+  % \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords}\fi
+  % \ifx\@empty\thankses\else \@footnotetext{%
+  % \def\par{\let\par\@par}\@setthanks}\fi
+  % \@mkboth{\@journalname}{\authors{} \@title}
+  % \@mkboth{\@nx\shortauthors}{\@nx\shorttitle}%
+  % \global\topskip8pc\relax % 10pc to base of first title line
   \bigskip
   \bigskip
-%   \ifx\@empty\@udcnum \else \noindent \CYRU\CYRD\CYRK{} \@udcnum \hfill\par \fi
-%   \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
+  % \ifx\@empty\@udcnum \else \noindent \CYRU\CYRD\CYRK{} \@udcnum \hfill\par \fi
+  % \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
   \@setappendixtitle
-%   \ifx\@empty\authors \else \@setauthors \fi
-%%%--
-%   \nobreak \begingroup
-%   \footnotesize
-%   \centering
-%   \addresses
-%   \par
-%   \endgroup
-%%%  
-%   \ifx\@empty\@dedicatory
-%   \else
-%     \baselineskip26\p@
-%     \vtop{\centering{\footnotesize\itshape\@dedicatory\@@par}%
-%       \global\dimen@i\prevdepth}\prevdepth\dimen@i
-%   \fi
-%   \@setabstract
-%%%--
-%   \vskip 8\p@
-%   \unvbox\t@abstract 
-% %%%
-%   \normalsize
-%   \if@titlepage
-%     \newpage
-%   \else
-%     \dimen@34\p@ \advance\dimen@-\baselineskip
-%     \vskip\dimen@\relax
-%   \fi
+  % \ifx\@empty\authors \else \@setauthors \fi
+  %%% --
+  % \nobreak \begingroup
+  % \footnotesize
+  % \centering
+  % \addresses
+  % \par
+  % \endgroup
+  %%% 
+  % \ifx\@empty\@dedicatory
+  % \else
+  % \baselineskip26\p@
+  % \vtop{\centering{\footnotesize\itshape\@dedicatory\@@par}%
+  % \global\dimen@i\prevdepth}\prevdepth\dimen@i
+  % \fi
+  % \@setabstract
+  %%% --
+  % \vskip 8\p@
+  % \unvbox\t@abstract 
+  % %%% 
+  % \normalsize
+  % \if@titlepage
+  % \newpage
+  % \else
+  % \dimen@34\p@ \advance\dimen@-\baselineskip
+  % \vskip\dimen@\relax
+  % \fi
 } % end \@makeappendixtitle
 \def\@setappendixtitle{
   \begin{center}%
@@ -2600,29 +2607,30 @@
     \@title
   \end{center}%
 }
+
 \def\@setauthors{%
   \begingroup
   \trivlist
-%  \centering \fontsize{11}{13\p@}\selectfont\@topsep13\p@\relax
-%%%--
+  % \centering \fontsize{11}{13\p@}\selectfont\@topsep13\p@\relax
+  %%% --
   \centering
   \author@font
-%  \bfseries
-%%%
-  \item\relax
+  % \bfseries
+  %%% 
+\item\relax
   \andify\authors
   \authors
   \endtrivlist
   \endgroup
 }
-%%%
+%%% 
 \def\@setsubtitle{
   \begin{center}%
     \@subtitlesize
     \@subtitle
   \end{center}%
 }
-%%%--
+%%% --
 \providecommand{\@setalttitle}%
 {%
   \begin{center}%
