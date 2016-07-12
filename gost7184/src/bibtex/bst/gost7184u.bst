@@ -875,8 +875,10 @@ FUNCTION {format.names.rev}
       format.name$ 't :=
       nameptr #1 >
         {
-          nameptr #4 =
-          numnames #4 > and
+% 2016-07-12, заменил в следующих двух строчках #4 на #10
+% Это контролирует количество авторов в зоне ответственности
+          nameptr #10 =
+          numnames #10 > and
             { "others" 't :=
               #1 'namesleft := }
             'skip$
