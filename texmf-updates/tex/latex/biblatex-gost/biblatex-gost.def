@@ -1,5 +1,5 @@
 \ProvidesFile{biblatex-gost.def}
-[2016/04/05\space v1.6\space biblatex-gost styles]
+[2016/08/30\space v1.8\space biblatex-gost styles]
 
 % these declarations should be here, not in lbx, to be initialized for all languages
 \NewBibliographyString{
@@ -478,6 +478,12 @@
         \map{
           \pertype{patent}
           \step[fieldset=options, fieldvalue={useauthor=false}]
+          \step[fieldsource=authortype, fieldtarget=authorcountry]
+          \step[fieldsource=reqnumber,  fieldtarget=requestnumber]
+          \step[fieldsource=publdate,   fieldtarget=publicationdate]
+          \step[fieldsource=prdate,     fieldtarget=prioritydate]
+          \step[fieldsource=prnumber,   fieldtarget=prioritynumber]
+          \step[fieldsource=prcountry,  fieldtarget=prioritycountry]
         }
       }
      }
@@ -493,6 +499,12 @@
         \map{
           \pertype{patent}
           \step[fieldset=options, fieldvalue={useauthor=false}]
+          \step[fieldsource=authortype, fieldtarget=authorcountry]
+          \step[fieldsource=reqnumber,  fieldtarget=requestnumber]
+          \step[fieldsource=publdate,   fieldtarget=publicationdate]
+          \step[fieldsource=prdate,     fieldtarget=prioritydate]
+          \step[fieldsource=prnumber,   fieldtarget=prioritynumber]
+          \step[fieldsource=prcountry,  fieldtarget=prioritycountry]
         }
       }
     }
