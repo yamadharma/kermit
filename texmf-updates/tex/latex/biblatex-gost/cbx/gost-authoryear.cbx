@@ -1,21 +1,17 @@
 \ProvidesFile{gost-authoryear.cbx}
-[2016/08/30\space v1.8\space biblatex-gost styles]
+[2016/09/18\space v1.10\space biblatex-gost styles]
 
-\@ifpackagelater{biblatex}{2016/05/11}  % biblatex 3.5+
-  {\ExecuteBibliographyOptions{dashed=false,citetracker=constrict,loccittracker=constrict,
-                            singletitle=false,labeldateparts,labeltitleyear,uniquename=init,
-                            uniquelist,ibidtracker=constrict,pagetracker,sortcites,autocite=inline,
-                            citeisbn,citeurl,citedoi,citeeprint}}
-  {\ExecuteBibliographyOptions{dashed=false,citetracker=constrict,loccittracker=constrict,
-                            singletitle=false,labeldate,labeltitleyear,uniquename=init,
-                            uniquelist,ibidtracker=constrict,pagetracker,sortcites,autocite=inline,
-                            citeisbn,citeurl,citedoi,citeeprint}}
+\ExecuteBibliographyOptions{dashed=false,citetracker=constrict,loccittracker=constrict,
+  dropdates=false,
+  labeldateparts,labeltitleyear,uniquename=init,
+  uniquelist,ibidtracker=constrict,pagetracker,sortcites,autocite=inline,
+  citeisbn,citeurl,citedoi,citeeprint}
 
 \providecommand*{\mkibid}[1]{#1}
 \renewcommand*{\iffinalcitedelim}{%
   \ifnumequal{\value{textcitecount}}{\value{textcitetotal}-1}}
-\newbool{cbx:parens}
-\newbool{cbx:loccit}
+\newbool{cbx:gost:parens}
+\newbool{cbx:gost:loccit}
 
 \DeclareBibliographyOption{ibidpage}[true]{%
   \ifstrequal{#1}{true}
@@ -28,16 +24,13 @@
 \newcommand{\mkbibbracketssentence}[1]{\bibsentence\mkbibbrackets{#1}\midsentence}
 
 \DeclareFieldFormat*{citetitle}{\mkbibemph{#1}}
-\DeclareFieldFormat{extratitleyear}{%
-  \iffieldnum{labelyear}
-    {\mknumalph{#1}}
-    {\printtext{(\mknumalph{#1})}}}
+\DeclareFieldFormat{extratitleyear}{\mknumalph{#1}}
 \DeclareFieldFormat{citeheading}{#1}
 
 \newbibmacro*{cite:init}{%
-  \global\boolfalse{cbx:loccit}%
+  \global\boolfalse{cbx:gost:loccit}%
   \ifnumless{\value{multicitecount}}{2}
-    {\global\boolfalse{cbx:parens}%
+    {\global\boolfalse{cbx:gost:parens}%
      \global\undef\cbx@lasthash
      \global\undef\cbx@lastyear}
     {\iffieldundef{prenote}
@@ -56,12 +49,22 @@
        {\iffieldundef{heading}
          {\ifthenelse{\ifnameundef{labelname}\OR\iffieldundef{labelyear}}
             {\ifnameundef{labelname}
-                {\usebibmacro{cite:label+volume+parts}{bibhyperref}%
-                 \setunit{\nameyeardelim}%
-                 \usebibmacro{cite:labelyear+extras}{bibhyperref}}
-                {\usebibmacro{cite:labelname+volume+parts}{bibhyperref}}%
-             \usebibmacro{cite:reinit}}
-            {\iffieldequals{namehash}{\cbx@lasthash}
+              {% no labelname
+               \iffieldundef{label}
+                 {% no label, so print labeltitle (always present)
+                  \blx@gost@ifneedsdate
+                    {\printfield[citetitle]{labeltitle}
+                     \setunit{\nameyeardelim}%
+                     \usebibmacro{cite:labelyear+extras}{bibhyperref}}
+                    {\printtext[bibhyperref]{%
+                              \printfield[citetitle]{labeltitle}}}}
+                 {% label exists, print it
+                  \usebibmacro{cite:label+volume+parts}}}%
+              {% labelname, no labelyear
+               \usebibmacro{cite:labelname+volume+parts}{bibhyperref}%
+               \usebibmacro{cite:reinit}}}%
+           {% both labelname, labelyear exist
+            \iffieldequals{namehash}{\cbx@lasthash}
                {\ifthenelse{\iffieldequals{labelyear}{\cbx@lastyear}\AND
                         \(\value{multicitecount}=0\OR\iffieldundef{postnote}\)}
                   {\setunit{\addcomma}%
@@ -69,12 +72,12 @@
                   {\setunit{\compcitedelim}%
                    \usebibmacro{cite:labelyear+extras}{bibhyperref}%
                    \savefield{labelyear}{\cbx@lastyear}}}
-               {\ifsingletitle
-                  {\usebibmacro{cite:labelname+volume+parts}{bibhyperref}}
+               {\blx@gost@ifneedsdate
                   {\usebibmacro{cite:labelname+volume+parts}{}%
                    \setunit{\nameyeardelim}%
                    \usebibmacro{cite:labelyear+extras}{bibhyperref}%
                    \savefield{labelyear}{\cbx@lastyear}}%
+                  {\usebibmacro{cite:labelname+volume+parts}{bibhyperref}}%
                 \savefield{namehash}{\cbx@lasthash}}}}
          {\usebibmacro{cite:heading}{bibhyperref}%
 %          \iffieldundef{labelyear}
@@ -92,24 +95,20 @@
      %\usebibmacro{volume+parts}{\setunit*{\addcomma\space}}%
 }
 
-\newbibmacro*{cite:label+volume+parts}[1]{%
+\newbibmacro*{cite:label+volume+parts}{%
   \iffieldundef{label}
-    {\ifsingletitle
-      {\printtext[#1]{\printfield[citetitle]{labeltitle}}}
-      {\printfield[citetitle]{labeltitle}}}
-    {\printtext[#1]{\printfield{label}}}%
+    {}
+    {\printtext[bibhyperref]{\printfield{label}}}%
      \setunit*{\addcomma\space}%
      %\usebibmacro{volume+parts}{\setunit*{\addcomma\space}}%
 }
 
 \newbibmacro*{cite:labelyear+extras}[1]{%
-  \ifsingletitle
+  \iffieldundef{labelyear}
     {}
-    {\iffieldundef{labelyear}
-      {}
-      {\printtext[#1]{%
-          \printfield{labelyear}%
-          \usebibmacro{cite:extras}}}}}
+    {\printtext[#1]{%
+          \usebibmacro{printyear}{label}% print labelyear
+          \usebibmacro{cite:extras}}}}
 
 \newbibmacro*{citeyear}{%
   \iffieldundef{shorthand}
@@ -150,7 +149,7 @@
        {\iffieldundef{shorthand}
           {\usebibmacro{cite:label}%
      \setunit{%
-       \global\booltrue{cbx:parens}%
+       \global\booltrue{cbx:gost:parens}%
        \addspace\bibopenparen}%
      \ifnumequal{\value{citecount}}{1}
        {\usebibmacro{prenote}}
@@ -161,7 +160,7 @@
           {\usebibmacro{cite:shorthand}}}
        {\printnames{labelname}%
   \setunit{%
-    \global\booltrue{cbx:parens}%
+    \global\booltrue{cbx:gost:parens}%
     \addspace\bibopenparen}%
   \ifnumequal{\value{citecount}}{1}
     {\usebibmacro{prenote}}
@@ -178,8 +177,8 @@
      \stepcounter{textcitecount}%
      \savefield{namehash}{\cbx@lasthash}}%
   \setunit{%
-    \ifbool{cbx:parens}
-      {\bibcloseparen\global\boolfalse{cbx:parens}}
+    \ifbool{cbx:gost:parens}
+      {\bibcloseparen\global\boolfalse{cbx:gost:parens}}
       {}%
     \textcitedelim}}
 
@@ -198,7 +197,7 @@
   \iffieldundef{labelyear}
     {}
     {\printtext[bibhyperref]{%
-       \printfield{labelyear}%
+       \usebibmacro{printyear}{label}%
        \printfield{extrayear}}}}
 
 \newbibmacro*{cite:extrayear}{%
@@ -209,27 +208,27 @@
 \newbibmacro*{cite:ibid}{%
   \printtext[bibhyperref]{\bibstring[\mkibid]{ibidem}}%
   \ifloccit
-    {\global\booltrue{cbx:loccit}}
+    {\global\booltrue{cbx:gost:loccit}}
     {}}
 
 \newbibmacro*{cite:postnote}{%
-  \ifbool{cbx:loccit}
+  \ifbool{cbx:gost:loccit}
     {}
     {\usebibmacro{postnote}}}
 
 \newbibmacro*{textcite:postnote}{%
-  \ifbool{cbx:loccit}
+  \ifbool{cbx:gost:loccit}
     {}
     {\usebibmacro{postnote}}%
   \ifthenelse{\value{multicitecount}=\value{multicitetotal}}
     {\setunit{}%
      \printtext{%
-       \ifbool{cbx:parens}
-   {\bibcloseparen\global\boolfalse{cbx:parens}}
+       \ifbool{cbx:gost:parens}
+   {\bibcloseparen\global\boolfalse{cbx:gost:parens}}
    {}}}
     {\setunit{%
-       \ifbool{cbx:parens}
-   {\bibcloseparen\global\boolfalse{cbx:parens}}
+       \ifbool{cbx:gost:parens}
+   {\bibcloseparen\global\boolfalse{cbx:gost:parens}}
    {}%
        \textcitedelim}}}
 

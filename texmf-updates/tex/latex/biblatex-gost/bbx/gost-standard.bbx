@@ -1,8 +1,8 @@
 \ProvidesFile{gost-standard.bbx}
-[2016/08/30\space v1.8\space biblatex-gost styles]
+[2016/09/18\space v1.10\space biblatex-gost styles]
 
-\def\bbx@gost@date{2016/08/30}
-\def\bbx@gost@version{1.8}
+\def\bbx@gost@date{2016/09/18}
+\def\bbx@gost@version{1.10}
 
 \@ifpackagelater{biblatex}{2016/03/03}
   {}
@@ -43,15 +43,6 @@
 \newtoggle{bbx:related:cite}
 \newtoggle{bbx:gostbibliography}
 \togglefalse{bbx:gostbibliography}
-
-\@ifpackagelater{biblatex}{2016/05/11}  % biblatex 3.5+
-  {}
-  {\protected\def\blx@imc@printupdate{\csuse{mkbibrangeshort}{up}}
-    \protected\def\blx@imc@printpublicationdate{\csuse{mkbibrangeshort}{publication}}
-    \protected\def\blx@imc@printprioritydate{\csuse{mkbibrangeshort}{priority}}
-    \newcommand{\bibdaterangesep}{\bibdatedash}}
-\blx@regimcs{%
-  \printupdate \printpublicationdate \printprioritydate}
 
 %  OPTIONS
 
@@ -124,9 +115,8 @@
   maxnames=3,
   minnames=1,
   dashed=false,
-  singletitle=false,
   movenames=true,
-  giveninits,
+  giveninits=true,
   volsorder=vbpi,
   related=true,
   alldates=short,
@@ -256,7 +246,8 @@
   \ifbibxstring{\thefield{prioritycountry}}
     {\bibcpstring{\thefield{prioritycountry}}}
     {#1}}
-
+\DeclareFieldFormat{bracketsalways}{[#1]}
+  
 \DeclareNameAlias{default}{given-family}
 
 \DefineBibliographyExtras{french}{\restorecommand\mkbibnamefamily}
@@ -1773,8 +1764,11 @@
       \setcounter{blx@gost@pointer}{1}%
       \expandafter\blx@gost@volsinorder\gost@tempa\blx@gost@endofstring}}
 
+\renewbibmacro*{date}{%
+  \usebibmacro{printdate}{}}
+
 \newbibmacro*{year}{%
-  \printfield{year}}
+  \usebibmacro{printyear}{}}
 
 \renewbibmacro*{title}{%
   \ifboolexpr{
@@ -2110,6 +2104,98 @@
 
 \newbibmacro*{heading}{%
   \printfield{heading}}
+
+% whether date needs brackets.
+% labeldate needs special account
+\newcommand*{\blx@gost@ifdateuncertain}[3]{%
+  \ifboolexpr{
+    test {\csuse{if#1datecirca}}
+    or
+    test {\csuse{if#1dateuncertain}}
+    or
+    test {\csuse{if#1enddatecirca}}
+    or
+    test {\csuse{if#1enddateuncertain}}
+    or
+    not test {\iffieldundef{#1dateunspecified}}
+    or (
+       test {\ifstrequal{#1}{label}}
+       and
+       not test {\iffieldundef{\thefield{labeldatesource}dateunspecified}}
+       )
+  }
+  {#2}
+  {#3}}
+
+% Adds brackets is necessary
+\newbibmacro*{printdate}[1]{%
+  \blx@gost@ifdateuncertain{#1}
+  {\printtext[bracketsalways]{\midsentence*%
+      \ifstrequal{#1}{label}
+        {\iffieldequalstr{\thefield{labeldatesource}dateunspecified}{yearincentury}
+          {\number\numexpr\thefield{\thefield{labeldatesource}year}/100\relax%
+            \bibrangedash\addnbspace\bibrangedash}
+          {\iffieldequalstr{\thefield{labeldatesource}dateunspecified}{yearindecade}
+            {\number\numexpr\thefield{\thefield{labeldatesource}year}/10\relax\bibrangedash}%
+          {\csuse{print#1date}}}}
+        {\iffieldequalstr{#1dateunspecified}{yearincentury}
+          {\number\numexpr\thefield{#1year}/100\relax%
+            \bibrangedash\addnbspace\bibrangedash}
+          {\iffieldequalstr{#1dateunspecified}{yearindecade}
+            {\number\numexpr\thefield{#1year}/10\relax\bibrangedash}%
+          {\csuse{print#1date}}}}}}
+  {\csuse{print#1date}}}
+
+\newbibmacro*{printyear}[1]{%
+  \blx@gost@ifdateuncertain{#1}
+  {\printtext[bracketsalways]{\midsentence*%
+     \ifstrequal{#1}{label}
+      {\iffieldequalstr{\thefield{labeldatesource}dateunspecified}{yearincentury}
+        {\number\numexpr\thefield{\thefield{labeldatesource}year}/100\relax%
+          \bibrangedash\addnbspace\bibrangedash}
+        {\iffieldequalstr{\thefield{labeldatesource}dateunspecified}{yearindecade}
+          {\number\numexpr\thefield{\thefield{labeldatesource}year}/10\relax\bibrangedash}
+          {\usebibmacro{printyear+}{#1}}}}
+      {\iffieldequalstr{#1dateunspecified}{yearincentury}
+        {\number\numexpr\thefield{#1year}/100\relax%
+          \bibrangedash\addnbspace\bibrangedash}
+        {\iffieldequalstr{#1dateunspecified}{yearindecade}
+          {\number\numexpr\thefield{#1year}/10\relax\bibrangedash}
+          {\usebibmacro{printyear+}{#1}}}}}}
+  {\usebibmacro{printyear+}{#1}}}
+
+\newbibmacro*{printyear+}[1]{%
+  \printtext{%
+    \iffieldundef{#1year}
+      {}
+      {\ifdefstring\blx@dateformat@labeldate{edtf}
+         {}
+         {\datecircaprint}%
+       \dateeraprintpre{#1year}%
+       \mkyearzeros{\thefield{#1year}}%
+       % \printfield{extrayear}%
+       \iffieldsequal{#1dateera}{#1enddateera}
+         {}
+         {\dateeraprint{#1year}}%
+       \dateuncertainprint%
+       \ifdefstring\blx@dateformat@labeldate{edtf}
+         {\datecircaprintedtf}
+         {}%
+       \iffieldundef{#1endyear}
+         {}
+         {\iffieldsequal{#1year}{#1endyear}
+           {}
+           {\ifdefstring\blx@dateformat@labeldate{edtf}
+             {\slash}% strict EDTF
+             {\bibdaterangesep%
+              \enddatecircaprint}%
+            \dateeraprintpre{#1endyear}%
+            \mkyearzeros{\thefield{#1endyear}}%
+            \enddateuncertainprint%
+            \ifdefstring\blx@dateformat@labeldate{edtf}
+              {\enddatecircaprintedtf}
+              {}%
+            \dateeraprint{#1endyear}}}}}}
 
 \newcommand*{\setrespdelim}{\bbx@gost@respdelim\def\bbx@gost@respdelim{}}
 

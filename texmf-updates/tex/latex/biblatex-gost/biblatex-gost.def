@@ -1,5 +1,5 @@
 \ProvidesFile{biblatex-gost.def}
-[2016/08/30\space v1.8\space biblatex-gost styles]
+[2016/09/18\space v1.10\space biblatex-gost styles]
 
 % these declarations should be here, not in lbx, to be initialized for all languages
 \NewBibliographyString{
@@ -115,10 +115,10 @@
   }
   \sort{
     \field{heading}
-    \name{sortname}
-    \name{author}
-    \name{editor}
-    \name{translator}
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
     \field{sorttitle}
     \field{maintitle}
     \field{title}
@@ -160,10 +160,10 @@
   }
   \sort{
     \field{heading}
-    \name{sortname}
-    \name{author}
-    \name{editor}
-    \name{translator}
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
     \field{sorttitle}
     \field{maintitle}
     \field{title}
@@ -212,10 +212,10 @@
     \literal{9999}
   }
   \sort{
-    \name{sortname}
-    \name{author}
-    \name{editor}
-    \name{translator}
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
     \field{sorttitle}
     \field{maintitle}
     \field{title}
@@ -243,10 +243,10 @@
     \literal{9999}
   }
   \sort{
-    \name{sortname}
-    \name{author}
-    \name{editor}
-    \name{translator}
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
     \field{sorttitle}
     \field{maintitle}
     \field{title}
@@ -267,10 +267,10 @@
   }
   \sort{
     \field{heading}
-    \name{sortname}
-    \name{author}
-    \name{editor}
-    \name{translator}
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
     \field{sorttitle}
     \field{maintitle}
     \field{title}
@@ -312,10 +312,10 @@
   }
   \sort{
     \field{heading}
-    \name{sortname}
-    \name{author}
-    \name{editor}
-    \name{translator}
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
     \field{sorttitle}
     \field{maintitle}
     \field{title}
@@ -596,7 +596,7 @@
         {\setunit*{\addcolon\space}}%
       \printlist{publisher}%
       \setunit*{\addcomma\space}%
-      \printdate}}}
+      \usebibmacro{date}}}}
 
 \renewbibmacro*{related:multivolume}[1]{%
   \entrydata*{#1}{%
