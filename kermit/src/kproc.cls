@@ -1113,6 +1113,8 @@
   \endgroup
 }
 
+\RequirePackage{xspace}
+
 \def\author@fmt#1#2#3#4%
 {%
   %% #1 Maximum number of authors in header
@@ -1143,6 +1145,9 @@
   \ifx\@tempd\@empty
     \protected@edef\authorFamIn{\authorfamily\,\authorinitials}
     \protected@edef\authorInFam{\authorinitials\,\authorfamily}
+    \protected@xdef\authorFamily{\authorfamily\xspace}
+    \protected@xdef\authorInitials{\authorinitials\xspace}
+    \protected@xdef\authorInitialsPlain{\authorinitialsplain\xspace}
   \else
     \protected@edef\authorFamIn{\protect\csname\@tempd \endcsname{\authorfamily\,\authorinitials}}
     \protected@edef\authorInFam{\protect\csname\@tempd \endcsname{\authorinitials\,\authorfamily}}
@@ -1268,6 +1273,9 @@
   \ifx\@tempd\@empty
     \protected@xdef\altauthorFamIn{\authorfamily~\authorinitials}
     \protected@xdef\altauthorInFam{\authorinitials~\authorfamily}
+    \protected@xdef\altauthorFamily{\authorfamily\xspace}
+    \protected@xdef\altauthorInitials{\authorinitials\xspace}
+    \protected@xdef\altauthorInitialsPlain{\authorinitialsplain\xspace}
   \else
     \protected@xdef\altauthorFamIn{\protect\csname\@tempd \endcsname{\authorfamily\,\authorinitials}}
     \protected@xdef\altauthorInFam{\protect\csname\@tempd \endcsname{\authorinitials\,\authorfamily}}
@@ -3934,6 +3942,10 @@
 
 % \InputIfFileExists{pfuproc/caption_explane.cli}{}{}%
 
+% Author index
+\InputIfFileExists{kproc/authorindex.cli}{}{}%
+
+
 % \newcounter{table}[title]
 \def\ftype@table{2}
 \def\ext@table{lot}
@@ -4047,9 +4059,9 @@
 \def\fullwidthdisplay{\displayindent\z@ \displaywidth\columnwidth}
 \edef\@tempa{\noexpand\fullwidthdisplay\the\everydisplay}
 \everydisplay\expandafter{\@tempa}
-\newcommand\seename{see also}%
-\newcommand\see[2]{{\em \seename\/} #1}%
-\newcommand\printindex{\@input{\jobname.ind}}%
+\providecommand\seename{see also}%
+\providecommand\see[2]{{\em \seename\/} #1}%
+%\newcommand\printindex{\@input{\jobname.ind}}%
 \DeclareRobustCommand{\@biblabel}[1]{#1.\hfill}%
 \DeclareRobustCommand\textprime{\leavevmode
   \raise.8ex\hbox{\check@mathfonts\the\scriptfont2 \char48 }}

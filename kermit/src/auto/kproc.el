@@ -17,6 +17,7 @@
     "truncate"
     "fancyhdr"
     "xparse"
+    "xspace"
     "titlesec")
    (TeX-add-symbols
     "endverse"
@@ -75,7 +76,6 @@
     "abovecaptionskip"
     "belowcaptionskip"
     "captionindent"
-    "printindex"
     "textprime"
     "theHaddress"
     "thanksref"
