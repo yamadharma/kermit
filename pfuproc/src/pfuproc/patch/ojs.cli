@@ -1,5 +1,6 @@
 % Prepare to export for ojs
 
+\RequirePackage{morewrites}
 \RequirePackage{refcount}
 
 %\g@addto@macro\@title@hook@post{%
