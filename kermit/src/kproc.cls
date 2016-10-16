@@ -3848,7 +3848,7 @@
   % }
   {%
     \par
-    \phantomsection
+%    \phantomsection
     \addcontentsline{toc}{section}{\protect\numberline{}\acknowledgmentsname}%
   }%
 }
