@@ -10,6 +10,7 @@
 
 \RequirePackage{etoolbox}
 \RequirePackage{etextools}
+\reserveinserts{28}
 
 %%%
 %\def\@namedef#1{\expandafter\def\csname test:#1\endcsname}
