@@ -96,10 +96,21 @@
 \let\PFUjournalissue\@empty
 \let\PFUjournalyear\@empty
 \let\PFUjournalfoundationyear\@empty
-
-
-
 \let\PFUtypesetter\@empty
+
+\DeclareRobustCommand{\issnPrint}[1]%
+{%
+  \def\PFUissnPrint{#1}
+}
+\let\PFUissnPrint\@empty
+
+\DeclareRobustCommand{\issnOnline}[1]%
+{%
+  \def\PFUissnOnline{#1}
+}
+\let\PFUissnOnline\@empty
+
+
 
 \AtBeginDocument%
 {%

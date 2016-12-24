@@ -5,6 +5,14 @@
 \altjournal{Bulletin of PFUR}
 \journalfoundationyear{1993}
 
+\AtBeginDocument{%
+  \doiPrefix{10.22363}
+  \doiSuffixBase{\PFUissnPrint{}-\PFUjournalyear\ifx\PFUjournalvolume\@empty\else-\PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else-\PFUjournalnumber\fi}
+  \makeatletter
+  \doiBase{\@doiPrefix{}/\@doiSuffixBase}
+  \makeatother
+}
+
 % \AtEndOfClass{%
 %   \RequirePackage{geometry}
 %   % \geometry{reset}

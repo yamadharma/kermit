@@ -47,6 +47,10 @@
     '("pacs" 1)
     '("udc" 1)
     '("uppercasenonmath" 1)
+    '("doiBase" 1)
+    '("doiSuffixBase" 1)
+    '("doiPrefix" 1)
+    '("doi" 1)
     '("defaultaltlanguage" 1)
     '("defaultlanguage" 1)
     "authorFontShape"

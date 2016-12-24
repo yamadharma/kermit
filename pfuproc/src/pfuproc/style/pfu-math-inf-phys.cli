@@ -6,6 +6,8 @@
 {\CYRF}{\cyri}{\cyrz}{\cyri}{\cyrk}{\cyra}}
 \altjournalseries{Mathematics.\,Information\,Sciences.\,Physics}
 \journalfoundationyear{2006}
+\issnPrint{2312-9735}
+\issnOnline{2312-9743}
 
 \AtEndOfPackage{%
   \RequirePackage{truncate}

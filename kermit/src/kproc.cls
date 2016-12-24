@@ -38,7 +38,7 @@
 %
 
 \providecommand{\authorFontShape}{\bfseries}
-\providecommand{\authorFontSize}{\large}
+\providecommand{\authorFontSize}{\normalsize}
 
 \def\tabular@font{}
 \def\author@font{\authorFontSize\authorFontShape}
@@ -309,7 +309,6 @@
 
 %}}}
 
-
 \newif\ifpolyglossia\polyglossiafalse
 \AtBeginDocument{%
   \@ifpackageloaded{polyglossia}{\polyglossiatrue}{\polyglossiafalse}
@@ -349,6 +348,7 @@
 }
 \let\@defaultlanguage\@empty
 \let\@defaultaltlanguage\@empty
+
 %\AtBeginDocument{%
   %\global\def\@biblabel#1{\@ifnotempty{#1}{#1.}}
 %  \def\@biblabel#1{#1.}
@@ -362,6 +362,27 @@
 % \@sectionAfterTitlefalse
 \newboolean{sectionAfterTitle}
 \setboolean{sectionAfterTitle}{false}
+
+\DeclareRobustCommand{\doi}[1]{%
+  \def\@doi{#1}
+}
+\let\@doi\@empty
+
+\DeclareRobustCommand{\doiPrefix}[1]{%
+  \def\@doiPrefix{#1}
+}
+\let\@doiPrefix\@empty
+
+\DeclareRobustCommand{\doiSuffixBase}[1]{%
+  \def\@doiSuffixBase{#1}
+}
+\let\@doiSuffixBase\@empty
+
+\DeclareRobustCommand{\doiBase}[1]{%
+  \def\@doiBase{#1}
+}
+\let\@doiBase\@empty
+
 %% \newif\if@multicolumn
 %% \@multicolumnfalse
 %%
@@ -890,7 +911,7 @@
   \@title@hook@pre
   \@title@hook
   \refstepcounter{PFUtitle}
-  \message{*********** \thePFUtitle}
+  % \message{*********** \thePFUtitle}
   \refstepcounter{subtitle}
   % \thispagestyle{plain}
   \let\@rauthor\@empty
@@ -904,6 +925,10 @@
   \let\addresses\@empty%
   \let\altaddresses\@empty%
 %%   \label{starttitle}
+  \ifx\@doiPrefix\@empty
+  \else
+    \doi{\@doiPrefix{}/\@doiSuffixBase{}-\pageref{starttitle}-\pageref{endtitle}}
+  \fi
   \iflanguage{english}%
   {%
     \edef\PFUlanguage{english}
@@ -2098,15 +2123,21 @@
   % \bigskip
   % \bigskip
   % \vspace{2\bigskipamount}
+  \begingroup
   \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi
-  \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi  
-  % \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
+  \nobreak%
+  \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi
+  \nobreak%
+  \ifx\@empty\@doi \else \noindent DOI: \@doi \hfill\par \fi
+  \smallskip
   \@settitle
-  \medskip
+  \smallskip
   \ifx\@empty\authors \else \@setauthors \fi
+  \endgroup
   %%% --
   \nobreak %
   \begingroup
+  \smallskip
   \footnotesize
   \centering
   \addresses
@@ -2414,6 +2445,7 @@
 %%% --
 \let\@udcnum\@empty
 \let\@pacsnum\@empty  
+%\let\@doi\@empty
 \let\alt@keywords\@empty
 \let\@altabstracts\@empty
 %%% 
@@ -2469,56 +2501,62 @@
 {%
   \begingroup
   \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
-  % \begin{otherlanguage}{\PFUaltlanguage}
-%   \bigskip
-%   \bigskip
-  \samepage
-  \normalfont\normalsize
-  \let\@makefnmark\relax  \let\@thefnmark\relax
-%   \ifx\@empty\@subjclass\else \@footnotetext{\@setsubjclass}\fi
-%   \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords}\fi
-%   \ifx\@empty\thankses\else \@footnotetext{%
-%     \def\par{\let\par\@par}\@setthanks}\fi
-%   \@mkboth{\@journalname}{\authors{} \@title}
-%  \@mkboth{\@nx\shortauthors}{\@nx\shorttitle}%
-%  \global\topskip8pc\relax % 10pc to base of first title line
-%   \bigskip\nobreak%
-%   \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
-  \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi%
-  \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi%  
-%  \ifx\@empty\@udcnum \else \noindent\@udcnum \hfill\par \fi
-  \nobreak%
-  \@setalttitle%
-  \nobreak%
-  \smallskip
-  \ifx\@empty\altauthors \else \@setaltauthors \fi
-%%%--
-  \nobreak%
-%   \begingroup
-  \begin{center}
-    \footnotesize
-    \samepage%
-    \altaddresses
-  \end{center} 
-  \nobreak
-%   \par
-%   \endgroup
-%%%  
-  \ifx\@empty\@dedicatory
+    % \begin{otherlanguage}{\PFUaltlanguage}
+    %   \bigskip
+    %   \bigskip
+    \samepage
+    \normalfont\normalsize
+    \let\@makefnmark\relax  \let\@thefnmark\relax
+    % \ifx\@empty\@subjclass\else \@footnotetext{\@setsubjclass}\fi
+    % \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords}\fi
+    % \ifx\@empty\thankses\else \@footnotetext{%
+    %   \def\par{\let\par\@par}\@setthanks}\fi
+    % \@mkboth{\@journalname}{\authors{} \@title}
+    % \@mkboth{\@nx\shortauthors}{\@nx\shorttitle}%
+    % \global\topskip8pc\relax % 10pc to base of first title line
+    % \bigskip\nobreak%
+    % \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
+    \begingroup
+    \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi%
+    \nobreak%
+    \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi%  
+    \nobreak%
+    \ifx\@empty\@doi \else \noindent DOI: \@doi \hfill\par \fi
+    \nobreak%
+    \smallskip
+    \@setalttitle%
+    \nobreak%
+    \smallskip
+    \ifx\@empty\altauthors \else \@setaltauthors \fi
+    \endgroup
+    %%% --
+    \nobreak%
+    % \begingroup
+    \smallskip
+    \begin{center}
+      \footnotesize
+      \samepage%
+      \altaddresses
+    \end{center} 
+    \nobreak
+    % \par
+    % \endgroup
+    %%% 
+    \ifx\@empty\@dedicatory
+    \else
+      \baselineskip26\p@
+      \vtop{\centering{\footnotesize\itshape\@dedicatory\@@par}%
+        \global\dimen@i\prevdepth}\prevdepth\dimen@i
+    \fi
+    % \@setabstract
+    %%% --
+    \nobreak
+    \ifvoid\t@altabstract
   \else
-    \baselineskip26\p@
-    \vtop{\centering{\footnotesize\itshape\@dedicatory\@@par}%
-      \global\dimen@i\prevdepth}\prevdepth\dimen@i
+    \vskip 8\p@
+    \unvbox\t@altabstract
   \fi
-%   \@setabstract
-%%%--
-  \nobreak
-  \ifvoid\t@altabstract
-  \else
-  \vskip 8\p@
-  \unvbox\t@altabstract
-  \fi
-%%%
+  %%% 
   \nobreak
   \smallskip
   \nobreak
@@ -2531,9 +2569,9 @@
 %     \vskip\dimen@\relax
 %   \fi
   \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
-  % \end{otherlanguage}
-  \endgroup
-  \normalsize
+% \end{otherlanguage}
+\endgroup
+\normalsize
 % \selectlanguage{russian}
 } % END \@makealttitle
 
