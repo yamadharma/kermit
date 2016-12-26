@@ -5,6 +5,8 @@
     '("issnOnline" 1)
     '("issnPrint" 1)
     '("typesetter" 1)
+    '("altjournalseriesHeader" 1)
+    '("journalseriesHeader" 1)
     '("altjournalseries" 1)
     '("journalseries" 1)
     '("journalfoundationyear" 1)
@@ -18,6 +20,7 @@
     "PFUTitleHeader"
     "PFUjournal"
     "PFUjournalseries"
+    "PFUjournalseriesHeader"
     "PFUjournalvolume"
     "PFUjournalnumber"
     "PFUjournalissue"

@@ -86,6 +86,29 @@
 }
 \let\PFUjournalseries\@empty
 
+\DeclareRobustCommand{\journalseriesHeader}[1]%
+{%
+\AtBeginDocument%
+{%
+  \addto\extrasrussian%
+  {
+    \def\PFUjournalseriesHeader{#1}
+  } 
+}
+}
+
+\DeclareRobustCommand{\altjournalseriesHeader}[1]%
+{%
+\AtBeginDocument%
+{%
+  \addto\extrasenglish%
+  {
+    \def\PFUjournalseriesHeader{#1}
+  }
+}
+}
+\let\PFUjournalseriesHeader\@empty
+
 \DeclareRobustCommand{\typesetter}[1]%
 {%
   \def\PFUtypesetter{#1}
@@ -130,7 +153,7 @@
     \def\PFUjornalseriesName{Series} % Серия
     \def\PFUjornalPagesShortName{Pp.} % Страница
     \def\PFUjornalnumberName{No{}} % Номер
-    \def\PFUjournalvolumeName{V.} % Том
+    \def\PFUjournalvolumeName{Vol.} % Том
   }
 }
 
@@ -177,7 +200,7 @@
 \providecommand{\PFUTitle}%
 {%
   \PFUjournal.~%
-  \PFUjornalseriesName\,\textit{\PFUjournalseries}.\,% 
+  \PFUjornalseriesName\,\textit{\PFUjournalseriesHeader}.\,% 
   \ifx\PFUjournalvolume\@empty\else\PFUjournalvolumeName\,\PFUjournalvolume,\fi{}~%
   \ifx\PFUjournalnumber\@empty\else\PFUjornalnumberName\,\PFUjournalnumber,\fi{}%
   \ifx\PFUjournalissue\@empty\else\,(\PFUjournalissue),\fi{}%
