@@ -221,6 +221,15 @@
 }
 \let\PHDfield\@empty
 
+% Master program
+
+\DeclareRobustCommand{\program}[1]%
+{%
+  \def\PHDprogram{#1}
+}
+\let\PHDprogram\@empty
+
+
 % The name of your institution
 % (e.g. ИНСТИТУТ ФИЗИКИ ПРОЧНОСТИ И МАТЕРАЛОВЕДЕНИЯ)
 

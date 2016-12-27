@@ -25,8 +25,8 @@
     \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian@modern{%
         % \thesistype{Диссертация на соискание степени}
-        \thesistype{Выпускная квалификационная работа}
-        \def\PHDauthorDescr{Студент}
+        \thesistype{Выпускная квалификационная работа\protect\par магистра}
+        % \def\PHDauthorDescr{Студент}
         \def\PHDstudygroupDescr{Группа}
         \def\PHDcountryDescr{Страна}
         \def\PHDchiefDescr{Научный руководитель}
@@ -41,9 +41,10 @@
         % \cyr\cyrs\cyrt\cyre\cyrp\cyre\cyrn\cyri}
       \thesistype{{\CYRV}{\cyrery}{\cyrp}{\cyru}{\cyrs}{\cyrk}{\cyrn}{\cyra}{\cyrya}
         {\cyrk}{\cyrv}{\cyra}{\cyrl}{\cyri}{\cyrf}{\cyri}{\cyrk}{\cyra}{\cyrc}{\cyri}{\cyro}{\cyrn}{\cyrn}{\cyra}{\cyrya}
-        {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra}}
+        {\cyrr}{\cyra}{\cyrb}{\cyro}{\cyrt}{\cyra}{\protect\par}
+        {\cyrm}{\cyra}{\cyrg}{\cyri}{\cyrs}{\cyrt}{\cyrr}{\cyra}}
       % 
-      \def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
+      % \def\PHDauthorDescr{\cyr\CYRS\cyrt\cyru\cyrd\cyre\cyrn\cyrt{}}
       \def\PHDstudygroupDescr{\cyr\CYRG\cyrr\cyru\cyrp\cyrp\cyra{}}
       \def\PHDcountryDescr{\cyr\CYRS\cyrt\cyrr\cyra\cyrn\cyra{}}
       \def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{}
@@ -73,136 +74,14 @@
 }
 
 \AtEndOfClass{%
-  \geometry{includehead}
+  % \geometry{includehead}
   \geometry{left=30mm,right=15mm,top=20mm,bottom=20mm}
   \geometry{bindingoffset=0mm}
   \geometry{marginparwidth=0dd,marginparsep=0dd}
   \geometry{heightrounded}
 }
 
-% \AtEndOfClass{%
-%   \RequirePackage{mdwtab}
-  
-%   \renewcommand{\maketitle}{%
-%     \begin{titlepage}%
-%       {
-%         \ssp
-%         \begin{alwayssingle}
-%           \let\footnotesize\small
-%           \let\footnoterule\relax
-%           \thispagestyle{empty}
-%           \setcounter{page}{1}
-%           \null\vfil
-%           \begin{center}
-%             {\bfseries \MakeUppercase{\PHDministry} \par}
-%             {\bfseries \MakeUppercase{\PHDinstitute} \par}
-%             % {\bfseries {\PHDministry} \par}
-%             % {\bfseries {\PHDinstitute} \par}
-%             \smallskip
-%             \hrule
-%             \smallskip
-%             %% Факультет
-%             {\bfseries {\PHDfaculty} \par}
-%             %% Кафедра
-%             {\bfseries {\PHDchair} \par}
-%           \end{center}
-          
-%           \bigskip
-%           \bigskip
-          
-%           %% Approved stamp
-%           \ifthenelse{\boolean{brsTableNeeded}}{%
-%             \approvedStamp
-%           }{%
-%             \vspace{2cm}
-%           } % END \ifthenelse{\boolean{brsTableNeeded}}
-        
-%           \vspace{2cm}
-
-%           \begin{center}
-%             \bigskip%
-%             \medskip%
-%             {\bfseries \PHDauthor} \par                     % Автор
-%             \bigskip% 
-%             \medskip%
-%             {\bfseries \Large {\PHDtitle} \par}             % Название
-
-%             \vspace{6ex}
-
-%             \ifx\@empty\PHDfield
-%             \else%
-%             \bigskip%
-%             \bigskip%
-%             % \medskip
-%             % \vspace{6ex}
-%             % \bigskip% 
-%             % \medskip%
-%             % {\PHDdisciplineDescr} 
-%             {\PHDfield} \par                    % Специальность
-%             \fi
-            
-%             \bigskip
-        
-%             {\PHDthesistype} \par
-%             \smallskip
-%             {\PHDdegree} \par
-%             \bigskip%
-%             \medskip%
-%           \end{center}
-          
-%           \bigskip% 
-%           \bigskip% 
-%           \bigskip% 
-%           \bigskip% 
-%           \bigskip% 
-%           \bigskip% 
-
-%           \begin{flushright}
-%             %% Научный руководитель 
-%             {\PHDchiefDescr} \\\
-%             {\PHDchiefdegree} \\ 
-%             {\PHDchief} \par
-%           \end{flushright}
-
-%           \vspace*{\fill}    
-
-%           \begin{center}
-%             \bfseries
-%             {\PHDdegreecity} \\                        % Город
-%             {\PHDdegreeyear} \par      
-%           \end{center}
-    
-%           \vfil\null
-
-%           % Нужна ли таблица БРС
-%           \ifthenelse{\boolean{brsTableNeeded}}{%
-%             \clearpage
-%             \thispagestyle{empty}
-%             \approvedStamp
-%             \bigskip
-%             \bigskip
-%             \brsTable
-%             \bigskip
-%             \bigskip
-%             \authorTable
-%             \vfill
-%           }{} %% END \ifthenelse{\boolean{brsTableNeeded}}
-        
-%         \end{alwayssingle}%
-%       }
-%     \end{titlepage}%
-    
-%     \setcounter{footnote}{0}
-%     \clearpage
-%     \ifthenelse{\boolean{brsTableNeeded}}{%
-%         \setcounter{page}{3}
-%     }{%
-%         \setcounter{page}{2}
-%     }
-%   }
-% } % END of \def\maketitle
-
-\PassOptionsToClass{a4paper,12pt,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
+\PassOptionsToClass{a4paper,14pt,oneside,onecolumn,final,openany,onehalfspace}{kgeneric}
 
 %%% Local Variables: 
 %%% mode: latex

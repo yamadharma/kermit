@@ -4,8 +4,8 @@
    (TeX-run-style-hooks
     "phdthesr/type/title-brs")
    (TeX-add-symbols
+    "PHDdisciplineDescr"
     "PHDcountryDescr"
     "PHDchiefDescr"
-    "PHDdisciplineDescr"
     "PHDstudentdegree")))
 

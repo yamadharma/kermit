@@ -49,6 +49,7 @@
     '("institutePrep" 1)
     '("instituteGen" 1)
     '("institute" 1)
+    '("program" 1)
     '("field" 1)
     '("chairname" 1)
     '("chair" 1)
@@ -70,6 +71,7 @@
     "othermembers"
     "numberofmembers"
     "PHDfield"
+    "PHDprogram"
     "PHDinstituteGen"
     "PHDinstitutePrep"
     "PHDinstitute"

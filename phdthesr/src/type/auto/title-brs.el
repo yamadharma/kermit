@@ -17,6 +17,8 @@
     "brsTablePresentation"
     "brsTableProtection"
     "PHDtitleDescr"
+    "PHDauthorName"
+    "PHDprogramDescr"
     "brsTableCourse"
     "PHDauthorDescr"
     "PHDstudygroupDescr"
@@ -27,6 +29,5 @@
     "PHDstudentdegreeDescr"
     "PHDstudentidDescr"
     "PHDdegreeDescr"
-    "footnotesize"
-    "footnoterule")))
+    "PHDfieldDescr")))
 
