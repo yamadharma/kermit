@@ -134,6 +134,11 @@
 \let\PFUissnOnline\@empty
 
 
+\DeclareRobustCommand{\journalfirstpage}[1]%
+{%
+  \def\PFUjournalfirstpage{#1}
+}
+\let\PFUjournalfirstpage\@empty
 
 \AtBeginDocument%
 {%

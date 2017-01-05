@@ -2,6 +2,7 @@
  "journal"
  (lambda ()
    (TeX-add-symbols
+    '("journalfirstpage" 1)
     '("issnOnline" 1)
     '("issnPrint" 1)
     '("typesetter" 1)
@@ -29,6 +30,7 @@
     "PFUtypesetter"
     "PFUissnPrint"
     "PFUissnOnline"
+    "PFUjournalfirstpage"
     "PFUjornalissueName"
     "PFUjornalissueShortName"
     "PFUjornalseriesName"
