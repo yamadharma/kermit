@@ -88,9 +88,11 @@
   % {\cyro}{\cyrb} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyra}{\cyrh}}
   % \textsc{Наши авторы}%
   \textsc{\listauthorsname}
-  \addcontentsline{toc}{chapter}{\listauthorsname}%
+  \addtocontents{toc}{\protect\medskip}
+  \addtocontents{tac}{\protect\medskip}
+  \addcontentsline{toc}{chapter}{{\bfseries \listauthorsname}}%
   \addtocontents{tac}{\string\select@language{\PFUaltlanguage}}
-  \addcontentsline{tac}{chapter}{\string\listauthorsname}%
+  \addcontentsline{tac}{chapter}{{\bfseries \string\listauthorsname}}%
   \paperid{listofauthors}
 \end{center}%
 
