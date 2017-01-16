@@ -2,5 +2,6 @@
  "pfu-bulletin"
  (lambda ()
    (TeX-run-style-hooks
-    "pfuproc/style/journal")))
+    "pfuproc/style/journal"))
+ :latex)
 

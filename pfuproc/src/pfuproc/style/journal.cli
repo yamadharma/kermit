@@ -26,6 +26,28 @@
 }
 \let\PFUjournal\@empty
 
+\DeclareRobustCommand{\journalHeader}[1]%
+{%
+\AtBeginDocument%
+{%
+  \addto\extrasrussian%
+  {
+    \def\PFUjournalHeader{#1}
+  }  
+}
+}
+\DeclareRobustCommand{\altjournalHeader}[1]%
+{%
+\AtBeginDocument%
+{%
+  \addto\extrasenglish%
+  {
+    \def\PFUjournalHeader{#1}
+  }
+}
+}
+\let\PFUjournalHeader\@empty
+
 \DeclareRobustCommand{\journalvolume}[1]%
 {%
   \def\PFUjournalvolume{#1}
@@ -63,28 +85,30 @@
 % }
 % \let\PFUaltjournalseries\@empty
 
+
+
 \DeclareRobustCommand{\journalseries}[1]%
 {%
-\AtBeginDocument%
-{%
-  \addto\extrasrussian%
-  {
-    \def\PFUjournalseries{#1}
-  } 
+  \AtBeginDocument{%
+    \addto\extrasrussian{%
+      \def\PFUjournalseries{#1}
+    }
+  }
+  \def\PFUjournalseriesEnable{#1}
 }
-}
+\let\PFUjournalseriesEnable\@empty
 
 \DeclareRobustCommand{\altjournalseries}[1]%
 {%
-\AtBeginDocument%
-{%
-  \addto\extrasenglish%
-  {
-    \def\PFUjournalseries{#1}
+  \AtBeginDocument{%
+    \addto\extrasenglish{%
+      \def\PFUjournalseries{#1}
+    }
   }
-}
+  \def\PFUaltjournalseriesEnable{#1}
 }
 \let\PFUjournalseries\@empty
+\let\PFUaltjournalseriesEnable\@empty
 
 \DeclareRobustCommand{\journalseriesHeader}[1]%
 {%
@@ -204,8 +228,8 @@
 
 \providecommand{\PFUTitle}%
 {%
-  \PFUjournal.~%
-  \PFUjornalseriesName\,\textit{\PFUjournalseriesHeader}.\,% 
+  \PFUjournalHeader.~%
+  \ifdefempty{\PFUjournalseries}{}{\PFUjornalseriesName\,\textit{\PFUjournalseriesHeader}.~}%
   \ifx\PFUjournalvolume\@empty\else\PFUjournalvolumeName\,\PFUjournalvolume,\fi{}~%
   \ifx\PFUjournalnumber\@empty\else\PFUjornalnumberName\,\PFUjournalnumber,\fi{}%
   \ifx\PFUjournalissue\@empty\else\,(\PFUjournalissue),\fi{}%

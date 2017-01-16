@@ -1,12 +1,16 @@
 \input{pfuproc/style/pfu-bulletin.cli}
 
+\altjournal{RUDN Journal of Mathematics, Informational Sciences and Physics}
+\altjournalHeader{RUDN Journal of MIPh}
 % Математика. Информатика. Физика
 \journalseries{{\CYRM}{\cyra}{\cyrt}{\cyre}{\cyrm}{\cyra}{\cyrt}{\cyri}{\cyrk}{\cyra}.
 {\CYRI}{\cyrn}{\cyrf}{\cyro}{\cyrr}{\cyrm}{\cyra}{\cyrt}{\cyri}{\cyrk}{\cyra}.
 {\CYRF}{\cyri}{\cyrz}{\cyri}{\cyrk}{\cyra}}
-\altjournalseries{Mathematics.\,Information\,Sciences.\,Physics}
+% \altjournalseries{Mathematics.\,Information\,Sciences.\,Physics}
+\altjournalseries{}
 \journalseriesHeader{{\CYRM}{\CYRI}{\CYRF}}
-\altjournalseriesHeader{MIPh}
+% \altjournalseriesHeader{MIPh}
+\altjournalseriesHeader{}
 \journalfoundationyear{2006}
 \issnPrint{2312-9735}
 \issnOnline{2312-9743}

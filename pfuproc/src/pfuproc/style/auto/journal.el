@@ -15,12 +15,17 @@
     '("journalissue" 1)
     '("journalnumber" 1)
     '("journalvolume" 1)
+    '("altjournalHeader" 1)
+    '("journalHeader" 1)
     '("altjournal" 1)
     '("journal" 1)
     "PFUTitle"
     "PFUTitleHeader"
     "PFUjournal"
+    "PFUjournalHeader"
+    "PFUjournalseriesEnable"
     "PFUjournalseries"
+    "PFUaltjournalseriesEnable"
     "PFUjournalseriesHeader"
     "PFUjournalvolume"
     "PFUjournalnumber"
@@ -36,5 +41,6 @@
     "PFUjornalseriesName"
     "PFUjornalPagesShortName"
     "PFUjornalnumberName"
-    "PFUjournalvolumeName")))
+    "PFUjournalvolumeName"))
+ :latex)
 
