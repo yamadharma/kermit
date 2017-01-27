@@ -1,8 +1,8 @@
 \ProvidesFile{gost-standard.bbx}
-[2016/09/18\space v1.10\space biblatex-gost styles]
+[2017/01/27\space v1.11\space biblatex-gost styles]
 
-\def\bbx@gost@date{2016/09/18}
-\def\bbx@gost@version{1.10}
+\def\bbx@gost@date{2017/01/27}
+\def\bbx@gost@version{1.11}
 
 \@ifpackagelater{biblatex}{2016/03/03}
   {}
@@ -53,6 +53,14 @@
     {\ExecuteBibliographyOptions{pagetracker}%
      \renewbibmacro*{bbx:savehash}{\savefield{fullhash}{\bbx@lasthash}}}
     {\renewbibmacro*{bbx:savehash}{}}}
+
+% block punctuation = emdash / space
+% \bibsentence is for vol,etc.
+\DeclareBibliographyOption{blockpunct}[emdash]{%
+  \ifstrequal{#1}{emdash}
+    {\renewcommand*{\newblockpunct}{\addperiod\addnbspace\textemdash\space\bibsentence}}
+    {\renewcommand*{\newblockpunct}{\addperiod\space\bibsentence}}
+}
 
 \DeclareBibliographyOption{isbn}[true]{%
   \global\settoggle{bbx:isbn}{#1}%
@@ -109,6 +117,117 @@
 \DeclareBibliographyOption{volsorder}[vbpi]{%
   \renewcommand*{\blx@gost@defaultorder}{#1}}
 
+\DeclareBibliographyOption{movenames}[true]{%
+  \gdef\blx@opt@movenames{#1}}
+
+\AtEndOfPackage{%
+  \ifdefstring{\blx@opt@movenames}{true}
+    {\DeclareStyleSourcemap{
+      \maps[datatype=bibtex]{
+        \map[overwrite]{
+          \step[fieldsource=author,
+            match=\regexp{(.+\s+and\s+){3,}|and\s+others\s*$},
+            final]
+          \step[fieldsource=options,
+            match=\regexp{(.+)},
+            replace=\regexp{useauthor=false,$1}]
+          \step[fieldsource=options,
+            match=\regexp{^$},
+            replace=\regexp{useauthor=false}]
+        }
+        \map{
+          \step[fieldsource=author,
+            match=\regexp{(.+\s+and\s+){3,}|and\s+others\s*$},
+            final]
+          \step[fieldset=options, fieldvalue={useauthor=false}]
+        }
+        \map[overwrite]{
+          \step[fieldsource=editor,
+            match=\regexp{(.+\s+and\s+){3,}|and\s+others\s*$},
+            final]
+          \step[fieldsource=options,
+            match=\regexp{(.+)},
+            replace=\regexp{useeditor=false,$1}]
+          \step[fieldsource=options,
+            match=\regexp{^$},
+            replace=\regexp{useeditor=false}]
+        }
+        \map{
+          \step[fieldsource=editor,
+            match=\regexp{(.+\s+and\s+){3,}|and\s+others\s*$},
+            final]
+          \step[fieldset=options, fieldvalue={useeditor=false}]
+        }
+        \map{
+          \step[typesource=candthesis,typetarget=thesis, final]
+          \step[fieldset=type,        fieldvalue=phdthesis]
+        }
+        \map{
+          \step[typesource=docthesis, typetarget=thesis, final]
+          \step[fieldset=type,        fieldvalue=docthesis]
+        }
+        \map[overwrite]{
+          \pertype{patent}
+          \step[fieldsource=options, final]
+          \step[fieldset=options, fieldvalue={useauthor=false,}]
+          \step[fieldset=options, origfieldval, append]
+        }
+        \map{
+          \pertype{patent}
+          \step[fieldset=options, fieldvalue={useauthor=false}]
+          \step[fieldsource=authortype, fieldtarget=authorcountry]
+          \step[fieldsource=reqnumber,  fieldtarget=requestnumber]
+          \step[fieldsource=publdate,   fieldtarget=publicationdate]
+          \step[fieldsource=prdate,     fieldtarget=prioritydate]
+          \step[fieldsource=prnumber,   fieldtarget=prioritynumber]
+          \step[fieldsource=prcountry,  fieldtarget=prioritycountry]
+        }
+        \map{
+          \pertype{thesis}
+          \step[fieldsource=speciality,     fieldtarget=major]
+          \step[fieldsource=specialitycode, fieldtarget=majorcode]
+          \step[fieldsource=number,         fieldtarget=majorcode]
+        }
+      }
+     }
+    }
+   {\DeclareStyleSourcemap{
+      \maps[datatype=bibtex]{
+        \map{
+          \step[typesource=candthesis,typetarget=thesis, final]
+          \step[fieldset=type,        fieldvalue=phdthesis]
+        }
+        \map{
+          \step[typesource=docthesis, typetarget=thesis, final]
+          \step[fieldset=type,        fieldvalue=docthesis]
+        }
+        \map[overwrite]{
+          \pertype{patent}
+          \step[fieldsource=options, final]
+          \step[fieldset=options, fieldvalue={useauthor=false,}]
+          \step[fieldset=options, origfieldval, append]
+        }
+        \map{
+          \pertype{patent}
+          \step[fieldset=options, fieldvalue={useauthor=false}]
+          \step[fieldsource=authortype, fieldtarget=authorcountry]
+          \step[fieldsource=reqnumber,  fieldtarget=requestnumber]
+          \step[fieldsource=publdate,   fieldtarget=publicationdate]
+          \step[fieldsource=prdate,     fieldtarget=prioritydate]
+          \step[fieldsource=prnumber,   fieldtarget=prioritynumber]
+          \step[fieldsource=prcountry,  fieldtarget=prioritycountry]
+        }
+        \map{
+          \pertype{thesis}
+          \step[fieldsource=speciality,     fieldtarget=major]
+          \step[fieldsource=specialitycode, fieldtarget=majorcode]
+          \step[fieldsource=number,         fieldtarget=majorcode]
+        }
+      }
+    }
+   }
+ }
+ 
 \ExecuteBibliographyOptions{
   useeditor=false,
   usetranslator=false,
@@ -120,7 +239,8 @@
   volsorder=vbpi,
   related=true,
   alldates=short,
-  eventdate=comp}
+  eventdate=comp,
+  blockpunct=emdash}
 
 \newbibmacro*{cbx:bookibid:check}[2]{#2}
 
@@ -241,7 +361,11 @@
   \iffieldnum{edition}
     {\mkbibordedition{#1}\addnbspace\bibstring{edition}}
     {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
-\DeclareFieldFormat[thesis]{type}{\ifbibstring{#1}{\bibsentence\biblstring{#1}}{#1}}
+\DeclareFieldFormat[thesis]{type}{%
+  \ifbibstring{#1}{\biblstring{#1}%
+    \setunit*{\addspace}%
+    \printfield{major}}%
+  {#1}}
 \DeclareFieldFormat{prioritycountry}{%
   \ifbibxstring{\thefield{prioritycountry}}
     {\bibcpstring{\thefield{prioritycountry}}}
@@ -318,14 +442,12 @@
 
 \newbibmacro*{//}{%
   \nopunct\printtext{\addnbspace\mbox{//}\addspace}}
-\renewcommand*{\labelnamepunct}{\addspace}
+\renewcommand*{\labelnamepunct}{\addperiod\space}
 \renewcommand*{\intitlepunct}{\addspace}
 \renewcommand*{\finalnamedelim}{\addcomma\space}
 \renewcommand*{\finallistdelim}{\addcomma\space}
 \renewcommand*{\bibpagespunct}{\addperiod\space}
 \renewcommand*{\subtitlepunct}{\addcolon\space}
-\renewcommand*{\newblockpunct}{%
-  \addperiod\addnbspace\textemdash\space\bibsentence}%block punct.,\bibsentence is for vol,etc.
 \newcommand*{\respdelim}{\addnbspace/\space}% delimiter before "credits"
 \newcommand*{\resppunct}{\addsemicolondelim}% punctuation between "credits" items
 
@@ -1087,8 +1209,11 @@
   \usebibmacro{author}%
   \setunit*{\labelnamepunct}%
   \usebibmacro{thesistitle}%
-  \setunit{\respdelim}%
+  \def\bbx@gost@respdelim{\setunit{\respdelim}}% ----- Resp starts -----
+  \setrespdelim%
   \printnames[family-given:full]{author}%
+  \setunit*{\resppunct}%
+  \usebibmacro{credits}%
   \newunit\newblock
   \printlist[semicolondelim]{specdata}%
   \newunit
@@ -1864,12 +1989,9 @@
           {\setunit*{\addspace}%
            \usebibmacro{media}%
            \setunit*{\addcolondelim}}%
-       \printfield[titlecase]{subtitle}}%
-       \ifbibxstring{\thefield{type}}
-          {\bibstring{\thefield{type}}}
-          {\printfield{type}}%
-       \setunit*{\addspace}%
-       \printfield{major}%
+         \printfield[titlecase]{subtitle}}%
+       \setunit*{\addcolondelim}%
+       \printfield{type}%
        \setunit*{\addcolondelim}%
        \printfield{majorcode}}%
   \setunit*{\addcolondelim}%
