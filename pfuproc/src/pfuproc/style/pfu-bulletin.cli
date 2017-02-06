@@ -1,10 +1,15 @@
 \input{pfuproc/style/journal.cli}
 
 % Вестник РУДН
-\journal{{\CYRV}{\cyre}{\cyrs}{\cyrt}{\cyrn}{\cyri}{\cyrk}  {\CYRR}{\CYRU}{\CYRD}{\CYRN}}
-\journalHeader{{\CYRV}{\cyre}{\cyrs}{\cyrt}{\cyrn}{\cyri}{\cyrk} {\CYRR}{\CYRU}{\CYRD}{\CYRN}} 
-\altjournal{Bulletin of PFUR}
-\altjournalHeader{Bulletin of PFUR}
+\journal{{\CYRV}{\cyre}{\cyrs}{\cyrt}{\cyrn}{\cyri}{\cyrk}
+  {\CYRR}{\cyro}{\cyrs}{\cyrs}{\cyri}{\cyrishrt}{\cyrs}{\cyrk}{\cyro}{\cyrg}{\cyro}
+  {\cyru}{\cyrn}{\cyri}{\cyrv}{\cyre}{\cyrr}{\cyrs}{\cyri}{\cyrt}{\cyre}{\cyrt}{\cyra}
+  {\cyrd}{\cyrr}{\cyru}{\cyrzh}{\cyrb}{\cyrery}
+  {\cyrn}{\cyra}{\cyrr}{\cyro}{\cyrd}{\cyro}{\cyrv}}%
+\journalHeader{{\CYRV}{\cyre}{\cyrs}{\cyrt}{\cyrn}{\cyri}{\cyrk}
+  {\CYRR}{\CYRU}{\CYRD}{\CYRN}}%
+\altjournal{Bulletin of PFUR}%
+\altjournalHeader{Bulletin of PFUR}%
 \journalfoundationyear{1993}
 
 \AtBeginDocument{%
