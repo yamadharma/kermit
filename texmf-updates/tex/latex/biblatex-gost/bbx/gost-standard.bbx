@@ -1,8 +1,8 @@
 \ProvidesFile{gost-standard.bbx}
-[2017/01/28\space v1.11a\space biblatex-gost styles]
+[2017/02/05\space v1.12\space biblatex-gost styles]
 
-\def\bbx@gost@date{2017/01/28}
-\def\bbx@gost@version{1.11a}
+\def\bbx@gost@date{2017/02/05}
+\def\bbx@gost@version{1.12}
 
 \@ifpackagelater{biblatex}{2016/03/03}
   {}
@@ -120,6 +120,12 @@
 \DeclareBibliographyOption{movenames}[true]{%
   \gdef\blx@opt@movenames{#1}}
 
+\newtoggle{bbx:gost:doublevols}
+\DeclareBibliographyOption{doublevols}[true]{%
+  \ifstrequal{#1}{true}
+    {\toggletrue{bbx:gost:doublevols}}
+    {\togglefalse{bbx:gost:doublevols}}}
+
 \AtEndOfPackage{%
   \ifdefstring{\blx@opt@movenames}{true}
     {\DeclareStyleSourcemap{
@@ -184,9 +190,13 @@
         }
         \map{
           \pertype{thesis}
-          \step[fieldsource=speciality,     fieldtarget=major]
-          \step[fieldsource=specialitycode, fieldtarget=majorcode]
-          \step[fieldsource=number,         fieldtarget=majorcode]
+          \pertype{masterthesis}
+          \pertype{phdthesis}
+          \pertype{candthesis}
+          \pertype{docthesis}
+          \step[fieldsource=major,     fieldtarget=speciality]
+          \step[fieldsource=majorcode, fieldtarget=specialitycode]
+          \step[fieldsource=number,    fieldtarget=specialitycode]
         }
       }
      }
@@ -219,9 +229,13 @@
         }
         \map{
           \pertype{thesis}
-          \step[fieldsource=speciality,     fieldtarget=major]
-          \step[fieldsource=specialitycode, fieldtarget=majorcode]
-          \step[fieldsource=number,         fieldtarget=majorcode]
+          \pertype{masterthesis}
+          \pertype{phdthesis}
+          \pertype{candthesis}
+          \pertype{docthesis}
+          \step[fieldsource=major,     fieldtarget=speciality]
+          \step[fieldsource=majorcode, fieldtarget=specialitycode]
+          \step[fieldsource=number,    fieldtarget=specialitycode]
         }
       }
     }
@@ -240,7 +254,8 @@
   related=true,
   alldates=short,
   eventdate=comp,
-  blockpunct=emdash}
+  blockpunct=emdash,
+  doublevols=true}
 
 \newbibmacro*{cbx:bookibid:check}[2]{#2}
 
@@ -255,30 +270,34 @@
 \DeclareFieldFormat{journaltitle}{#1}
 \DeclareFieldFormat{issuetitle}{#1}
 \DeclareFieldFormat{maintitle}{#1}
-\DeclareFieldFormat*{volume}{%
-  \iffieldnums{volume}
-    {\ifbibstring{volume}
-      {\bibstring{volume}\addabbrvspace#1}
+
+% volume etc
+%
+% helper for printing volume/book/number/part/issue
+\newcommand{\printvol}[2]{%
+  \ifnumcomp{\rangelen{#2}}{=}{2}
+    {\iftoggle{bbx:gost:doublevols}{\def\bibrangedash{\doublevolsdelim}}{}}
+    {}%
+  \iffieldnums{#2}
+    {\ifbibstring{#2}
+      {\bibstring{#2}\addabbrvspace#1}
       {#1}}
     {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
+\DeclareFieldFormat*{volume}{\printvol{#1}{volume}}
 \DeclareFieldFormat[article,periodical]{volume}{%
+  \ifnumcomp{\rangelen{volume}}{=}{2}
+    {\iftoggle{bbx:gost:doublevols}{\def\bibrangedash{\doublevolsdelim}}{}}
+    {}%
   \ifbibstring{volume}
     {\bibstring{jourvol}\addabbrvspace#1}
     {#1}}
-\DeclareFieldFormat*{book}{%
-  \iffieldnums{book}
-    {\ifbibstring{book}
-      {\bibstring{book}\addabbrvspace#1}
-      {#1}}
-    {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
-\DeclareFieldFormat*{part}{%
-  \iffieldnums{part}
-    {\ifbibstring{part}
-      {\bibstring{part}\addabbrvspace#1}
-      {#1}}
-    {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
+\DeclareFieldFormat*{book}{\printvol{#1}{book}}
+\DeclareFieldFormat*{part}{\printvol{#1}{part}}
 \DeclareFieldFormat{seriesnumber}{#1}%
 \DeclareFieldFormat*{number}{%
+  \ifnumcomp{\rangelen{number}}{=}{2}
+    {\iftoggle{bbx:gost:doublevols}{\def\bibrangedash{\doublevolsdelim}}{}}
+    {}%
   \iffieldnums{number}
     {\ifbibstring{number}
       {\bibsstring{number}\addabbrvspace#1}
@@ -289,6 +308,19 @@
   \ifbibstring{number}
     {\bibsstring{number}\addnbspace#1}
     {#1}}%
+\DeclareFieldFormat{issue}{\printvol{#1}{issue}}
+\DeclareFieldFormat[article,periodical]{issue}{%
+  \ifnumcomp{\rangelen{issue}}{=}{2}
+    {\iftoggle{bbx:gost:doublevols}{\def\bibrangedash{\doublevolsdelim}}{}}
+    {}%
+  \iffieldnums{issue}
+    {\ifbibstring{issue}%
+     {\bibstring{issue}\addabbrvspace#1}%
+     {\unspace\adddot#1}}%
+    {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
+
+% volumes etc, involumes etc
+%  
 \newbibmacro*{volumes/parts/books/issues}[2]{%
   \iffieldnum{#1}
     {\ifbibstring{#1}
@@ -310,18 +342,9 @@
 \DeclareFieldFormat{inbooks}{\usebibmacro{in+}{books}{#1}}
 \DeclareFieldFormat{inparts}{\usebibmacro{in+}{parts}{#1}}
 \DeclareFieldFormat{inissues}{\usebibmacro{in+}{issues}{#1}}
-\DeclareFieldFormat{issue}{%
-  \iffieldnums{issue}
-    {\ifbibstring{issue}
-      {\bibstring{issue}\addabbrvspace#1}
-      {#1}}
-    {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
-\DeclareFieldFormat[article,periodical]{issue}{%
-  \iffieldnums{issue}
-    {\ifbibstring{issue}%
-     {\bibstring{issue}\addabbrvspace#1}%
-     {\unspace\adddot#1}}%
-    {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
+
+% dates
+%
 \DeclareFieldFormat{date}{%
  \iffieldundef{endyear}
    {#1}
@@ -361,6 +384,11 @@
   \iffieldnum{edition}
     {\mkbibordedition{#1}\addnbspace\bibstring{edition}}
     {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
+\DeclareFieldFormat[thesis]{type}{%
+  \ifbibstring{#1}{\biblstring{#1}%
+    \setunit*{\addspace}%
+    \printfield{science}}%
+  {#1}}
 \DeclareFieldFormat{prioritycountry}{%
   \ifbibxstring{\thefield{prioritycountry}}
     {\bibcpstring{\thefield{prioritycountry}}}
@@ -444,7 +472,9 @@
 \renewcommand*{\bibpagespunct}{\addperiod\space}
 \renewcommand*{\subtitlepunct}{\addcolon\space}
 \newcommand*{\respdelim}{\addnbspace/\space}% delimiter before "credits"
-\newcommand*{\resppunct}{\addsemicolondelim}% punctuation between "credits" items
+\newcommand*{\resppunct}{\addsemicolondelim}% between "credits" items
+\newcommand*{\specialitydelim}{\addnbspace\textemdash\space}% between specialitycode and speciality
+\newcommand{\doublevolsdelim}{\slash}% between double volumes/numbers/...
 
 % auxillary macros for volsorder handling
 \newcounter{blx@gost@pointer}%
@@ -1988,8 +2018,10 @@
        \setunit*{\addcolondelim}%
        \printfield{type}%
        \setunit*{\addcolondelim}%
-       \printfield{majorcode}}%
-  \setunit*{\addcolondelim}%
+       \printfield{specialitycode}%
+       \setunit*{\specialitydelim}%
+       \printfield{speciality}}%
+  \setunit{\addcolondelim}%
   \printfield{titleaddon}%
   \clearfield{media}}
 
