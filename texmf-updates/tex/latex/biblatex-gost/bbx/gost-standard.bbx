@@ -1,14 +1,14 @@
 \ProvidesFile{gost-standard.bbx}
-[2017/02/05\space v1.12\space biblatex-gost styles]
+[2017/02/16\space v1.13\space biblatex-gost styles]
 
-\def\bbx@gost@date{2017/02/05}
-\def\bbx@gost@version{1.12}
+\def\bbx@gost@date{2017/02/16}
+\def\bbx@gost@version{1.13}
 
-\@ifpackagelater{biblatex}{2016/03/03}
+\@ifpackagelater{biblatex}{2016/09/07}
   {}
   {\PackageError{biblatex}
     {Outdated 'biblatex' package}
-    {This version of 'biblatex-gost' requires biblatex v3.3 or
+    {This version of 'biblatex-gost' requires biblatex v3.5 or
     later.\MessageBreak You are using: '\csuse{ver@biblatex.sty}'.\MessageBreak
      This is a fatal error. I'm aborting now.}%
     \endinput}
@@ -194,7 +194,7 @@
           \pertype{phdthesis}
           \pertype{candthesis}
           \pertype{docthesis}
-          \step[fieldsource=major,     fieldtarget=speciality]
+          \step[fieldsource=major,     fieldtarget=science]
           \step[fieldsource=majorcode, fieldtarget=specialitycode]
           \step[fieldsource=number,    fieldtarget=specialitycode]
         }
@@ -233,7 +233,7 @@
           \pertype{phdthesis}
           \pertype{candthesis}
           \pertype{docthesis}
-          \step[fieldsource=major,     fieldtarget=speciality]
+          \step[fieldsource=major,     fieldtarget=science]
           \step[fieldsource=majorcode, fieldtarget=specialitycode]
           \step[fieldsource=number,    fieldtarget=specialitycode]
         }
