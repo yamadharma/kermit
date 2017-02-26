@@ -516,6 +516,17 @@
 \DeclareRobustCommand{\zz}{\rule{8mm}{.6pt}}
 \DeclareRobustCommand{\zzz}{\rule{24mm}{.6pt}}
 
+\AtBeginDocument{%
+  \makeatletter
+  \@ifpackageloaded{hyperref}{%
+    \hypersetup{%
+      pdftitle = {\PHDtitle},
+      pdfauthor={\PHDauthor}
+    }
+  }{}
+  \makeatother
+}
+
 %%
 \RequirePackage{keyval}
 \RequirePackage{substr}
@@ -574,6 +585,7 @@
 \LoadClass{kgeneric}
 %\LoadClassWithOptions{kgeneric}
 %%
+
 
 
 % \alwayssingle and \endalwayssingle

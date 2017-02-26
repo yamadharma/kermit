@@ -153,5 +153,6 @@
     "dedication"
     "acknowledgements")
    (LaTeX-add-pagestyles
-    "plain")))
+    "plain"))
+ :latex)
 
