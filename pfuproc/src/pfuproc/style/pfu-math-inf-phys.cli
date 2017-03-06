@@ -1,6 +1,6 @@
 \input{pfuproc/style/pfu-bulletin.cli}
 
-\altjournal{RUDN Journal of Mathematics, Informational Sciences and Physics}
+\altjournal{RUDN Journal of Mathematics, Information Sciences and Physics}
 \altjournalHeader{RUDN Journal of MIPh}
 % Математика. Информатика. Физика
 \journalseries{{\CYRM}{\cyra}{\cyrt}{\cyre}{\cyrm}{\cyra}{\cyrt}{\cyri}{\cyrk}{\cyra}.
