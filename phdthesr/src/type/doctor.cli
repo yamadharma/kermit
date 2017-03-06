@@ -3,7 +3,7 @@
     \addto\captionsrussian@modern{%
         \thesistype{Диссертация на соискание учёной степени}
         \def\PHDright{На правах рукописи}
-        \def\PHDchiefDescr{Научный руководитель}
+        \def\PHDchiefDescr{Научный консультант}
         \def\PHDdisciplineDescr{Специальность}
     }
     }{%
@@ -11,7 +11,7 @@
             \cyr\cyrs\cyro\cyri\cyrs\cyrk\cyra\cyrn\cyri\cyre{} \cyr\cyru\cyrch\cyryo\cyrn\cyro\cyrishrt{}
             \cyr\cyrs\cyrt\cyre\cyrp\cyre\cyrn\cyri}
         \def\PHDright{\cyr\CYRN\cyra{} \cyr\cyrp\cyrr\cyra\cyrv\cyra\cyrh{} \cyr\cyrr\cyru\cyrk\cyro\cyrp\cyri\cyrs\cyri}
-        \def\PHDchiefDescr{\cyr\CYRN\cyra\cyru\cyrch\cyrn\cyrery\cyrishrt{} \cyr\cyrr\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{}}
+        \def\PHDchiefDescr{\cyr{\CYRN}{\cyra}{\cyru}{\cyrch}{\cyrn}{\cyrery}{\cyrishrt} {\cyrk}{\cyro}{\cyrn}{\cyrs}{\cyru}{\cyrl}{\cyrsftsn}{\cyrt}{\cyra}{\cyrn}{\cyrt}{}}
         \def\PHDdisciplineDescr{{\CYRS}{\cyrp}{\cyre}{\cyrc}{\cyri}{\cyra}{\cyrl}{\cyrsftsn}{\cyrn}{\cyro}{\cyrs}{\cyrt}{\cyrsftsn}}
     }
 }
