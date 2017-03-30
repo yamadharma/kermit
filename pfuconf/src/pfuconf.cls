@@ -35,8 +35,21 @@
 
 % }
 
-\def\@maketitle@hook@pre{\vspace{2\baselineskip plus \baselineskip
-    minus \baselineskip}}
+%% paper: 145x200 mm
+\ifthenelse{\boolean{LXxXCIVxXVI}}{%
+  \AtEndPreamble{
+    \geometry{twoside}
+    \geometry{bindingoffset=0pt}
+    \geometry{includehead}
+    \geometry{hmargin={16mm,16mm},vmargin={12mm,13mm}}
+    \geometry{marginparwidth=0pt,marginparsep=0pt}
+    \geometry{headsep=\baselineskip}
+    \geometry{heightrounded}
+  }%
+}{}
+
+\def\@maketitle@hook@pre{%
+  \vspace{2\baselineskip plus \baselineskip minus \baselineskip}}
 
 \renewcommand{\chapterFontShape}{\bfseries}
 

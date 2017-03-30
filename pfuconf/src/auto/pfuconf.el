@@ -5,5 +5,6 @@
     "kproc"
     "kproc10")
    (TeX-add-symbols
-    '("trackid" 1))))
+    '("trackid" 1)))
+ :latex)
 

@@ -63,6 +63,7 @@
 %% begin Options
 %%
 %% Size options
+
 \DeclareOption{8pt}{\renewcommand\@ptsize{8pt}}
 \DeclareOption{9pt}{\renewcommand\@ptsize{9pt}}
 \DeclareOption{10pt}{\renewcommand\@ptsize{10pt}}
@@ -148,8 +149,11 @@
 
 %% paper: 145x200 mm
 %% text: 112x175
+\provideboolean{LXxXCIVxXVI}
+\setboolean{LXxXCIVxXVI}{false}
 \DeclareOption{60x84/16}
 {%
+  \setboolean{LXxXCIVxXVI}{true}
   \geometry{papersize={145mm,200mm}}
   \geometry{total={112mm,175mm}}
 

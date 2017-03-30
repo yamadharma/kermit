@@ -130,5 +130,6 @@
    (LaTeX-add-lengths
     "baselineinterval"
     "abovecaptionskip"
-    "belowcaptionskip")))
+    "belowcaptionskip"))
+ :latex)
 
