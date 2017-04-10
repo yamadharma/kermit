@@ -868,7 +868,7 @@ FUNCTION {format.names.rev}
     { s nameptr
       language "english" =
         {"{f.}{~vv}{~ll}{, jj}"}
-        {"{ff}{~vv}{~ll}{, jj}"}
+        {"{f.}{~vv}{~ll}{, jj}"}
       if$
       format.name$ 't :=
       nameptr #1 >
