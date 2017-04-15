@@ -27,7 +27,7 @@
 %% Fonts
 %%
 
-\providecommand{\theoremheaderFontShape}{\scshape}
+\providecommand{\theoremheaderFontShape}{\bfseries}
 \providecommand{\theoremheaderFontSize}{\normalsize}
 \providecommand{\theoremheaderPosition}{}
 %%
