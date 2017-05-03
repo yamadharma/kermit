@@ -64,8 +64,8 @@
 % Set geometry options
 
 \AtEndOfClass{%
-  \geometry{includefoot=false,includehead=true}
-  % \geometry{includehead}
+  % \geometry{includefoot=false,includehead=true}
+  \geometry{includehead}
   % \geometry{includeheadfoot}
   % \geometry{includefoot}
   % \geometry{twoside}
