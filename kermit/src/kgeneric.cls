@@ -178,8 +178,11 @@
 
 %% paper: 145x215 mm
 %% 60x90/16
+\provideboolean{LXxXLxXVI}
+\setboolean{LXxXLxXVI}{false}
 \DeclareOption{60x90/16}
 {%
+  \setboolean{LXxXLxXVI}{true}
   % \geometry{reset}
   \geometry{papersize={145mm,215mm}}
   \geometry{total={112mm,200mm}}

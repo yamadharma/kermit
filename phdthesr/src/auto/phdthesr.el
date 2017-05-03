@@ -21,6 +21,8 @@
     '("secracsign" 1)
     '("secracdegree" 1)
     '("secrac" 1)
+    '("oppiiidegree" 1)
+    '("oppiii" 1)
     '("oppiidegree" 1)
     '("oppii" 1)
     '("oppidegree" 1)
@@ -100,6 +102,8 @@
     "PHDoppidegree"
     "PHDoppii"
     "PHDoppiidegree"
+    "PHDoppiii"
+    "PHDoppiiidegree"
     "PHDsecrac"
     "PHDsecracdegree"
     "PHDsecracsign"

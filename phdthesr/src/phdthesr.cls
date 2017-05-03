@@ -443,7 +443,20 @@
 }
 \let\PHDoppiidegree\@empty
 
-% Секретарь ученого совета и его степень (Secretary of Academic Council)
+% The name of your opponent3 and his degree
+\DeclareRobustCommand{\oppiii}[1]%
+{%
+  \def\PHDoppiii{#1}
+}
+\let\PHDoppiii\@empty
+
+\DeclareRobustCommand{\oppiiidegree}[1]%
+{%
+  \def\PHDoppiiidegree{#1}
+}
+\let\PHDoppiiidegree\@empty
+
+% Секретарь учёного совета и его степень (Secretary of Academic Council)
 \DeclareRobustCommand{\secrac}[1]%
 {%
   \def\PHDsecrac{#1}

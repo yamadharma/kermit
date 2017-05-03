@@ -57,18 +57,34 @@
 
 \PassOptionsToClass{twoside,onecolumn,final,openany,onehalfspace}{kgeneric}
 % \PassOptionsToClass{a4paper,12pt}{kgeneric}
-\PassOptionsToClass{a5paper}{kgeneric}
+% \PassOptionsToClass{a5paper}{kgeneric}
+\PassOptionsToClass{60x90/16}{kgeneric}
 \ExecuteOptions{10pt}
 
+% Set geometry options
+
 \AtEndOfClass{%
-  \geometry{bindingoffset=0pt}
-  \geometry{left=15mm,right=15mm,top=15mm,bottom=20mm}
   \geometry{includefoot=false,includehead=true}
+  % \geometry{includehead}
+  % \geometry{includeheadfoot}
+  % \geometry{includefoot}
+  % \geometry{twoside}
   \geometry{nofoot}
-  \geometry{nomarginpar}
-  \geometry{centering}
   \geometry{heightrounded}
+  \geometry{headsep=\baselineskip}
+  \geometry{bindingoffset=0pt}
+  \geometry{marginparwidth=0pt,marginparsep=0pt}
 }
+
+% \AtEndOfClass{%
+%   \geometry{bindingoffset=0pt}
+%   \geometry{left=15mm,right=15mm,top=15mm,bottom=20mm}
+%   \geometry{includefoot=false,includehead=true}
+%   \geometry{nofoot}
+%   \geometry{nomarginpar}
+%   \geometry{centering}
+%   \geometry{heightrounded}
+% }
 
 %%% Numeration
 
@@ -94,7 +110,7 @@
     \thispagestyle{empty}
     \setcounter{page}{1}
 
-    \vspace*{-2cm}
+    % \vspace*{-2cm}
     % \mbox{}
     % \medskip
 
@@ -162,35 +178,63 @@
 
 %%%
 
-\def\makesecondpage{
-{
-\begin{singlespace*}
-  \thispagestyle{empty}
+\def\makesecondpage{%
+{%
+  \begin{singlespace*}
+    \thispagestyle{empty}
+      
+    \noindent
+    \PHDwriteIn
+    % Работа выполнена {\PHDinstituteGen}. \par
+    \bigskip
 
-  \noindent
-  \PHDwriteIn
-  % Работа выполнена {\PHDinstituteGen}. \par
-  \bigskip
-
-  \begin{flushleft}
-    \begin{tabular*}{\textwidth}{p{0.38\linewidth}p{0.6\linewidth}}
-      %% Научный руководитель:
-      \textbf{\PHDchiefDescr :} & 
-      \parbox[t]{\linewidth}{\PHDchiefdegree \\ 
-        \textbf{\PHDchief}} \\
-      & \\
-      %% Официальные оппоненты
-      \textbf{\PHDopponentsDescr :} &
-      \parbox[t]{\linewidth}{\PHDoppidegree \\
-        \textbf{\PHDoppi}} \\
-      & \\
-      & \parbox[t]{\linewidth}{ \PHDoppiidegree \\ \textbf{\PHDoppii}} \\
-      & \\
-      %% Ведущая организация
-      \textbf{\PHDleadorgDescr :} & 
-      \parbox[t]{\linewidth}{\PHDleadorg} \\
-      &  \\
-    \end{tabular*}
+    \begin{flushleft}
+      \begin{tabular*}{\textwidth}{p{0.35\linewidth}p{0.6\linewidth}}
+        %% Научный руководитель:
+        \parbox[t]{\linewidth}{%
+        \raggedright
+        \textbf{\PHDchiefDescr :}
+        }
+        & 
+          \parbox[t]{\linewidth}{\PHDchiefdegree \par
+          \textbf{\PHDchief}}
+        \\
+        \bigskip
+        \\
+        %% Официальные оппоненты
+        \parbox[t]{\linewidth}{%
+        \raggedright
+        \textbf{\PHDopponentsDescr :}
+        }
+        &
+          \parbox[t]{\linewidth}{\PHDoppidegree \par
+          \textbf{\PHDoppi}}
+        \\
+        \bigskip
+        \\
+        & \parbox[t]{\linewidth}{
+          \PHDoppiidegree \par \textbf{\PHDoppii}}
+        \\
+        \bigskip
+        \\
+        \ifx\PHDoppiii\empty
+        \else
+        & \parbox[t]{\linewidth}{
+          \PHDoppiiidegree \par \textbf{\PHDoppiii}}
+        \\
+        \bigskip
+        \fi
+        \\
+        \bigskip
+        \\
+        %% Ведущая организация
+        \parbox[t]{\linewidth}{%
+        \raggedright
+        \textbf{\PHDleadorgDescr :}
+        }
+        & 
+          \parbox[t]{\linewidth}{\PHDleadorg}
+      \end{tabular*}
   \end{flushleft}
 
   \vfill
@@ -257,10 +301,10 @@
 
 \setcounter{footnote}{0}
 \setcounter{page}{0}
+
 }
 }       % End of \def\makesecondp
 }       % End of \AtEndOfClass
-
 
 %%% Local Variables: 
 %%% mode: latex
