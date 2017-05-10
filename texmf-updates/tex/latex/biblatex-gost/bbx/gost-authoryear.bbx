@@ -1,5 +1,5 @@
 \ProvidesFile{gost-authoryear.bbx}
-[2017/02/16\space v1.13\space biblatex-gost styles]
+[2017/05/03\space v1.14\space biblatex-gost styles]
 
 \RequireBibliographyStyle{gost-standard}
 
@@ -35,7 +35,7 @@
 % label isn't taken into account since labeltitle is always provided
 \newbibmacro*{labeltitle:common}{%
   \blx@gost@ifneedsdate
-    {\printfield[title]{labeltitle}%
+    {\printtext[title]{\printfield[titlecase]{labeltitle}}%
      \clearfield{\thefield{labeltitlesource}}}
     {}}
 
@@ -203,10 +203,10 @@
                    \iffieldundef{label}
                      {% no label, so print labeltitle (always present)
                       \blx@gost@ifneedsdate
-                        {\printfield[citetitle]{labeltitle}
+                        {\printtext[citetitle]{\printfield[titlecase]{labeltitle}}
                          \setunit{\nameyeardelim}%
                          \usebibmacro{cite:labelyear+extras}{}}
-                        {\printfield[citetitle]{labeltitle}}}
+                        {\printtext[citetitle]{\printfield[titlecase]{labeltitle}}}}
                      {% label exists, print it
                       \usebibmacro{cite:label+volume+parts}}}%
                   {% labelname, no labelyear
@@ -269,7 +269,9 @@
   }
     {\usebibmacro{bbx:dashcheck}
        {\bibnamedash}
-       {\printnames[heading]{author}%
+       {\iftoggle{bbx:gostbibliography}
+         {\printnames[heading][1-1]{author}}
+         {\printnames[heading]{author}}%
      \setunit{\addcomma\space}%
      \usebibmacro{bbx:savehash}}%
      \usebibmacro{authorstrg}%

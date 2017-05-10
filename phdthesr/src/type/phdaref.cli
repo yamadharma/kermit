@@ -69,6 +69,7 @@
   % \geometry{includeheadfoot}
   % \geometry{includefoot}
   % \geometry{twoside}
+  \geometry{centering}
   \geometry{nofoot}
   \geometry{heightrounded}
   \geometry{headsep=\baselineskip}
