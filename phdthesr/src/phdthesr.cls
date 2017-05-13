@@ -993,7 +993,7 @@ Dissertation Committee Chair
 \renewcommand{\sectionPosition}{\center}
 %
 %\renewcommand{\subsectionFontShape}{\scshape}
-\renewcommand{\subsectionFontSize}{\large}
+\renewcommand{\subsectionFontSize}{\normalsize}
 \renewcommand{\subsectionPosition}{\center}
 %
 %\renewcommand{\subsubsectionFontShape}{\scshape}
