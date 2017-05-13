@@ -67,30 +67,36 @@
   % \geometry{includefoot=false,includehead=true}
   \geometry{includehead}
   % \geometry{includeheadfoot}
-  % \geometry{includefoot}
+  \geometry{includefoot}
   % \geometry{twoside}
   \geometry{centering}
-  \geometry{nofoot}
+  % \geometry{nofoot}
   \geometry{heightrounded}
   \geometry{headsep=\baselineskip}
   \geometry{bindingoffset=0pt}
   \geometry{marginparwidth=0pt,marginparsep=0pt}
+  
+  \flushbottom    
 }
 
 % \AtEndOfClass{%
-%   \geometry{bindingoffset=0pt}
-%   \geometry{left=15mm,right=15mm,top=15mm,bottom=20mm}
-%   \geometry{includefoot=false,includehead=true}
-%   \geometry{nofoot}
-%   \geometry{nomarginpar}
-%   \geometry{centering}
-%   \geometry{heightrounded}
+% \geometry{bindingoffset=0pt}
+% \geometry{left=15mm,right=15mm,top=15mm,bottom=20mm}
+% \geometry{includefoot=false,includehead=true}
+% \geometry{nofoot}
+% \geometry{nomarginpar}
+% \geometry{centering}
+% \geometry{heightrounded}
 % }
+
+\AtEndOfClass{%
+  \RequirePackage{afterpage}
+}
 
 %%% Numeration
 
 \AtEndOfClass{%
-\renewcommand\theequation{\@arabic\c@equation}
+  \renewcommand\theequation{\@arabic\c@equation}
 }
 
 %%% Definitions for titlepages
@@ -98,83 +104,87 @@
 %%% titlepages
 
 \AtEndOfClass{%
-% \thesistype{\CYRR\cyre\cyrf\cyre\cyra\cyrt}
-
-\RequirePackage{setspace}
-
+  % \thesistype{\CYRR\cyre\cyrf\cyre\cyra\cyrt}
+  
+  \RequirePackage{setspace}
+  
 \renewcommand{\maketitle}{%
-\begin{titlepage}%
-{
-    \begin{alwayssingle}
-    \let\footnotesize\small
-    \let\footnoterule\relax
-    \thispagestyle{empty}
-    \setcounter{page}{1}
-
-    % \vspace*{-2cm}
-    % \mbox{}
-    % \medskip
-
-    \begin{flushright}
-      % На правах рукописи
-      \textit{\PHDright} \par
-    \end{flushright}
-
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-    \bigskip
-
-    \begin{center}
-      {\bfseries \PHDauthor} \par                     % Автор
-      \bigskip% 
-      \medskip%
-      {\bfseries \Large \MakeUppercase{\PHDtitle} \par}             % Название
-
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
+  \setcounter{footnote}{0}
+  
+  \pagenumbering{roman}
+  \setcounter{page}{1}
+  
+  \begin{titlepage}%
+    {
+      \begin{alwayssingle}
+        \let\footnotesize\small
+        \let\footnoterule\relax
+        \thispagestyle{empty}
+        \setcounter{page}{1}
+        
+        % \vspace*{-2cm}
+        % \mbox{}
+        % \medskip
+        
+        \begin{flushright}
+          % На правах рукописи
+          \textit{\PHDright} \par
+        \end{flushright}
+        
+        \bigskip
+        \bigskip
+        \bigskip
+        \bigskip
+        \bigskip
+        \bigskip
+        
+        \begin{center}
+          {\bfseries \PHDauthor} \par                     % Автор
+          \bigskip% 
+          \medskip%
+          {\bfseries \Large \MakeUppercase{\PHDtitle} \par}             % Название
+          
+          \bigskip
+          \bigskip
+          \bigskip
+          \bigskip
+          \bigskip
+          \bigskip
       
-      % Специальность
-      \ifx\@empty\PHDfield
-      \else
-      \PHDfield\par                    
-      \fi
-      
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      \bigskip
-      
-      {\PHDthesistype} \par
-      {\PHDdegree} \par
-    \end{center}
+          % Специальность
+          \ifx\@empty\PHDfield
+          \else
+            \PHDfield\par                    
+          \fi
+          
+          \bigskip
+          \bigskip
+          \bigskip
+          \bigskip
+          \bigskip
+          \bigskip
+          
+          {\PHDthesistype} \par
+          {\PHDdegree} \par
+        \end{center}
     
-    \vfil
+        \vfil
     
-    \begin{center}
-      \vspace*{\fill}
-      \bfseries
-      {\PHDdegreecity} ---                       % Город
-      {\PHDdegreeyear} \par      
-    \end{center}
+        \begin{center}
+          \vspace*{\fill}
+          \bfseries
+          {\PHDdegreecity} ---                       % Город
+          {\PHDdegreeyear} \par      
+        \end{center}
     
-    \vfil\null
-    
-  \end{alwayssingle}%
-}    
-\end{titlepage}%
+        \vfil\null
+        
+      \end{alwayssingle}%
+    }    
+  \end{titlepage}%
 
-\setcounter{footnote}{0}
-\clearpage
-\setcounter{page}{2}
+  \clearpage
+  % \setcounter{page}{2}
 }      % End of \def\maketitle
 
 %%%
@@ -183,12 +193,12 @@
 {%
   \begin{singlespace*}
     \thispagestyle{empty}
-      
+    
     \noindent
     \PHDwriteIn
     % Работа выполнена {\PHDinstituteGen}. \par
     \bigskip
-
+    
     \begin{flushleft}
       \begin{tabular*}{\textwidth}{p{0.35\linewidth}p{0.6\linewidth}}
         %% Научный руководитель:
@@ -236,72 +246,77 @@
         & 
           \parbox[t]{\linewidth}{\PHDleadorg}
       \end{tabular*}
-  \end{flushleft}
-
-  \vfill
-
-  \noindent
-  \ifx\PHDthesisIn\empty
-  Защита состоится
-  <<\underline{\hspace*{1cm}}>>\underline{\hspace*{3cm}}~{\PHDdegreeyear}~г. в
-    \zz~ч. \zz~мин 
-    на заседании диссертационного совета \PHDdiscouncil{} в Российском
-    университете дружбы народов 
-    % {\@institute} 
-    по адресу: г.~Москва, ул. Орджоникидзе 3.
-    \else
-    \PHDthesisIn
-    \fi
-  
-  \bigskip
-  \bigskip
-  
-  \noindent
-  \ifx\PHDlibraryIn\empty
-  С диссертацией можно ознакомиться в Научной библиотеке
-  \PHDinstituteGen.
-  \else
-  \PHDlibraryIn
-  \fi
-
-  %\bigskip
-  %\bigskip
-
-  \noindent
-  \ifx\PHDfeedbackArefIn\empty
-  Отзывы на автореферат, заверенные гербовой печатью организации,
-  просьба направлять по указанному адресу в двух экземплярах не
-  позднее, чем за две недели до защиты.
-  \else
-  \PHDfeedbackArefIn
-  \fi
-
-  \bigskip
-  \bigskip
-
-  \noindent
-  \PHDsendtext~%
-  \ifx\PHDsendday\@empty<<\underline{\hspace*{1cm}}>>\else\PHDsendday\fi~%
-  \ifx\PHDsendmonth\@empty\underline{\hspace*{3cm}}\else\PHDsendmonth\fi~{\PHDdegreeyear}~\PHDyearshort.
-
-  \vfill
-
-  \begin{flushleft}
+    \end{flushleft}
+    
+    \vfill
+    
     \noindent
-    \PHDsecracDescr
-    \ifx\PHDsecracdegree\empty
-    \hfill \includegraphics[width=0.2\linewidth]{\PHDsecracsign} \hfill \PHDsecrac
+    \ifx\PHDthesisIn\empty
+      Защита состоится
+      <<\underline{\hspace*{1cm}}>>\underline{\hspace*{3cm}}~{\PHDdegreeyear}~г. в
+      \zz~ч. \zz~мин 
+      на заседании диссертационного совета \PHDdiscouncil{} в Российском
+      университете дружбы народов 
+      % {\@institute} 
+      по адресу: г.~Москва, ул. Орджоникидзе 3.
     \else
-    \par
-    \smallskip
-    \PHDsecracdegree \hfill \PHDsecrac
+      \PHDthesisIn
     \fi
-  \end{flushleft}
+    
+    \bigskip
+    \bigskip
+  
+    \noindent
+    \ifx\PHDlibraryIn\empty
+      С диссертацией можно ознакомиться в Научной библиотеке
+      \PHDinstituteGen.
+    \else
+      \PHDlibraryIn
+    \fi
+    
+    % \bigskip
+    % \bigskip
 
-\end{singlespace*}
+    \noindent
+    \ifx\PHDfeedbackArefIn\empty
+      Отзывы на автореферат, заверенные гербовой печатью организации,
+      просьба направлять по указанному адресу в двух экземплярах не
+      позднее, чем за две недели до защиты.
+    \else
+      \PHDfeedbackArefIn
+    \fi
+    
+    \bigskip
+    \bigskip
+    
+    \noindent
+    \PHDsendtext~%
+    \ifx\PHDsendday\@empty<<\underline{\hspace*{1cm}}>>\else\PHDsendday\fi~%
+    \ifx\PHDsendmonth\@empty\underline{\hspace*{3cm}}\else\PHDsendmonth\fi~{\PHDdegreeyear}~\PHDyearshort.
 
-\setcounter{footnote}{0}
-\setcounter{page}{0}
+    \vfill
+
+    \begin{flushleft}
+      \noindent
+      \PHDsecracDescr
+      \ifx\PHDsecracdegree\empty
+        \hfill \includegraphics[width=0.2\linewidth]{\PHDsecracsign} \hfill \PHDsecrac
+      \else
+        \par
+        \smallskip
+        \PHDsecracdegree \hfill \PHDsecrac
+      \fi
+    \end{flushleft}
+
+  \end{singlespace*}
+
+  \setcounter{footnote}{0}
+  % \setcounter{page}{0}
+
+  \afterpage{%
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
+  }
 
 }
 }       % End of \def\makesecondp

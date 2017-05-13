@@ -2,6 +2,7 @@
  "phdaref"
  (lambda ()
    (TeX-run-style-hooks
+    "afterpage"
     "setspace")
    (TeX-add-symbols
     "PHDright"
