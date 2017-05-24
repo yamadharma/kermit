@@ -240,8 +240,7 @@
       \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax
     \fi
     \@nobreakfalse
-  \endgroup
-}
+  \endgroup}
 
 \let\pfuproc@titleslist@entry\@empty
 
@@ -340,7 +339,9 @@
    \let\pfuproc@titleslist@entry\@empty
  }
 
-\AtEndDocument{%
+
+\RequirePackage{scrlfile}
+\BeforeClosingMainAux{%
   \let\pfuproc@titleslist@entry\@empty
   \g@addto@macro\pfuproc@titleslist@entry{%
     \string\clearpage
@@ -353,7 +354,9 @@
   }
   \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
   \let\pfuproc@titleslist@entry\@empty
+}
 
+\AtEndDocument{%  
   \@startblindtoc{titlelist.tex}
 }
 

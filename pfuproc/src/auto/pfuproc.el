@@ -4,11 +4,13 @@
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("geometry" "a4paper")))
    (TeX-run-style-hooks
+    "preamble"
     "xkeyval"
     "geometry"
     "kproc"
     "kproc10"
-    "currfile")
+    "currfile"
+    "scrlfile")
    (TeX-add-symbols
     '("country" 1)
     '("phone" 1)
@@ -24,5 +26,6 @@
     "listofauthors"
     "papercopyright")
    (LaTeX-add-environments
-    "authordescription")))
+    "authordescription"))
+ :latex)
 

@@ -57,7 +57,8 @@
    \let\ojs@entry\@empty
 }
 
-\AtEndDocument{%
+\RequirePackage{scrlfile}
+\BeforeClosingMainAux{%
 
   \let\ojs@entry\@empty
 
@@ -70,6 +71,9 @@
     }
    \addtocontents{ojs.ini}{\ojs@entry}
    \let\ojs@entry\@empty
+}
+   
+\AtEndDocument{%
 
   \@startblindtoc{ojs.ini}
 }
