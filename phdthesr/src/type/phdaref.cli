@@ -303,23 +303,35 @@
 
     \vfill
 
-    \begin{flushleft}
-      \noindent
-      \PHDsecracDescr
-      \ifx\PHDsecracdegree\empty
-        \hfill \includegraphics[width=0.2\linewidth]{\PHDsecracsign} \hfill \PHDsecrac
-      \else
+
+    \noindent
+    \begin{minipage}[b]{0.4\linewidth}
+      \begin{flushleft}
+        \PHDsecracDescr
+        \ifx\PHDsecracdegree\empty
+        \else
         \par
         \smallskip
-        \PHDsecracdegree \hfill \PHDsecrac
+        \PHDsecracdegree
+        \fi
+      \end{flushleft}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[b]{0.5\linewidth}
+      \ifx\PHDsecracsign\empty
+      \hfill
+      \else
+      \includegraphics[width=0.3\textwidth]{\PHDsecracsign}
+      \hfill
       \fi
-    \end{flushleft}
-
+      \PHDsecrac
+    \end{minipage}
+    
   \end{singlespace*}
 
   \setcounter{footnote}{0}
   % \setcounter{page}{0}
-
+  
   \afterpage{%
     \setcounter{page}{1}
     \pagenumbering{arabic}
