@@ -204,9 +204,10 @@
     \PHDwriteIn
     % Работа выполнена {\PHDinstituteGen}. \par
     \bigskip
-    
+
+    \noindent
     \begin{flushleft}
-      \begin{tabular*}{\textwidth}{p{0.35\linewidth}p{0.6\linewidth}}
+      \begin{tabular*}{\textwidth}{p{0.3\linewidth}p{0.65\linewidth}}
         %% Научный руководитель:
         \parbox[t]{\linewidth}{%
         \raggedright
@@ -242,8 +243,8 @@
         \bigskip
         \fi
         \\
-        \bigskip
-        \\
+        % \bigskip
+        % \\
         %% Ведущая организация
         \parbox[t]{\linewidth}{%
         \raggedright
@@ -270,7 +271,7 @@
     \fi
     
     \bigskip
-    \bigskip
+    % \bigskip
   
     \noindent
     \ifx\PHDlibraryIn\empty
@@ -293,7 +294,7 @@
     \fi
     
     \bigskip
-    \bigskip
+    % \bigskip
     
     \noindent
     \PHDsendtext~%
