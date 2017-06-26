@@ -51,14 +51,14 @@
 %}
 
 \AtEndOfClass{%
-    \def\@chapapp{}
-    \setcounter{tocdepth}{1}
+  \def\@chapapp{}
+  \setcounter{tocdepth}{1}
 }
 
 \PassOptionsToClass{twoside,onecolumn,final,openany,onehalfspace}{kgeneric}
 % \PassOptionsToClass{a4paper,12pt}{kgeneric}
-% \PassOptionsToClass{a5paper}{kgeneric}
-\PassOptionsToClass{60x90/16}{kgeneric}
+\PassOptionsToClass{a5paper}{kgeneric}
+% \PassOptionsToClass{60x90/16}{kgeneric}
 \ExecuteOptions{10pt}
 
 % Set geometry options
@@ -88,6 +88,12 @@
 % \geometry{centering}
 % \geometry{heightrounded}
 % }
+
+\AtEndOfClass{%
+  % FOR a5paper
+  % \geometry{left=15mm,right=15mm,top=15mm,bottom=20mm}
+  \geometry{body={113mm,175mm}}
+}
 
 \AtEndOfClass{%
   \RequirePackage{afterpage}
