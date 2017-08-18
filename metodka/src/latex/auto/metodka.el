@@ -7,6 +7,7 @@
     "kgeneric"
     "kgeneric10"
     "keyval"
+    "xspace"
     "substr"
     "titlesec"
     "xifthen"
@@ -17,9 +18,11 @@
     "partaftersnum"
     "chapaftersnum"
     "secaftersnum"
-    "partbreak")
+    "partbreak"
+    "rightmark")
    (LaTeX-add-lengths
     "sectionmarkWidth"
     "chaptermarkWidth"
-    "PFUmarkWidth")))
+    "PFUmarkWidth"))
+ :latex)
 

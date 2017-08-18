@@ -1,6 +1,6 @@
 %%
 %\RequirePackage{amssymb}%
-%\RequirePackage{amsmath}%
+\RequirePackage{amsmath}%
 %\RequirePackage[amsmath,thmmarks]{ntheorem}
 %\RequirePackage{amsthm}
 \RequirePackage[thmmarks]{ntheorem}

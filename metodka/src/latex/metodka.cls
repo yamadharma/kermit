@@ -256,6 +256,13 @@
 %%%
 %%%
 
+%{{{ Theorems
+
+\numberwithin{Example}{chapter}
+
+%}}}
+
+
 \geometry{includehead}
 % \geometry{includeheadfoot}
 % \geometry{includefoot}
