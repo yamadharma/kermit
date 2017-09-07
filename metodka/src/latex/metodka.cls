@@ -258,6 +258,7 @@
 
 %{{{ Theorems
 
+\RequirePackage{amsmath}
 \numberwithin{Example}{chapter}
 
 %}}}
