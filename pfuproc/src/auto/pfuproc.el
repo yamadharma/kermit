@@ -20,6 +20,8 @@
     '("authorrank" 1)
     '("authorfull" 1)
     "authorlistFontShape"
+    "howtoCiteRu"
+    "howtoCiteEn"
     "series"
     "PFUpaperid"
     "listauthorsname"

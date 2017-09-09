@@ -368,15 +368,73 @@
 
 \InputIfFileExists{pfuproc/patch/bibunits.cli}{}{}%
 
+%{{{ Рекомендуемый формат цитирования
+
+\DeclareRobustCommand{\howtoCiteRu}{%
+  % Для цитирования:
+  \begin{otherlanguage*}{russian}
+    \noindent
+    \textbf{{\CYRD}{\cyrl}{\cyrya}
+    {\cyrc}{\cyri}{\cyrt}{\cyri}{\cyrr}{\cyro}{\cyrv}{\cyra}{\cyrn}{\cyri}{\cyrya}:}
+  \end{otherlanguage*}\\
+  \iflanguage{russian}{%
+    \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
+      \emph{\authorstoc} \@title{}~// \PFUjournal{}.~---
+      \PFUjournalyear.~---\ifx\PFUjournalvolume\@empty\else{} \CYRT.~\PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else, \No~\PFUjournalnumber\fi{}.~---
+      \cyrs.~\pageref{starttitle}--\pageref{endtitle}.%
+      \ifx\@empty\@doi \else{}~--- DOI: \@doi{}.\fi
+    \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi%
+  }{%
+    \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
+      \emph{\authorstoc} \@title{}~// \PFUjournal{}.~---
+      \PFUjournalyear.~---\ifx\PFUjournalvolume\@empty\else{} Vol.~\PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else, No~\PFUjournalnumber\fi{}.~---
+      Pp.~\pageref{starttitle}--\pageref{endtitle}.%
+      \ifx\@empty\@doi \else{}~--- DOI: \@doi{}.\fi
+    \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi%
+  }
+  \par
+}
+
+\DeclareRobustCommand{\howtoCiteEn}{%
+  \noindent
+  \textbf{For citation:}\\
+  \iflanguage{english}{%
+    \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
+      \authorstoc{} \@title{}, \PFUjournal{}%
+      \ifx\PFUjournalvolume\@empty\else{} \PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
+      (\PFUjournalyear)
+      \pageref{starttitle}--\pageref{endtitle}.
+      \ifx\@empty\@doi \else DOI: \@doi{}.\fi{}
+    \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi%
+  }{%
+    \ifpolyglossia\begin{otherlanguage}{english}\else\begin{otherlanguage*}{english}\fi
+      \altauthorstoc{} \@alttitle{}, \PFUjournal{}%
+      \ifx\PFUjournalvolume\@empty\else{} \PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
+      (\PFUjournalyear)
+      \pageref{starttitle}--\pageref{endtitle}.
+      \ifx\@empty\@doi \else DOI: \@doi{}.\fi{}
+      in Russian.
+    \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi%
+  }%
+}
+
+%}}}
+
+
 \def\papercopyright{%
 \bigskip
 \begin{flushright}
 \copyright{} \authorstoc{}, \PFUjournalyear{}
-\end{flushright}
+\end{flushright}%
+\par
 }
 
 \def\@putaltbib@hook@post{%
   \papercopyright
+  \medskip
+  \howtoCiteRu
+  \medskip
+  \howtoCiteEn
 }
 
 

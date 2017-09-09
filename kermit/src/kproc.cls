@@ -924,6 +924,8 @@
   \let\thankses\@empty
   \let\addresses\@empty%
   \let\altaddresses\@empty%
+  \let\@title\empty
+  \let\@alttitle\empty
 %%   \label{starttitle}
   \ifx\@doiPrefix\@empty
   \else
@@ -2437,9 +2439,9 @@
 %%%
 \let\shortaltauthors\@empty   
 \let\altauthors\@empty
-\let\altauthorstoc\@empty
+% \let\altauthorstoc\@empty
 \let\altaddresses\@empty      
-\let\@alttitle\@empty
+% \let\@alttitle\@empty
 % \let\thankses\@empty
 \let\addresses\@empty%
 %%% --

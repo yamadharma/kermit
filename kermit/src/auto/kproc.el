@@ -264,5 +264,6 @@
    (LaTeX-add-saveboxes
     "abstractbox")
    (LaTeX-add-caption-DeclareCaptions
-    '("\\DeclareCaptionFormat{tableRight}" "Format" "tableRight"))))
+    '("\\DeclareCaptionFormat{tableRight}" "Format" "tableRight")))
+ :latex)
 
