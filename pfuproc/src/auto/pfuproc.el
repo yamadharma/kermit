@@ -26,6 +26,7 @@
     "PFUpaperid"
     "listauthorsname"
     "listofauthors"
+    "listofauthorsPerTitle"
     "papercopyright")
    (LaTeX-add-environments
     "authordescription"))

@@ -105,6 +105,17 @@
 
 }
 
+\def\listofauthorsPerTitle{%
+  \begin{otherlanguage*}{russian}
+    \noindent
+    \textbf{\listauthorsname}:
+  \end{otherlanguage*}\par\nobreak
+  \begin{otherlanguage*}{russian}
+    \noindent
+    \@starttoc{\currfilebase.lloa}
+  \end{otherlanguage*}
+}
+
 \newcommand{\authorlistFontShape}{\bf}
 
 \newcommand{\pfuproc@bra}{(}
@@ -123,6 +134,18 @@
     }
   }
 }
+
+% \def\pfuproc@authorlist{}
+% \g@addto@macro\pfuproc@authorlist{}
+% \g@addto@macro\@title@hook{\let\pfuproc@authorlist\@empty}
+% \newwrite\authorlistFile
+% \g@addto@macro\@title@hook{%
+%   \immediate\openout\authorlistFile=\jobname.lloa
+% }
+
+% \def\pfuproc@authorlistentry{}
+% \g@addto@macro\pfuproc@authorlistentry{}
+% \g@addto@macro\@title@hook{\let\pfuproc@authorlistentry\@empty}
 
 \newenvironment{authordescription}%
 {
@@ -177,8 +200,12 @@
     \pfuproc@ket%
   }
 
-%  \addtocontents{loa}{\begin{otherlanguage}{russian}\pfuproc@authorlistentry\end{otherlanguage}\newline}
+  % \addtocontents{loa}{\begin{otherlanguage}{russian}\pfuproc@authorlistentry\end{otherlanguage}\newline}
   \addtocontents{loa}{\pfuproc@authorlistentry\newline}
+  % \protected@write\authorlistFile{\let\label\@gobble
+  % \let\index\@gobble
+  % \let\glossary\@gobble}{\pfuproc@authorlistentry\newline}
+  \addtocontents{\currfilebase.lloa}{\pfuproc@authorlistentry\newline}
   \authordescription@hook@post
 }
 \def\authordescription@hook@post{}
@@ -416,6 +443,7 @@
       in Russian.
     \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi%
   }%
+  \par
 }
 
 %}}}
@@ -435,6 +463,8 @@
   \howtoCiteRu
   \medskip
   \howtoCiteEn
+  \medskip
+  \listofauthorsPerTitle
 }
 
 

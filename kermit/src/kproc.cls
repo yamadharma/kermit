@@ -950,7 +950,9 @@
 } % END \title
 
 \def\@title@hook@pre{\global\let\@title@hook@pre\@empty}
-\def\@title@hook{\global\let\@title@hook\@empty}
+% \def\@title@hook{\global\let\@title@hook\@empty}
+\def\@title@hook{}
+\g@addto@macro\@title@hook{}
 \def\@title@hook@post{\global\let\@title@hook@post\@empty}
 
 
