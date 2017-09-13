@@ -282,7 +282,7 @@
 
   % \addtocontents{loa}{\begin{otherlanguage}{russian}\pfuproc@authorlistentry\end{otherlanguage}\newline}
   \addtocontents{loa}{\pfuproc@authorlistentry\newline}
-  \setboolean{isListofauthorsEmpty}{false}
+  \global\setbool{isListofauthorsEmpty}{false}
   % \protected@write\authorlistFile{\let\label\@gobble
   % \let\index\@gobble
   % \let\glossary\@gobble}{\pfuproc@authorlistentry\newline}
