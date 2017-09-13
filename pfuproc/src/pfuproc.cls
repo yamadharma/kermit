@@ -360,9 +360,9 @@
 % Страна
 \DeclareRobustCommand{\country}[2][russian]{%
   \IfStrEq{#1}{russian}{%
-    \def\pfuproc@country{#1}
+    \def\pfuproc@country{#2}
   }{%
-    \def\pfuproc@country@english{#1}
+    \def\pfuproc@country@english{#2}
   }
 }
 \let\pfuproc@country\@empty
