@@ -105,15 +105,40 @@
 
 }
 
-\def\listofauthorsPerTitle{%
+\newbool{isListofauthorsEmpty}
+\newbool{isListofauthorsEnglishEmpty}
+\setbool{isListofauthorsEmpty}{true}
+\setbool{isListofauthorsEnglishEmpty}{true}
+\g@addto@macro\@title@hook{%
+  \global\setbool{isListofauthorsEmpty}{true}
+  \global\setbool{isListofauthorsEnglishEmpty}{true}
+}
+
+\def\listofauthorsPerTitleRu{%
   \begin{otherlanguage*}{russian}
     \noindent
     \textbf{\listauthorsname}:
   \end{otherlanguage*}\par\nobreak
   \begin{otherlanguage*}{russian}
     \noindent
-    \@starttoc{\currfilebase.lloa}
+    \@starttoc{\currfilebase.loa}
   \end{otherlanguage*}
+  \par
+}
+
+\def\listofauthorsPerTitleEn{%
+  \ifbool{isListofauthorsEnglishEmpty}{% is empty
+  }{% isn't empty
+    \begin{otherlanguage}{english}
+      \noindent
+      \textbf{\listauthorsname}:
+    \end{otherlanguage}\par\nobreak
+  }
+  \begin{otherlanguage*}{english}
+    \noindent
+    \@starttoc{\currfilebase.english.loa}
+  \end{otherlanguage*}
+  \par
 }
 
 \newcommand{\authorlistFontShape}{\bf}
@@ -128,9 +153,15 @@
     \addto\captionsrussian@modern{%
       \def\pfuproc@phoneName{тел.}
     }
+    \addto\captionsenglish{%
+      \def\pfuproc@phoneName{Phone}
+    }
   }{%
     \addto\extrasrussian{%
       \def\pfuproc@phoneName{{\cyrt }{\cyre }{\cyrl }.}
+    }
+    \addto\extrasenglish{%
+      \def\pfuproc@phoneName{Phone}
     }
   }
 }
@@ -140,7 +171,7 @@
 % \g@addto@macro\@title@hook{\let\pfuproc@authorlist\@empty}
 % \newwrite\authorlistFile
 % \g@addto@macro\@title@hook{%
-%   \immediate\openout\authorlistFile=\jobname.lloa
+%   \immediate\openout\authorlistFile=\jobname.loa
 % }
 
 % \def\pfuproc@authorlistentry{}
@@ -150,13 +181,20 @@
 \newenvironment{authordescription}%
 {
   \let\pfuproc@authorlistentry\@empty
+  \let\pfuproc@authorlistentry@english\@empty
   \let\pfuproc@authorfull\@empty
+  \let\pfuproc@authorfull@english\@empty
   \let\pfuproc@authorrank\@empty
+  \let\pfuproc@authorrank@english\@empty
   \let\pfuproc@authordegree\@empty
+  \let\pfuproc@authordegree@english\@empty
   \let\pfuproc@authorpost\@empty
+  \let\pfuproc@authorpost@english\@empty
   \let\pfuproc@mail\@empty
   \let\pfuproc@phone\@empty
   \let\pfuproc@country\@empty
+  \let\pfuproc@country@english\@empty
+  \let\pfuproc@orcid\@empty
   \def\pfuproc@bra{(}
   \def\pfuproc@ket{)}
   \def\pfuproc@komma{, }
@@ -170,7 +208,8 @@
     \fi
   \fi
   % Добавим в macro всё, что есть сейчас
-  \g@addto@macro\pfuproc@authorlistentry{%
+  % \g@addto@macro
+  \def\pfuproc@authorlistentry{%
     {\authorlistFontShape
     \pfuproc@authorfull}%
   \ifx\pfuproc@country\@empty
@@ -197,44 +236,114 @@
     \else
     \pfuproc@komma\protect\mbox{\pfuproc@phoneName:~\pfuproc@phone{}}%
     \fi
+    \ifx\pfuproc@orcid\@empty
+    \else
+    \pfuproc@komma\protect\mbox{ORCID:~\pfuproc@orcid{}}%
+    \fi
     \pfuproc@ket%
   }
 
+  \ifx\pfuproc@authorfull@english\@empty
+  \else
+  \def\pfuproc@authorlistentry@english{%
+    {\authorlistFontShape
+      \pfuproc@authorfull@english}%
+    \ifx\pfuproc@country@english\@empty
+    \else{ (\pfuproc@country@english)}
+    \fi~---
+    \ifx\pfuproc@authorrank@english\@empty
+    \else
+    \pfuproc@authorrank@english,
+    \fi
+    \ifx\pfuproc@authordegree@english\@empty
+    \else
+    \pfuproc@authordegree@english,
+    \fi
+    \ifx\pfuproc@authorpost@english\@empty
+    \else
+    \pfuproc@authorpost@english{}
+    \fi
+    \pfuproc@bra%
+    \ifx\pfuproc@mail\@empty
+    \else
+    e-mail:~\protect\url{\pfuproc@mail}%
+    \fi
+    \ifx\pfuproc@phone\@empty
+    \else
+    \pfuproc@komma\protect\mbox{phone:~\pfuproc@phone{}}%
+    \fi
+    \ifx\pfuproc@orcid\@empty
+    \else
+    \pfuproc@komma\protect\mbox{ORCID:~\pfuproc@orcid{}}%
+    \fi
+    \pfuproc@ket%
+  }
+  \fi
+
   % \addtocontents{loa}{\begin{otherlanguage}{russian}\pfuproc@authorlistentry\end{otherlanguage}\newline}
   \addtocontents{loa}{\pfuproc@authorlistentry\newline}
+  \setboolean{isListofauthorsEmpty}{false}
   % \protected@write\authorlistFile{\let\label\@gobble
   % \let\index\@gobble
   % \let\glossary\@gobble}{\pfuproc@authorlistentry\newline}
-  \addtocontents{\currfilebase.lloa}{\pfuproc@authorlistentry\newline}
+  \addtocontents{\currfilebase.loa}{\pfuproc@authorlistentry\newline}
+  \ifx\pfuproc@authorlistentry@english\@empty
+  \else
+  \addtocontents{\currfilebase.english.loa}{\pfuproc@authorlistentry@english\newline}
+  \global\setbool{isListofauthorsEnglishEmpty}{false}
+  \fi
   \authordescription@hook@post
+  \ifbool{isListofauthorsEnglishEmpty}{\message{0000000true}}{\message{00000000false}}
 }
 \def\authordescription@hook@post{}
 
 \newcounter{c@pfuproc@authorlist}
 
+\RequirePackage{xstring}
+
 % Автор
-\DeclareRobustCommand{\authorfull}[1]{%
-  \def\pfuproc@authorfull{#1}
+\DeclareRobustCommand{\authorfull}[2][russian]{%
+  \IfStrEq{#1}{russian}{%
+    \def\pfuproc@authorfull{#2}
+  }{%
+    \def\pfuproc@authorfull@english{#2}
+  }
 }
 \let\pfuproc@authorfull\@empty
+\let\pfuproc@authorfull@english\@empty
 
 % Учёное звание
-\DeclareRobustCommand{\authorrank}[1]{%
-  \def\pfuproc@authorrank{#1}
+\DeclareRobustCommand{\authorrank}[2][russian]{%
+  \IfStrEq{#1}{russian}{%
+    \def\pfuproc@authorrank{#2}
+  }{%
+    \def\pfuproc@authorrank@english{#2}
+  }
 }
 \let\pfuproc@authorrank\@empty
+\let\pfuproc@authorrank@english\@empty
 
 % Учёная степень
-\DeclareRobustCommand{\authordegree}[1]{%
-  \def\pfuproc@authordegree{#1}
+\DeclareRobustCommand{\authordegree}[2][russian]{%
+  \IfStrEq{#1}{russian}{%
+    \def\pfuproc@authordegree{#2}
+  }{%
+    \def\pfuproc@authordegree@english{#2}
+  }
 }
 \let\pfuproc@authordegree\@empty
+\let\pfuproc@authordegree@english\@empty
 
 % Учёная должность
-\DeclareRobustCommand{\authorpost}[1]{%
-  \def\pfuproc@authorpost{#1}
+\DeclareRobustCommand{\authorpost}[2][russian]{%
+  \IfStrEq{#1}{russian}{%
+    \def\pfuproc@authorpost{#2}
+  }{%
+    \def\pfuproc@authorpost@english{#2}
+  }
 }
 \let\pfuproc@authorpost\@empty
+\let\pfuproc@authorpost@english\@empty
 
 % e-mail
 \DeclareRobustCommand{\email}[1]{%
@@ -249,10 +358,21 @@
 \let\pfuproc@phone\@empty
 
 % Страна
-\DeclareRobustCommand{\country}[1]{%
-  \def\pfuproc@country{#1}
+\DeclareRobustCommand{\country}[2][russian]{%
+  \IfStrEq{#1}{russian}{%
+    \def\pfuproc@country{#1}
+  }{%
+    \def\pfuproc@country@english{#1}
+  }
 }
 \let\pfuproc@country\@empty
+\let\pfuproc@country@english\@empty
+
+% ORCID
+\DeclareRobustCommand{\orcid}[1]{%
+  \def\pfuproc@orcid{#1}
+}
+\let\pfuproc@orcid\@empty
 
 %}}}
 
@@ -464,7 +584,9 @@
   \medskip
   \howtoCiteEn
   \medskip
-  \listofauthorsPerTitle
+  \listofauthorsPerTitleRu
+  \medskip
+  \listofauthorsPerTitleEn
 }
 
 

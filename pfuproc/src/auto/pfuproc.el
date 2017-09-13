@@ -10,15 +10,17 @@
     "kproc"
     "kproc10"
     "currfile"
+    "xstring"
     "scrlfile")
    (TeX-add-symbols
-    '("country" 1)
+    '("country" ["argument"] 1)
+    '("authorpost" ["argument"] 1)
+    '("authordegree" ["argument"] 1)
+    '("authorrank" ["argument"] 1)
+    '("authorfull" ["argument"] 1)
+    '("orcid" 1)
     '("phone" 1)
     '("email" 1)
-    '("authorpost" 1)
-    '("authordegree" 1)
-    '("authorrank" 1)
-    '("authorfull" 1)
     "authorlistFontShape"
     "howtoCiteRu"
     "howtoCiteEn"
@@ -26,7 +28,8 @@
     "PFUpaperid"
     "listauthorsname"
     "listofauthors"
-    "listofauthorsPerTitle"
+    "listofauthorsPerTitleRu"
+    "listofauthorsPerTitleEn"
     "papercopyright")
    (LaTeX-add-environments
     "authordescription"))
