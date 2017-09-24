@@ -16,6 +16,7 @@
     "ltcaption"
     "truncate"
     "fancyhdr"
+    "xstring"
     "xparse"
     "xspace"
     "titlesec")

@@ -776,11 +776,18 @@
 %%   \cyrs.~\pageref{starttitle}--\pageref{endtitle} 
 %% }
 
+
+\RequirePackage{xstring}
 \AtBeginDocument{%
   \ifx\@defaultlanguage\@empty
     \defaultlanguage{\bbl@main@language}
   \else
   \fi
+  \IfStrEq{\@defaultlanguage}{russian}{%
+    \defaultaltlanguage{english}
+  }{%
+    \defaultaltlanguage{russian}
+  }
 }
 
 %{{{ Set headers
