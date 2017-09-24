@@ -1045,23 +1045,25 @@
 \def\altauthor{\@ifnextchar[{\altauthor@optarg}{\altauthor@optarg[]}}
 \def\altauthor@optarg[#1]#2{\stepcounter{altauthor}%
   \ifpolyglossia\begin{otherlanguage}{\PFUaltlanguage}\else\begin{otherlanguage*}{\PFUaltlanguage}\fi
-  \beg@elem
-  \@for\@tempa:=#1\do{\expandafter\add@thanksref\expandafter{\@tempa}}%
-  \report@elt{altauthor}\proc@elem{altauthor}{#2}%
-%  \ifnum0\n@collab@=\z@ \runningauthor@fmt \fi
-  \def\caltauthor{\value{altauthor}}
-  \ifnum\c@altauthor=\@ne \edef\@raltauthor{#2} \fi
+  % \begin{otherlanguage*}{\PFUaltlanguage}
+    \beg@elem
+    \@for\@tempa:=#1\do{\expandafter\add@thanksref\expandafter{\@tempa}}%
+    \report@elt{altauthor}\proc@elem{altauthor}{#2}%
+    % \ifnum0\n@collab@=\z@ \runningauthor@fmt \fi
+    \def\caltauthor{\value{altauthor}}
+    \ifnum\c@altauthor=\@ne \edef\@raltauthor{#2} \fi
 %  \author@fmt{\the\c@author}{\the\t@loc@notes}{\@author}%
-%    \author@fmt{\the\c@author}{\the\t@loc@notes}{#2}%
+%  \author@fmt{\the\c@author}{\the\t@loc@notes}{#2}%
 % %  \edef\temp@notes\t@loc@notes
-%   \toks@\@xp{\t@loc@notes}
+%  \toks@\@xp{\t@loc@notes}
 % %  \edef\ftoks{\the\toks@}
-% %    \let\@tempc\string{\the\t@loc@notes}
-%     \@temptokena\@xp{\t@loc@notes}
-%     \edef\@tempc{\the\@temptokena}
-     \altauthor@fmt{\the\c@altauthor}{\refList{#1}}{#2}{}%
-   \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
-   \@altauthor@hook@post
+% %  \let\@tempc\string{\the\t@loc@notes}
+%  \@temptokena\@xp{\t@loc@notes}
+%  \edef\@tempc{\the\@temptokena}
+    \altauthor@fmt{\the\c@altauthor}{\refList{#1}}{#2}{}%
+  % \end{otherlanguage*}
+  \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi
+  \@altauthor@hook@post
 }
 
 \def\@altauthor@hook@post{\global\let\@altauthor@hook@post\@empty}
