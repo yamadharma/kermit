@@ -1,4 +1,4 @@
-\RequirePackage{indextools}
+\RequirePackage[noautomatic]{indextools}
 
 
 \def\authorindexname{Author index}
