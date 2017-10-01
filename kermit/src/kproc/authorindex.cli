@@ -1,11 +1,5 @@
 \RequirePackage[noautomatic]{indextools}
 
-
-\def\authorindexname{Author index}
-
-\makeindex[name=author,title={\authorindexname}]
-\makeindex[name=altauthor,title={\authorindexname}]
-
 \def\@author@hook@post{%
   \iflanguage{\@defaultlanguage}
   {%
@@ -29,6 +23,9 @@
 
 \AtBeginDocument%
 {%
+
+  \def\authorindexname{Author index}
+  
   \@ifpackageloaded{polyglossia}{%
     \addto\captionsrussian{%
       \def\authorindexname{Именной указатель}%
@@ -37,15 +34,22 @@
       \def\authorindexname{Author index}%
       }%   
   }{%
-    \addto\captionsrussian{%
+    \addto\extrasrussian{%
       \def\authorindexname{%
         {\cyr\CYRI\cyrm\cyre\cyrn\cyrn\cyro\cyrishrt
           \ \cyru\cyrk\cyra\cyrz\cyra\cyrt\cyre\cyrl\cyrsftsn}}%
     }
-    \addto\captionsenglish{%
+    \addto\extrasenglish{%
       \def\authorindexname{Author index}%
     }%   
   }
+
+  {\selectlanguage{\@defaultlanguage}
+    \makeindex[name=author,title={\authorindexname}]
+  }
+
+  \makeindex[name=altauthor,title={\authorindexname}]
+  
 }
 
 
