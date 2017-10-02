@@ -44,9 +44,9 @@
     }%   
   }
 
-  {\selectlanguage{\@defaultlanguage}
+%  {\selectlanguage{\@defaultlanguage}
     \makeindex[name=author,title={\authorindexname}]
-  }
+%  }
 
   \makeindex[name=altauthor,title={\authorindexname}]
   
