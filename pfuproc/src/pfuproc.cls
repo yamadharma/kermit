@@ -115,14 +115,14 @@
 }
 
 \def\listofauthorsPerTitleRu{%
-  \begin{otherlanguage*}{russian}
+  \begin{otherlanguage}{russian}
     \noindent
     \textbf{\listauthorsname}:
-  \end{otherlanguage*}\par\nobreak
-  \begin{otherlanguage*}{russian}
+  \end{otherlanguage}\nopagebreak[4]
+  \begin{otherlanguage}{russian}
     \noindent
     \@starttoc{\currfilebase.loa}
-  \end{otherlanguage*}
+  \end{otherlanguage}
   \par
 }
 
@@ -132,12 +132,12 @@
     \begin{otherlanguage}{english}
       \noindent
       \textbf{\listauthorsname}:
-    \end{otherlanguage}\par\nobreak
+    \end{otherlanguage}\nopagebreak[4]
   }
-  \begin{otherlanguage*}{english}
+  \begin{otherlanguage}{english}
     \noindent
     \@starttoc{\currfilebase.english.loa}
-  \end{otherlanguage*}
+  \end{otherlanguage}
   \par
 }
 
@@ -154,14 +154,14 @@
       \def\pfuproc@phoneName{тел.}
     }
     \addto\captionsenglish{%
-      \def\pfuproc@phoneName{Phone}
+      \def\pfuproc@phoneName{phone}
     }
   }{%
     \addto\extrasrussian{%
       \def\pfuproc@phoneName{{\cyrt }{\cyre }{\cyrl }.}
     }
     \addto\extrasenglish{%
-      \def\pfuproc@phoneName{Phone}
+      \def\pfuproc@phoneName{phone}
     }
   }
 }
@@ -230,11 +230,12 @@
     \pfuproc@bra%
     \ifx\pfuproc@mail\@empty
     \else
-    e-mail:~\protect\url{\pfuproc@mail}%
+    \mbox{\-e-mail:}~\protect\url{\pfuproc@mail}%
     \fi
     \ifx\pfuproc@phone\@empty
     \else
-    \pfuproc@komma\protect\mbox{\pfuproc@phoneName:~\pfuproc@phone{}}%
+    \pfuproc@komma\protect\mbox{{\cyrt }{\cyre }{\cyrl }.:~\pfuproc@phone{}}%
+    % \pfuproc@komma\protect\mbox{\pfuproc@phoneName:~\pfuproc@phone{}}%
     \fi
     \ifx\pfuproc@orcid\@empty
     \else
@@ -266,7 +267,7 @@
     \pfuproc@bra%
     \ifx\pfuproc@mail\@empty
     \else
-    e-mail:~\protect\url{\pfuproc@mail}%
+    \mbox{\-e-mail}:~\protect\url{\pfuproc@mail}%
     \fi
     \ifx\pfuproc@phone\@empty
     \else
