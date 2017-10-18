@@ -530,7 +530,7 @@
       \emph{\authorstoc} \@title{}~//
       \PFUjournal{}. \CYRS\cyre\cyrr\cyri\cyrya: \PFUjournalseries{}.~---
       \PFUjournalyear.~---\ifx\PFUjournalvolume\@empty\else{} \CYRT.~\PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else, \No~\PFUjournalnumber\fi{}.~---
-      \cyrs.~\pageref{starttitle}--\pageref{endtitle}.%
+      \CYRS.~\pageref{starttitle}--\pageref{endtitle}.%
       \ifx\@empty\@doi \else{}~--- DOI: \@doi{}.\fi
     \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi%
   }{%
