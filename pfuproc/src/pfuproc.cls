@@ -562,7 +562,7 @@
       (\PFUjournalyear)
       \pageref{starttitle}--\pageref{endtitle}.
       \ifx\@empty\@doi \else DOI: \@doi{}.\fi{}
-      in Russian.
+      In Russian.
     \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi%
   }%
   \par
