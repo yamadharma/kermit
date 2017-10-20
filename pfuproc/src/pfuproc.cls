@@ -579,18 +579,19 @@
 \par
 }
 
-\def\@putaltbib@hook@post{%
-  \papercopyright
-  \medskip
-  \howtoCiteRu
-  \medskip
-  \howtoCiteEn
-  \medskip
-  \listofauthorsPerTitleRu
-  \medskip
-  \listofauthorsPerTitleEn
-}
-
+\@ifpackageloaded{tex4ht}{%
+  \def\@putaltbib@hook@post{%
+    \papercopyright
+    \medskip
+    \howtoCiteRu
+    \medskip
+    \howtoCiteEn
+    \medskip
+    \listofauthorsPerTitleRu
+    \medskip
+    \listofauthorsPerTitleEn
+  }
+}{}
 
 \AtEndPreamble{
   \@ifpackageloaded{tex4ht}{}{%
