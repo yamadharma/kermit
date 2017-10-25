@@ -579,7 +579,7 @@
 \par
 }
 
-\@ifpackageloaded{tex4ht}{%
+\@ifpackageloaded{tex4ht}{}{%
   \def\@putaltbib@hook@post{%
     \papercopyright
     \medskip
@@ -591,7 +591,7 @@
     \medskip
     \listofauthorsPerTitleEn
   }
-}{}
+}
 
 \AtEndPreamble{
   \@ifpackageloaded{tex4ht}{}{%
