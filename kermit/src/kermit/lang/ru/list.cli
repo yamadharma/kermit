@@ -1,6 +1,6 @@
 \RequirePackage{calc}
 %\RequirePackage{enumerate}[1999/03/05]
-%\RequirePackage{enumitem}
+\RequirePackage[shortlabels]{enumitem}
 
 % \renewcommand{\theenumi}{\arabic{enumii}}
 % \renewcommand{\labelenumi}{\theenumii)}
