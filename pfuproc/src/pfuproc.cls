@@ -510,8 +510,70 @@
 
 %}}}
 
+% \def\@maketitle@hook@pre{%
+%    \thispagestyle{plain}
+% }
+
+\DeclareRobustCommand{\titlelogo}[1]{%
+  \gdef\PFUtitlelogo{#1}
+}
+\let\PFUtitlelogo\@empty
+
+\newlength{\lheadwidth}
+\newlength{\rheadwidth}
+\newlength{\cheadwidth}
+
+\fancypagestyle{title}{%
+  \setlength{\lheadwidth}{0.07\linewidth}
+  \settowidth{\rheadwidth}{\PFUjournalURL}
+  \setlength{\cheadwidth}{\textwidth}
+  \addtolength{\cheadwidth}{-\rheadwidth}
+  \addtolength{\cheadwidth}{-\lheadwidth}
+  % \addtolength{\cheadwidth}{-1cm}
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \lhead{}
+  \rhead{}
+  
+  \lhead{%
+    \noindent
+    \begin{minipage}[c]{\lheadwidth}
+      \includegraphics[width=\linewidth]{\PFUtitlelogo}
+    \end{minipage}
+    \hfill
+  }
+  \chead{%
+    \hspace*{-4cm}
+    \vspace*{-18pt}
+    \begin{minipage}[c]{\cheadwidth}
+      \begin{center}
+        \headerFontSize
+        {\selectlanguage{english}
+          \textbf{\PFUjournalHeader{}}
+        }\\[-6pt]
+        \nointerlineskip
+        \noindent\rule{\linewidth}{2pt}\\[2pt]
+        {\selectlanguage{russian}
+          \textbf{\PFUjournalHeader. \PFUjornalseriesName{}~\PFUjournalseriesHeader{}}
+        }
+      \end{center}
+    \end{minipage}
+    }
+    \rhead{%
+    % \hfill
+    \begin{minipage}[c]{\rheadwidth}
+      \begin{center}
+        \headerFontSize
+        \textbf{\PFUjournalyear{} Vol.~\PFUjournalvolume{} No.~\PFUjournalnumber}\\
+        \PFUjournalURL
+      \end{center}
+    \end{minipage}
+  }
+  \vspace{\baselineskip}
+}
+
 \def\@maketitle@hook@pre{%
-   \thispagestyle{plain}
+   \thispagestyle{title}
 }
 
 \InputIfFileExists{pfuproc/patch/bibunits.cli}{}{}%

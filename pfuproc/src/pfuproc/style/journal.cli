@@ -157,6 +157,12 @@
 }
 \let\PFUissnOnline\@empty
 
+\DeclareRobustCommand{\journalURL}[1]%
+{%
+  \def\PFUjournalURL{\url{#1}}
+}
+\let\PFUjournalURL\@empty
+
 
 \DeclareRobustCommand{\journalfirstpage}[1]%
 {%

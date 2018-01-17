@@ -2,6 +2,7 @@
  "kproc"
  (lambda ()
    (TeX-run-style-hooks
+    "latex2e"
     "etoolbox"
     "etextools"
     "xkeyval"

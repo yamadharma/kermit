@@ -14,6 +14,7 @@
 \journalfoundationyear{2006}
 \issnPrint{2312-9735}
 \issnOnline{2312-9743}
+\journalURL{http://journals.rudn.ru/miph}
 
 \AtEndOfPackage{%
   \RequirePackage{truncate}

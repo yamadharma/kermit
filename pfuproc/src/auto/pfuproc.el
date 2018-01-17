@@ -4,6 +4,7 @@
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("geometry" "a4paper")))
    (TeX-run-style-hooks
+    "latex2e"
     "xkeyval"
     "geometry"
     "kproc"
@@ -17,6 +18,7 @@
     '("authordegree" ["argument"] 1)
     '("authorrank" ["argument"] 1)
     '("authorfull" ["argument"] 1)
+    '("titlelogo" 1)
     '("orcid" 1)
     '("phone" 1)
     '("email" 1)
@@ -28,8 +30,13 @@
     "listofauthors"
     "listofauthorsPerTitleRu"
     "listofauthorsPerTitleEn"
+    "PFUtitlelogo"
     "papercopyright")
    (LaTeX-add-environments
-    "authordescription"))
+    "authordescription")
+   (LaTeX-add-lengths
+    "lheadwidth"
+    "rheadwidth"
+    "cheadwidth"))
  :latex)
 
