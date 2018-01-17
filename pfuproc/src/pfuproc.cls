@@ -564,7 +564,8 @@
     \begin{minipage}[c]{\rheadwidth}
       \begin{center}
         \headerFontSize
-        \textbf{\PFUjournalyear{} Vol.~\PFUjournalvolume{} No.~\PFUjournalnumber}\\
+        \textbf{\PFUjournalyear{} Vol.\,\PFUjournalvolume{}
+          No.\,\PFUjournalnumber{} \pageref{starttitle}--\pageref{endtitle}}\\
         \PFUjournalURL
       \end{center}
     \end{minipage}
