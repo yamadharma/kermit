@@ -510,9 +510,7 @@
 
 %}}}
 
-% \def\@maketitle@hook@pre{%
-%    \thispagestyle{plain}
-% }
+%{{{ Title header
 
 \DeclareRobustCommand{\titlelogo}[1]{%
   \gdef\PFUtitlelogo{#1}
@@ -564,8 +562,13 @@
     \begin{minipage}[c]{\rheadwidth}
       \begin{center}
         \headerFontSize
-        \textbf{\PFUjournalyear{} Vol.\,\PFUjournalvolume{}
-          No.\,\PFUjournalnumber{} \pageref{starttitle}--\pageref{endtitle}}\\
+        \textbf{%
+          \PFUjournalyear{} Vol.\,\PFUjournalvolume{}
+          No.\,\PFUjournalnumber{}
+          \ifthenelse{\pageref{starttitle}=\pageref{endtitle}}%
+          {\pageref{starttitle}}% then
+          {\pageref{starttitle}--\pageref{endtitle}}% else
+        }\\
         \PFUjournalURL
       \end{center}
     \end{minipage}
@@ -576,6 +579,23 @@
 \def\@maketitle@hook@pre{%
    \thispagestyle{title}
 }
+
+%}}}
+
+%{{{ Колонтитулы на служебных страницах
+
+% Служебные страницы. Например, вторые страницы содержания.
+\fancypagestyle{ancillary}{%
+  \fancyhf{}
+  \fancyhead[LE,RO]{%
+    \begin{otherlanguage*}{\PFUlanguage}
+      \headerFontSize\thepage
+    \end{otherlanguage*}
+  }
+  \fancyhead[RE,LO]{\headerFontSize \PFUTitleHeader}
+}
+
+%}}}
 
 \InputIfFileExists{pfuproc/patch/bibunits.cli}{}{}%
 
