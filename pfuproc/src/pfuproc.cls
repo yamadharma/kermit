@@ -527,6 +527,7 @@
   \setlength{\cheadwidth}{\textwidth}
   \addtolength{\cheadwidth}{-\rheadwidth}
   \addtolength{\cheadwidth}{-\lheadwidth}
+  \addtolength{\headheight}{\baselineskip}
   % \addtolength{\cheadwidth}{-1cm}
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
@@ -573,8 +574,12 @@
       \end{center}
     \end{minipage}
   }
-  \vspace{\baselineskip}
+  % \vspace{\baselineskip}
 }
+
+% \AtBeginDocument{
+%   \addtolength\headsep{\baselineskip}%
+% }
 
 \def\@maketitle@hook@pre{%
    \thispagestyle{title}
