@@ -24,7 +24,6 @@
    (TeX-add-symbols
     "endverse"
     '("urladdr" ["argument"] 1)
-    '("email" ["argument"] 1)
     '("altcurraddr" ["argument"] 1)
     '("curraddr" ["argument"] 1)
     '("alttitle" ["argument"] 1)
@@ -42,6 +41,7 @@
     '("xaltandlist" 4)
     '("dedicatory" 1)
     '("thanksref" 1)
+    '("email" 1)
     '("published" 1)
     '("accepted" 1)
     '("revised" 1)
@@ -247,6 +247,7 @@
     "titlepage"
     "altabstract"
     "abstract"
+    '("namedthm" LaTeX-env-args ["argument"] 0)
     "abstracta"
     "acknowledgments")
    (LaTeX-add-pagestyles

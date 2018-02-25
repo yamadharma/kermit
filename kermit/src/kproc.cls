@@ -1603,6 +1603,10 @@
   \def\@published{#1}}
 \let\@published\@empty
 
+\DeclareRobustCommand{\email}[1]{%
+  \def\@email{#1}}
+\let\@email\@empty
+
 % \def\udc#1{\gdef\@udcnum{#1}}
 % \newcommand{\udc}[1]{\gdef\@udcnum{#1}}
 %%%--
@@ -1633,7 +1637,7 @@
 % \edef\altabstracts{\@nx\@dblarg
 %   \@xp\@nx\csname\string\altabstracts\endcsname}
 %%%
-\newcommand{\email}[2][]{\g@addto@macro\addresses{\email{#1}{#2}}}
+% \newcommand{\email}[2][]{\g@addto@macro\addresses{\email{#1}{#2}}}
 \newcommand{\urladdr}[2][]{\g@addto@macro\addresses{\urladdr{#1}{#2}}}
 \renewcommand{\thanks}[1]{\g@addto@macro\thankses{\thanks{#1}}}
 \newcommand{\thanksref}[1]{\g@addto@macro\thankses{#1}}
@@ -2150,11 +2154,13 @@
   %%% --
   \nobreak %
   \begingroup
-  \smallskip
+  % \smallskip
   \footnotesize
   \centering
   \addresses
   \par
+  \medskip
+  \ifx\@empty\@email \else \noindent Email: \@email \par \fi
   \endgroup
   %%% 
   \ifx\@empty\@dedicatory
@@ -2454,7 +2460,7 @@
 \let\altaddresses\@empty      
 % \let\@alttitle\@empty
 % \let\thankses\@empty
-\let\addresses\@empty%
+% \let\addresses\@empty%
 %%% --
 \let\@udcnum\@empty
 \let\@pacsnum\@empty  
@@ -2550,6 +2556,8 @@
       \footnotesize
       \samepage%
       \altaddresses
+      \medskip
+      \ifx\@empty\@email \else \noindent Email: \@email \par \fi
     \end{center} 
     \nobreak
     % \par
