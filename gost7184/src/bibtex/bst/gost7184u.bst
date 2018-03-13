@@ -66,6 +66,7 @@ ENTRY
     volume
     year
     translit
+    doi
   }
   {}
   { label }
@@ -195,7 +196,6 @@ FUNCTION {begin.selectlanguage}
       'skip$
       {"\begin{otherlanguage*}{" language * "}" * write$}
 %      {"{\selectlanguage{" language * "}" * write$}
-%      {"\foreignlanguage[" language * "]{%" * write$}
     if$
 %  } 
 %  if$
@@ -210,32 +210,11 @@ FUNCTION {end.selectlanguage}
       'skip$
       {newline$ "\end{otherlanguage*}" write$}
 %      {"}%selectlanguage" write$}
-%      {"}%foreignlanguage" write$}
     if$
 %  } 
 %  if$
 }
 
-
-FUNCTION {fin.entry}
-{
-  add.period$
-  write$
-%{{{ translit entry
-    translit empty$
-'skip$
-{newline$
-    "\begin{bibtranslit}" write$
-    newline$
-    translit write$
-    newline$
-    "\end{bibtranslit}" write$
-}
-    if$
-%}}}
-  end.selectlanguage
-  newline$
-}
 
 FUNCTION {new.block}
 { output.state before.all =
@@ -875,10 +854,8 @@ FUNCTION {format.names.rev}
       format.name$ 't :=
       nameptr #1 >
         {
-% 2016-07-12, заменил в следующих двух строчках #4 на #10
-% Это контролирует количество авторов в зоне ответственности
-          nameptr #10 =
-          numnames #10 > and
+          nameptr #4 =
+          numnames #4 > and
             { "others" 't :=
               #1 'namesleft := }
             'skip$
@@ -1161,13 +1138,12 @@ FUNCTION {editor.organization.after}
   if$
 }
 
-
 FUNCTION {format.isbn}
 { isbn empty$
     { "" }
     {
       new.block
-      "ISBN " isbn * }
+      "ISBN~" isbn * }
   if$
 }
 
@@ -1176,7 +1152,15 @@ FUNCTION {format.issn}
     { "" }
     {
       new.block
-      "ISSN " issn * }
+      "ISSN~" issn * }
+  if$
+}
+
+FUNCTION {format.doi}
+{ doi empty$
+    { "" }
+    { new.block
+      "DOI:~" doi * }
   if$
 }
 
@@ -1218,6 +1202,28 @@ FUNCTION {format.title}
     }
   if$
 }
+
+FUNCTION {fin.entry}
+{
+  format.doi output
+  add.period$
+  write$
+%{{{ translit entry
+    translit empty$
+'skip$
+{newline$
+    "\begin{bibtranslit}" write$
+    newline$
+    translit write$
+    newline$
+    "\end{bibtranslit}" write$
+}
+    if$
+%}}}
+  end.selectlanguage
+  newline$
+}
+
 
 FUNCTION {output.my}
 { 's :=
@@ -2231,7 +2237,7 @@ FUNCTION {misc}
 
 
 FUNCTION {phdthesis}
-{
+{ 
   output.bibitem
   format.authors "author" output.check
   new.sentence
@@ -2250,7 +2256,6 @@ FUNCTION {phdthesis}
   format.note output
   fin.entry
 }
-
 
 %FUNCTION {phdthesis}
 %{ output.bibitem

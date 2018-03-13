@@ -66,6 +66,7 @@ ENTRY
     volume
     year
     translit
+    doi
   }
   {}
   { label }
@@ -214,26 +215,6 @@ FUNCTION {end.selectlanguage}
 %  if$
 }
 
-
-FUNCTION {fin.entry}
-{
-  add.period$
-  write$
-%{{{ translit entry
-    translit empty$
-'skip$
-{newline$
-    "\begin{bibtranslit}" write$
-    newline$
-    translit write$
-    newline$
-    "\end{bibtranslit}" write$
-}
-    if$
-%}}}
-  end.selectlanguage
-  newline$
-}
 
 FUNCTION {new.block}
 { output.state before.all =
@@ -1157,13 +1138,12 @@ FUNCTION {editor.organization.after}
   if$
 }
 
-
 FUNCTION {format.isbn}
 { isbn empty$
     { "" }
     {
       new.block
-      "ISBN " isbn * }
+      "ISBN~" isbn * }
   if$
 }
 
@@ -1172,7 +1152,15 @@ FUNCTION {format.issn}
     { "" }
     {
       new.block
-      "ISSN " issn * }
+      "ISSN~" issn * }
+  if$
+}
+
+FUNCTION {format.doi}
+{ doi empty$
+    { "" }
+    { new.block
+      "DOI:~" doi * }
   if$
 }
 
@@ -1214,6 +1202,28 @@ FUNCTION {format.title}
     }
   if$
 }
+
+FUNCTION {fin.entry}
+{
+  format.doi output
+  add.period$
+  write$
+%{{{ translit entry
+    translit empty$
+'skip$
+{newline$
+    "\begin{bibtranslit}" write$
+    newline$
+    translit write$
+    newline$
+    "\end{bibtranslit}" write$
+}
+    if$
+%}}}
+  end.selectlanguage
+  newline$
+}
+
 
 FUNCTION {output.my}
 { 's :=
