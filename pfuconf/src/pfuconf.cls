@@ -2,11 +2,19 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{pfuconf}
-                [2010/08/02 v0.1.0
-                Conference of Peoples’Friendship University of Russia]
+[2010/08/02 v0.1.0
+Conference of Peoples’Friendship University of Russia]
 
+\RequirePackage{xkeyval}
+                
 \ExecuteOptions{a4paper,10pt,twoside,onecolumn,final,openany}
 \ProcessOptions*\relax
+
+\define@key{PFUproc}{export}[none]{%
+  \def\PFUexport{#1}%
+  % \InputIfFileExists{pfuconf/export/#1.cli}{}{}%
+}
+\let\PFUexport\@empty
 
 \LoadClassWithOptions{kproc}
 
@@ -92,3 +100,14 @@
 }
 
 %}}}
+
+\AtEndPreamble{
+  \@ifpackageloaded{tex4ht}{}{%
+    \makeatletter
+    \InputIfFileExists{pfuconf/export/\PFUexport.cli}{}{}%
+    \makeatother
+  }
+}
+
+
+

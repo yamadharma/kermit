@@ -1,0 +1,168 @@
+% Prepare to export for articulus
+
+%\RequirePackage{morewrites}
+%\morewritessetup{allocate=128}
+\RequirePackage{refcount}
+\RequirePackage{currfile}
+
+\def\@startblindtoc#1{%
+  \begingroup
+  \makeatletter
+  % \@input{\jobname.#1}%
+  \if@filesw
+    \expandafter\newwrite\csname tf@#1\endcsname
+    \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax
+  \fi
+  \@nobreakfalse
+  \endgroup}
+
+\AtEndDocument{%
+  \@startblindtoc{articulus.ini}
+}
+
+\g@addto@macro\@title@hook@post{%
+% \def\@title@hook@post{%
+  \let\articulus@entry\@empty
+  \g@addto@macro\articulus@entry{%
+    [[\currfilebase]]\par%
+    title = """\@title"""\par%
+  }
+  \addtocontents{articulus.ini}{\articulus@entry}
+  \let\articulus@entry\@empty
+}
+
+%\g@addto@macro\@author@fmt@hook@post{%
+%   \let\articulus@entry\@empty
+%   \g@addto@macro\articulus@entry{%
+%    author=\authorfamily, \authorinitials\par%
+%   }
+%   \addtocontents{articulus.ini}{\articulus@entry}
+%   \let\articulus@entry\@empty
+%}
+
+
+\g@addto@macro\@maketitle@hook{%
+% \def\@maketitle@hook{%
+
+   \let\articulus@entry\@empty
+
+   \g@addto@macro\articulus@entry{%
+     % [[\currfilebase]]\par%
+    udc = \@udcnum\par%
+    mainlanguage = \PFUlanguage\par%
+    altlanguage = \PFUaltlanguage\par%
+%    title = """\@title"""\par%
+    authorstoc = \authorstoc\par%
+    abstract = """\@abstracts"""\par%
+    keywords = """\@keywords"""\par%
+    starttitle = \thepage\par%
+    endtitle = \getpagerefnumber{\thePFUtitle:endtitle}\par%
+    alttitle = """\@alttitle"""\par%
+    altauthorstoc = \altauthorstoc\par%
+    altabstract = """\@altabstracts"""\par%
+    altkeywords = """\alt@keywords"""\par%
+    }
+   \addtocontents{articulus.ini}{\articulus@entry}
+   \let\articulus@entry\@empty
+}
+
+\g@addto@macro\@makealttitle@hook{%
+
+   \let\articulus@entry\@empty
+
+   \g@addto@macro\articulus@entry{%
+    alttitle = """\@alttitle"""\par%
+    altauthorstoc = \altauthorstoc\par%
+    altabstract = """\@altabstracts"""\par%
+    altkeywords = """\alt@keywords"""\par%
+    }
+   \addtocontents{articulus.ini}{\articulus@entry}
+   \let\articulus@entry\@empty
+}
+
+% \RequirePackage{scrlfile}
+% \BeforeClosingMainAux{%
+
+%   \let\articulus@entry\@empty
+
+%    % \g@addto@macro\articulus@entry{%
+%    %  [journal]\par%
+%    %  journal = \PFUjournal\par%
+%    %  number = \PFUjournalnumber\par%
+%    %  year = \PFUjournalyear\par%
+%    %  series = \PFUjournalseries\par%
+%    %  }
+%    % \addtocontents{articulus.ini}{\articulus@entry}
+%    % \let\articulus@entry\@empty
+% }
+   
+%\newcounter{part}
+
+% \renewcommand{\part}[2][]%
+% {%
+%   {%
+%     \stepcounter{part}
+%     \clearpage
+%     \interlinepenalty\@M
+%     \begin{center}
+%       \vskip 10\p@ \@plus -1ex \@minus -.2ex
+%       {\LARGE \DivFontShape #2\par}
+%     \end{center}
+%     \par\nobreak
+%     \vskip 10\p@\@plus -1ex \@minus -.2ex%
+%   }
+%   \addtocontents{tac}%
+%   {{\vspace{8dd}\protect\noindent\protect\raggedright\protect\protect\Large\DivFontShape{#1}%
+%       \@par%
+%       \vspace{4dd}}}
+%   \addtocontents{toc}%
+%   {{\vspace{8dd}\protect\noindent\protect\raggedright\protect\protect\Large\DivFontShape{#2}%
+%       \@par%
+%       \vspace{4dd}}}
+%   \def\parttoc{#2}
+%   \def\parttac{#1}
+%   \part@hook@post
+% }
+
+\def\part@hook@post{}
+
+\g@addto@macro\part@hook@post{%
+
+  \let\articulus@entry\@empty
+
+  \g@addto@macro\articulus@entry{%
+    [section\arabic{part}]\par%
+    parttoc = """\parttoc"""\par%
+    parttac = """\parttac"""\par%
+  }
+  \addtocontents{articulus.ini}{\articulus@entry}
+  \let\articulus@entry\@empty
+  
+}
+
+\newcounter{authordetail}[PFUtitle]
+
+% \g@addto@macro\authordescription@hook@post{%
+
+%     \refstepcounter{authordetail}
+
+%   \let\articulus@entry\@empty
+  
+%   \g@addto@macro\articulus@entry{%
+%     fullname\theauthordetail = """\pfuproc@authorfull"""\par%
+%     authorrank\theauthordetail = """\pfuproc@authorrank"""\par%
+%     authordegree\theauthordetail = """\pfuproc@authordegree"""\par%
+%     authorpost\theauthordetail = """\pfuproc@authorpost"""\par%
+%     email\theauthordetail = """\pfuproc@mail"""\par%
+%     country\theauthordetail = """\pfuproc@country"""\par%
+%   }
+%   \addtocontents{articulus.ini}{\articulus@entry}
+%   \let\articulus@entry\@empty
+
+% }
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End:

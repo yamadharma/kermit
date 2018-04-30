@@ -247,7 +247,6 @@
     "titlepage"
     "altabstract"
     "abstract"
-    '("namedthm" LaTeX-env-args ["argument"] 0)
     "abstracta"
     "acknowledgments")
    (LaTeX-add-pagestyles

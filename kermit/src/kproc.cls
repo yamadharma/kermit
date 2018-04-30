@@ -10,7 +10,7 @@
 
 \RequirePackage{etoolbox}
 \RequirePackage{etextools}
-\reserveinserts{28}
+\reserveinserts{128}
 
 %%%
 %\def\@namedef#1{\expandafter\def\csname test:#1\endcsname}
@@ -960,7 +960,8 @@
 % \def\@title@hook{\global\let\@title@hook\@empty}
 \def\@title@hook{}
 \g@addto@macro\@title@hook{}
-\def\@title@hook@post{\global\let\@title@hook@post\@empty}
+% \def\@title@hook@post{\global\let\@title@hook@post\@empty}
+\def\@title@hook@post{}
 
 
 \providecommand*{\subtitle}[2][]%
@@ -2115,8 +2116,10 @@
 } % END \maketitleToc
 
 \def\@maketitle@hook@pre{\global\let\@maketitle@hook@pre\@empty}
-\def\@maketitle@hook{\global\let\@maketitle@hook\@empty}
-\def\@maketitle@hook@post{\global\let\@maketitle@hook@post\@empty}
+% \def\@maketitle@hook{\global\let\@maketitle@hook\@empty}
+\def\@maketitle@hook{}
+% \def\@maketitle@hook@post{\global\let\@maketitle@hook@post\@empty}
+\def\@maketitle@hook@post{}
 \def\@maketitle{%
   \flushbottom
   \normalfont\normalsize
