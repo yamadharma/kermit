@@ -1,9 +1,8 @@
-%%% 
-
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pfuproc}
-                [2010/03/14 v0.1.0
-                Bulletin of Peoples’Friendship University of Russia]
+\ProvidesClass{pfuproc}%
+[2010/03/14 %
+v0.1.1 %
+Bulletin of Peoples' Friendship University of Russia]
 
 \RequirePackage{xkeyval}
 \RequirePackage[a4paper]{geometry}
