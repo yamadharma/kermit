@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{pfuproc}%
 [2010/03/14 %
-v0.1.1 %
+v0.1.2 %
 Bulletin of Peoples' Friendship University of Russia]
 
 \RequirePackage{xkeyval}
@@ -657,12 +657,24 @@ Bulletin of Peoples' Friendship University of Russia]
 
 %}}}
 
+% Логотип для CC лицензии
+% По умолчанию лицензия CC-BY
+\DeclareRobustCommand{\cclogo}[1]{%
+  \def\pfuproc@cclogo{#1}
+}
+\def\pfuproc@cclogo{by}
 
 \def\papercopyright{%
+\graphicspath{{./}{image/}}
 \bigskip
-\begin{flushright}
+\begin{flushleft}
 \copyright{} \authorstoc{}, \PFUjournalyear{}
-\end{flushright}%
+\end{flushleft}%
+\bigskip
+\begin{flushleft}
+  \includegraphics[width=2cm]{\pfuproc@cclogo} {\footnotesize This work is licensed under a Creative Commons Attribution 4.0 International License}
+  %This work is licensed under a \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}.
+\end{flushleft}%
 \par
 }
 

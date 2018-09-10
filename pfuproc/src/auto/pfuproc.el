@@ -18,6 +18,7 @@
     '("authordegree" ["argument"] 1)
     '("authorrank" ["argument"] 1)
     '("authorfull" ["argument"] 1)
+    '("cclogo" 1)
     '("titlelogo" 1)
     '("orcid" 1)
     '("phone" 1)
