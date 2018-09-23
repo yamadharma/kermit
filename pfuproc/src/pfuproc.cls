@@ -672,7 +672,8 @@ Bulletin of Peoples' Friendship University of Russia]
 \end{flushleft}%
 \bigskip
 \begin{flushleft}
-  \includegraphics[width=2cm]{\pfuproc@cclogo} {\footnotesize This work is licensed under a Creative Commons Attribution 4.0 International License}
+  \includegraphics[width=2cm]{\pfuproc@cclogo}\\
+  This work is licensed under a Creative Commons Attribution 4.0 International License
   %This work is licensed under a \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}.
 \end{flushleft}%
 \par
