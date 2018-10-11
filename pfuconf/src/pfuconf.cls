@@ -3,7 +3,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{pfuconf}
 [2010/08/02 v0.1.0
-Conference of Peoples’Friendship University of Russia]
+Conference of Peoples' Friendship University of Russia]
 
 \RequirePackage{xkeyval}
                 
