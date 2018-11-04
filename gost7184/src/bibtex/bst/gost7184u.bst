@@ -2580,8 +2580,8 @@ FUNCTION {begin.bib}
 %  "  \def\selectlanguage#1{\relax}\fi"
 %  write$ newline$
 %  "\input gost7184.sty" write$ newline$
-  "\newcommand{\Capitalize}[1]{\uppercase{#1}}" write$ newline$
-  "\newcommand{\capitalize}[1]{\expandafter\Capitalize#1}" write$ newline$
+  "\providecommand{\Capitalize}[1]{\uppercase{#1}}" write$ newline$
+  "\providecommand{\capitalize}[1]{\expandafter\Capitalize#1}" write$ newline$
   preamble$ empty$
     'skip$
     { preamble$ write$ newline$ }

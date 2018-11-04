@@ -19,6 +19,7 @@
     "fancyhdr"
     "xstring"
     "xparse"
+    "stringstrings"
     "xspace"
     "titlesec")
    (TeX-add-symbols
@@ -63,6 +64,7 @@
     "headerFontSize"
     "upchars"
     "refList"
+    "extract"
     "andify"
     "altandify"
     "makealttitle"

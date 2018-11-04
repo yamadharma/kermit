@@ -503,7 +503,7 @@ Bulletin of Peoples' Friendship University of Russia]
   \let\pfuproc@titleslist@entry\@empty
 }
 
-\AtEndDocument{%  
+\AtEndDocument{%
   \@startblindtoc{titlelist.tex}
 }
 
@@ -614,7 +614,7 @@ Bulletin of Peoples' Friendship University of Russia]
   \end{otherlanguage*}\\
   \iflanguage{russian}{%
     \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
-      \emph{\authorstoc} \@title{}~//
+      \emph{\authorstocshort} \@title{}~//
       \PFUjournal{}. \CYRS\cyre\cyrr\cyri\cyrya: \PFUjournalseries{}.~---
       \PFUjournalyear.~---\ifx\PFUjournalvolume\@empty\else{} \CYRT.~\PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else, \No~\PFUjournalnumber\fi{}.~---
       \CYRS.~\pageref{starttitle}--\pageref{endtitle}.%
@@ -622,7 +622,7 @@ Bulletin of Peoples' Friendship University of Russia]
     \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi%
   }{%
     \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
-      \emph{\authorstoc} \@title{}~// \PFUjournal{}.~---
+      \emph{\authorstocshort} \@title{}~// \PFUjournal{}.~---
       \PFUjournalyear.~---\ifx\PFUjournalvolume\@empty\else{} Vol.~\PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else, No~\PFUjournalnumber\fi{}.~---
       Pp.~\pageref{starttitle}--\pageref{endtitle}.%
       \ifx\@empty\@doi \else{}~--- DOI: \@doi{}.\fi
@@ -636,7 +636,7 @@ Bulletin of Peoples' Friendship University of Russia]
   \textbf{For citation:}\\
   \iflanguage{english}{%
     \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
-      \authorstoc{} \@title{}, \PFUjournal{}%
+      \authorstocshort{} \@title{}, \PFUjournal{}%
       \ifx\PFUjournalvolume\@empty\else{} \PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
       (\PFUjournalyear)
       \pageref{starttitle}--\pageref{endtitle}.
@@ -644,7 +644,7 @@ Bulletin of Peoples' Friendship University of Russia]
     \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi%
   }{%
     \ifpolyglossia\begin{otherlanguage}{english}\else\begin{otherlanguage*}{english}\fi
-      \altauthorstoc{} \@alttitle{}, \PFUjournal{}%
+      \altauthorstocshort{} \@alttitle{}, \PFUjournal{}%
       \ifx\PFUjournalvolume\@empty\else{} \PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
       (\PFUjournalyear)
       \pageref{starttitle}--\pageref{endtitle}.

@@ -1117,16 +1117,35 @@
 % }
 %%
 
+\RequirePackage{stringstrings}
+
+% \extract macro
+% USE:
+% \def\foo{bar}
+% \extract{\foo}{1}
+% prints: b
+\ExplSyntaxOn
+\cs_generate_variant:Nn \tl_item:nn { f }
+\DeclareExpandableDocumentCommand \extract { m m }
+{
+  \tl_item:fn { #1 } { #2 }
+}
+\ExplSyntaxOff
+
 \long\def\parseauthor#1 #2 #3\nil%
 {%
   \edef\@tempc{#3}
   \ifx\@tempc\@empty
     \edef\authorinitials{#1}
     \edef\authorinitialsplain{#1}
+    \edef\authorinitialsshort{\substring{#1}{1}{1}}
+    \edef\authorinitialsshortplain{\substring{#1}{1}{1}}
     \edef\authorfamily{#2}
   \else
     \def\authorinitials{#1\leavevmode\nobreak\thinspace#2}
     \edef\authorinitialsplain{#1 #2}
+    \edef\authorinitialsshort{\extract{#1}{1}.\leavevmode\nobreak\thinspace\extract{#2}{1}.}
+    \edef\authorinitialsshortplain{\extract{#1}{1}. \extract{#2}{1}.}
     \def\authorfamily{#3}
   \fi
 }
@@ -1184,6 +1203,7 @@
   \protected@edef\@tempd{#4}
   \ifx\@tempd\@empty
     \protected@edef\authorFamIn{\authorfamily\,\authorinitials}
+    \protected@edef\authorFamInShort{\authorfamily\,\authorinitialsshort}
     \protected@edef\authorInFam{\authorinitials\,\authorfamily}
     \protected@xdef\authorFamily{\authorfamily\xspace}
     \protected@xdef\authorInitials{\authorinitials\xspace}
@@ -1195,7 +1215,8 @@
 
   \ifx\authors\@empty
     % \gdef\authorstoc{#3}% 
-    \protected@xdef\authorstoc{\authorFamIn}% 
+    \protected@xdef\authorstoc{\authorFamIn}%
+    \protected@xdef\authorstocshort{\authorFamInShort}%
     % \xdef\authorstoc{\authorfamily~\authorinitials}% 
     % \gdef\authorsrunning{#3}%
     % \xdef\authorsrunning{\mbox{\authorfamily~\authorinitials}}% 
@@ -1312,6 +1333,7 @@
   \edef\@tempd{#4}
   \ifx\@tempd\@empty
     \protected@xdef\altauthorFamIn{\authorfamily~\authorinitials}
+    \protected@xdef\altauthorFamInShort{\authorfamily~\authorinitialsshort}
     \protected@xdef\altauthorInFam{\authorinitials~\authorfamily}
     \protected@xdef\altauthorFamily{\authorfamily\xspace}
     \protected@xdef\altauthorInitials{\authorinitials\xspace}
@@ -1322,7 +1344,8 @@
   \fi  
 
   \ifx\@empty\altauthors
-    \protected@xdef\altauthorstoc{\altauthorFamIn}% 
+    \protected@xdef\altauthorstoc{\altauthorFamIn}%
+    \protected@xdef\altauthorstocshort{\altauthorFamInShort}%
     \protected@xdef\altauthorsrunning{\altauthorFamIn}% 
     \edef\@tempb{#2}
     \ifx\@tempb\@empty
