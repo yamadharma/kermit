@@ -1117,7 +1117,7 @@
 % }
 %%
 
-\RequirePackage{stringstrings}
+% \RequirePackage{stringstrings}
 
 % \extract macro
 % USE:
@@ -1138,8 +1138,8 @@
   \ifx\@tempc\@empty
     \edef\authorinitials{#1}
     \edef\authorinitialsplain{#1}
-    \edef\authorinitialsshort{\substring{#1}{1}{1}}
-    \edef\authorinitialsshortplain{\substring{#1}{1}{1}}
+    \edef\authorinitialsshort{\extract{#1}{1}.}
+    \edef\authorinitialsshortplain{\extract{#1}{1}.}
     \edef\authorfamily{#2}
   \else
     \def\authorinitials{#1\leavevmode\nobreak\thinspace#2}

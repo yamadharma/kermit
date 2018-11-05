@@ -19,7 +19,6 @@
     "fancyhdr"
     "xstring"
     "xparse"
-    "stringstrings"
     "xspace"
     "titlesec")
    (TeX-add-symbols
