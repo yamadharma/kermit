@@ -1252,7 +1252,8 @@
     % \g@addto@macro\authorstoc{\and #3}%
     % \xdef\authorstoc{\authorstoc \and \authorfamily~\authorinitials}% 
     % \g@addto@macro\authorstoc{\and \authorFamIn}%
-    \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}% 
+    \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}%
+    \protected@xdef\authorstocshort{\authorstocshort \and \authorFamInShort}% 
     % \show\n@author@
     \ifnum0\n@author@ > \PFUNumRunningauthor
       \ifnum0#1 = \PFUNumRunningauthor % 3
@@ -1366,6 +1367,7 @@
     \fi
   \else
     \protected@xdef\altauthorstoc{\altauthorstoc \altand \altauthorFamIn}% 
+    \protected@xdef\altauthorstocshort{\altauthorstocshort \altand \altauthorFamInShort}% 
     \ifnum0\n@author@ > 3
       \ifnum0#1 = 2
         %% FIXME removing \etal (20031214)     
