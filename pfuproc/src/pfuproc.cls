@@ -601,7 +601,19 @@ Bulletin of Peoples' Friendship University of Russia]
 
 %}}}
 
-\InputIfFileExists{pfuproc/patch/bibunits.cli}{}{}%
+\AtEndPreamble{%
+  \ltx@ifpackageloaded{biblatex}{%
+    \makeatletter
+    \InputIfFileExists{pfuproc/patch/bibunits-biblatex.cli}{}{}%
+    \makeatother
+  }{%
+    \makeatletter
+    \InputIfFileExists{pfuproc/patch/bibunits.cli}{}{}%
+    \makeatother
+  }
+}
+
+
 
 %{{{ Рекомендуемый формат цитирования
 

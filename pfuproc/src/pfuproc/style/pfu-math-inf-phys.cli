@@ -90,13 +90,25 @@
     % \renewcommand{\headrulewidth}{0pt}
     % \renewcommand{\footrulewidth}{0pt}
   }
+
 } % END \AtEndOfPackage
 
 
 \PassOptionsToClass{10dd,onecolumn}{kgeneric}
 
+\AtEndPreamble{%
+  \ltx@ifpackageloaded{biblatex}{}{%
+    \usepackage{gost7184}
+    \usepackage{cite}
+  }
+}
 
-
+\AtBeginDocument{%
+  \ltx@ifpackageloaded{biblatex}{}{%
+    \mainbibstyle{gost7184u}
+    \altbibstyle{elsarticle-num}
+  }
+}
 
 %\renewcommand{\PFUheader}%
 %{%

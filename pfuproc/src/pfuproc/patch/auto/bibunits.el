@@ -13,5 +13,6 @@
     "PFUcuraltlanguage"
     "refname")
    (LaTeX-add-labels
-    "endtitle")))
+    "endtitle"))
+ :latex)
 

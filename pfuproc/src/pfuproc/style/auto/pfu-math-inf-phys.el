@@ -3,6 +3,8 @@
  (lambda ()
    (TeX-run-style-hooks
     "pfuproc/style/pfu-bulletin"
-    "truncate"))
+    "truncate"
+    "gost7184"
+    "cite"))
  :latex)
 

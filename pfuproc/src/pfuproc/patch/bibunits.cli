@@ -1,4 +1,5 @@
-% \RequirePackage{bibunits}
+\RequirePackage{bibunits}
+\bibliographyunit[\title]
 
 \DeclareRobustCommand{\mainbibstyle}[1]{%
     \def\PFUmainbibstyle{#1}%
@@ -50,13 +51,17 @@
 \def\@putaltbib@hook@post{\global\let\@putaltbib@hook@post\@empty}
 
 \def\@title@hook@pre{%
-
-  \iflanguage{\@defaultlanguage}%
-  {%
-    \bibliographystyle*{\PFUmainbibstyle}%
-  }%
-  {%
-    \bibliographystyle*{\PFUaltbibstyle}%
+  \ltx@ifpackageloaded{biblatex}{}{%
+    \iflanguage{\@defaultlanguage}%
+    {%
+      \bibliographystyle*{\PFUmainbibstyle}%
+    }{%
+      \bibliographystyle*{\PFUaltbibstyle}%
+    }
   }
-
 }
+
+%%% Local Variables:
+%%% mode: latex
+%%% coding: utf-8-unix
+%%% End: 
