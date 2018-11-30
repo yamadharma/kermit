@@ -9,8 +9,8 @@
 \def\class@name{kproc}
 
 \RequirePackage{etoolbox}
-\RequirePackage{etextools}
-\reserveinserts{128}
+%\RequirePackage{etextools}
+%\reserveinserts{128}
 
 %%%
 %\def\@namedef#1{\expandafter\def\csname test:#1\endcsname}
@@ -70,7 +70,7 @@
 \newcount\prev@elem \prev@elem=0        % Variables to keep track of
 \newcount\cur@elem  \cur@elem=0         % types of elements that are processed
 \newcount\note@cnt                      % Number of notes per element
-\newcounter{author}[PFUtitle]           % Author counter
+\newcounter{PFUauthor}[PFUtitle]           % Author counter
 \newcounter{altauthor}[PFUtitle]           % Author counter
 \newcount\n@author                      % Total number of authors
 \def\n@author@{1}                       % idem, read from .aux file
@@ -1028,23 +1028,23 @@
 \ExplSyntaxOff
 
 \def\author{\@ifnextchar[{\author@optarg}{\author@optarg[]}}
-\def\author@optarg[#1]#2{\stepcounter{author}%
+\def\author@optarg[#1]#2{\stepcounter{PFUauthor}%
   \beg@elem
   \@for\@tempa:=#1\do{\expandafter\add@thanksref\expandafter{\@tempa}}%
   \report@elt{author}\proc@elem{author}{#2}%
 %  \ifnum0\n@collab@=\z@ \runningauthor@fmt \fi
   \def\cauthor{\value{author}}
-  \ifnum\c@author=\@ne \edef\@rauthor{#2} \fi
-%  \author@fmt{\the\c@author}{\the\t@loc@notes}{\@author}%
-%    \author@fmt{\the\c@author}{\the\t@loc@notes}{#2}%
+  \ifnum\c@PFUauthor=\@ne \edef\@rauthor{#2} \fi
+%  \author@fmt{\the\c@PFUauthor}{\the\t@loc@notes}{\@author}%
+%    \author@fmt{\the\c@PFUauthor}{\the\t@loc@notes}{#2}%
 % %  \edef\temp@notes\t@loc@notes
 %   \toks@\@xp{\t@loc@notes}
 % %  \edef\ftoks{\the\toks@}
 % %    \let\@tempc\string{\the\t@loc@notes}
 %     \@temptokena\@xp{\t@loc@notes}
 %     \edef\@tempc{\the\@temptokena}
-     \author@fmt{\the\c@author}{\refList{#1}}{#2}{}%
-%     \author@fmt{\the\c@author}{#1}{#2}{}%
+     \author@fmt{\the\c@PFUauthor}{\refList{#1}}{#2}{}%
+%     \author@fmt{\the\c@PFUauthor}{#1}{#2}{}%
      \@author@hook@post
 }
 
@@ -1060,8 +1060,8 @@
     % \ifnum0\n@collab@=\z@ \runningauthor@fmt \fi
     \def\caltauthor{\value{altauthor}}
     \ifnum\c@altauthor=\@ne \edef\@raltauthor{#2} \fi
-%  \author@fmt{\the\c@author}{\the\t@loc@notes}{\@author}%
-%  \author@fmt{\the\c@author}{\the\t@loc@notes}{#2}%
+%  \author@fmt{\the\c@PFUauthor}{\the\t@loc@notes}{\@author}%
+%  \author@fmt{\the\c@PFUauthor}{\the\t@loc@notes}{#2}%
 % %  \edef\temp@notes\t@loc@notes
 %  \toks@\@xp{\t@loc@notes}
 % %  \edef\ftoks{\the\toks@}
@@ -1078,13 +1078,13 @@
 
 \def\fauthor{\@ifnextchar[{\fauthor@optarg}{\fauthor@optarg[]}}
 \def\fauthor@optarg[#1]#2{%
-  \stepcounter{author}%
+  \stepcounter{PFUauthor}%
   \beg@elem
   \@for\@tempa:=#1\do{\expandafter\add@thanksref\expandafter{\@tempa}}%
   \report@elt{author}\proc@elem{author}{#2}%
   \def\cauthor{\value{author}}
-  \ifnum\c@author=\@ne \edef\@rauthor{#2} \fi
-  \author@fmt{\the\c@author}{#1}{#2}{fbox}%
+  \ifnum\c@PFUauthor=\@ne \edef\@rauthor{#2} \fi
+  \author@fmt{\the\c@PFUauthor}{#1}{#2}{fbox}%
 }  
 
 \def\altfauthor{\@ifnextchar[{\altfauthor@optarg}{\altfauthor@optarg[]}}
@@ -1164,7 +1164,7 @@
       \else
         \global\let\@runningauthor\@author%
       \fi
-    \else % \c@author > 1
+    \else % \c@PFUauthor > 1
       \ifnum0\n@author@ = \PFUNumRunningauthor
         \global\edef\@runningauthor{\@runningauthor\ \& \noexpand\@author}%
       \fi
@@ -1843,7 +1843,7 @@
   %   \flushbottom
   %   \let\@corresp@note\relax
   \global\t@glob@notes={}
-  % \global\c@author\z@
+  % \global\c@PFUauthor\z@
   % \global\c@collab\z@ \global\c@address\z@
   % % \sv@mathsurround\mathsurround \m@th
   % \global\n@author=0\n@author@\relax
@@ -1887,7 +1887,7 @@
   % \toks@\@xp{\authors}
   % \edef\atoks{\the\toks@}
   % \renewcommand{\leftmark}{\atoks}
-  \ifnum\c@author>\@ne 
+  \ifnum\c@PFUauthor>\@ne 
   \edef\rauthor{\@rauthor{} \etal} 
   \else \edef\rauthor{\@rauthor} 
   \fi
@@ -1908,7 +1908,7 @@
   % \ifx\@runauthor\relax
   % \global\let\@runauthor\@runningauthor
   % \fi
-  \global\n@author=\c@author
+  \global\n@author=\c@PFUauthor
   % \global\n@collab=\c@collab 
   \@writecount
   % \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
@@ -2001,7 +2001,7 @@
   % \flushbottom
   % \let\@corresp@note\relax
   \global\t@glob@notes={}
-  % \global\c@author\z@
+  % \global\c@PFUauthor\z@
   % \global\c@collab\z@ \global\c@address\z@
   % % \sv@mathsurround\mathsurround \m@th
   % \global\n@author=0\n@author@\relax
@@ -2043,7 +2043,7 @@
   % \toks@\@xp{\authors}
   % \edef\atoks{\the\toks@}
   % \renewcommand{\leftmark}{\atoks}
-  \ifnum\c@author>\@ne 
+  \ifnum\c@PFUauthor>\@ne 
   \edef\rauthor{\@rauthor{} \etal} 
   \else \edef\rauthor{\@rauthor} 
   \fi
@@ -2064,7 +2064,7 @@
   % \ifx\@runauthor\relax
   % \global\let\@runauthor\@runningauthor
   % \fi
-  \global\n@author=\c@author
+  \global\n@author=\c@PFUauthor
   % \global\n@collab=\c@collab 
   \@writecount
   % \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
@@ -2303,7 +2303,7 @@
 %
   \altandify\altauthors
   \andify\authorsrunning
-  \ifnum\c@author>\@ne 
+  \ifnum\c@PFUauthor>\@ne 
     \edef\rauthor{\@rauthor{} \etal} 
   \else \edef\rauthor{\@rauthor} 
   \fi
@@ -2321,7 +2321,7 @@
 %   \ifx\@runauthor\relax
 %    \global\let\@runauthor\@runningauthor
 %   \fi
-   \global\n@author=\c@author
+   \global\n@author=\c@PFUauthor
 %   \global\n@collab=\c@collab 
   \@writecount
 %  \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
