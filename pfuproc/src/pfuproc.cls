@@ -12,7 +12,7 @@ Bulletin of Peoples' Friendship University of Russia]
 
 \define@key{PFUproc}{series}{%
   \def\series{#1}%
-  \InputIfFileExists{pfuproc/style/#1.cli}{}{}%
+  % \InputIfFileExists{pfuproc/style/#1.cli}{}{}%
 }
 
 \LoadClassWithOptions{kproc}
@@ -516,6 +516,19 @@ Bulletin of Peoples' Friendship University of Russia]
 }
 \let\PFUtitlelogo\@empty
 
+\DeclareRobustCommand{\titlelogoTop}[1]{%
+  \gdef\PFUtitlelogoTop{#1}
+}
+\titlelogoTop{{\selectlanguage{english}\textbf{\PFUjournalHeader{}}}}
+
+\DeclareRobustCommand{\titlelogoBottom}[1]{%
+  \gdef\PFUtitlelogoBottom{#1}
+}
+\titlelogoBottom{%
+  \selectlanguage{russian}
+  \textbf{\PFUjournalHeader. \PFUjornalseriesName{}~\PFUjournalseriesHeader{}}
+}
+
 \newlength{\lheadwidth}
 \newlength{\rheadwidth}
 \newlength{\cheadwidth}
@@ -546,14 +559,10 @@ Bulletin of Peoples' Friendship University of Russia]
     \begin{minipage}[c]{\cheadwidth}
       \begin{center}
         \headerFontSize
-        {\selectlanguage{english}
-          \textbf{\PFUjournalHeader{}}
-        }\\[-6pt]
+        \PFUtitlelogoTop\\[-6pt]
         \nointerlineskip
         \noindent\rule{\linewidth}{2pt}\\[2pt]
-        {\selectlanguage{russian}
-          \textbf{\PFUjournalHeader. \PFUjornalseriesName{}~\PFUjournalseriesHeader{}}
-        }
+        \PFUtitlelogoBottom
       \end{center}
     \end{minipage}
     }
@@ -712,6 +721,8 @@ Bulletin of Peoples' Friendship University of Russia]
     \makeatother
   }
 }
+
+\InputIfFileExists{pfuproc/style/\series.cli}{}{}%
 
 %%% Local Variables:
 %%% coding: utf-8-unix
