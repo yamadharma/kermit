@@ -35,7 +35,7 @@
 %%%--
 \newif\if@Elproofing
 \@Elproofingfalse
-% 
+%
 
 \providecommand{\authorFontShape}{\bfseries}
 \providecommand{\authorFontSize}{\normalsize}
@@ -70,7 +70,7 @@
 \newcount\prev@elem \prev@elem=0        % Variables to keep track of
 \newcount\cur@elem  \cur@elem=0         % types of elements that are processed
 \newcount\note@cnt                      % Number of notes per element
-\newcounter{PFUauthor}[PFUtitle]           % Author counter
+\newcounter{author}[PFUtitle]           % Author counter
 \newcounter{altauthor}[PFUtitle]           % Author counter
 \newcount\n@author                      % Total number of authors
 \def\n@author@{1}                       % idem, read from .aux file
@@ -781,7 +781,6 @@
 % Two languages by default
 \setboolean{singlelanguage}{false}
 
-
 \RequirePackage{xstring}
 \AtBeginDocument{%
   \ifx\@defaultlanguage\@empty
@@ -1033,23 +1032,23 @@
 \ExplSyntaxOff
 
 \def\author{\@ifnextchar[{\author@optarg}{\author@optarg[]}}
-\def\author@optarg[#1]#2{\stepcounter{PFUauthor}%
+\def\author@optarg[#1]#2{\stepcounter{author}%
   \beg@elem
   \@for\@tempa:=#1\do{\expandafter\add@thanksref\expandafter{\@tempa}}%
   \report@elt{author}\proc@elem{author}{#2}%
 %  \ifnum0\n@collab@=\z@ \runningauthor@fmt \fi
   \def\cauthor{\value{author}}
-  \ifnum\c@PFUauthor=\@ne \edef\@rauthor{#2} \fi
-%  \author@fmt{\the\c@PFUauthor}{\the\t@loc@notes}{\@author}%
-%    \author@fmt{\the\c@PFUauthor}{\the\t@loc@notes}{#2}%
+  \ifnum\c@author=\@ne \edef\@rauthor{#2} \fi
+%  \author@fmt{\the\c@author}{\the\t@loc@notes}{\@author}%
+%    \author@fmt{\the\c@author}{\the\t@loc@notes}{#2}%
 % %  \edef\temp@notes\t@loc@notes
 %   \toks@\@xp{\t@loc@notes}
 % %  \edef\ftoks{\the\toks@}
 % %    \let\@tempc\string{\the\t@loc@notes}
 %     \@temptokena\@xp{\t@loc@notes}
 %     \edef\@tempc{\the\@temptokena}
-     \author@fmt{\the\c@PFUauthor}{\refList{#1}}{#2}{}%
-%     \author@fmt{\the\c@PFUauthor}{#1}{#2}{}%
+     \author@fmt{\the\c@author}{\refList{#1}}{#2}{}%
+%     \author@fmt{\the\c@author}{#1}{#2}{}%
      \@author@hook@post
 }
 
@@ -1065,8 +1064,8 @@
     % \ifnum0\n@collab@=\z@ \runningauthor@fmt \fi
     \def\caltauthor{\value{altauthor}}
     \ifnum\c@altauthor=\@ne \edef\@raltauthor{#2} \fi
-%  \author@fmt{\the\c@PFUauthor}{\the\t@loc@notes}{\@author}%
-%  \author@fmt{\the\c@PFUauthor}{\the\t@loc@notes}{#2}%
+%  \author@fmt{\the\c@author}{\the\t@loc@notes}{\@author}%
+%  \author@fmt{\the\c@author}{\the\t@loc@notes}{#2}%
 % %  \edef\temp@notes\t@loc@notes
 %  \toks@\@xp{\t@loc@notes}
 % %  \edef\ftoks{\the\toks@}
@@ -1083,13 +1082,13 @@
 
 \def\fauthor{\@ifnextchar[{\fauthor@optarg}{\fauthor@optarg[]}}
 \def\fauthor@optarg[#1]#2{%
-  \stepcounter{PFUauthor}%
+  \stepcounter{author}%
   \beg@elem
   \@for\@tempa:=#1\do{\expandafter\add@thanksref\expandafter{\@tempa}}%
   \report@elt{author}\proc@elem{author}{#2}%
   \def\cauthor{\value{author}}
-  \ifnum\c@PFUauthor=\@ne \edef\@rauthor{#2} \fi
-  \author@fmt{\the\c@PFUauthor}{#1}{#2}{fbox}%
+  \ifnum\c@author=\@ne \edef\@rauthor{#2} \fi
+  \author@fmt{\the\c@author}{#1}{#2}{fbox}%
 }  
 
 \def\altfauthor{\@ifnextchar[{\altfauthor@optarg}{\altfauthor@optarg[]}}
@@ -1169,7 +1168,7 @@
       \else
         \global\let\@runningauthor\@author%
       \fi
-    \else % \c@PFUauthor > 1
+    \else % \c@author > 1
       \ifnum0\n@author@ = \PFUNumRunningauthor
         \global\edef\@runningauthor{\@runningauthor\ \& \noexpand\@author}%
       \fi
@@ -1848,7 +1847,7 @@
   %   \flushbottom
   %   \let\@corresp@note\relax
   \global\t@glob@notes={}
-  % \global\c@PFUauthor\z@
+  % \global\c@author\z@
   % \global\c@collab\z@ \global\c@address\z@
   % % \sv@mathsurround\mathsurround \m@th
   % \global\n@author=0\n@author@\relax
@@ -1863,7 +1862,6 @@
   % \@topnum\z@ % this prevents figures from falling at the top of page 1
   %% \refstepcounter{title}
   \label{starttitle}
-  \message{!!!PFUtitle=\thePFUtitle}
   \@setcopyright
   % \uppercasenonmath\shorttitle
   % \ifx\@empty\shortauthors \let\shortauthors\shorttitle
@@ -1893,7 +1891,7 @@
   % \toks@\@xp{\authors}
   % \edef\atoks{\the\toks@}
   % \renewcommand{\leftmark}{\atoks}
-  \ifnum\c@PFUauthor>\@ne 
+  \ifnum\c@author>\@ne 
   \edef\rauthor{\@rauthor{} \etal} 
   \else \edef\rauthor{\@rauthor} 
   \fi
@@ -1914,7 +1912,7 @@
   % \ifx\@runauthor\relax
   % \global\let\@runauthor\@runningauthor
   % \fi
-  \global\n@author=\c@PFUauthor
+  \global\n@author=\c@author
   % \global\n@collab=\c@collab 
   \@writecount
   % \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
@@ -2007,7 +2005,7 @@
   % \flushbottom
   % \let\@corresp@note\relax
   \global\t@glob@notes={}
-  % \global\c@PFUauthor\z@
+  % \global\c@author\z@
   % \global\c@collab\z@ \global\c@address\z@
   % % \sv@mathsurround\mathsurround \m@th
   % \global\n@author=0\n@author@\relax
@@ -2049,7 +2047,7 @@
   % \toks@\@xp{\authors}
   % \edef\atoks{\the\toks@}
   % \renewcommand{\leftmark}{\atoks}
-  \ifnum\c@PFUauthor>\@ne 
+  \ifnum\c@author>\@ne 
   \edef\rauthor{\@rauthor{} \etal} 
   \else \edef\rauthor{\@rauthor} 
   \fi
@@ -2070,7 +2068,7 @@
   % \ifx\@runauthor\relax
   % \global\let\@runauthor\@runningauthor
   % \fi
-  \global\n@author=\c@PFUauthor
+  \global\n@author=\c@author
   % \global\n@collab=\c@collab 
   \@writecount
   % \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
@@ -2309,7 +2307,7 @@
 %
   \altandify\altauthors
   \andify\authorsrunning
-  \ifnum\c@PFUauthor>\@ne 
+  \ifnum\c@author>\@ne 
     \edef\rauthor{\@rauthor{} \etal} 
   \else \edef\rauthor{\@rauthor} 
   \fi
@@ -2327,7 +2325,7 @@
 %   \ifx\@runauthor\relax
 %    \global\let\@runauthor\@runningauthor
 %   \fi
-   \global\n@author=\c@PFUauthor
+   \global\n@author=\c@author
 %   \global\n@collab=\c@collab 
   \@writecount
 %  \toks@\@xp{\shortauthors}\@temptokena\@xp{\shorttitle}%
@@ -2503,15 +2501,13 @@
 \let\@altabstracts\@empty
 %%% 
 \if@filesw
-  \immediate\closeout\PFU@aux\relax
+\immediate\closeout\PFU@aux\relax
 \fi
 % \end{otherlanguage}
 } % END \makealttitle
 
 \providecommand{\makealttitleTOCOnly}%
 {
-  \@makealttitle@hook@pre
-  \@makealttitle@hook
   \uppercasenonmath\shortalttitle
   \ifx\@empty\shortaltauthors \let\shortaltauthors\shortalttitle
   \else \andify\shortaltauthors \uppercasenonmath\shortaltauthors \fi
@@ -2521,6 +2517,7 @@
 %%%
   \relax
   \flushbottom
+  \@makealttitle@hook
   \begingroup
   \relax%
   \if@multicolumn%
@@ -2534,15 +2531,14 @@
   %\clearpage
   \let\shortaltauthors\@empty   
   \let\altauthors\@empty
-  % \let\altauthorstoc\@empty
+  \let\altauthorstoc\@empty
   \let\altaddresses\@empty      
-  % \let\@alttitle\@empty
-  % \let\thankses\@empty
-  % \let\addresses\@empty%
+  \let\@alttitle\@empty
+  \let\thankses\@empty
+  \let\addresses\@empty%
   \let\@udcnum\@empty
   \let\@pacsnum\@empty  
   \let\alt@keywords\@empty
-  \let\@altabstracts\@empty
   \if@filesw
     \immediate\closeout\PFU@aux\relax
   \fi

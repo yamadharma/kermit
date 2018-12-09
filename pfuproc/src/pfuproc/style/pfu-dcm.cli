@@ -12,23 +12,31 @@
 \issnOnline{2312-9743}
 \journalURL{http://journals.rudn.ru/miph}
 % Оформление логотипа
-% \titlelogoTop{{\selectlanguage{english}\textbf{Discrete and Continuous Models}}}
-\titlelogoTop{{\selectlanguage{english}\textbf{Discrete \textit{\&} Continuous Models}}}
-\titlelogoBottom{{\selectlanguage{english}\textbf{\textit{\&} Applied Computational Science}}}
+\AtBeginDocument{%
+  \titlelogoTop{{\selectlanguage{english}\textbf{Discrete \textit{\&} Continuous Models}}}
+  \titlelogoBottom{{\selectlanguage{english}\textbf{\textit{\&} Applied Computational Science}}}
+}
 
+\AtEndOfPackage{%
+  % Only one language
+  \setboolean{singlelanguage}{true}
+  % English as default language
+  \defaultlanguage{english}
+  \defaultaltlanguage{russian}
+}
 
 \AtEndOfPackage{%
   \RequirePackage{truncate}
   % \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}
   % \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
   
-  \pagestyle{fancy} 
+  \pagestyle{fancy}
   \fancyhead{}%
   % \fancyhead[LE,RO]{\headerFontSize\thepage}%
   \fancyhead[LE,RO]{%
-      \begin{otherlanguage*}{\PFUlanguage}
-        \headerFontSize\thepage
-      \end{otherlanguage*}
+    % \begin{otherlanguage*}{\PFUlanguage}
+    \headerFontSize\thepage
+    % \end{otherlanguage*}
 %    \iflanguage{\@defaultlanguage}%
 %    {%
 %       \headerFontSize\thepage
@@ -40,10 +48,10 @@
 %    }
   }        
 %  \fancyhead[CO]{\truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}}%
-  \fancyhead[CO]{%
-      \begin{otherlanguage*}{\PFUlanguage}
-        \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}
-      \end{otherlanguage*}
+  \fancyhead[LO]{%
+    % \begin{otherlanguage*}{\PFUlanguage}
+    \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}
+    % \end{otherlanguage*}
 %    \iflanguage{\@defaultlanguage}%
 %    {%
 %        \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}
@@ -95,7 +103,7 @@
 } % END \AtEndOfPackage
 
 
-\PassOptionsToClass{10dd,onecolumn}{kgeneric}
+% \PassOptionsToClass{10dd,onecolumn}{kgeneric}
 
 \AtEndPreamble{%
   \ltx@ifpackageloaded{biblatex}{}{%
@@ -106,8 +114,8 @@
 
 \AtBeginDocument{%
   \ltx@ifpackageloaded{biblatex}{}{%
-    \mainbibstyle{gost7184u}
-    \altbibstyle{elsarticle-num}
+    \mainbibstyle{elsarticle-num}
+    \altbibstyle{gost7184u}
   }
 }
 

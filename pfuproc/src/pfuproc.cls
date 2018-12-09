@@ -12,7 +12,7 @@ Bulletin of Peoples' Friendship University of Russia]
 
 \define@key{PFUproc}{series}{%
   \def\series{#1}%
-  % \InputIfFileExists{pfuproc/style/#1.cli}{}{}%
+  \InputIfFileExists{pfuproc/style/#1.cli}{}{}%
 }
 
 \LoadClassWithOptions{kproc}
@@ -700,18 +700,33 @@ Bulletin of Peoples' Friendship University of Russia]
 \par
 }
 
+\AtEndPreamble{%
 \@ifpackageloaded{tex4ht}{}{%
-  \def\@putaltbib@hook@post{%
-    \papercopyright
-    \medskip
-    \howtoCiteRu
-    \medskip
-    \howtoCiteEn
-    \medskip
-    \listofauthorsPerTitleRu
-    \medskip
-    \listofauthorsPerTitleEn
-  }
+  \ifthenelse{\boolean{singlelanguage}}{% then
+    \def\@putbib@hook@post{%
+      \papercopyright
+      \medskip
+      \howtoCiteEn
+      \medskip
+      \listofauthorsPerTitleEn
+      \makealttitleTOCOnly
+      % \label{endtitle}
+      \clearpage
+    }
+  }{% else
+    \def\@putaltbib@hook@post{%
+      \papercopyright
+      \medskip
+      \howtoCiteRu
+      \medskip
+      \howtoCiteEn
+      \medskip
+      \listofauthorsPerTitleRu
+      \medskip
+      \listofauthorsPerTitleEn
+    }
+  } % endif
+}
 }
 
 \AtEndPreamble{
@@ -722,7 +737,7 @@ Bulletin of Peoples' Friendship University of Russia]
   }
 }
 
-\InputIfFileExists{pfuproc/style/\series.cli}{}{}%
+% \InputIfFileExists{pfuproc/style/\series.cli}{}{}%
 
 %%% Local Variables:
 %%% coding: utf-8-unix

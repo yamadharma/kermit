@@ -21,9 +21,16 @@
 }
 \let\PFUcuraltlanguage\@empty
 
-\DeclareRobustCommand{\putaltbib}[1][]{%
-\begingroup
+% Hack for bibunits
+\DeclareRobustCommand{\putbib}[1][]{%
+  \@putbib[#1]
+  \@putbib@hook@post
+}
+\def\@putbib@hook@post{\global\let\@putbib@hook@post\@empty}
 
+\DeclareRobustCommand{\putaltbib}[1][]{%
+  \begingroup
+  
   \iflanguage{\@defaultlanguage}%
   {%
     \curbibstyle{\PFUaltbibstyle}
@@ -35,14 +42,15 @@
     \def\refname{{\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
     \curaltlanguage{\@defaultlanguage}
   }
-
-
+  
   \begin{bibunit}[\PFUcurbibstyle]
     % \begin{otherlanguage*}{\PFUcuraltlanguage}
-    \putbib[#1]
+    \@putbib[#1]
     % \end{otherlanguage*}
   \end{bibunit}
+  
   \endgroup
+
   \@putaltbib@hook@post
   \label{endtitle}
   \clearpage
