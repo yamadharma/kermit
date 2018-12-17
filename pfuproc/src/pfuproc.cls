@@ -190,10 +190,10 @@ Bulletin of Peoples' Friendship University of Russia]
   \let\pfuproc@authorpost\@empty
   \let\pfuproc@authorpost@english\@empty
   \let\pfuproc@mail\@empty
+  \let\pfuproc@orcid\@empty
   \let\pfuproc@phone\@empty
   \let\pfuproc@country\@empty
   \let\pfuproc@country@english\@empty
-  \let\pfuproc@orcid\@empty
   \def\pfuproc@bra{(}
   \def\pfuproc@ket{)}
   \def\pfuproc@komma{, }
@@ -238,7 +238,7 @@ Bulletin of Peoples' Friendship University of Russia]
     \fi
     \ifx\pfuproc@orcid\@empty
     \else
-    \pfuproc@komma\protect\mbox{ORCID:~\pfuproc@orcid{}}%
+    \pfuproc@komma\protect\mbox{ORCID:~https://orcid.org/\pfuproc@orcid{}}%
     \fi
     \pfuproc@ket%
   }
@@ -274,7 +274,7 @@ Bulletin of Peoples' Friendship University of Russia]
     \fi
     \ifx\pfuproc@orcid\@empty
     \else
-    \pfuproc@komma\protect\mbox{ORCID:~\pfuproc@orcid{}}%
+    \pfuproc@komma\protect\mbox{ORCID:~https://orcid.org/\pfuproc@orcid{}}%
     \fi
     \pfuproc@ket%
   }
