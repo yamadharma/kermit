@@ -1,4 +1,4 @@
-%%
+%
 \NeedsTeXFormat{LaTeX2e}[1994/12/01]
 \ProvidesClass{kproc}%
         [2007/12/05 v0.0.7.3]
@@ -781,6 +781,10 @@
 % Two languages by default
 \setboolean{singlelanguage}{false}
 
+% First name before Last name (English)
+\provideboolean{isNameFam}
+% Last name first by default
+\setboolean{isNameFam}{false}
 
 \RequirePackage{xstring}
 \AtBeginDocument{%
@@ -1209,6 +1213,7 @@
   \ifx\@tempd\@empty
     \protected@edef\authorFamIn{\authorfamily\,\authorinitials}
     \protected@edef\authorFamInShort{\authorfamily\,\authorinitialsshort}
+    \protected@edef\authorInFamShort{\authorinitialsshort\,\authorfamily}
     \protected@edef\authorInFam{\authorinitials\,\authorfamily}
     \protected@xdef\authorFamily{\authorfamily\xspace}
     \protected@xdef\authorInitials{\authorinitials\xspace}
@@ -1216,19 +1221,26 @@
   \else
     \protected@edef\authorFamIn{\protect\csname\@tempd \endcsname{\authorfamily\,\authorinitials}}
     \protected@edef\authorInFam{\protect\csname\@tempd \endcsname{\authorinitials\,\authorfamily}}
+    \protected@edef\authorFamInShort{\protect\csname\@tempd \endcsname{\authorfamily\,\authorinitialsshort}}
+    \protected@edef\authorInFamShort{\protect\csname\@tempd \endcsname{\authorinitialsshort\,\authorfamily}}
   \fi
 
   \ifx\authors\@empty
-    % \gdef\authorstoc{#3}% 
-    \protected@xdef\authorstoc{\authorFamIn}%
-    \protected@xdef\authorstocshort{\authorFamInShort}%
-    % \xdef\authorstoc{\authorfamily~\authorinitials}% 
-    % \gdef\authorsrunning{#3}%
-    % \xdef\authorsrunning{\mbox{\authorfamily~\authorinitials}}% 
-    \protected@xdef\authorsrunning{\authorFamIn}% 
-    % \gdef\authorstoc{\authorfamily\ \authorinitials}% 
-    % \gdef\authorstoc{\atoks\ \authorinitials}% 
-    
+    \ifbool{isNameFam}{% firstname lastname
+      \protected@xdef\authorstoc{\authorInFam}%
+      \protected@xdef\authorstocshort{\authorInFamShort}%
+      \protected@xdef\authorsrunning{\authorInFamShort}% 
+    }{% lastname firstname
+      % \gdef\authorstoc{#3}% 
+      \protected@xdef\authorstoc{\authorFamIn}%
+      \protected@xdef\authorstocshort{\authorFamInShort}%
+      % \xdef\authorstoc{\authorfamily~\authorinitials}% 
+      % \gdef\authorsrunning{#3}%
+      % \xdef\authorsrunning{\mbox{\authorfamily~\authorinitials}}% 
+      \protected@xdef\authorsrunning{\authorFamInShort}% 
+      % \gdef\authorstoc{\authorfamily\ \authorinitials}% 
+      % \gdef\authorstoc{\atoks\ \authorinitials}% 
+    }
     \protected@edef\@tempb{#2}
     \ifx\@tempb\@empty
       % \xdef\authors{\authorinitials~\authorfamily}% 
@@ -1257,8 +1269,13 @@
     % \g@addto@macro\authorstoc{\and #3}%
     % \xdef\authorstoc{\authorstoc \and \authorfamily~\authorinitials}% 
     % \g@addto@macro\authorstoc{\and \authorFamIn}%
-    \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}%
-    \protected@xdef\authorstocshort{\authorstocshort \and \authorFamInShort}% 
+    \ifbool{isNameFam}{% firstname lastname
+      \protected@xdef\authorstoc{\authorstoc \and \authorInFam}%
+      \protected@xdef\authorstocshort{\authorstocshort \and \authorInFamShort}% 
+    }{% lastname firstname
+      \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}%
+      \protected@xdef\authorstocshort{\authorstocshort \and \authorFamInShort}% 
+    }
     % \show\n@author@
     \ifnum0\n@author@ > \PFUNumRunningauthor
       \ifnum0#1 = \PFUNumRunningauthor % 3
@@ -1270,7 +1287,11 @@
       % \g@addto@macro\authorsrunning{\and  \authorfamily~\authorinitials}%
       % \xdef\authorsrunning{\authorsrunning \and
       % \authorfamily~\authorinitials}
-      \protected@xdef\authorsrunning{\authorsrunning \and \authorFamIn}
+      \ifbool{isNameFam}{% firstname lastname
+        \protected@xdef\authorsrunning{\authorsrunning \and \authorInFamShort}
+      }{% lastname firstname        
+        \protected@xdef\authorsrunning{\authorsrunning \and \authorFamInShort}
+      }
     \fi
     % \g@addto@macro\authorstoc{\and \authorfamily\ \authorinitials}% 
     \protected@edef\@tempb{#2}

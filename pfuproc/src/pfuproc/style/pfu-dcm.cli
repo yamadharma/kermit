@@ -2,7 +2,8 @@
 
 % Discrete and Continuous Models and Applied Computational Science
 \altjournal{Discrete and Continuous Models and Applied Computational Science}
-\altjournalHeader{Discrete and Continuous Models and Applied Computational Science}
+\altjournalHeader{DCM\textit{\&}ACS}
+\journalHeader{DCM\textit{\&}ACS}
 \journalseries{}
 \altjournalseries{}
 \journalseriesHeader{}
@@ -23,6 +24,8 @@
   % English as default language
   \defaultlanguage{english}
   \defaultaltlanguage{russian}
+  % First name before Last name
+  \setboolean{isNameFam}{true}
 }
 
 \AtEndOfPackage{%
