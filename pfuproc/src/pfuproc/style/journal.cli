@@ -11,7 +11,7 @@
   \addto\extrasrussian%
   {
     \def\PFUjournal{#1}
-  }  
+  }
 }
 }
 \DeclareRobustCommand{\altjournal}[1]%
@@ -26,25 +26,33 @@
 }
 \let\PFUjournal\@empty
 
-\DeclareRobustCommand{\journalHeader}[1]%
-{%
-\AtBeginDocument%
-{%
-  \addto\extrasrussian%
-  {
-    \def\PFUjournalHeader{#1}
-  }  
-}
-}
-\DeclareRobustCommand{\altjournalHeader}[1]%
-{%
-\AtBeginDocument%
-{%
-  \addto\extrasenglish%
-  {
-    \def\PFUjournalHeader{#1}
+\DeclareRobustCommand{\journalHeader}[1]{%
+  \AtBeginDocument{%
+    \@ifpackageloaded{polyglossia}{%
+      \addto\captionsrussian{%
+        \def\PFUjournalHeader{#1}
+      }
+    }{%
+      \addto\extrasrussian{
+        \def\PFUjournalHeader{#1}
+      }  
+    }
   }
 }
+
+\DeclareRobustCommand{\altjournalHeader}[1]{%
+  \AtBeginDocument%
+  {%
+    \@ifpackageloaded{polyglossia}{%
+      \addto\captionsenglish{%
+        \def\PFUjournalHeader{#1}
+      }
+    }{%
+      \addto\extrasenglish{
+        \def\PFUjournalHeader{#1}
+      }
+    }
+  }
 }
 \let\PFUjournalHeader\@empty
 
@@ -170,26 +178,43 @@
 }
 \let\PFUjournalfirstpage\@empty
 
-\AtBeginDocument%
-{%
-  \addto\extrasrussian%
-  {
-    \def\PFUjornalissueName{{\cyr\CYRV\cyrery\cyrp\cyru\cyrs\cyrk}} % Выпуск
-    \def\PFUjornalissueShortName{{\cyr\CYRV\cyrery\cyrp}.} % Вып.
-    \def\PFUjornalseriesName{{\cyr\CYRS\cyre\cyrr\cyri\cyrya}} % Серия
-    \def\PFUjornalPagesShortName{{\cyr\CYRS}.} % Страница
-    \def\PFUjornalnumberName{\No{}} % Номер
-    \def\PFUjournalvolumeName{{\cyr\CYRT}.} % Том
-  }
-  \addto\extrasenglish%
-  {
-    \def\PFUjornalissueName{Issue} % Выпуск
-    \def\PFUjornalissueShortName{Is.} % Вып.
-    \def\PFUjornalseriesName{Series} % Серия
-    \def\PFUjornalPagesShortName{Pp.} % Страница
-    \def\PFUjornalnumberName{No{}} % Номер
-    \def\PFUjournalvolumeName{Vol.} % Том
-  }
+\AtBeginDocument{%
+  \@ifpackageloaded{babel}{%
+    \addto\extrasrussian{%
+      \def\PFUjornalissueName{{\cyr\CYRV\cyrery\cyrp\cyru\cyrs\cyrk}} % Выпуск
+      \def\PFUjornalissueShortName{{\cyr\CYRV\cyrery\cyrp}.} % Вып.
+      \def\PFUjornalseriesName{{\cyr\CYRS\cyre\cyrr\cyri\cyrya}} % Серия
+      \def\PFUjornalPagesShortName{{\cyr\CYRS}.} % Страница
+      \def\PFUjornalnumberName{\No{}} % Номер
+      \def\PFUjournalvolumeName{{\cyr\CYRT}.} % Том
+    }%
+    \addto\extrasenglish{%
+      \def\PFUjornalissueName{Issue} % Выпуск
+      \def\PFUjornalissueShortName{Is.} % Вып.
+      \def\PFUjornalseriesName{Series} % Серия
+      \def\PFUjornalPagesShortName{Pp.} % Страница
+      \def\PFUjornalnumberName{No{}} % Номер
+      \def\PFUjournalvolumeName{Vol.} % Том
+    }%
+  }{} %% babel
+  \@ifpackageloaded{polyglossia}{%
+    \addto\captionsrussian{%
+      \def\PFUjornalissueName{Выпуск} % Выпуск
+      \def\PFUjornalissueShortName{Вып.} % Вып.
+      \def\PFUjornalseriesName{Серия} % Серия
+      \def\PFUjornalPagesShortName{С.} % Страница
+      \def\PFUjornalnumberName{\No{}} % Номер
+      \def\PFUjournalvolumeName{Т.} % Том   
+    }
+    \addto\captionsenglish{%
+      \def\PFUjornalissueName{Issue} % Выпуск
+      \def\PFUjornalissueShortName{Is.} % Вып.
+      \def\PFUjornalseriesName{Series} % Серия
+      \def\PFUjornalPagesShortName{Pp.} % Страница
+      \def\PFUjornalnumberName{No{}} % Номер
+      \def\PFUjournalvolumeName{Vol.} % Том
+    }
+  }{} %% polyglossia
 }
 
 

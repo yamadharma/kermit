@@ -235,8 +235,8 @@ Bulletin of Peoples' Friendship University of Russia]
     \fi
     \ifx\pfuproc@phone\@empty
     \else
-    \pfuproc@komma\protect\mbox{{\cyrt }{\cyre }{\cyrl }.:~\pfuproc@phone{}}%
-    % \pfuproc@komma\protect\mbox{\pfuproc@phoneName:~\pfuproc@phone{}}%
+    % \pfuproc@komma\protect\mbox{{\cyrt }{\cyre }{\cyrl }.:~\pfuproc@phone{}}%
+    \pfuproc@komma\protect\mbox{\pfuproc@phoneName:~\pfuproc@phone{}}%
     \fi
     \ifx\pfuproc@orcid\@empty
     \else
@@ -522,7 +522,7 @@ Bulletin of Peoples' Friendship University of Russia]
   \let\pfuproc@titleslist@entry\@empty
   \g@addto@macro\pfuproc@titleslist@entry{%
     \string\clearpage
-    {\LARGE \textbf{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}}
+    % {\LARGE \textbf{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}}
     \string\InputIfFileExists{default.loa}{}{}
   }
 
