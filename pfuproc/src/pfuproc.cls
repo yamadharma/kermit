@@ -603,10 +603,10 @@ Bulletin of Peoples' Friendship University of Russia]
         \headerFontSize
         \textbf{%
           \PFUjournalyear{} Vol.\,\PFUjournalvolume{}
-          No.\,\PFUjournalnumber{}
+          No.\,\PFUjournalnumber{}%
           \ifthenelse{\pageref{starttitle}=\pageref{endtitle}}%
-          {\pageref{starttitle}}% then
-          {\pageref{starttitle}--\pageref{endtitle}}% else
+          {, \pageref{starttitle}}% then
+          {, \pageref{starttitle}--\pageref{endtitle}}% else
         }\\
         \PFUjournalURL
       \end{center}
@@ -719,13 +719,16 @@ Bulletin of Peoples' Friendship University of Russia]
 \graphicspath{{./}{image/}}
 \bigskip
 \begin{flushleft}
-\copyright{} \authorstoc{}, \PFUjournalyear{}
+\copyright{} \authorstoc\xspace \PFUjournalyear{}
 \end{flushleft}%
 \bigskip
 \begin{flushleft}
   \includegraphics[width=2cm]{\pfuproc@cclogo}\\
-  This work is licensed under a Creative Commons Attribution 4.0 International License
-  %This work is licensed under a \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}.
+  {\footnotesize
+  This work is licensed under a Creative Commons Attribution 4.0
+  International License
+  }
+  % This work is licensed under a \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}.
 \end{flushleft}%
 \par
 }
