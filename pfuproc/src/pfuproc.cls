@@ -584,8 +584,8 @@ Bulletin of Peoples' Friendship University of Russia]
     \hfill
   }
   \chead{%
-    \hspace*{-4cm}
-    \vspace*{-18pt}
+    \hspace*{-4.8cm}
+    \vspace*{-24pt}
     \begin{minipage}[c]{\cheadwidth}
       \begin{center}
         \headerFontSize
