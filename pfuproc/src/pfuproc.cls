@@ -130,14 +130,16 @@ Bulletin of Peoples' Friendship University of Russia]
   }{% isn't empty
     \begin{otherlanguage}{english}
       \noindent
-      \textbf{\listauthorsname}:
-    \end{otherlanguage}\nopagebreak[4]
+      \textbf{\listauthorsname}:%
+      \par%
+      % \end{otherlanguage}%
+      \nopagebreak[4]%
+      % \begin{otherlanguage}{english}
+      \noindent%
+      \@starttoc{\currfilebase.english.loa}
+    \end{otherlanguage}
+    \par
   }
-  \begin{otherlanguage}{english}
-    \noindent
-    \@starttoc{\currfilebase.english.loa}
-  \end{otherlanguage}
-  \par
 }
 
 \newcommand{\authorlistFontShape}{\bf}
@@ -653,7 +655,6 @@ Bulletin of Peoples' Friendship University of Russia]
 }
 
 
-
 %{{{ Рекомендуемый формат цитирования
 
 \DeclareRobustCommand{\howtoCiteRu}{%
@@ -708,7 +709,8 @@ Bulletin of Peoples' Friendship University of Russia]
 
 %}}}
 
-% Логотип для CC лицензии
+%{{{ Логотип для CC лицензии
+
 % По умолчанию лицензия CC-BY
 \DeclareRobustCommand{\cclogo}[1]{%
   \def\pfuproc@cclogo{#1}
@@ -723,7 +725,9 @@ Bulletin of Peoples' Friendship University of Russia]
 \end{flushleft}%
 \bigskip
 \begin{flushleft}
-  \includegraphics[width=2cm]{\pfuproc@cclogo}\\
+  \includegraphics[width=2cm]{\pfuproc@cclogo}%
+  \par%
+  \nopagebreak[4]%
   {\footnotesize
   This work is licensed under a Creative Commons Attribution 4.0
   International License
@@ -732,6 +736,8 @@ Bulletin of Peoples' Friendship University of Russia]
 \end{flushleft}%
 \par
 }
+
+%}}}
 
 \AtEndPreamble{%
 \@ifpackageloaded{tex4ht}{}{%

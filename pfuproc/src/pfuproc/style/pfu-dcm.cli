@@ -1,6 +1,7 @@
 \input{pfuproc/style/pfu-bulletin.cli}
 
 % Discrete and Continuous Models and Applied Computational Science
+\journal{Discrete and Continuous Models and Applied Computational Science}
 \altjournal{Discrete and Continuous Models and Applied Computational Science}
 \altjournalHeader{DCM\textit{\&}ACS}
 \journalHeader{DCM\textit{\&}ACS}

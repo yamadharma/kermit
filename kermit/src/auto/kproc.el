@@ -48,6 +48,7 @@
     '("pacs" 1)
     '("udc" 1)
     '("uppercasenonmath" 1)
+    '("documentType" 1)
     '("doiBase" 1)
     '("doiSuffixBase" 1)
     '("doiPrefix" 1)

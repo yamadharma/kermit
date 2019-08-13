@@ -383,6 +383,11 @@
 }
 \let\@doiBase\@empty
 
+\DeclareRobustCommand{\documentType}[1]{%
+  \def\@documentType{#1}
+}
+\let\@documentType\@empty
+
 %% \newif\if@multicolumn
 %% \@multicolumnfalse
 %%
@@ -2196,11 +2201,13 @@
   % \bigskip
   % \vspace{2\bigskipamount}
   \begingroup
-  \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi
+  \ifx\@empty\@documentType \else \noindent \textit{\@documentType} \hfill\par \fi
+  \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \PFUudcName{} \@udcnum \hfill\par \fi
+  % \nobreak%
+  \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \PFUpacsName{} \@pacsnum \hfill\par \fi
+  % \nobreak%
+  \ifx\@empty\@doi \else \nobreak\smallskip\noindent DOI: \@doi \hfill\par \fi
   \nobreak%
-  \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi
-  \nobreak%
-  \ifx\@empty\@doi \else \noindent DOI: \@doi \hfill\par \fi
   \smallskip
   \@settitle
   \smallskip
@@ -2519,7 +2526,8 @@
 %%% --
 \let\@udcnum\@empty
 \let\@pacsnum\@empty
-%\let\@doi\@empty
+% \let\@doi\@empty
+\let\@documentType\@empty
 \let\alt@keywords\@empty
 \let\@altabstracts\@empty
 %%%

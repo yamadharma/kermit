@@ -22,6 +22,7 @@
     '("journal" 1)
     "PFUTitle"
     "PFUTitleHeader"
+    "contentsnameFontSize"
     "PFUjournal"
     "PFUjournalHeader"
     "PFUjournalseriesEnable"

@@ -4,25 +4,33 @@
 % }
 % \let\PFUjournal\@empty
 
-\DeclareRobustCommand{\journal}[1]%
-{%
-\AtBeginDocument%
-{%
-  \addto\extrasrussian%
-  {
-    \def\PFUjournal{#1}
+\DeclareRobustCommand{\journal}[1]{%
+  \AtBeginDocument{%
+    \@ifpackageloaded{polyglossia}{%
+      \addto\captionsrussian{%
+        \def\PFUjournal{#1}
+      }
+    }{%
+      \addto\extrasrussian%
+      {
+        \def\PFUjournal{#1}
+      }
+    }
   }
 }
-}
-\DeclareRobustCommand{\altjournal}[1]%
-{%
-\AtBeginDocument%
-{%
-  \addto\extrasenglish%
-  {
-    \def\PFUjournal{#1}
+\DeclareRobustCommand{\altjournal}[1]{%
+  \AtBeginDocument{%
+    \@ifpackageloaded{polyglossia}{%
+      \addto\captionsenglish{%
+        \def\PFUjournal{#1}
+      }
+    }{%
+      \addto\extrasenglish%
+      {
+        \def\PFUjournal{#1}
+      }
+    }
   }
-}
 }
 \let\PFUjournal\@empty
 
@@ -279,6 +287,8 @@
 }
 
 % \providecommand{\rightmark}{\PFUheader}%
+
+\providecommand{\contentsnameFontSize}{\huge}
 
 %%% Local Variables: 
 %%% mode: latex
