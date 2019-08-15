@@ -97,7 +97,8 @@
 \global\@keywordsAsFooterfalse
 %%
 \newif\if@receivedAsFooter        % If received present as footer
-\global\@receivedAsFootertrue
+  % \global\@receivedAsFootertrue
+  \global\@receivedAsFooterfalse
 %%
 %%
 \let\report@elt\@gobble
@@ -593,9 +594,9 @@
       \def\PFUpacsName{PACS}
       % Статья поступила в редакцию
       \def\PFUreceivedName{{\CYRS}{\cyrt}{\cyra}{\cyrt}{\cyrsftsn}{\cyrya} {\cyrp}{\cyro}{\cyrs}{\cyrt}{\cyru}{\cyrp}{\cyri}{\cyrl}{\cyra} {\cyrv} {\cyrr}{\cyre}{\cyrd}{\cyra}{\cyrk}{\cyrc}{\cyri}{\cyryu}}%
-      \def\PFUrevisedName{Revised }%
-      \def\PFUacceptedName{Accepted }%
-      \def\PFUpublishedName{Published }%
+      \def\PFUrevisedName{revised}%
+      \def\PFUacceptedName{accepted}%
+      \def\PFUpublishedName{published}%
       \def\etal{и др.}
       % Ключевые слова
       \def\keywordsname{Ключевые слова}
@@ -604,10 +605,10 @@
     \addto\captionsenglish{%
     \def\PFUudcName{UDC}
     \def\PFUpacsName{PACS}
-    \def\PFUreceivedName{Received }%
-    \def\PFUrevisedname{Revised }%
-    \def\PFUacceptedname{Accepted }%
-    \def\PFUpublishedname{Published }%
+    \def\PFUreceivedName{Received}%
+    \def\PFUrevisedName{revised}%
+    \def\PFUacceptedName{accepted}%
+    \def\PFUpublishedName{published}%
      \def\etal{et al.}
 %%    \renewcommand{\etal}{et al.}
 %%     \providecommand{\etal}{et al.}
@@ -1647,18 +1648,58 @@
   \def\@pacsnum{#1}}
 \let\@pacsnum\@empty
 %%
-\DeclareRobustCommand{\received}[1]{%
-  \def\@received{#1}}
+
+% \RequirePackage{datetime2}
+\RequirePackage[nodayofweek]{datetime}
+
+\DeclareRobustCommand{\received}[3]{%
+  \def\@received@day{#1}
+  \def\@received@month{#2}
+  \def\@received@year{#3}
+  % \def\@received{\DTMdate{#3-#2-#1}}
+  \def\@received{\formatdate{#1}{#2}{#3}}
+
+}
 \let\@received\@empty
-\DeclareRobustCommand{\revised}[1]{%
-  \def\@revised{#1}}
+\let\@received@day\@empty
+\let\@received@month\@empty
+\let\@received@year\@empty
+
+\DeclareRobustCommand{\revised}[3]{%
+  \def\@revised@day{#1}
+  \def\@revised@month{#2}
+  \def\@revised@year{#3}
+  % \def\@revised{\DTMdate{#3-#2-#1}}
+  \def\@revised{\formatdate{#1}{#2}{#3}}
+}
 \let\@revised\@empty
-\DeclareRobustCommand{\accepted}[1]{%
-  \def\@accepted{#1}}
+\let\@revised@day\@empty
+\let\@revised@month\@empty
+\let\@revised@year\@empty
+
+\DeclareRobustCommand{\accepted}[3]{%
+  \def\@accepted@day{#1}
+  \def\@accepted@month{#2}
+  \def\@accepted@year{#3}
+  % \def\@accepted{\DTMdate{#3-#2-#1}}
+  \def\@accepted{\formatdate{#1}{#2}{#3}}
+}
 \let\@accepted\@empty
-\DeclareRobustCommand{\published}[1]{%
-  \def\@published{#1}}
+\let\@accepted@day\@empty
+\let\@accepted@month\@empty
+\let\@accepted@year\@empty
+
+\DeclareRobustCommand{\published}[3]{%
+  \def\@published@day{#1}
+  \def\@published@month{#2}
+  \def\@published@year{#3}
+  % \def\@published{\DTMdate{#3-#2-#1}}
+  \def\@published{\formatdate{#1}{#2}{#3}}
+}
 \let\@published\@empty
+\let\@published@day\@empty
+\let\@published@month\@empty
+\let\@published@year\@empty
 
 \DeclareRobustCommand{\email}[1]{%
   \def\@email{#1}}
@@ -2004,7 +2045,24 @@
   \let\@address\@empty%
   \let\thankses\@empty%
   \let\@keywords\@empty%
-  \let\@received\@empty%
+  %
+  \let\@received\@empty
+  \let\@received@day\@empty
+  \let\@received@month\@empty
+  \let\@received@year\@empty
+  \let\@revised\@empty
+  \let\@revised@day\@empty
+  \let\@revised@month\@empty
+  \let\@revised@year\@empty
+  \let\@accepted\@empty
+  \let\@accepted@day\@empty
+  \let\@accepted@month\@empty
+  \let\@accepted@year\@empty
+  \let\@published\@empty
+  \let\@published@day\@empty
+  \let\@published@month\@empty
+  \let\@published@year\@empty
+  %
   \let\@dedicatory\@empty%
   %%%
   % \let\shortaltauthors\@empty   \let\altauthors\@empty
@@ -2159,7 +2217,24 @@
   \let\@address\@empty%
   \let\thankses\@empty%
   \let\@keywords\@empty%
-  \let\@received\@empty%
+  % 
+  \let\@received\@empty
+  \let\@received@day\@empty
+  \let\@received@month\@empty
+  \let\@received@year\@empty
+  \let\@revised\@empty
+  \let\@revised@day\@empty
+  \let\@revised@month\@empty
+  \let\@revised@year\@empty
+  \let\@accepted\@empty
+  \let\@accepted@day\@empty
+  \let\@accepted@month\@empty
+  \let\@accepted@year\@empty
+  \let\@published\@empty
+  \let\@published@day\@empty
+  \let\@published@month\@empty
+  \let\@published@year\@empty
+  %
   \let\@dedicatory\@empty%
   %%%
   % \let\shortaltauthors\@empty   \let\altauthors\@empty
@@ -2236,6 +2311,24 @@
     \end{minipage}
   \end{flushright}
   \fi
+  %
+  \if@receivedAsFooter%
+    \ifx\@empty\@received \else \@footnotetext{\hspace{-2.5\footnotesep}\@setreceived} \fi
+  \else
+    \ifx\@empty\@received \else
+      \begin{center}
+        \footnotesize
+        (%
+        \PFUreceivedName\enspace \@received%
+        \ifx\@empty\@accepted%
+        \else
+          ;
+          \PFUacceptedName\enspace \@accepted%
+        \fi
+        )
+      \end{center}
+    \fi
+  \fi
   % \@setabstract
   %%% --
   \ifvoid\t@abstract
@@ -2250,12 +2343,6 @@
   \if@keywordsAsFooter%
   \else
   \ifx\@empty\@keywords\else \@setkeywords \fi
-  \fi
-  %
-  \if@receivedAsFooter%
-  \ifx\@empty\@received \else \@footnotetext{\hspace{-2.5\footnotesep}\@setreceived} \fi
-  \else
-  \ifx\@empty\@received \else \par\@setreceived \fi
   \fi
   %
   % \if@titlepage

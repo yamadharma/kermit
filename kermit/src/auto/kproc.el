@@ -1,6 +1,8 @@
 (TeX-add-style-hook
  "kproc"
  (lambda ()
+   (TeX-add-to-alist 'LaTeX-provided-package-options
+                     '(("datetime" "nodayofweek")))
    (TeX-run-style-hooks
     "latex2e"
     "etoolbox"
@@ -19,6 +21,7 @@
     "xstring"
     "xparse"
     "xspace"
+    "datetime"
     "titlesec")
    (TeX-add-symbols
     "endverse"
@@ -41,10 +44,10 @@
     '("dedicatory" 1)
     '("thanksref" 1)
     '("email" 1)
-    '("published" 1)
-    '("accepted" 1)
-    '("revised" 1)
-    '("received" 1)
+    '("published" 3)
+    '("accepted" 3)
+    '("revised" 3)
+    '("received" 3)
     '("pacs" 1)
     '("udc" 1)
     '("uppercasenonmath" 1)
