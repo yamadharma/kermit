@@ -2277,11 +2277,11 @@
   % \vspace{2\bigskipamount}
   \begingroup
   \ifx\@empty\@documentType \else \noindent \textit{\@documentType} \hfill\par \fi
-  \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \PFUudcName{} \@udcnum \hfill\par \fi
-  % \nobreak%
-  \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \PFUpacsName{} \@pacsnum \hfill\par \fi
-  % \nobreak%
-  \ifx\@empty\@doi \else \nobreak\smallskip\noindent DOI: \@doi \hfill\par \fi
+  % \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \PFUudcName{} \@udcnum \hfill\par \fi
+  % % \nobreak%
+  % \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \PFUpacsName{} \@pacsnum \hfill\par \fi
+  % % \nobreak%
+  % \ifx\@empty\@doi \else \nobreak\smallskip\noindent DOI: \@doi \hfill\par \fi
   \nobreak%
   \smallskip
   \@settitle
@@ -2339,11 +2339,23 @@
   % \unvcopy\t@abstract
   %%%
   \normalsize
-  \bigskip
+  % \bigskip
+  \medskip
   \if@keywordsAsFooter%
   \else
-  \ifx\@empty\@keywords\else \@setkeywords \fi
+    \ifx\@empty\@keywords\else \@setkeywords \fi
   \fi
+  %
+  \begingroup
+  \par
+  \medskip
+  \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \PFUudcName{} \@udcnum \hfill\par \fi
+  % \nobreak%
+  \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \PFUpacsName{} \@pacsnum \hfill\par \fi
+  % \nobreak%
+  \ifx\@empty\@doi \else \nobreak\smallskip\noindent DOI: \@doi \hfill\par \fi
+  \endgroup
+  \nobreak%
   %
   % \if@titlepage
   % \newpage
@@ -2880,7 +2892,8 @@
 \def\@setsubjclass{%
   {\itshape\subjclassname.}\enspace\@subjclass\@addpunct.}
 \def\@setkeywords{%
-  \hskip\parindent%
+  % \hskip\parindent%
+  \noindent
   \@keywordsize%
   {\DivFontShape \keywordsname:}\enspace \@keywords%\@addpunct.%
 }%

@@ -5,6 +5,7 @@
                      '(("geometry" "a4paper")))
    (TeX-run-style-hooks
     "latex2e"
+    "preamble"
     "xkeyval"
     "geometry"
     "kproc"
@@ -32,6 +33,7 @@
     "howtoCiteEn"
     "series"
     "PFUpaperid"
+    "listauthorsname"
     "listofauthors"
     "listofauthorsPerTitleRu"
     "listofauthorsPerTitleEn"

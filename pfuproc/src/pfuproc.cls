@@ -689,7 +689,7 @@ Bulletin of Peoples' Friendship University of Russia]
   \iflanguage{english}{%
     \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
       \authorstocshort{} \@title{}, \PFUjournal{}%
-      \ifx\PFUjournalvolume\@empty\else{} \PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
+      \ifx\PFUjournalvolume\@empty\else{} \textbf{\PFUjournalvolume}\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
       (\PFUjournalyear)
       \pageref{starttitle}--\pageref{endtitle}.
       \ifx\@empty\@doi \else DOI: \@doi{}.\fi{}
@@ -697,7 +697,7 @@ Bulletin of Peoples' Friendship University of Russia]
   }{%
     \ifpolyglossia\begin{otherlanguage}{english}\else\begin{otherlanguage*}{english}\fi
       \altauthorstocshort{} \@alttitle{}, \PFUjournal{}%
-      \ifx\PFUjournalvolume\@empty\else{} \PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
+      \ifx\PFUjournalvolume\@empty\else{} \textbf{\PFUjournalvolume}\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
       (\PFUjournalyear)
       \pageref{starttitle}--\pageref{endtitle}.
       \ifx\@empty\@doi \else DOI: \@doi{}.\fi{}
