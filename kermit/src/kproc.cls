@@ -977,7 +977,7 @@
 \g@addto@macro\@title@hook{}
 % \def\@title@hook@post{\global\let\@title@hook@post\@empty}
 \def\@title@hook@post{}
-
+\g@addto@macro\@title@hook@post{}
 
 \providecommand*{\subtitle}[2][]%
 {%
@@ -3623,7 +3623,7 @@
 \setcounter{tocdepth}{0}
 \def\@starttoc#1{%
   \begingroup
-%%     \toc@pre
+  %% \toc@pre
     \makeatletter
     \@input{\jobname.#1}%
     \if@filesw

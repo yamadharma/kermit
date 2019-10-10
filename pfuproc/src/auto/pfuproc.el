@@ -12,7 +12,8 @@
     "kproc10"
     "currfile"
     "xstring"
-    "scrlfile")
+    "scrlfile"
+    "float")
    (TeX-add-symbols
     '("country" ["argument"] 1)
     '("authorpost" ["argument"] 1)

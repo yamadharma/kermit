@@ -34,7 +34,11 @@ Bulletin of Peoples' Friendship University of Russia]
   \immediate\closeout\paperidFile
 }
 
-\def\@maketitle@hook@post{%
+% \def\@maketitle@hook@post{%
+%   \paperid{\currfilebase}
+% }
+
+\g@addto@macro\@maketitle@hook@post{%
   \paperid{\currfilebase}
 }
 
@@ -718,24 +722,46 @@ Bulletin of Peoples' Friendship University of Russia]
 \def\pfuproc@cclogo{by}
 
 \def\papercopyright{%
-\graphicspath{{./}{image/}}
-\bigskip
-\begin{flushleft}
-\copyright{} \authorstoc\xspace \PFUjournalyear{}
-\end{flushleft}%
-\bigskip
-\begin{flushleft}
-  \includegraphics[width=2cm]{\pfuproc@cclogo}%
-  \par%
-  \nopagebreak[4]%
-  {\footnotesize
-  This work is licensed under a Creative Commons Attribution 4.0
-  International License
-  }
-  % This work is licensed under a \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}.
-\end{flushleft}%
-\par
+  \graphicspath{{./}{image/}}
+  \bigskip
+  \begin{flushleft}
+    \footnotesize
+    \copyright{} \authorstoc\xspace \PFUjournalyear{}
+  \end{flushleft}%
+  % \bigskip
+  \begin{minipage}{0.15\linewidth}
+    \begin{flushleft}
+      % \includegraphics[width=2cm]{\pfuproc@cclogo}%
+      \includegraphics[width=1.0\linewidth]{\pfuproc@cclogo}%
+      % \par%
+      % \nopagebreak[4]%
+    \end{flushleft}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.8\linewidth}
+    \begin{flushleft}
+      {% \footnotesize
+        \scriptsize
+        This work is licensed under a Creative Commons Attribution 4.0
+        International License\\
+        \url{http://creativecommons.org/licenses/by/4.0/}
+      }
+      % This work is licensed under a \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}.
+    \end{flushleft}%
+  \end{minipage}
+  % \par
 }
+
+\RequirePackage{float}
+
+\newfloat{PapercopyrightFloat}{b}{cpr}
+
+\g@addto@macro\@maketitle@hook@post{%
+  \begin{PapercopyrightFloat}
+    \papercopyright
+  \end{PapercopyrightFloat}
+}
+
 
 %}}}
 
@@ -743,8 +769,9 @@ Bulletin of Peoples' Friendship University of Russia]
 \@ifpackageloaded{tex4ht}{}{%
   \ifthenelse{\boolean{singlelanguage}}{% then
     \def\@putbib@hook@post{%
-      \papercopyright
-      \medskip
+      % \papercopyright
+      % \par
+      % \medskip
       \howtoCiteEn
       \medskip
       \listofauthorsPerTitleEn
@@ -754,8 +781,9 @@ Bulletin of Peoples' Friendship University of Russia]
     }
   }{% else
     \def\@putaltbib@hook@post{%
-      \papercopyright
-      \medskip
+      % \papercopyright
+      % \par
+      % \medskip
       \howtoCiteRu
       \medskip
       \howtoCiteEn
