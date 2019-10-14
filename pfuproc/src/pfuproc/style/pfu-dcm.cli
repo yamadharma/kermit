@@ -33,7 +33,7 @@
   \RequirePackage{truncate}
   % \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}
   % \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
-
+  
   \pagestyle{fancy}
   \fancyhead{}%
   % \fancyhead[LE,RO]{\headerFontSize\thepage}%
@@ -41,61 +41,61 @@
     % \begin{otherlanguage*}{\PFUlanguage}
     \headerFontSize\thepage
     % \end{otherlanguage*}
-%    \iflanguage{\@defaultlanguage}%
-%    {%
-%       \headerFontSize\thepage
-%    }
-%    {%
-%      \begin{otherlanguage*}{\@defaultlanguage}
-%       \headerFontSize\thepage
-%      \end{otherlanguage*}
-%    }
+    % \iflanguage{\@defaultlanguage}%
+    % {%
+    % \headerFontSize\thepage
+    % }
+    %   {%
+    %   \begin{otherlanguage*}{\@defaultlanguage}
+    %     \headerFontSize\thepage
+    %   \end{otherlanguage*}
+    % }
   }        
-%  \fancyhead[CO]{\truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}}%
+  % \fancyhead[CO]{\truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}}%
   \fancyhead[LO]{%
     % \begin{otherlanguage*}{\PFUlanguage}
-    \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}
+    \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{}. \shorttitle}}
     % \end{otherlanguage*}
-%    \iflanguage{\@defaultlanguage}%
-%    {%
-%        \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}
-%    }
-%    {%
-%      \begin{otherlanguage*}{\@defaultlanguage}
-%        \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}
-%      \end{otherlanguage*}
-%    }
+    % \iflanguage{\@defaultlanguage}%
+    % {%
+    % \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}
+    % }
+    %   {%
+    %   \begin{otherlanguage*}{\@defaultlanguage}
+    %     \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}
+    %   \end{otherlanguage*}
+    % }
   }
   
-\fancyhead[RE]{\headerFontSize \PFUTitleHeader}%
-
-% \fancyhead[RE]{%
-%   \iflanguage{\@defaultlanguage}{%
-%     \headerFontSize \PFUTitleHeader
-%   }{%
-%     \begin{otherlanguage*}{\@defaultlanguage}
-%       \headerFontSize \PFUTitleHeader
-%     \end{otherlanguage*}
-%   }
-% }
-
- % \fancyhead[LO]{%
- % \iflanguage{\@defaultlanguage}%
- % {%
- %     %% \headerFontSize\PFUheader
- %     % \rightmark
- % \truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}
- % }
+  \fancyhead[RE]{\headerFontSize \PFUTitleHeader}%
+  
+  % \fancyhead[RE]{%
+  % \iflanguage{\@defaultlanguage}{%
+  % \headerFontSize \PFUTitleHeader
+  % }{%
+  %   \begin{otherlanguage*}{\@defaultlanguage}
+  %     \headerFontSize \PFUTitleHeader
+  %   \end{otherlanguage*}
+  % }
+  % }
+  
+  %   \fancyhead[LO]{%
+  %   \iflanguage{\@defaultlanguage}%
+  %   {%
+  %     %%   \headerFontSize\PFUheader
+  %     %   \rightmark
+  %   \truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}
+  % }
   %   {%
   %   \begin{otherlanguage*}{\@defaultlanguage}
   %       %%     \headerFontSize\PFUheader
-  %       % \rightmark
+  %       %     \rightmark
   %       \truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}
   %     \end{otherlanguage*}
   %   }
-  % }
+  %   }
   \fancyfoot{}
-
+  
   \fancypagestyle{plain}{%
     \fancyhf{} % clear all header and footer fields
     \fancyhead[C]{%
@@ -104,7 +104,7 @@
     % \renewcommand{\headrulewidth}{0pt}
     % \renewcommand{\footrulewidth}{0pt}
   }
-
+  
 } % END \AtEndOfPackage
 
 
