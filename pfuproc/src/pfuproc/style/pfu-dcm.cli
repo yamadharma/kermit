@@ -54,7 +54,7 @@
   % \fancyhead[CO]{\truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}}%
   \fancyhead[LO]{%
     % \begin{otherlanguage*}{\PFUlanguage}
-    \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{}. \shorttitle}}
+    \truncate{0.8\textwidth}{\headerFontSize {\authorsrunning\unskip{}, \shorttitle}}
     % \end{otherlanguage*}
     % \iflanguage{\@defaultlanguage}%
     % {%
