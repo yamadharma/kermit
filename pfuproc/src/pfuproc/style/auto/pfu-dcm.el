@@ -5,6 +5,8 @@
     "pfuproc/style/pfu-bulletin"
     "truncate"
     "gost7184"
-    "cite"))
+    "cite")
+   (TeX-add-symbols
+    '("href" 1)))
  :latex)
 

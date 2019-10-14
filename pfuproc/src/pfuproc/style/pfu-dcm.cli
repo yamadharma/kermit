@@ -119,7 +119,9 @@
 
 \AtBeginDocument{%
   \ltx@ifpackageloaded{biblatex}{}{%
-    \mainbibstyle{elsarticle-num}
+    % \mainbibstyle{elsarticle-num}  
+    \newcommand\href[1]{}
+    \mainbibstyle{tugboat}
     \altbibstyle{gost7184u}
   }
 }
