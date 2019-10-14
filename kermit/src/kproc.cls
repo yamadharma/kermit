@@ -1946,14 +1946,22 @@
   \message{\@biblabel{1}}
   \iflanguage{\@defaultlanguage}
   {%
-    \addcontentsline{toc}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
-    \addcontentsline{tac}{chapter}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
+    \addcontentsline{toc}{chapter}{%
+      \raggedright
+      {\bfseries \authorstoc} \\ \no@harm \@title}
+    \addcontentsline{tac}{chapter}{%
+      \raggedright
+      {\bfseries \altauthorstoc} \\ \no@harm \@alttitle}
   }
   {%
     \addtocontents{toc}{\protect\select@language{\@defaultlanguage}}
-    \addcontentsline{toc}{chapter}{{\bfseries \altauthorstoc} \no@harm \@alttitle}
+    \addcontentsline{toc}{chapter}{
+      \raggedright
+      {\bfseries \altauthorstoc} \\ \no@harm \@alttitle}
     \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
-    \addcontentsline{tac}{chapter}{{\bfseries \authorstoc} \no@harm \@title}
+    \addcontentsline{tac}{chapter}{%
+      \raggedright
+      {\bfseries \authorstoc} \\ \no@harm \@title}
   }
   % \@mkboth{\@journal}{\authors \@title}
   % \@mkboth{\andify\altauthors}{\shorttitle}
