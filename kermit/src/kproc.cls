@@ -1948,20 +1948,28 @@
   {%
     \addcontentsline{toc}{chapter}{%
       \raggedright
-      {\bfseries \authorstoc} \\ \no@harm \@title}
+      {\bfseries \authorstoc}\unskip,{}\xspace
+      % \\
+      \no@harm \@title}
     \addcontentsline{tac}{chapter}{%
       \raggedright
-      {\bfseries \altauthorstoc} \\ \no@harm \@alttitle}
+      {\bfseries \altauthorstoc}\unskip,{}\xspace
+      % \\
+      \no@harm \@alttitle}
   }
   {%
     \addtocontents{toc}{\protect\select@language{\@defaultlanguage}}
     \addcontentsline{toc}{chapter}{
       \raggedright
-      {\bfseries \altauthorstoc} \\ \no@harm \@alttitle}
+      {\bfseries \altauthorstoc}\unskip,{}\xspace
+      % \\
+      \no@harm \@alttitle}
     \addtocontents{tac}{\protect\select@language{\@defaultaltlanguage}}
     \addcontentsline{tac}{chapter}{%
       \raggedright
-      {\bfseries \authorstoc} \\ \no@harm \@title}
+      {\bfseries \authorstoc}\unskip,{}\xspace
+      % \\
+      \no@harm \@title}
   }
   % \@mkboth{\@journal}{\authors \@title}
   % \@mkboth{\andify\altauthors}{\shorttitle}

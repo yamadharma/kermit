@@ -692,7 +692,7 @@ Bulletin of Peoples' Friendship University of Russia]
   \textbf{For citation:}\\
   \iflanguage{english}{%
     \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
-      \authorstocshort{} \@title{}, \PFUjournal{}%
+      \authorstocshort{}\unskip,{}\xspace \@title{}, \PFUjournal{}%
       \ifx\PFUjournalvolume\@empty\else{} \textbf{\PFUjournalvolume}\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
       (\PFUjournalyear)
       \pageref{starttitle}--\pageref{endtitle}.
@@ -700,7 +700,7 @@ Bulletin of Peoples' Friendship University of Russia]
     \ifpolyglossia\end{otherlanguage}\else\end{otherlanguage*}\fi%
   }{%
     \ifpolyglossia\begin{otherlanguage}{english}\else\begin{otherlanguage*}{english}\fi
-      \altauthorstocshort{} \@alttitle{}, \PFUjournal{}%
+      \altauthorstocshort{}\unskip,{}\xspace \@alttitle{}, \PFUjournal{}%
       \ifx\PFUjournalvolume\@empty\else{} \textbf{\PFUjournalvolume}\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
       (\PFUjournalyear)
       \pageref{starttitle}--\pageref{endtitle}.
@@ -726,7 +726,7 @@ Bulletin of Peoples' Friendship University of Russia]
   \bigskip
   \begin{flushleft}
     \footnotesize
-    \copyright{} \authorstoc\xspace \PFUjournalyear{}
+    \copyright{} \authorstoc\unskip,{}\xspace \PFUjournalyear{}
   \end{flushleft}%
   % \bigskip
   \begin{minipage}{0.15\linewidth}
