@@ -1946,16 +1946,27 @@
   \message{\@biblabel{1}}
   \iflanguage{\@defaultlanguage}
   {%
+    \message{99999-1}
+    % \addcontentsline{toc}{chapter}{%
+    %   \raggedright
+    %   {\bfseries \authorstoc}\unskip,{}\xspace
+    %   % \\
+    %   \no@harm \@title}
+    % \addcontentsline{tac}{chapter}{%
+    %   \raggedright
+    %   {\bfseries \altauthorstoc}\unskip,{}\xspace
+    %   % \\
+    %   \no@harm \@alttitle}
     \addcontentsline{toc}{chapter}{%
-      \raggedright
+      % \raggedright
       {\bfseries \authorstoc}\unskip,{}\xspace
-      % \\
-      \no@harm \@title}
+      \no@harm \@title
+    }
     \addcontentsline{tac}{chapter}{%
-      \raggedright
+      % \raggedright
       {\bfseries \altauthorstoc}\unskip,{}\xspace
-      % \\
-      \no@harm \@alttitle}
+      \no@harm \@alttitle
+    }
   }
   {%
     \addtocontents{toc}{\protect\select@language{\@defaultlanguage}}
@@ -1971,6 +1982,7 @@
       % \\
       \no@harm \@title}
   }
+  \message{99999-5}
   % \@mkboth{\@journal}{\authors \@title}
   % \@mkboth{\andify\altauthors}{\shorttitle}
   % \toks@\@xp{\authors}

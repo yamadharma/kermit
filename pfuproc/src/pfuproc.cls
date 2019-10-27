@@ -179,7 +179,24 @@ Bulletin of Peoples' Friendship University of Russia]
 %   \immediate\openout\authorlistFile=\jobname.loa
 % }
 
-% \def\pfuproc@authorlistentry{}
+
+\def\pfuproc@authorlistentry{}
+\def\pfuproc@authorlistentry@english{}
+\def\pfuproc@authorfull{}
+\def\pfuproc@authorfull@english{}
+\def\pfuproc@authorrank{}
+\def\pfuproc@authorrank@english{}
+\def\pfuproc@authordegree{}
+\def\pfuproc@authordegree@english{}
+\def\pfuproc@authorpost{}
+\def\pfuproc@authorpost@english{}
+\def\pfuproc@mail{}
+\def\pfuproc@orcid{}
+\def\pfuproc@scopusauthorid{}
+\def\pfuproc@researcerid{}
+\def\pfuproc@phone{}
+\def\pfuproc@country{}
+\def\pfuproc@country@english{}
 % \g@addto@macro\pfuproc@authorlistentry{}
 % \g@addto@macro\@title@hook{\let\pfuproc@authorlistentry\@empty}
 
