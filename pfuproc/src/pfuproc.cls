@@ -625,11 +625,12 @@ Bulletin of Peoples' Friendship University of Russia]
       \begin{center}
         \headerFontSize
         \textbf{%
-          \PFUjournalyear{} Vol.\,\PFUjournalvolume{}
-          No.\,\PFUjournalnumber{}%
+          % \PFUjournalyear{} Vol.\,\PFUjournalvolume{}
+          % No.\,\PFUjournalnumber{}%
+          \PFUjournalvolume{} (\PFUjournalnumber{}) (\PFUjournalyear{})
           \ifthenelse{\pageref{starttitle}=\pageref{endtitle}}%
-          {, \pageref{starttitle}}% then
-          {, \pageref{starttitle}--\pageref{endtitle}}% else
+          {\pageref{starttitle}}% then
+          {\pageref{starttitle}--\pageref{endtitle}}% else
         }\\
         \PFUjournalURL
       \end{center}
@@ -710,7 +711,7 @@ Bulletin of Peoples' Friendship University of Russia]
   \iflanguage{english}{%
     \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
       \authorstocshort{}\unskip,{}\xspace \@title{}, \PFUjournal{}%
-      \ifx\PFUjournalvolume\@empty\else{} \textbf{\PFUjournalvolume}\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
+      \ifx\PFUjournalvolume\@empty\else{} \PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
       (\PFUjournalyear)
       \pageref{starttitle}--\pageref{endtitle}.
       \ifx\@empty\@doi \else DOI: \@doi{}.\fi{}
@@ -718,7 +719,7 @@ Bulletin of Peoples' Friendship University of Russia]
   }{%
     \ifpolyglossia\begin{otherlanguage}{english}\else\begin{otherlanguage*}{english}\fi
       \altauthorstocshort{}\unskip,{}\xspace \@alttitle{}, \PFUjournal{}%
-      \ifx\PFUjournalvolume\@empty\else{} \textbf{\PFUjournalvolume}\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
+      \ifx\PFUjournalvolume\@empty\else{} \PFUjournalvolume\fi\ifx\PFUjournalnumber\@empty\else{} (\PFUjournalnumber)\fi{}
       (\PFUjournalyear)
       \pageref{starttitle}--\pageref{endtitle}.
       \ifx\@empty\@doi \else DOI: \@doi{}.\fi{}
@@ -743,7 +744,7 @@ Bulletin of Peoples' Friendship University of Russia]
   \bigskip
   \begin{flushleft}
     \footnotesize
-    \copyright{} \authorstoc\unskip,{}\xspace \PFUjournalyear{}
+    \copyright{} \authorstocshortRev\unskip,{}\xspace \PFUjournalyear{}
   \end{flushleft}%
   % \bigskip
   \begin{minipage}{0.15\linewidth}

@@ -1236,6 +1236,8 @@
       \protected@xdef\authorstoc{\authorInFam}%
       \protected@xdef\authorstocshort{\authorInFamShort}%
       \protected@xdef\authorsrunning{\authorInFamShort}%
+      \protected@xdef\authorstocRev{\authorFamIn}%
+      \protected@xdef\authorstocshortRev{\authorFamInShort}%
     }{% lastname firstname
       % \gdef\authorstoc{#3}%
       \protected@xdef\authorstoc{\authorFamIn}%
@@ -1278,6 +1280,8 @@
     \ifbool{isNameFam}{% firstname lastname
       \protected@xdef\authorstoc{\authorstoc \and \authorInFam}%
       \protected@xdef\authorstocshort{\authorstocshort \and \authorInFamShort}%
+      \protected@xdef\authorstocRev{\authorstocRev \and \authorFamIn}%
+      \protected@xdef\authorstocshortRev{\authorstocshortRev \and \authorFamInShort}%
     }{% lastname firstname
       \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}%
       \protected@xdef\authorstocshort{\authorstocshort \and \authorFamInShort}%
@@ -2304,7 +2308,7 @@
   % \bigskip
   % \vspace{2\bigskipamount}
   \begingroup
-  \ifx\@empty\@documentType \else \noindent \textit{\@documentType} \hfill\par \fi
+  \ifx\@empty\@documentType \else \noindent \hfill\textit{\@documentType}\par \fi
   % \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \PFUudcName{} \@udcnum \hfill\par \fi
   % % \nobreak%
   % \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \PFUpacsName{} \@pacsnum \hfill\par \fi
@@ -2377,11 +2381,11 @@
   \begingroup
   \par
   \medskip
-  \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \PFUudcName{} \@udcnum \hfill\par \fi
+  \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \footnotesize\PFUudcName{} \@udcnum \hfill\par \fi
   % \nobreak%
-  \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \PFUpacsName{} \@pacsnum \hfill\par \fi
+  \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \footnotesize\PFUpacsName{} \@pacsnum \hfill\par \fi
   % \nobreak%
-  \ifx\@empty\@doi \else \nobreak\smallskip\noindent DOI: \@doi \hfill\par \fi
+  \ifx\@empty\@doi \else \nobreak\smallskip\noindent \footnotesize DOI: \@doi \hfill\par \fi
   \endgroup
   \nobreak%
   %
@@ -3555,6 +3559,7 @@
 {%
   {%
     \clearpage
+    \vspace*{\baselineskip}
     \interlinepenalty\@M
     \begin{center}
       \vskip 10\p@ \@plus -1ex \@minus -.2ex
@@ -3693,21 +3698,22 @@
 
 \renewcommand{\tableofcontents}{%
   \tableofcontents@hook
-%     \if@twocolumn
-%       \@restonecoltrue\onecolumn
-%     \else
-%       \@restonecolfalse
-%     \fi
-%    \section*{\flushleft\textbf{\contentsname}}
-    {\contentsnamePosition\contentsnameFontShape\contentsnameFontSize\contentsname}%
-    \par\nobreak%
-    \vskip 1ex \@plus -1ex \@minus -.2ex%
-%         \@mkboth{%
-%            \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
-    \@starttoc{toc}%
-%     \if@restonecol\twocolumn\fi
-    \raggedbottom\relax
-%    \clearpage
+  % \if@twocolumn
+  %   \@restonecoltrue\onecolumn
+  % \else
+  %   \@restonecolfalse
+  % \fi
+  % \section*{\flushleft\textbf{\contentsname}}
+  \vspace*{\baselineskip}
+  {\contentsnamePosition\contentsnameFontShape\contentsnameFontSize\contentsname}%
+  \par\nobreak%
+  \vskip 1ex \@plus -1ex \@minus -.2ex%
+  % \@mkboth{%
+  % \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+  \@starttoc{toc}%
+  % \if@restonecol\twocolumn\fi
+  \raggedbottom\relax
+  % \clearpage
 }
 
 \def\tableofcontents@hook{\global\let\tableofcontents@hook\@empty}

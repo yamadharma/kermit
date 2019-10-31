@@ -126,6 +126,28 @@
   }
 }
 
+% From journal.cli
+\renewcommand{\PFUTitle}{%
+  \PFUjournalHeader.~%
+  \ifdefempty{\PFUjournalseries}{}{\PFUjornalseriesName\,\textit{\PFUjournalseriesHeader}.~}%
+  \ifx\PFUjournalvolume\@empty\else\PFUjournalvolume\fi{}~%
+  \ifx\PFUjournalnumber\@empty\else (\PFUjournalnumber)\fi{}%
+  \ifx\PFUjournalissue\@empty\else\,(\PFUjournalissue),\fi{}%
+  \,(\PFUjournalyear)%
+  % dirty hack
+  \@ifundefined{r@\thePFUtitle:starttitle}{}{%
+    ~\pageref{starttitle}--\pageref{endtitle}
+  }
+}
+
+\renewcommand{\PFUTitleHeader}%
+{%
+  \begin{otherlanguage*}{\PFUlanguage}
+    \PFUTitle
+  \end{otherlanguage*}
+}
+
+
 %\renewcommand{\PFUheader}%
 %{%
 %  \scshape \PFUjournal,\,%
