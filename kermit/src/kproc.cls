@@ -2290,12 +2290,12 @@
   \let\@makefnmark\relax  \let\@thefnmark\relax
   % \ifx\@empty\@subjclass\else \@footnotetext{\@setsubjclass}\fi
   \if@keywordsAsFooter%
-  \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords} \fi
+    \ifx\@empty\@keywords\else \@footnotetext{\@setkeywords} \fi
   \fi
   % \if@receivedAsFooter%
-  % \ifx\@empty\@received \else        \@footnotetext{\PFUreceivedName \@received} \fi
+  %   \ifx\@empty\@received \else        \@footnotetext{\PFUreceivedName \@received} \fi
   % \else
-  % \ifx\@empty\@received \else        \PFUreceivedName \@received \fi
+  %   \ifx\@empty\@received \else        \PFUreceivedName \@received \fi
   % \fi
   % \ifx\@empty\thankses\else \@footnotetext{\def\par{\let\par\@par}\@setthanks}
   % \fi
@@ -2309,11 +2309,9 @@
   % \vspace{2\bigskipamount}
   \begingroup
   \ifx\@empty\@documentType \else \noindent \hfill\textit{\@documentType}\par \fi
-  % \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \PFUudcName{} \@udcnum \hfill\par \fi
-  % % \nobreak%
-  % \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \PFUpacsName{} \@pacsnum \hfill\par \fi
-  % % \nobreak%
-  % \ifx\@empty\@doi \else \nobreak\smallskip\noindent DOI: \@doi \hfill\par \fi
+  \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \footnotesize\PFUudcName{} \@udcnum \hfill\par \fi
+  \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \footnotesize\PFUpacsName{} \@pacsnum \hfill\par \fi
+  \ifx\@empty\@doi \else \nobreak\smallskip\noindent \footnotesize DOI: \@doi \hfill\par \fi
   \nobreak%
   \smallskip
   \@settitle
@@ -2378,16 +2376,16 @@
     \ifx\@empty\@keywords\else \@setkeywords \fi
   \fi
   %
-  \begingroup
-  \par
-  \medskip
-  \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \footnotesize\PFUudcName{} \@udcnum \hfill\par \fi
+  % \begingroup
+  % \par
+  % \medskip
+  % \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \footnotesize\PFUudcName{} \@udcnum \hfill\par \fi
+  % % \nobreak%
+  % \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \footnotesize\PFUpacsName{} \@pacsnum \hfill\par \fi
+  % % \nobreak%
+  % \ifx\@empty\@doi \else \nobreak\smallskip\noindent \footnotesize DOI: \@doi \hfill\par \fi
+  % \endgroup
   % \nobreak%
-  \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \footnotesize\PFUpacsName{} \@pacsnum \hfill\par \fi
-  % \nobreak%
-  \ifx\@empty\@doi \else \nobreak\smallskip\noindent \footnotesize DOI: \@doi \hfill\par \fi
-  \endgroup
-  \nobreak%
   %
   % \if@titlepage
   % \newpage
