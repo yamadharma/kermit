@@ -2,7 +2,7 @@
  "kproc"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("datetime" "nodayofweek")))
+                     '(("datetime" "nodayofweek" "us")))
    (TeX-run-style-hooks
     "latex2e"
     "etoolbox"

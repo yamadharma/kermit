@@ -605,7 +605,7 @@
     \addto\captionsenglish{%
     \def\PFUudcName{UDC}
     \def\PFUpacsName{PACS}
-    \def\PFUreceivedName{Received}%
+    \def\PFUreceivedName{received}%
     \def\PFUrevisedName{revised}%
     \def\PFUacceptedName{accepted}%
     \def\PFUpublishedName{published}%
@@ -635,7 +635,7 @@
   {
     \def\PFUudcName{UDC}
     \def\PFUpacsName{PACS}
-    \def\PFUreceivedName{Received }%
+    \def\PFUreceivedName{received }%
     \def\PFUrevisedname{Revised }%
     \def\PFUacceptedname{Accepted }%
     \def\PFUpublishedname{Published }%
@@ -1654,7 +1654,7 @@
 %%
 
 % \RequirePackage{datetime2}
-\RequirePackage[nodayofweek]{datetime}
+\RequirePackage[nodayofweek,us]{datetime}
 
 \DeclareRobustCommand{\received}[3]{%
   \def\@received@day{#1}
@@ -2351,11 +2351,11 @@
       \begin{center}
         \footnotesize
         (%
-        \PFUreceivedName\enspace \@received%
+        \PFUreceivedName:\enspace \@received%
         \ifx\@empty\@accepted%
         \else
           ;
-          \PFUacceptedName\enspace \@accepted%
+          \PFUacceptedName:\enspace \@accepted%
         \fi
         )
       \end{center}
