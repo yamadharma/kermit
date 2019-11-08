@@ -1037,7 +1037,10 @@
 
 \NewDocumentCommand{\refList}{ m }
  {
-  \clist_map_inline:nn { #1 } { \ref{##1} }
+   % \clist_map_inline:nn { #1 } { \ref{##1} }
+   \seq_set_from_clist:Nn \l_tmpa_seq { #1 }
+   \seq_set_map:NNn \l_tmpb_seq \l_tmpa_seq { \exp_not:n { \ref { ##1 } } }
+   \seq_use:Nn \l_tmpb_seq { ,~ }   
  }
 
 \ExplSyntaxOff
@@ -1058,7 +1061,10 @@
 % %    \let\@tempc\string{\the\t@loc@notes}
 %     \@temptokena\@xp{\t@loc@notes}
 %     \edef\@tempc{\the\@temptokena}
-     \author@fmt{\the\c@PFUauthor}{\refList{#1}}{#2}{}%
+  \edef\refListAndify{\refList{#1}}
+  \andify\refListAndify
+  % \author@fmt{\the\c@PFUauthor}{\refList{#1}}{#2}{}%
+  \author@fmt{\the\c@PFUauthor}{\refListAndify}{#2}{}%
 %     \author@fmt{\the\c@PFUauthor}{#1}{#2}{}%
      \@author@hook@post
 }
@@ -1494,7 +1500,7 @@
   \proc@elem{address}{#1}%
   \address@fmt{\m@ne}{\the\t@loc@notes}{\@address}{*}%
   \ignorespaces}
-\def\theaddress{\fnsymbol{address}}
+% \def\theaddress{\fnsymbol{address}}
 \def\address@fmt#1#2#3#4{\@newelemtrue
   \if@Elproofing\def\@eltag{#4}\else\def\@eltag{\theaddress}\fi
   \ifnum\prev@elem=\e@address \@newelemfalse \fi

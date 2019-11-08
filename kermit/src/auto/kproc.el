@@ -160,7 +160,6 @@
     "collab"
     "collaboration"
     "thefootnote"
-    "theaddress"
     "altaddress"
     "thealtaddress"
     "address"
