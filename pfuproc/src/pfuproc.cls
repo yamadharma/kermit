@@ -627,7 +627,8 @@ Bulletin of Peoples' Friendship University of Russia]
         \textbf{%
           % \PFUjournalyear{} Vol.\,\PFUjournalvolume{}
           % No.\,\PFUjournalnumber{}%
-          \PFUjournalvolume{} (\PFUjournalnumber{}) (\PFUjournalyear{})
+          \PFUjournalyear{},
+          \PFUjournalvolume{} (\PFUjournalnumber{})
           \ifthenelse{\pageref{starttitle}=\pageref{endtitle}}%
           {\pageref{starttitle}}% then
           {\pageref{starttitle}--\pageref{endtitle}}% else

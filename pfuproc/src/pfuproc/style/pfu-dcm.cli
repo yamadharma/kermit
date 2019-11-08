@@ -130,10 +130,10 @@
 \renewcommand{\PFUTitle}{%
   \PFUjournalHeader.~%
   \ifdefempty{\PFUjournalseries}{}{\PFUjornalseriesName\,\textit{\PFUjournalseriesHeader}.~}%
-  \ifx\PFUjournalvolume\@empty\else\PFUjournalvolume\fi{}~%
+  \PFUjournalyear%
+  \ifx\PFUjournalvolume\@empty\else, \PFUjournalvolume\fi{}~%
   \ifx\PFUjournalnumber\@empty\else (\PFUjournalnumber)\fi{}%
-  \ifx\PFUjournalissue\@empty\else\,(\PFUjournalissue),\fi{}%
-  \,(\PFUjournalyear)%
+  \ifx\PFUjournalissue\@empty\else\,(\PFUjournalissue),\fi{}%  
   % dirty hack
   \@ifundefined{r@\thePFUtitle:starttitle}{}{%
     ~\pageref{starttitle}--\pageref{endtitle}
