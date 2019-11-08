@@ -33,7 +33,7 @@
   \RequirePackage{truncate}
   % \renewcommand{\leftmark}{\hfill \headerFontSize {\authorsrunning} \hfill}
   % \renewcommand{\rightmark}{\truncate{0.8\textwidth}{\headerFontSize {\shorttitle}}}
-  
+
   \pagestyle{fancy}
   \fancyhead{}%
   % \fancyhead[LE,RO]{\headerFontSize\thepage}%
@@ -50,7 +50,7 @@
     %     \headerFontSize\thepage
     %   \end{otherlanguage*}
     % }
-  }        
+  }
   % \fancyhead[CO]{\truncate{0.8\textwidth}{\headerFontSize {\authorsrunning{} \shorttitle}}}%
   \fancyhead[LO]{%
     % \begin{otherlanguage*}{\PFUlanguage}
@@ -66,9 +66,9 @@
     %   \end{otherlanguage*}
     % }
   }
-  
+
   \fancyhead[RE]{\headerFontSize \PFUTitleHeader}%
-  
+
   % \fancyhead[RE]{%
   % \iflanguage{\@defaultlanguage}{%
   % \headerFontSize \PFUTitleHeader
@@ -78,7 +78,7 @@
   %   \end{otherlanguage*}
   % }
   % }
-  
+
   %   \fancyhead[LO]{%
   %   \iflanguage{\@defaultlanguage}%
   %   {%
@@ -95,7 +95,7 @@
   %   }
   %   }
   \fancyfoot{}
-  
+
   \fancypagestyle{plain}{%
     \fancyhf{} % clear all header and footer fields
     \fancyhead[C]{%
@@ -104,7 +104,7 @@
     % \renewcommand{\headrulewidth}{0pt}
     % \renewcommand{\footrulewidth}{0pt}
   }
-  
+
 } % END \AtEndOfPackage
 
 
@@ -113,13 +113,15 @@
 \AtEndPreamble{%
   \ltx@ifpackageloaded{biblatex}{}{%
     \usepackage{gost7184}
-    \usepackage{cite}
+    % \usepackage{cite}
   }
 }
 
 \AtBeginDocument{%
   \ltx@ifpackageloaded{biblatex}{}{%
-    \mainbibstyle{elsarticle-num}  
+    \mainbibstyle{elsarticle-num}
+    % \mainbibstyle{ACM-Reference-Format}
+    % \mainbibstyle{aipnum4-2}
     % \newcommand\href[1]{}
     % \mainbibstyle{tugboat}
     \altbibstyle{gost7184u}
@@ -133,7 +135,7 @@
   \PFUjournalyear%
   \ifx\PFUjournalvolume\@empty\else, \PFUjournalvolume\fi{}~%
   \ifx\PFUjournalnumber\@empty\else (\PFUjournalnumber)\fi{}%
-  \ifx\PFUjournalissue\@empty\else\,(\PFUjournalissue),\fi{}%  
+  \ifx\PFUjournalissue\@empty\else\,(\PFUjournalissue),\fi{}%
   % dirty hack
   \@ifundefined{r@\thePFUtitle:starttitle}{}{%
     ~\pageref{starttitle}--\pageref{endtitle}
@@ -151,12 +153,12 @@
 %\renewcommand{\PFUheader}%
 %{%
 %  \scshape \PFUjournal,\,%
-%  \PFUjornalseriesName~\textit{\PFUjournalseries}.\,% 
+%  \PFUjornalseriesName~\textit{\PFUjournalseries}.\,%
 %  \ifx\PFUjournalvolume\@empty\else \CYRT.~\PFUjournalvolume.\,\fi{}%
 %  \ifx\PFUjournalnumber\@empty\else\No~\PFUjournalnumber.\,\fi{}%
 %  \ifx\PFUjournalissue\@empty\else\PFUjornalissueName~\PFUjournalissue.\,\fi{}%
-%  \PFUjournalyear.\,% 
-%  \cyrs.\,\pageref{starttitle}--\pageref{endtitle} 
+%  \PFUjournalyear.\,%
+%  \cyrs.\,\pageref{starttitle}--\pageref{endtitle}
 %}
 
 %%% Local Variables:

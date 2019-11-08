@@ -135,6 +135,7 @@ Bulletin of Peoples' Friendship University of Russia]
     \begin{otherlanguage}{english}
       \noindent
       \textbf{\listauthorsname}:%
+      \smallskip
       \par%
       % \end{otherlanguage}%
       \nopagebreak[4]%
@@ -278,47 +279,48 @@ Bulletin of Peoples' Friendship University of Russia]
 
   \ifx\pfuproc@authorfull@english\@empty
   \else
-  \def\pfuproc@authorlistentry@english{%
-    {\authorlistFontShape
-      \pfuproc@authorfull@english}%
-    \ifx\pfuproc@country@english\@empty
-    \else{ (\pfuproc@country@english)}
-    \fi~---
-    \ifx\pfuproc@authorrank@english\@empty
-    \else
-    \pfuproc@authorrank@english,
-    \fi
-    \ifx\pfuproc@authordegree@english\@empty
-    \else
-    \pfuproc@authordegree@english,
-    \fi
-    \ifx\pfuproc@authorpost@english\@empty
-    \else
-    \pfuproc@authorpost@english{}
-    \fi
-    \pfuproc@bra%
-    \ifx\pfuproc@mail\@empty
-    \else
-    \mbox{\-e-mail}:~\protect\url{\pfuproc@mail}%
-    \fi
-    \ifx\pfuproc@phone\@empty
-    \else
-    \pfuproc@komma\protect\mbox{phone:~\pfuproc@phone{}}%
-    \fi
-    \ifx\pfuproc@orcid\@empty
-    \else
-      \pfuproc@komma\protect\mbox{ORCID:~https://orcid.org/\pfuproc@orcid{}}%
-    \fi
-    \ifx\pfuproc@researcherid\@empty
-    \else
-      \pfuproc@komma\protect\mbox{ResearcherID: \pfuproc@researcherid{}}%
-    \fi
-    \ifx\pfuproc@scopusauthorid\@empty
-    \else
-      \pfuproc@komma\protect\mbox{Scopus Author ID: \pfuproc@scopusauthorid{}}%
-    \fi
-    \pfuproc@ket%
-  }
+    \def\pfuproc@authorlistentry@english{%
+      {\authorlistFontShape
+        \pfuproc@authorfull@english}%
+      \ifx\pfuproc@country@english\@empty
+      \else{ (\pfuproc@country@english)}
+      \fi~---
+      \ifx\pfuproc@authorrank@english\@empty
+      \else
+        \pfuproc@authorrank@english,
+      \fi
+      \ifx\pfuproc@authordegree@english\@empty
+      \else
+        \pfuproc@authordegree@english,
+      \fi
+      \ifx\pfuproc@authorpost@english\@empty
+      \else
+        \pfuproc@authorpost@english{}
+      \fi
+      \pfuproc@bra%
+      \ifx\pfuproc@mail\@empty
+      \else
+        \mbox{\-e-mail}:~\protect\url{\pfuproc@mail}%
+      \fi
+      \ifx\pfuproc@phone\@empty
+      \else
+        \pfuproc@komma\protect\mbox{phone:~\pfuproc@phone{}}%
+      \fi
+      \ifx\pfuproc@orcid\@empty
+      \else
+        \pfuproc@komma\protect\mbox{ORCID:~https://orcid.org/\pfuproc@orcid{}}%
+      \fi
+      \ifx\pfuproc@researcherid\@empty
+      \else
+        \pfuproc@komma\protect\mbox{ResearcherID: \pfuproc@researcherid{}}%
+      \fi
+      \ifx\pfuproc@scopusauthorid\@empty
+      \else
+        \pfuproc@komma\protect\mbox{Scopus Author ID: \pfuproc@scopusauthorid{}}%
+      \fi
+      \pfuproc@ket%
+      \protect\smallskip
+    }
   \fi
 
   % \addtocontents{loa}{\begin{otherlanguage}{russian}\pfuproc@authorlistentry\end{otherlanguage}\newline}
@@ -682,11 +684,13 @@ Bulletin of Peoples' Friendship University of Russia]
 
 \DeclareRobustCommand{\howtoCiteRu}{%
   % Для цитирования:
+  \smallskip
   \begin{otherlanguage*}{russian}
     \noindent
     \textbf{{\CYRD}{\cyrl}{\cyrya}
-    {\cyrc}{\cyri}{\cyrt}{\cyri}{\cyrr}{\cyro}{\cyrv}{\cyra}{\cyrn}{\cyri}{\cyrya}:}
-  \end{otherlanguage*}\\
+      {\cyrc}{\cyri}{\cyrt}{\cyri}{\cyrr}{\cyro}{\cyrv}{\cyra}{\cyrn}{\cyri}{\cyrya}:}
+  \end{otherlanguage*}%
+  \smallskip\\
   \iflanguage{russian}{%
     \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
       \emph{\authorstocshort} \@title{}~//
@@ -707,8 +711,10 @@ Bulletin of Peoples' Friendship University of Russia]
 }
 
 \DeclareRobustCommand{\howtoCiteEn}{%
+  \smallskip
   \noindent
-  \textbf{For citation:}\\
+  \textbf{For citation:}%
+  \smallskip\\
   \iflanguage{english}{%
     \ifpolyglossia\begin{otherlanguage}{\PFUlanguage}\else\begin{otherlanguage*}{\PFUlanguage}\fi
       \authorstocshort{}\unskip,{}\xspace \@title{}, \PFUjournal{}%
