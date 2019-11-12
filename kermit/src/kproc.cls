@@ -621,9 +621,9 @@
       \def\PFUpacsName{PACS}
       % Статья поступила в редакцию
       \def\PFUreceivedName{{\CYRS}{\cyrt}{\cyra}{\cyrt}{\cyrsftsn}{\cyrya} {\cyrp}{\cyro}{\cyrs}{\cyrt}{\cyru}{\cyrp}{\cyri}{\cyrl}{\cyra} {\cyrv} {\cyrr}{\cyre}{\cyrd}{\cyra}{\cyrk}{\cyrc}{\cyri}{\cyryu}}%
-      \def\PFUrevisedName{Revised }%
-      \def\PFUacceptedName{Accepted }%
-      \def\PFUpublishedName{Published }%
+      \def\PFUrevisedName{revised }%
+      \def\PFUacceptedName{accepted }%
+      \def\PFUpublishedName{published }%
       \def\etal{\cyri{} \cyrd\cyrr.}
       % Ключевые слова
       \def\keywordsname{{\CYRK}{\cyrl}{\cyryu}{\cyrch}{\cyre}{\cyrv}{\cyrery}{\cyre}
