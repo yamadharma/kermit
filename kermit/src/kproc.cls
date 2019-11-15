@@ -1061,10 +1061,10 @@
 % %    \let\@tempc\string{\the\t@loc@notes}
 %     \@temptokena\@xp{\t@loc@notes}
 %     \edef\@tempc{\the\@temptokena}
-  \edef\refListAndify{\refList{#1}}
-  \andify\refListAndify
-  % \author@fmt{\the\c@PFUauthor}{\refList{#1}}{#2}{}%
-  \author@fmt{\the\c@PFUauthor}{\refListAndify}{#2}{}%
+  % \edef\refListAndify{\refList{#1}}
+  % \andify\refListAndify
+  \author@fmt{\the\c@PFUauthor}{\refList{#1}}{#2}{}%
+  % \author@fmt{\the\c@PFUauthor}{\refListAndify}{#2}{}%
 %     \author@fmt{\the\c@PFUauthor}{#1}{#2}{}%
      \@author@hook@post
 }
