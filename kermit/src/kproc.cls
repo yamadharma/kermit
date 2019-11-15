@@ -1747,7 +1747,13 @@
 %%%
 % \newcommand{\email}[2][]{\g@addto@macro\addresses{\email{#1}{#2}}}
 \newcommand{\urladdr}[2][]{\g@addto@macro\addresses{\urladdr{#1}{#2}}}
-\renewcommand{\thanks}[1]{\g@addto@macro\thankses{\thanks{#1}}}
+
+% FIXME
+% Не компилится с biblatex, когда несколько файлов
+% TeX capacity exceeded, sorry [input stack size=5000]
+\renewcommand{\thanks}[1]{}
+%\renewcommand{\thanks}[1]{\g@addto@macro\thankses{\thanks{#1}}}
+
 \newcommand{\thanksref}[1]{\g@addto@macro\thankses{#1}}
 %\def\enddoc@text{\ifx\@empty\@translators \else\@settranslators\fi
 %  \ifx\@empty\addresses \else\@setaddresses\fi}
