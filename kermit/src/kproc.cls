@@ -1287,7 +1287,7 @@
       \protected@xdef\authorstoc{\authorstoc \and \authorInFam}%
       \protected@xdef\authorstocshort{\authorstocshort \and \authorInFamShort}%
       \protected@xdef\authorstocRev{\authorstocRev \and \authorFamIn}%
-      \protected@xdef\authorstocshortRev{\authorstocshortRev \and \authorFamInShort}%
+      \protected@xdef\authorstocshortRev{\authorstocshortRev \and \mbox{\authorFamInShort}}%
     }{% lastname firstname
       \protected@xdef\authorstoc{\authorstoc \and \authorFamIn}%
       \protected@xdef\authorstocshort{\authorstocshort \and \authorFamInShort}%

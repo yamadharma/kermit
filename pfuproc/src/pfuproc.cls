@@ -789,7 +789,6 @@ Bulletin of Peoples' Friendship University of Russia]
   \end{PapercopyrightFloat}
 }
 
-
 %}}}
 
 \AtEndPreamble{%
