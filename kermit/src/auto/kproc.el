@@ -41,6 +41,7 @@
     '("xandlist" 4)
     '("nxaltandlist" 4)
     '("xaltandlist" 4)
+    '("altkeywords" 1)
     '("dedicatory" 1)
     '("thanksref" 1)
     '("email" 1)
@@ -168,7 +169,6 @@
     "urladdr"
     "dedicatorywidth"
     "keywords"
-    "altkeywords"
     "subjclass"
     "translator"
     "and"

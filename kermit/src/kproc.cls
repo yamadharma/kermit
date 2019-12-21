@@ -1830,8 +1830,13 @@
 
 \def\keywords#1{\def\@keywords{#1}}
 \let\@keywords=\@empty
-\def\altkeywords#1{\def\alt@keywords{#1}}
-\let\alt@keywords=\@empty
+
+\DeclareRobustCommand{\altkeywords}[1]{%
+  \gdef\alt@keywords{#1}}
+\let\alt@keywords\@empty
+
+% \def\altkeywords#1{\def\alt@keywords{#1}}
+% \let\alt@keywords=\@empty
 \def\subjclass#1{\def\@subjclass{#1}}
 \let\@subjclass=\@empty
 \def\translator#1{%
@@ -2941,7 +2946,8 @@
   {\DivFontShape \keywordsname:}\enspace \@keywords%\@addpunct.%
 }%
 \def\@setaltkeywords{%
-  \hskip\parindent%
+  % \hskip\parindent%
+  \noindent
   \@keywordsize%
   {\DivFontShape \keywordsname:}\enspace \alt@keywords%\@addpunct.%
 }%
