@@ -365,7 +365,7 @@
 \setboolean{sectionAfterTitle}{false}
 
 \DeclareRobustCommand{\doi}[1]{%
-  \def\@doi{#1}
+  \gdef\@doi{#1}
 }
 \let\@doi\@empty
 
@@ -2667,7 +2667,7 @@
 %%% --
 \let\@udcnum\@empty
 \let\@pacsnum\@empty
-% \let\@doi\@empty
+\let\@doi\@empty
 \let\@documentType\@empty
 \let\alt@keywords\@empty
 \let\@altabstracts\@empty
@@ -2719,9 +2719,11 @@
 } % END \makealttitle*
 
 
-\def\@makealttitle@hook@pre{\global\let\@makealttitle@hook@pre\@empty}
-\def\@makealttitle@hook{\global\let\@makealttitle@hook\@empty}
-\def\@makealttitle@hook@post{\global\let\@makealttitle@hook@post\@empty}
+\def\@makealttitle@hook@pre{\global\let\@maketitle@hook@pre\@empty}
+% \def\@makealttitle@hook{\global\let\@maketitle@hook\@empty}
+\def\@makealttitle@hook{}
+% \def\@makealttitle@hook@post{\global\let\@maketitle@hook@post\@empty}
+\def\@makealttitle@hook@post{}
 \providecommand{\@makealttitle}%
 {%
   \begingroup
@@ -2742,11 +2744,10 @@
     % \bigskip\nobreak%
     % \ifx\@empty\@udcnum \else \noindent \@udcnum \hfill\par \fi
     \begingroup
-    \ifx\@empty\@udcnum \else \noindent \PFUudcName{} \@udcnum \hfill\par \fi%
-    \nobreak%
-    \ifx\@empty\@pacsnum \else \noindent \PFUpacsName{} \@pacsnum \hfill\par \fi%
-    \nobreak%
-    \ifx\@empty\@doi \else \noindent DOI: \@doi \hfill\par \fi
+    % \ifx\@empty\@documentType \else \noindent \hfill\textit{\@documentType}\par \fi
+    \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \footnotesize\PFUudcName{} \@udcnum \hfill\par \fi
+    \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \footnotesize\PFUpacsName{} \@pacsnum \hfill\par \fi
+    \ifx\@empty\@doi \else \nobreak\smallskip\noindent \footnotesize DOI: \@doi \hfill\par \fi
     \nobreak%
     \smallskip
     \@setalttitle%
