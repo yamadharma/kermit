@@ -968,6 +968,7 @@
     \immediate\openout\PFU@aux\PFU@auxname.aux\relax
   \fi
   \gdef\shorttitle{#1}\gdef\@title{#2}
+  \ifx\shorttitle\@empty\gdef\shorttitle{\@title}\fi
   \@title@hook@post
 } % END \title
 
@@ -1175,7 +1176,7 @@
 %     \def\authorinitials{#1}
 %     \def\authorfamily{#2}
 % }
-\def\PFUNumRunningauthor{3}
+\def\PFUNumRunningauthor{2}
 %%%
 \def\runningauthor@fmt{%
   \begingroup\no@harm
@@ -1410,7 +1411,7 @@
   \else
     \protected@xdef\altauthorstoc{\altauthorstoc \altand \altauthorFamIn}%
     \protected@xdef\altauthorstocshort{\altauthorstocshort \altand \altauthorFamInShort}%
-    \ifnum0\n@author@ > 3
+    \ifnum0\n@author@ > \PFUNumRunningauthor
       \ifnum0#1 = 2
         %% FIXME removing \etal (20031214)
         % \g@addto@macro\altauthorsrunning{ \etal}%
@@ -2014,9 +2015,7 @@
   \else \edef\rauthor{\@rauthor}
   \fi
   % \renewcommand{\leftmark}{\rauthor\ \textit{\shorttitle}}
-  \ifx\shorttitle\@empty
-  \let\shorttitle\@title
-  \fi
+  \ifx\shorttitle\@empty\gdef\shorttitle{\@title}\fi
   %% \renewcommand{\leftmark}{\authorsrunning{} {\shorttitle}}
   % \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \emph{\authorsrunning} {\shorttitle} \hfill}}
   % \renewcommand{\leftmark}{\truncate{0.8\textwidth}{\hfill \headerFontSize {\authorsrunning} \hfill}}
