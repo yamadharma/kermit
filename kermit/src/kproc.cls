@@ -1041,7 +1041,7 @@
    % \clist_map_inline:nn { #1 } { \ref{##1} }
    \seq_set_from_clist:Nn \l_tmpa_seq { #1 }
    \seq_set_map:NNn \l_tmpb_seq \l_tmpa_seq { \exp_not:n { \ref { ##1 } } }
-   \seq_use:Nn \l_tmpb_seq { ,~ }   
+   \seq_use:Nn \l_tmpb_seq { ,\protect\, }   
  }
 
 \ExplSyntaxOff
