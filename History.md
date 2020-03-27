@@ -1,0 +1,11 @@
+
+0.2.28 / 2020-03-27
+==================
+
+  * Moved to git-flow-avh
+  * Cleanups
+  * Добавил тонкую шпацию в ссылках на адрес
+  * g7-32 preliminary added
+  * Add old fontspec package. Due luatex error https://tex.stackexchange.com/questions/524847/latest-texlive-2019-update-broke-files-with-novel-class https://github.com/wspr/fontspec/issues/403
+  * Fixed shorttitle
+  * Fixed altkeywords
