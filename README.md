@@ -8,7 +8,7 @@
 
 `cd ~`
 
-`git clone https://yamadharma@bitbucket.org/yamadharma/soft-tex-kermit.git ~/kermit`
+`git clone https://github.com/yamadharma/kermit.git ~/kermit`
 
 - Сделать символическую ссылку для домашнего дерева texmf
 
@@ -18,15 +18,15 @@
 
 - Набор классов kermit для LaTeX
 
-<https://bitbucket.org/yamadharma/soft-tex-kermit>
+<https://github.com/yamadharma/kermit>
 
 - Скрипты для сборки проекта LaTeX
 
-<https://bitbucket.org/yamadharma/soft-tex-kermit-makefiles>
+<https://github.com/yamadharma/kermit-makefiles>
 
 - Набор шаблонов разных документов
 
-<https://bitbucket.org/yamadharma/soft-tex-kermit-templates>
+<https://github.com/yamadharma/kermit-templates>
 
 ## Окружения теорем ##
 
