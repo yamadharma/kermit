@@ -1,5 +1,11 @@
 
-0.2.28 / 2020-03-27
+v0.2.29 / 2020-07-10
+==================
+
+  * Added: mirror to github
+  * Added: LICENSE
+
+v0.2.28 / 2020-03-27
 ==================
 
   * Moved to git-flow-avh
