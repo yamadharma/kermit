@@ -927,12 +927,21 @@
   }
 }
 
+%% Для biblatex, привязанного к файлу
+\def\pfuBiblatexResource{}
+
 \renewcommand*{\title}[2][]%
 {%
-%%  \def\@biblabel##1{\@ifempty{##1}##1.......}
+  %% \def\@biblabel##1{\@ifempty{##1}##1.......}
   \@title@hook@pre
+  \if@filesw
+    \makeatletter
+    \@input{\PFU@auxname.aux}%
+    \immediate\openout\PFU@aux\PFU@auxname.aux\relax
+  \fi
+  %%
   \@title@hook
-  \refstepcounter{PFUtitle}
+  %%
   % \message{*********** \thePFUtitle}
   \refstepcounter{subtitle}
   % \thispagestyle{plain}
@@ -962,13 +971,9 @@
     \edef\PFUlanguage{russian}
     \edef\PFUaltlanguage{english}
   }
-  \if@filesw
-    \makeatletter
-    \@input{\PFU@auxname.aux}%
-    \immediate\openout\PFU@aux\PFU@auxname.aux\relax
-  \fi
   \gdef\shorttitle{#1}\gdef\@title{#2}
   \ifx\shorttitle\@empty\gdef\shorttitle{\@title}\fi
+  \refstepcounter{PFUtitle}
   \@title@hook@post
 } % END \title
 
