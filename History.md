@@ -1,4 +1,10 @@
 
+v0.2.30 / 2020-08-27
+==================
+
+  * feat(pfuproc): biblatex использует свой только bib-файл
+  * Changed: disabled comment package
+
 v0.2.29 / 2020-07-10
 ==================
 
