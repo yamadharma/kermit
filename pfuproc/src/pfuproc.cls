@@ -491,7 +491,6 @@ Bulletin of Peoples' Friendship University of Russia]
      \@keywords%
 
      \string\end{otherlanguage*}
-
      \par
      \par
      \string\medskip
@@ -783,7 +782,7 @@ Bulletin of Peoples' Friendship University of Russia]
 
 \newfloat{PapercopyrightFloat}{b}{cpr}
 
-\g@addto@macro\@maketitle@hook@post{%
+\g@addto@macro\@maketitle@hook{%
   \begin{PapercopyrightFloat}
     \papercopyright
   \end{PapercopyrightFloat}
