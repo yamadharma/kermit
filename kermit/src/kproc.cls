@@ -1986,11 +1986,13 @@
     %   \no@harm \@alttitle}
     \addcontentsline{toc}{chapter}{%
       % \raggedright
+      \\[-6pt]
       {\bfseries \authorstoc}\unskip,{}\xspace
       \no@harm \@title
     }
     \addcontentsline{tac}{chapter}{%
       % \raggedright
+      \\[-6pt]
       {\bfseries \altauthorstoc}\unskip,{}\xspace
       \no@harm \@alttitle
     }
@@ -3798,6 +3800,7 @@
 %%
 \def\listofalts{\@starttoc{alt}\listaltname}
 %%
+
 \AtBeginDocument{%
   \@for\@tempa:=-1,0,1,2,3\do{%
     \@ifundefined{r@tocindent\@tempa}{%
