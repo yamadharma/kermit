@@ -933,6 +933,7 @@
 \renewcommand*{\title}[2][]%
 {%
   %% \def\@biblabel##1{\@ifempty{##1}##1.......}
+  \refstepcounter{PFUtitle}
   \@title@hook@pre
   \if@filesw
     \makeatletter
@@ -973,7 +974,6 @@
   }
   \gdef\shorttitle{#1}\gdef\@title{#2}
   \ifx\shorttitle\@empty\gdef\shorttitle{\@title}\fi
-  \refstepcounter{PFUtitle}
   \@title@hook@post
 } % END \title
 
