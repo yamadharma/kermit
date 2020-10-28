@@ -246,12 +246,15 @@
         % \bigskip
         % \\
         %% Ведущая организация
+        \ifx\PHDleadorg\empty
+        \else
         \parbox[t]{\linewidth}{%
         \raggedright
         \textbf{\PHDleadorgDescr :}
         }
         & 
           \parbox[t]{\linewidth}{\PHDleadorg}
+        \fi
       \end{tabular*}
     \end{flushleft}
     
