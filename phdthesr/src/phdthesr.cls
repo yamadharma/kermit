@@ -1013,13 +1013,13 @@ Dissertation Committee Chair
 %% FEXME need move to kermit bundle
 
 \titleformat{\chapter}[block]%
-    {\normalfont\chapterFontSize\chapterFontShape}{\chaptertitlename~\thechapter.}{0.8\baselineskip}{\chapterFontSize}
+    {\normalfont\chapterPosition\chapterFontSize\chapterFontShape}{\chaptertitlename~\thechapter.}{0.8\baselineskip}{\chapterFontSize}
 \titleformat{\section}[block]%
-    {\normalfont\sectionFontSize\sectionFontShape}{\thesection.}{1em}{}
+    {\normalfont\sectionPosition\sectionFontSize\sectionFontShape}{\thesection.}{1em}{}
 \titleformat{\subsection}[block]%
     {\normalfont\subsectionFontSize\subsectionFontShape}{\thesubsection.}{1em}{}
 \titleformat{\subsubsection}[block]%
-    {\normalfont\subsubsectionFontSize\subsubsectionFontShape}{\thesubsubsection.}{1em}{}
+    {\normalfont\subsubsectionPosition\subsubsectionFontSize\subsubsectionFontShape}{\thesubsubsection.}{1em}{}
 \titleformat{\paragraph}[runin]%
     {\normalfont\paragraphFontSize\paragraphFontShape}{\theparagraph.}{1em}{}
 \titleformat{\subparagraph}[runin]%
