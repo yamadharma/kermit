@@ -3487,7 +3487,7 @@
 \providecommand{\chapaftersnum}{.}
 \providecommand{\secaftersnum}{.}
 
-\RequirePackage{titlesec}
+\RequirePackage[indentafter]{titlesec}
 
 \titleformat{\chapter}[block]%
     {\thispagestyle{fancy}\normalfont\chapterFontSize\chapterFontShape}{\ifx\chaptertitlename\@empty\else\chaptertitlename\ \fi\thechapter\chapaftersnum}{0.8\baselineskip}{\chapterFontSize}
