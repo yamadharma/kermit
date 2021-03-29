@@ -1232,13 +1232,13 @@
     \protected@edef\authorFamIn{\authorfamily\,\authorinitials}
     \protected@edef\authorFamInShort{\authorfamily\,\authorinitialsshort}
     \protected@edef\authorInFamShort{\authorinitialsshort\,\authorfamily}
-    \protected@edef\authorInFam{\authorinitials~\authorfamily}
+    \protected@edef\authorInFam{\authorinitials\,\authorfamily}
     \protected@xdef\authorFamily{\authorfamily\xspace}
     \protected@xdef\authorInitials{\authorinitials\xspace}
     \protected@xdef\authorInitialsPlain{\authorinitialsplain\xspace}
   \else
     \protected@edef\authorFamIn{\protect\csname\@tempd \endcsname{\authorfamily\,\authorinitials}}
-    \protected@edef\authorInFam{\protect\csname\@tempd \endcsname{\authorinitials~\authorfamily}}
+    \protected@edef\authorInFam{\protect\csname\@tempd \endcsname{\authorinitials\,\authorfamily}}
     \protected@edef\authorFamInShort{\protect\csname\@tempd \endcsname{\authorfamily\,\authorinitialsshort}}
     \protected@edef\authorInFamShort{\protect\csname\@tempd \endcsname{\authorinitialsshort\,\authorfamily}}
   \fi
