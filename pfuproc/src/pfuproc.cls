@@ -453,7 +453,7 @@ Bulletin of Peoples' Friendship University of Russia]
   % \string\usepackage[english,russian]{babel}
   \string\input{preamble}
   \string\begin{document}
-  \string\fancyhead{} 
+  \string\fancyhead{}
   \string\fancyfoot{}
 }
 \addtocontents{titlelist.tex}{\pfuproc@titleslist@entry}
@@ -511,7 +511,7 @@ Bulletin of Peoples' Friendship University of Russia]
        {\PFUaltlanguage}
 
        \ifx\@udcnum\empty \else
-       \string\PFUudcName{} 
+       \string\PFUudcName{}
        \@udcnum \par \fi
 
        % Authors
@@ -525,7 +525,7 @@ Bulletin of Peoples' Friendship University of Russia]
        \@altabstracts
        \par
 
-       \string\keywordsname: 
+       \string\keywordsname:
        \alt@keywords%
 
        \par
@@ -549,7 +549,7 @@ Bulletin of Peoples' Friendship University of Russia]
 %     % {\LARGE \textbf{{\CYRN}{\cyra}{\cyrsh}{\cyri} {\cyra}{\cyrv}{\cyrt}{\cyro}{\cyrr}{\cyrery}}}
 %     \string\InputIfFileExists{default.loa}{}{}
 %   }
-  
+
 %   \g@addto@macro\pfuproc@titleslist@entry{%
 %     \string\end{document}
 %   }
@@ -599,7 +599,7 @@ Bulletin of Peoples' Friendship University of Russia]
   \renewcommand{\headrulewidth}{0pt}
   \lhead{}
   \rhead{}
-  
+
   \lhead{%
     \noindent
     \begin{minipage}[c]{\lheadwidth}
@@ -609,19 +609,22 @@ Bulletin of Peoples' Friendship University of Russia]
   }
   \chead{%
     \hspace*{-4.8cm}
-    \vspace*{-24pt}
+    \vspace*{-20pt}
     \begin{minipage}[c]{\cheadwidth}
       \begin{center}
         \headerFontSize
-        \PFUtitlelogoTop\\[-6pt]
+        \PFUtitlelogoTop\\[-14pt]
+        \PFUtitlelogoBottom\\[-8pt]
         \nointerlineskip
-        \noindent\rule{\linewidth}{2pt}\\[2pt]
-        \PFUtitlelogoBottom
+        % \noindent\rule{\linewidth}{2pt}\\
+        \noindent\rule{\linewidth}{0.4pt}\\
+        ISSN~\PFUissnOnline{} (online), \PFUissnPrint{} (print)
       \end{center}
     \end{minipage}
     }
     \rhead{%
-    % \hfill
+      % \hfill
+      % \vspace*{10pt}
     \begin{minipage}[c]{\rheadwidth}
       \begin{center}
         \headerFontSize
@@ -645,8 +648,8 @@ Bulletin of Peoples' Friendship University of Russia]
 %   \addtolength\headsep{\baselineskip}%
 % }
 
-\def\@maketitle@hook@pre{%
-   \thispagestyle{title}
+\def\@title@hook@pre{%
+  \thispagestyle{title}
 }
 
 %}}}
