@@ -1,3 +1,12 @@
+## [0.2.35](https://github.com/yamadharma/kermit/compare/v0.2.34...v0.2.35) (2021-09-09)
+
+
+### Features
+
+* **pfuproc:** add ISSN to title header ([1141b5d](https://github.com/yamadharma/kermit/commit/1141b5db414cb17b8dceb16bb0fd81c5bb557d4a))
+
+
+
 ## [0.2.34](https://github.com/yamadharma/kermit/compare/v0.2.33...v0.2.34) (2021-03-29)
 
 
