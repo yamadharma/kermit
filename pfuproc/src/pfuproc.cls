@@ -609,7 +609,7 @@ Bulletin of Peoples' Friendship University of Russia]
   }
   \chead{%
     \hspace*{-4.8cm}
-    \vspace*{-20pt}
+    \vspace*{-12pt}
     \begin{minipage}[c]{\cheadwidth}
       \begin{center}
         \headerFontSize

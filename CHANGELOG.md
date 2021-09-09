@@ -1,3 +1,12 @@
+## [0.2.36](https://github.com/yamadharma/kermit/compare/v0.2.35...v0.2.36) (2021-09-09)
+
+
+### Bug Fixes
+
+* **pfuproc:** fix logo position in header ([5182532](https://github.com/yamadharma/kermit/commit/51825325e312046e8ab52cb5f1a697145601d08b))
+
+
+
 ## [0.2.35](https://github.com/yamadharma/kermit/compare/v0.2.34...v0.2.35) (2021-09-09)
 
 
