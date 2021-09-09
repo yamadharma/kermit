@@ -930,8 +930,7 @@
 %% Для biblatex, привязанного к файлу
 \def\pfuBiblatexResource{}
 
-\renewcommand*{\title}[2][]%
-{%
+\renewcommand*{\title}[2][]{%
   %% \def\@biblabel##1{\@ifempty{##1}##1.......}
   \refstepcounter{PFUtitle}
   \@title@hook@pre
@@ -2302,8 +2301,9 @@
   %%%
 } % END \maketitleToc
 
-\def\@maketitle@hook@pre{\global\let\@maketitle@hook@pre\@empty}
+% \def\@maketitle@hook@pre{\global\let\@maketitle@hook@pre\@empty}
 % \def\@maketitle@hook{\global\let\@maketitle@hook\@empty}
+\def\@maketitle@hook@pre{}
 \def\@maketitle@hook{}
 % \def\@maketitle@hook@post{\global\let\@maketitle@hook@post\@empty}
 \def\@maketitle@hook@post{}
