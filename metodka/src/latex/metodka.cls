@@ -129,10 +129,10 @@
 
 % \fancyhead[CE]{\small \leftmark}%
 % \fancyhead[CO]{\small \rightmark}%
-\fancyhead[CE]{}%
-\fancyhead[CO]{}%
-\fancyhead[RE]{\small \leftmark}%
-\fancyhead[LO]{\small \rightmark}%
+% \fancyhead[CE]{}%
+% \fancyhead[CO]{}%
+% \fancyhead[RE]{\normalfont \small \leftmark}%
+% \fancyhead[LO]{\normalfont \small \rightmark}%
 
 
 %{{{ Подстройка из текущей методички
@@ -141,8 +141,9 @@
 
 \fancyhead[CE]{}%
 \fancyhead[CO]{}%
-\fancyhead[RE]{\footnotesize \leftmark}%
-\fancyhead[LO]{\footnotesize \rightmark}%
+\fancyhead[RE]{\normalfont\rmfamily \footnotesize \leftmark}%
+\fancyhead[LO]{\normalfont\rmfamily \footnotesize \rightmark}%
+\fancyhead[LE,RO]{\normalfont\rmfamily \footnotesize \oldstylenums{\thepage}}
 
 
 \fancypagestyle{pagestyleChapter}{
@@ -150,9 +151,11 @@
 \fancyhead[CO]{}%
 \fancyhead[RE]{}%
 \fancyhead[LO]{}%
+\fancyhead[LE,RO]{}%
+\renewcommand{\headrulewidth}{0pt}
 }
 
-\def\rightmark{\authorheadings{} \titleheadings}
+\def\rightmark{\normalfont\rmfamily \authorheadings{} \titleheadings}
 
 %\renewcommand{\chaptermark}[1]{%
 %  \def\chaptercontents{#1}
