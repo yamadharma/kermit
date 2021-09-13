@@ -143,7 +143,7 @@
 \fancyhead[CO]{}%
 \fancyhead[RE]{\normalfont\rmfamily \footnotesize \leftmark}%
 \fancyhead[LO]{\normalfont\rmfamily \footnotesize \rightmark}%
-\fancyhead[LE,RO]{\normalfont\rmfamily \footnotesize \oldstylenums{\thepage}}
+\fancyhead[LE,RO]{\normalfont\rmfamily \footnotesize \thepage}
 
 
 \fancypagestyle{pagestyleChapter}{
@@ -151,8 +151,9 @@
 \fancyhead[CO]{}%
 \fancyhead[RE]{}%
 \fancyhead[LO]{}%
-\fancyhead[LE,RO]{}%
-\renewcommand{\headrulewidth}{0pt}
+\fancyhead[LE,RO]{\normalfont\rmfamily \footnotesize \thepage}
+% \fancyhead[LE,RO]{}
+% \renewcommand{\headrulewidth}{0pt}
 }
 
 \def\rightmark{\normalfont\rmfamily \authorheadings{} \titleheadings}
