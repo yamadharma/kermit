@@ -1,3 +1,12 @@
+## [0.2.38](https://github.com/yamadharma/kermit/compare/v0.2.37...v0.2.38) (2021-09-13)
+
+
+### Bug Fixes
+
+* **metodka:** fix header font ([b43619a](https://github.com/yamadharma/kermit/commit/b43619abe03c9ed87e755ab0b8270930ecbb52ad))
+
+
+
 ## [0.2.37](https://github.com/yamadharma/kermit/compare/v0.2.36...v0.2.37) (2021-09-13)
 
 
