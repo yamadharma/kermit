@@ -1,6 +1,6 @@
 {
     "name": "kermit",
-    "version": "0.2.37",
+    "version": "0.2.38",
     "description": "Kermit bundle for latex",
     "main": "index.js",
     "repository": "git@github.com:yamadharma/kermit.git",
