@@ -235,10 +235,17 @@
         \\
         \bigskip
         \\
-        \ifx\PHDoppiii\empty
+        \ifx\PHDoppiv\empty
         \else
         & \parbox[t]{\linewidth}{
-          \PHDoppiiidegree \par \textbf{\PHDoppiii}}
+          \PHDoppivdegree \par \textbf{\PHDoppiv}}
+        \\
+        \bigskip
+        \\
+        \ifx\PHDoppiv\empty
+        \else
+        & \parbox[t]{\linewidth}{
+          \PHDoppivdegree \par \textbf{\PHDoppiv}}
         \\
         \bigskip
         \fi

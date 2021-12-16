@@ -266,6 +266,11 @@
     "address"
     "altaddress")
    (LaTeX-add-saveboxes
-    "abstractbox"))
+    "abstractbox")
+   (LaTeX-add-caption-DeclareCaptions
+    '("\\DeclareCaptionFormat{tableRight}" "Format" "tableRight"))
+   (LaTeX-add-xparse-macros
+    '("refList" " m ")
+    '("extract" " m m ")))
  :latex)
 
