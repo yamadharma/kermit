@@ -1,3 +1,17 @@
+## [0.2.39](https://github.com/yamadharma/kermit/compare/v0.2.38...v0.2.39) (2022-01-17)
+
+
+### Bug Fixes
+
+* **phdthesr:** добавил 4 оппонента в автореферат ([4569939](https://github.com/yamadharma/kermit/commit/4569939f6832e74454affe0ef9397bebb94b3ca9))
+
+
+### Features
+
+* **kproc:** add abstract name ([24d432d](https://github.com/yamadharma/kermit/commit/24d432da23c9274e327e90d0c62025c03fdea52e))
+
+
+
 ## [0.2.38](https://github.com/yamadharma/kermit/compare/v0.2.37...v0.2.38) (2021-09-13)
 
 

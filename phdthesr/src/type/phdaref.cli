@@ -241,6 +241,13 @@
           \PHDoppiiidegree \par \textbf{\PHDoppiii}}
         \\
         \bigskip
+        \\
+        \ifx\PHDoppiv\empty
+        \else
+        & \parbox[t]{\linewidth}{
+          \PHDoppivdegree \par \textbf{\PHDoppiv}}
+        \\
+        \bigskip
         \fi
         \\
         % \bigskip
