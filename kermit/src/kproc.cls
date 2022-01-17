@@ -583,6 +583,7 @@
 %\def\PFUudcName{UDC}
 
 \def\keywordsname{Key words and phrases}
+\def\abstractname{Abstract}
 %\AtEndPreamble{%
 \AtBeginDocument{%
 %\AtEndOfClass{%
@@ -601,19 +602,21 @@
       % Ключевые слова
       \def\keywordsname{Ключевые слова}
       \def\acknowledgmentsname{Благодарности}
+      \def\abstractname{Аннотация}
     }
     \addto\captionsenglish{%
-    \def\PFUudcName{UDC}
-    \def\PFUpacsName{PACS}
-    \def\PFUreceivedName{received}%
-    \def\PFUrevisedName{revised}%
-    \def\PFUacceptedName{accepted}%
-    \def\PFUpublishedName{published}%
-     \def\etal{et al.}
-%%    \renewcommand{\etal}{et al.}
-%%     \providecommand{\etal}{et al.}
-    \def\keywordsname{Key words and phrases}
-    \def\acknowledgmentsname{Acknowledgments}
+      \def\PFUudcName{UDC}
+      \def\PFUpacsName{PACS}
+      \def\PFUreceivedName{received}%
+      \def\PFUrevisedName{revised}%
+      \def\PFUacceptedName{accepted}%
+      \def\PFUpublishedName{published}%
+      \def\etal{et al.}
+      %% \renewcommand{\etal}{et al.}
+      %% \providecommand{\etal}{et al.}
+      \def\keywordsname{Key words and phrases}
+      \def\acknowledgmentsname{Acknowledgments}
+      \def\abstractname{Abstract}
     }
   }{%
     \addto\extrasrussian{%
@@ -656,8 +659,8 @@
       % \def\refname{%
       % {\cyr\CYRS\cyrp\cyri\cyrs\cyro\cyrk
       % \ \cyrl\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyrery}}%
-      \def\abstractname{%
-        {\cyr\CYRA\cyrn\cyrn\cyro\cyrt\cyra\cyrc\cyri\cyrya}}%
+      % \def\abstractname{%
+      %   {\cyr\CYRA\cyrn\cyrn\cyro\cyrt\cyra\cyrc\cyri\cyrya}}%
       \def\refname{%
         {\cyr\CYRL\cyri\cyrt\cyre\cyrr\cyra\cyrt\cyru\cyrr\cyra}}%
       \def\bibname{%
@@ -2989,8 +2992,8 @@
   \global\setbox\t@abstract=\vbox\bgroup
   \leftskip=0pt \rightskip\leftskip
    \small
-  \parindent 1em                      % \parindent in abstract
-  \ignorespaces
+   \parindent 1em                      % \parindent in abstract
+   \ignorespaces
 
   % \ifx\maketitle\relax
   %   \ClassWarning{\@classname}{Abstract should precede
@@ -3021,6 +3024,7 @@
   \leftskip=0pt \rightskip\leftskip
   \small
   \parindent 1em                      % \parindent in abstract
+  \noindent\textbf{\abstractname :}
   \ignorespaces
   #1
   \par \egroup%
@@ -3116,6 +3120,7 @@
     \leftskip=0pt \rightskip\leftskip
     \small
     \parindent 1em                      % \parindent in abstract
+    \noindent\textbf{\abstractname :}
     \ignorespaces
     #1
     \par \egroup%

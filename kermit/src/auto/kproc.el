@@ -270,7 +270,7 @@
    (LaTeX-add-caption-DeclareCaptions
     '("\\DeclareCaptionFormat{tableRight}" "Format" "tableRight"))
    (LaTeX-add-xparse-macros
-    '("refList" " m ")
-    '("extract" " m m ")))
+    '("\\NewDocumentCommand{\\refList}{ m }" "refList" " m " "New")
+    '("\\DeclareExpandableDocumentCommand \\extract { m m }" "extract" " m m " "Declare")))
  :latex)
 
