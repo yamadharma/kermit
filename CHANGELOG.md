@@ -1,3 +1,14 @@
+## [0.2.40](https://github.com/yamadharma/kermit/compare/v0.2.39...v0.2.40) (2022-01-20)
+
+
+### Bug Fixes
+
+* **kproc:** add hack for authors in toc ([3f748e0](https://github.com/yamadharma/kermit/commit/3f748e03dea469ace75c626cb71eceda5fc8849e))
+* **kproc:** fix multiple altaddress ([b13cd93](https://github.com/yamadharma/kermit/commit/b13cd936e192adfb9a9947dc201cc66b2ebd822d))
+* **kproc:** switch abstact name deliniter from : to ([67fba89](https://github.com/yamadharma/kermit/commit/67fba895a47c0997bf011a8839754aca5436e4be))
+
+
+
 ## [0.2.39](https://github.com/yamadharma/kermit/compare/v0.2.38...v0.2.39) (2022-01-17)
 
 

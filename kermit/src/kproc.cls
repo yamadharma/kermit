@@ -1232,9 +1232,11 @@
   \protected@edef\@tempd{#4}
   \ifx\@tempd\@empty
     \protected@edef\authorFamIn{\authorfamily\,\authorinitials}
+    \protected@edef\authorFamInPlain{\authorfamily{} \authorinitialsplain}
     \protected@edef\authorFamInShort{\authorfamily\,\authorinitialsshort}
-    \protected@edef\authorInFamShort{\authorinitialsshort\,\authorfamily}
-    \protected@edef\authorInFam{\authorinitials\,\authorfamily}
+    \protected@edef\authorInFamShort{\authorinitialsshort{} \authorfamily}
+    \protected@edef\authorInFam{\authorinitials\ \authorfamily}
+    \protected@edef\authorInFamPlain{\authorinitialsplain{} \authorfamily}
     \protected@xdef\authorFamily{\authorfamily\xspace}
     \protected@xdef\authorInitials{\authorinitials\xspace}
     \protected@xdef\authorInitialsPlain{\authorinitialsplain\xspace}
@@ -1248,6 +1250,7 @@
   \ifx\authors\@empty
     \ifbool{isNameFam}{% firstname lastname
       \protected@xdef\authorstoc{\authorInFam}%
+      % \protected@xdef\authorstoc{\authorInFamPlain}%
       \protected@xdef\authorstocshort{\authorInFamShort}%
       \protected@xdef\authorsrunning{\authorInFamShort}%
       \protected@xdef\authorstocRev{\authorFamIn}%
@@ -1293,6 +1296,7 @@
     % \g@addto@macro\authorstoc{\and \authorFamIn}%
     \ifbool{isNameFam}{% firstname lastname
       \protected@xdef\authorstoc{\authorstoc \and \authorInFam}%
+      % \protected@xdef\authorstoc{\authorstoc \and \authorInFamPlain}%
       \protected@xdef\authorstocshort{\authorstocshort \and \authorInFamShort}%
       \protected@xdef\authorstocRev{\authorstocRev \and \authorFamIn}%
       \protected@xdef\authorstocshortRev{\authorstocshortRev \and \mbox{\authorFamInShort}}%
@@ -1590,44 +1594,48 @@
 } %END \altaddress@star
 
 \def\thealtaddress{\fnsymbol{altaddress}}
-\def\altaddress@fmt#1#2#3#4%
-{\@newelemtrue
+\def\altaddress@fmt#1#2#3#4{%
+  \@newelemtrue
   \if@Elproofing\def\@eltag{#4}\else\def\@eltag{\thealtaddress}\fi
   \ifnum\prev@elem=\e@altaddress \@newelemfalse \fi
-  \g@addto@macro\altaddresses{
-  \if@newelem \altaddress@fmt@init \fi
-  \noindent \bgroup \@altaddressstyle
-  \edef\@tempb{#2}%
-  \ifx\@tempb\@empty
-  \ifnum#1=\z@
-%    #3\,$^{\mathrm{#2}}$\space%
-    #3\space%
-  \else
-    \ifnum#1=\m@ne
-%      $^{\phantom{\mathrm{\@eltag}}}$\space #3\,$^{\mathrm{#2}}$%
-     $^{\phantom{\mathrm{\@eltag}}}$\space #3%
+  \g@addto@macro\altaddresses{%
+    \if@newelem \altaddress@fmt@init \fi
+    \noindent
+    \begingroup
+    \@altaddressstyle
+    \edef\@tempb{#2}%
+    \ifx\@tempb\@empty
+      \ifnum#1=\z@
+        % #3\,$^{\mathrm{#2}}$\space%
+        #3\space%
+      \else
+        \ifnum#1=\m@ne
+          % $^{\phantom{\mathrm{\@eltag}}}$\space #3\,$^{\mathrm{#2}}$%
+          $^{\phantom{\mathrm{\@eltag}}}$\space #3%
+        \else
+          % $^{\mathrm{\@eltag}}\space$#3\,$^{\mathrm{#2}}$%
+          $^{\mathrm{\@eltag}}\space$#3%
+        \fi
+      \fi
     \else
-%      $^{\mathrm{\@eltag}}\space$#3\,$^{\mathrm{#2}}$%
-     $^{\mathrm{\@eltag}}\space$#3%
+      \refstepcounter{address}%
+      \label{altaddress:#2}%
+      \ifnum#1=\z@
+        % #3\,$^{\mathrm{#2}}$\space%
+        $^{\mathrm{\ref{#2}}}$#3\space%
+      \else
+        \ifnum#1=\m@ne
+          % $^{\phantom{\mathrm{\@eltag}}}$\space #3\,$^{\mathrm{#2}}$%
+          $^{\mathrm{\ref{#2}}}$\,$^{\phantom{\mathrm{\@eltag}}}$\space #3%
+        \else
+          % $^{\mathrm{\@eltag}}\space$#3\,$^{\mathrm{#2}}$%
+          $^{\mathrm{\ref{#2}}}$\,#3%
+        \fi
+      \fi
     \fi
-  \fi
-\else
-   \refstepcounter{address}%
-   \label{altaddress:#2}%
-  \ifnum#1=\z@
-%    #3\,$^{\mathrm{#2}}$\space%
-    $^{\mathrm{\ref{#2}}}$#3\space%
-  \else
-    \ifnum#1=\m@ne
-%      $^{\phantom{\mathrm{\@eltag}}}$\space #3\,$^{\mathrm{#2}}$%
-     $^{\mathrm{\ref{#2}}}$\,$^{\phantom{\mathrm{\@eltag}}}$\space #3%
-    \else
-%      $^{\mathrm{\@eltag}}\space$#3\,$^{\mathrm{#2}}$%
-     $^{\mathrm{\ref{#2}}}$\,#3%
-    \fi
-  \fi
-\fi
-  \par \egroup}%
+    \par
+    \endgroup    
+  }%
 } %END \altaddress@fmt
 \def\altaddress@fmt@init{%
   \par                                % Start new paragraph
@@ -1676,7 +1684,6 @@
   \def\@received@year{#3}
   % \def\@received{\DTMdate{#3-#2-#1}}
   \def\@received{\formatdate{#1}{#2}{#3}}
-
 }
 \let\@received\@empty
 \let\@received@day\@empty
@@ -1989,12 +1996,14 @@
     \addcontentsline{toc}{chapter}{%
       % \raggedright
       \\[-6pt]
+      \raggedright
       {\bfseries \authorstoc}\unskip,{}\xspace
       \no@harm \@title
     }
     \addcontentsline{tac}{chapter}{%
       % \raggedright
       \\[-6pt]
+      \raggedright
       {\bfseries \altauthorstoc}\unskip,{}\xspace
       \no@harm \@alttitle
     }
@@ -2376,6 +2385,11 @@
         \footnotesize
         (%
         \PFUreceivedName:\enspace \@received%
+        \ifx\@empty\@revised%
+        \else
+          ;
+          \PFUrevisedName:\enspace \@revised%
+        \fi
         \ifx\@empty\@accepted%
         \else
           ;
@@ -2771,7 +2785,7 @@
     \endgroup
     %%% --
     \nobreak%
-    % \begingroup
+    \begingroup
     \smallskip
     \begin{center}
       \footnotesize
@@ -2782,7 +2796,7 @@
     \end{center}
     \nobreak
     % \par
-    % \endgroup
+    \endgroup
     %%%
     \ifx\@empty\@dedicatory
     \else
@@ -3024,7 +3038,7 @@
   \leftskip=0pt \rightskip\leftskip
   \small
   \parindent 1em                      % \parindent in abstract
-  \noindent\textbf{\abstractname :}
+  \noindent\textbf{\abstractname .}
   \ignorespaces
   #1
   \par \egroup%
@@ -3120,7 +3134,7 @@
     \leftskip=0pt \rightskip\leftskip
     \small
     \parindent 1em                      % \parindent in abstract
-    \noindent\textbf{\abstractname :}
+    \noindent\textbf{\abstractname .}
     \ignorespaces
     #1
     \par \egroup%
@@ -3685,14 +3699,21 @@
 \def\@starttoc#1{%
   \begingroup
   %% \toc@pre
-    \makeatletter
-    \@input{\jobname.#1}%
-    \if@filesw
-      \expandafter\newwrite\csname tf@#1\endcsname
-      \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax
-    \fi
-    \@nobreakfalse
-%%     \toc@post
+  \makeatletter  
+  % \tolerance=1
+  % \emergencystretch=\maxdimen
+  % \hyphenpenalty=10000
+  % \hbadness=10000
+  % \raggedright
+  \hyphenchar\font=-1 % disable hyphen
+  \@input{\jobname.#1}%
+  \if@filesw
+    \expandafter\newwrite\csname tf@#1\endcsname
+    \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax
+  \fi
+  \hyphenchar\font=`\- % reset hyphen
+  \@nobreakfalse
+  %% \toc@post
   \endgroup
 }%
 % \def\@starttoc#1#2{\begingroup
