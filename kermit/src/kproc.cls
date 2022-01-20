@@ -1590,44 +1590,48 @@
 } %END \altaddress@star
 
 \def\thealtaddress{\fnsymbol{altaddress}}
-\def\altaddress@fmt#1#2#3#4%
-{\@newelemtrue
+\def\altaddress@fmt#1#2#3#4{%
+  \@newelemtrue
   \if@Elproofing\def\@eltag{#4}\else\def\@eltag{\thealtaddress}\fi
   \ifnum\prev@elem=\e@altaddress \@newelemfalse \fi
-  \g@addto@macro\altaddresses{
-  \if@newelem \altaddress@fmt@init \fi
-  \noindent \bgroup \@altaddressstyle
-  \edef\@tempb{#2}%
-  \ifx\@tempb\@empty
-  \ifnum#1=\z@
-%    #3\,$^{\mathrm{#2}}$\space%
-    #3\space%
-  \else
-    \ifnum#1=\m@ne
-%      $^{\phantom{\mathrm{\@eltag}}}$\space #3\,$^{\mathrm{#2}}$%
-     $^{\phantom{\mathrm{\@eltag}}}$\space #3%
+  \g@addto@macro\altaddresses{%
+    \if@newelem \altaddress@fmt@init \fi
+    \noindent
+    \begingroup
+    \@altaddressstyle
+    \edef\@tempb{#2}%
+    \ifx\@tempb\@empty
+      \ifnum#1=\z@
+        % #3\,$^{\mathrm{#2}}$\space%
+        #3\space%
+      \else
+        \ifnum#1=\m@ne
+          % $^{\phantom{\mathrm{\@eltag}}}$\space #3\,$^{\mathrm{#2}}$%
+          $^{\phantom{\mathrm{\@eltag}}}$\space #3%
+        \else
+          % $^{\mathrm{\@eltag}}\space$#3\,$^{\mathrm{#2}}$%
+          $^{\mathrm{\@eltag}}\space$#3%
+        \fi
+      \fi
     \else
-%      $^{\mathrm{\@eltag}}\space$#3\,$^{\mathrm{#2}}$%
-     $^{\mathrm{\@eltag}}\space$#3%
+      \refstepcounter{address}%
+      \label{altaddress:#2}%
+      \ifnum#1=\z@
+        % #3\,$^{\mathrm{#2}}$\space%
+        $^{\mathrm{\ref{#2}}}$#3\space%
+      \else
+        \ifnum#1=\m@ne
+          % $^{\phantom{\mathrm{\@eltag}}}$\space #3\,$^{\mathrm{#2}}$%
+          $^{\mathrm{\ref{#2}}}$\,$^{\phantom{\mathrm{\@eltag}}}$\space #3%
+        \else
+          % $^{\mathrm{\@eltag}}\space$#3\,$^{\mathrm{#2}}$%
+          $^{\mathrm{\ref{#2}}}$\,#3%
+        \fi
+      \fi
     \fi
-  \fi
-\else
-   \refstepcounter{address}%
-   \label{altaddress:#2}%
-  \ifnum#1=\z@
-%    #3\,$^{\mathrm{#2}}$\space%
-    $^{\mathrm{\ref{#2}}}$#3\space%
-  \else
-    \ifnum#1=\m@ne
-%      $^{\phantom{\mathrm{\@eltag}}}$\space #3\,$^{\mathrm{#2}}$%
-     $^{\mathrm{\ref{#2}}}$\,$^{\phantom{\mathrm{\@eltag}}}$\space #3%
-    \else
-%      $^{\mathrm{\@eltag}}\space$#3\,$^{\mathrm{#2}}$%
-     $^{\mathrm{\ref{#2}}}$\,#3%
-    \fi
-  \fi
-\fi
-  \par \egroup}%
+    \par
+    \endgroup    
+  }%
 } %END \altaddress@fmt
 \def\altaddress@fmt@init{%
   \par                                % Start new paragraph
@@ -2771,7 +2775,7 @@
     \endgroup
     %%% --
     \nobreak%
-    % \begingroup
+    \begingroup
     \smallskip
     \begin{center}
       \footnotesize
@@ -2782,7 +2786,7 @@
     \end{center}
     \nobreak
     % \par
-    % \endgroup
+    \endgroup
     %%%
     \ifx\@empty\@dedicatory
     \else
