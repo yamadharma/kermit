@@ -3024,7 +3024,7 @@
   \leftskip=0pt \rightskip\leftskip
   \small
   \parindent 1em                      % \parindent in abstract
-  \noindent\textbf{\abstractname :}
+  \noindent\textbf{\abstractname .}
   \ignorespaces
   #1
   \par \egroup%
@@ -3120,7 +3120,7 @@
     \leftskip=0pt \rightskip\leftskip
     \small
     \parindent 1em                      % \parindent in abstract
-    \noindent\textbf{\abstractname :}
+    \noindent\textbf{\abstractname .}
     \ignorespaces
     #1
     \par \egroup%
