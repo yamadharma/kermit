@@ -1,3 +1,12 @@
+## [0.2.41](https://github.com/yamadharma/kermit/compare/v0.2.40...v0.2.41) (2022-02-21)
+
+
+### Bug Fixes
+
+* **l10n:** disable localisation for glossaries package ([3dd3216](https://github.com/yamadharma/kermit/commit/3dd321651b7def1da850db3ffd89df472d9e26df))
+
+
+
 ## [0.2.40](https://github.com/yamadharma/kermit/compare/v0.2.39...v0.2.40) (2022-01-20)
 
 
