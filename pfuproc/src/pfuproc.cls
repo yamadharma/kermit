@@ -771,9 +771,11 @@ Bulletin of Peoples' Friendship University of Russia]
     \begin{flushleft}
       {% \footnotesize
         \scriptsize
-        This work is licensed under a Creative Commons Attribution 4.0
-        International License\\
-        \url{http://creativecommons.org/licenses/by/4.0/}
+        This work is licensed under a Creative Commons Attribution 4.0 International License\\
+        \url{https://creativecommons.org/licenses/by-nc/4.0/legalcode}
+        %This work is licensed under a Creative Commons Attribution 4.0
+        %International License\\
+        %\url{http://creativecommons.org/licenses/by/4.0/}
       }
       % This work is licensed under a \href{http://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0 International License}.
     \end{flushleft}%
