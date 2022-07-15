@@ -1,3 +1,12 @@
+## [0.2.42](https://github.com/yamadharma/kermit/compare/v0.2.41...v0.2.42) (2022-07-15)
+
+
+### Bug Fixes
+
+* **math:** remove math operators ([7959557](https://github.com/yamadharma/kermit/commit/795955716eb64497f76218c4d43cfd14c9ddbe8f))
+
+
+
 ## [0.2.41](https://github.com/yamadharma/kermit/compare/v0.2.40...v0.2.41) (2022-02-21)
 
 
