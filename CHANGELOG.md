@@ -1,3 +1,12 @@
+## [0.2.43](https://github.com/yamadharma/kermit/compare/v0.2.42...v0.2.43) (2022-07-15)
+
+
+### Features
+
+* **pfuproc:** change logo from `cc-by` to `cc-by-nc` ([e1dfbfe](https://github.com/yamadharma/kermit/commit/e1dfbfef25ef49dc90cf00215ebc990f4acebb53))
+
+
+
 ## [0.2.42](https://github.com/yamadharma/kermit/compare/v0.2.41...v0.2.42) (2022-07-15)
 
 
