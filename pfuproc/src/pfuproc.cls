@@ -748,7 +748,7 @@ Bulletin of Peoples' Friendship University of Russia]
 \DeclareRobustCommand{\cclogo}[1]{%
   \def\pfuproc@cclogo{#1}
 }
-\def\pfuproc@cclogo{by}
+\def\pfuproc@cclogo{by-nc}
 
 \def\papercopyright{%
   \graphicspath{{./}{image/}}
