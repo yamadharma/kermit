@@ -28,6 +28,7 @@
     '("orcid" 1)
     '("phone" 1)
     '("email" 1)
+    '("paperid" 1)
     "authorlistFontShape"
     "howtoCiteRu"
     "howtoCiteEn"
