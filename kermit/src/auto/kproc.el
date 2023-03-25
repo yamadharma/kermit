@@ -25,6 +25,7 @@
     "titlesec")
    (TeX-add-symbols
     "endverse"
+    '("part" ["argument"] 1)
     '("urladdr" ["argument"] 1)
     '("altcurraddr" ["argument"] 1)
     '("curraddr" ["argument"] 1)
@@ -32,6 +33,7 @@
     '("altappendixtitle" ["argument"] 1)
     '("appendixtitle" ["argument"] 1)
     '("subtitle" ["argument"] 1)
+    '("title" ["argument"] 1)
     '("see" 2)
     '("MR" 1)
     '("tocsection" 3)
@@ -44,11 +46,13 @@
     '("altkeywords" 1)
     '("dedicatory" 1)
     '("thanksref" 1)
+    '("thanks" 1)
     '("email" 1)
     '("published" 3)
     '("accepted" 3)
     '("revised" 3)
     '("received" 3)
+    '("edn" 1)
     '("pacs" 1)
     '("udc" 1)
     '("uppercasenonmath" 1)
@@ -249,6 +253,7 @@
     "titlepage"
     "altabstract"
     "abstract"
+    '("thebibliography" 1)
     "abstracta"
     "acknowledgments")
    (LaTeX-add-pagestyles

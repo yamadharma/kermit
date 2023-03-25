@@ -1673,7 +1673,10 @@
 \DeclareRobustCommand{\pacs}[1]{%
   \def\@pacsnum{#1}}
 \let\@pacsnum\@empty
-%%
+\DeclareRobustCommand{\edn}[1]{%
+  \def\@edn{#1}}
+\let\@edn\@empty
+%% 
 
 % \RequirePackage{datetime2}
 \RequirePackage[nodayofweek,us]{datetime}
@@ -2347,6 +2350,7 @@
   \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \footnotesize\PFUudcName{} \@udcnum \hfill\par \fi
   \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \footnotesize\PFUpacsName{} \@pacsnum \hfill\par \fi
   \ifx\@empty\@doi \else \nobreak\smallskip\noindent \footnotesize DOI: \@doi \hfill\par \fi
+  \ifx\@empty\@edn \else \nobreak\smallskip\noindent \footnotesize EDN: \MakeUppercase{\@edn} \hfill\par \fi
   \nobreak%
   \smallskip
   \@settitle
@@ -2696,6 +2700,7 @@
 \let\@udcnum\@empty
 \let\@pacsnum\@empty
 \let\@doi\@empty
+\let\@edn\@empty
 \let\@documentType\@empty
 \let\alt@keywords\@empty
 \let\@altabstracts\@empty
@@ -2776,6 +2781,7 @@
     \ifx\@empty\@udcnum \else \nobreak\smallskip\noindent \footnotesize\PFUudcName{} \@udcnum \hfill\par \fi
     \ifx\@empty\@pacsnum \else \nobreak\smallskip\noindent \footnotesize\PFUpacsName{} \@pacsnum \hfill\par \fi
     \ifx\@empty\@doi \else \nobreak\smallskip\noindent \footnotesize DOI: \@doi \hfill\par \fi
+    \ifx\@empty\@edn \else \nobreak\smallskip\noindent \footnotesize EDN: \MakeUppercase{\@edn} \hfill\par \fi
     \nobreak%
     \smallskip
     \@setalttitle%

@@ -1,3 +1,12 @@
+## [0.2.44](https://github.com/yamadharma/kermit/compare/v0.2.43...v0.2.44) (2023-03-25)
+
+
+### Features
+
+* **pfuproc:** add EDN support ([50523e6](https://github.com/yamadharma/kermit/commit/50523e677c77516b54e18ac04f5d4ef3a4b30183))
+
+
+
 ## [0.2.43](https://github.com/yamadharma/kermit/compare/v0.2.42...v0.2.43) (2022-07-15)
 
 
